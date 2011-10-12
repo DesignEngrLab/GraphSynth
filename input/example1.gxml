@@ -1,0 +1,156 @@
+<Page Background="#FF000000" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+mc:Ignorable="GraphSynth" xmlns:GraphSynth="ignorableUri" Tag="Graph" >
+  <Border BorderThickness="1,1,1,1" BorderBrush="#FFA9A9A9" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Viewbox StretchDirection="Both" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+      <Canvas Background="#FFFFFFFF" Width="509.874326750449" Height="450.057514502432" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransform="1,0,0,-1,0,450.057514502432">
+        <Rectangle RadiusX="0" RadiusY="0" Fill="#FFADD8E6" Stroke="#FF000000" StrokeThickness="0.25" Tag="blue" Width="200" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransform="1,0,0,-1,150.857143162018,85.7461739024317" RenderTransformOrigin="0.5,0.5" Opacity="1" InkCanvas.Top="Auto" InkCanvas.Left="Auto" />
+        <TextBlock Text="blue (a, b, c)" FontSize="12" Tag="blue;0,0" RenderTransform="1,0,0,-1,217.161480847948,111.836836216502" />
+        <Ellipse Fill="#FF000000" StrokeThickness="1" Tag="black" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransform="1,0,0,1,328.426850297397,312.018512514702" RenderTransformOrigin="0.5,0.5" Opacity="1" InkCanvas.Top="Auto" InkCanvas.Left="Auto" />
+        <TextBlock Text="black" FontSize="12" Tag="black;0,0" RenderTransform="1,0,0,-1,314.49452131666,325.609174828772" />
+        <Ellipse Fill="#FFFFFFFF" StrokeThickness="1" Tag="white" Width="10" Height="10" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransform="1,0,0,1,152.4180610312,368.057514502432" RenderTransformOrigin="0.5,0.5" Opacity="1" InkCanvas.Top="Auto" InkCanvas.Left="Auto" />
+        <TextBlock Text="white" FontSize="12" Tag="white;0,0" RenderTransform="1,0,0,-1,139.905732050463,384.148176816502" />
+        <Path Stretch="None" Fill="#FF000000" Stroke="#FF000000" StrokeThickness="4" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" StrokeDashCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="10" StrokeDashOffset="0" StrokeDashArray="" xml:lang="en-us" Tag="a3" LayoutTransform="Identity" Width="Auto" Height="Auto" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransform="Identity" RenderTransformOrigin="0,0" Opacity="1" Visibility="Visible" SnapsToDevicePixels="False">
+          <Path.Data>
+            <PathGeometry>
+              <PathGeometry.Figures>
+                <PathFigure StartPoint="330.049953129598,312.177347984578" IsFilled="False">
+                  <PathFigure.Segments>
+                    <LineSegment Point="256.475482816378,115.746173902432" />
+                  </PathFigure.Segments>
+                </PathFigure>
+                <PathFigure StartPoint="256.475482816378,115.746173902432" IsFilled="True" IsClosed="True">
+                  <PathFigure.Segments>
+                    <PolyLineSegment Points="254.364276615276,127.215385225641 258.930794886214,122.301434586777 265.601866359867,123.006278820209" IsStroked="True" IsSmoothJoin="True" />
+                  </PathFigure.Segments>
+                </PathFigure>
+                <PathFigure StartPoint="330.049953129598,312.177347984578" IsFilled="True" IsClosed="True">
+                  <PathFigure.Segments>
+                    <PolyLineSegment Points="332.161159330701,300.708136661369 327.594641059763,305.622087300233 320.923569586109,304.917243066801" IsStroked="True" IsSmoothJoin="True" />
+                  </PathFigure.Segments>
+                </PathFigure>
+              </PathGeometry.Figures>
+            </PathGeometry>
+          </Path.Data>
+        </Path>
+        <TextBlock Text="a3 (d, d, str)" FontSize="12" Tag="a3;0;0.5" RenderTransform="1,0,0,-1,263.959384639655,221.286760943505" />
+        <Path Stretch="None" Fill="#376E2424" Stroke="#376E2424" StrokeThickness="7.33081201334816" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" StrokeDashCap="Flat" 
+              StrokeLineJoin="Miter" StrokeMiterLimit="10" StrokeDashOffset="0" StrokeDashArray="" xml:lang="en-us" Tag="a2" LayoutTransform="Identity" Width="Auto" 
+              Height="Auto" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransform="Identity" RenderTransformOrigin="0,0" Opacity="1" 
+              Visibility="Visible" SnapsToDevicePixels="False">
+          <Path.Data>
+            <PathGeometry>
+              <PathGeometry.Figures>
+                <PathFigure StartPoint="329.060068147511,316.18137883671" IsFilled="False">
+                  <PathFigure.Segments>
+                    <ArcSegment Point="162.405287991533,373.414680074856" Size="230.911895866797,230.911895866797" IsLargeArc="False" SweepDirection="Clockwise" />
+                  </PathFigure.Segments>
+                </PathFigure>
+                <PathFigure StartPoint="329.060068147511,316.18137883671" IsFilled="True" IsClosed="True">
+                  <PathFigure.Segments>
+                    <PolyLineSegment Points="316.494321350763,317.108986882791 323.833078127833,320.837404538334 326.691557745179,328.556701366697" IsStroked="True" IsSmoothJoin="True" />
+                  </PathFigure.Segments>
+                </PathFigure>
+              </PathGeometry.Figures>
+            </PathGeometry>
+          </Path.Data>
+        </Path>
+        <TextBlock Text="a2" FontSize="12" Tag="a2;0;0.5" RenderTransform="1,0,0,-1,245.491632653101,368.247581027772" />
+        <Path Stretch="None" Fill="#FF000000" Stroke="#FF000000" StrokeThickness="1" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" StrokeDashCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="10" StrokeDashOffset="0" StrokeDashArray="" xml:lang="en-us" Tag="a1" LayoutTransform="Identity" Width="Auto" Height="Auto" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransform="Identity" RenderTransformOrigin="0,0" Opacity="1" Visibility="Visible" SnapsToDevicePixels="False">
+          <Path.Data>
+            <PathGeometry>
+              <PathGeometry.Figures>
+                <PathFigure StartPoint="221.990976086554,115.746173902432" IsFilled="False">
+                  <PathFigure.Segments>
+                    <BezierSegment Point1="16.6375594377282,222.455916199691" Point2="299.472082716284,211.332501501914" Point3="160.7177432617,369.30090736597" />
+                  </PathFigure.Segments>
+                </PathFigure>
+                <PathFigure StartPoint="160.7177432617,369.30090736597" IsFilled="True" IsClosed="True">
+                  <PathFigure.Segments>
+                    <PolyLineSegment Points="170.698054145518,364.757407100496 165.337298384401,364.041657374923 163.936161299886,358.817979085595" IsStroked="True" IsSmoothJoin="True" />
+                  </PathFigure.Segments>
+                </PathFigure>
+              </PathGeometry.Figures>
+            </PathGeometry>
+          </Path.Data>
+        </Path>
+        <TextBlock Text="a1" FontSize="12" Tag="a1;0;0.5" RenderTransform="1,0,0,-1,160.464705726286,230.626541796652" />
+      </Canvas>
+    </Viewbox>
+  </Border>
+
+  <GraphSynth:CanvasProperty BackgroundColor="#FFFFFFFF" AxesColor="#FF000000" AxesOpacity="0.5" AxesThick="0.5" GridColor="#FF000000" GridOpacity="0.5" GridSpacing="96" GridThick="0.25" SnapToGrid="True" ScaleFactor="0.56" IconOpacity="0.5" ShapeOpacity="1" ZoomToFit="False" ShowNodeName="True" ShowNodeLabel="True" ShowArcName="True" ShowArcLabel="True" NodeFontSize="12" ArcFontSize="12" NodeTextDistance="0" NodeTextPosition="0" ArcTextDistance="0" ArcTextPosition="0.5" GlobalTextSize="12" CanvasHeight="300" CanvasWidth="300,300,300,300" WindowLeft="500" WindowTop="300" Background="#FF93CDDD" xmlns="clr-namespace:GraphSynth.UI;assembly=GraphSynth" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib"></GraphSynth:CanvasProperty>
+
+  <GraphSynth:designGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <name>example1</name>
+    <globalLabels />
+    <globalVariables />
+    <arcs>
+      <arc>
+        <name>a3</name>
+        <From>black</From>
+        <To>blue</To>
+        <directed>true</directed>
+        <doublyDirected>true</doublyDirected>
+        <localLabels>
+          <string>d</string>
+          <string>d</string>
+          <string>str</string>
+        </localLabels>
+        <localVariables />
+      </arc>
+      <arc>
+        <name>a2</name>
+        <From>white</From>
+        <To>black</To>
+        <directed>true</directed>
+        <doublyDirected>false</doublyDirected>
+        <localLabels />
+        <localVariables />
+      </arc>
+      <arc>
+        <name>a1</name>
+        <From>blue</From>
+        <To>white</To>
+        <directed>true</directed>
+        <doublyDirected>false</doublyDirected>
+        <localLabels />
+        <localVariables />
+      </arc>
+    </arcs>
+    <nodes>
+      <node>
+        <name>blue</name>
+        <localLabels>
+          <string>a</string>
+          <string>b</string>
+          <string>c</string>
+        </localLabels>
+        <localVariables>
+          <double>1</double>
+          <double>3</double>
+        </localVariables>
+        <X>178.857143162018</X>
+        <Y>28.7461739024317</Y>
+        <Z>0</Z>
+      </node>
+      <node
+        xsi:type="vertex">
+        <name>black</name>
+        <localLabels />
+        <localVariables />
+        <X>258.92685029739653</X>
+        <Y>242.51851251470168</Y>
+        <Z>0</Z>
+      </node>
+      <node>
+        <name>white</name>
+        <localLabels />
+        <localVariables />
+        <X>85.418061031199628</X>
+        <Y>301.05751450243179</Y>
+        <Z>0</Z>
+      </node>
+    </nodes>
+  </GraphSynth:designGraph>
+
+</Page>

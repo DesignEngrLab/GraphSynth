@@ -1,0 +1,148 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSynth", "GraphSynth\GraphSynth.csproj", "{9405229A-6AA8-4320-B52C-AAB5B825898E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37} = {D679F4E2-FD18-48AC-9C0C-B60155A61D37}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSynth.CustomControls", "GraphSynth.CustomControls\GraphSynth.CustomControls.csproj", "{E47424A2-4E8E-481F-831E-D22186A12AFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A8E3F6A5-EC42-4B80-AFA7-2A00C93E7105}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\AssemblyInfo.cs = Resources\AssemblyInfo.cs
+		Resources\GraphSynth2_Installer.xml = Resources\GraphSynth2_Installer.xml
+		Resources\GS2Graph.ico = Resources\GS2Graph.ico
+		Resources\GS2Rule.ico = Resources\GS2Rule.ico
+		Resources\GS2RuleSet.ico = Resources\GS2RuleSet.ico
+		Resources\GSConfig.ico = Resources\GSConfig.ico
+		Resources\hyperArcToDo.txt = Resources\hyperArcToDo.txt
+		Resources\readme.txt = Resources\readme.txt
+		Resources\RunningGSFromSource.htm = Resources\RunningGSFromSource.htm
+		Resources\todo.htm = Resources\todo.htm
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSynth.GraphLayoutBasic", "GraphSynth.GraphLayoutBasic\GraphSynth.GraphLayoutBasic.csproj", "{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E47424A2-4E8E-481F-831E-D22186A12AFD} = {E47424A2-4E8E-481F-831E-D22186A12AFD}
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37} = {D679F4E2-FD18-48AC-9C0C-B60155A61D37}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSynth.BaseClasses", "GraphSynth.BaseClasses\GraphSynth.BaseClasses.csproj", "{D679F4E2-FD18-48AC-9C0C-B60155A61D37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSynth.UserRandLindChoose", "GraphSynth.UserRandLindChoose\GraphSynth.UserRandLindChoose.csproj", "{ECF1BE05-558D-4967-91C9-9927F17D4E08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF GUI Version", "WPF GUI Version", "{4D7AD76C-FB1F-42DA-A47B-C63B5ED4DFBA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Default Plugins", "Default Plugins", "{78C9EA61-BDC4-4CE4-9242-7DB38C45054F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSynthConsole", "GraphSynthConsole\GraphSynthConsole.csproj", "{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GraphSynth2 Installer Setup X86", "GraphSynth2 Installer Setup X86\GraphSynth2 Installer Setup X86.vdproj", "{3171F14E-0C37-4332-B803-861A6ABF7BC0}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GraphSynth2 Installer Setup X64", "GraphSynth2 Installer Setup X64\GraphSynth2 Installer Setup X64.vdproj", "{0CB83340-1FC1-433C-866E-E150A6D6C80C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Build Installers|x64 = Build Installers|x64
+		Build Installers|x86 = Build Installers|x86
+		Console Debug|x64 = Console Debug|x64
+		Console Debug|x86 = Console Debug|x86
+		WPF GUI Debug|x64 = WPF GUI Debug|x64
+		WPF GUI Debug|x86 = WPF GUI Debug|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9405229A-6AA8-4320-B52C-AAB5B825898E}.Build Installers|x64.ActiveCfg = Build Installers|x64
+		{9405229A-6AA8-4320-B52C-AAB5B825898E}.Build Installers|x64.Build.0 = Build Installers|x64
+		{9405229A-6AA8-4320-B52C-AAB5B825898E}.Build Installers|x86.ActiveCfg = Build Installers|x86
+		{9405229A-6AA8-4320-B52C-AAB5B825898E}.Build Installers|x86.Build.0 = Build Installers|x86
+		{9405229A-6AA8-4320-B52C-AAB5B825898E}.Console Debug|x64.ActiveCfg = WPF GUI Debug|x64
+		{9405229A-6AA8-4320-B52C-AAB5B825898E}.Console Debug|x86.ActiveCfg = WPF GUI Debug|x86
+		{9405229A-6AA8-4320-B52C-AAB5B825898E}.WPF GUI Debug|x64.ActiveCfg = WPF GUI Debug|x64
+		{9405229A-6AA8-4320-B52C-AAB5B825898E}.WPF GUI Debug|x64.Build.0 = WPF GUI Debug|x64
+		{9405229A-6AA8-4320-B52C-AAB5B825898E}.WPF GUI Debug|x86.ActiveCfg = WPF GUI Debug|x86
+		{9405229A-6AA8-4320-B52C-AAB5B825898E}.WPF GUI Debug|x86.Build.0 = WPF GUI Debug|x86
+		{E47424A2-4E8E-481F-831E-D22186A12AFD}.Build Installers|x64.ActiveCfg = Build Installers|x64
+		{E47424A2-4E8E-481F-831E-D22186A12AFD}.Build Installers|x64.Build.0 = Build Installers|x64
+		{E47424A2-4E8E-481F-831E-D22186A12AFD}.Build Installers|x86.ActiveCfg = Build Installers|x86
+		{E47424A2-4E8E-481F-831E-D22186A12AFD}.Build Installers|x86.Build.0 = Build Installers|x86
+		{E47424A2-4E8E-481F-831E-D22186A12AFD}.Console Debug|x64.ActiveCfg = WPF GUI Debug|x64
+		{E47424A2-4E8E-481F-831E-D22186A12AFD}.Console Debug|x86.ActiveCfg = WPF GUI Debug|x86
+		{E47424A2-4E8E-481F-831E-D22186A12AFD}.WPF GUI Debug|x64.ActiveCfg = WPF GUI Debug|x64
+		{E47424A2-4E8E-481F-831E-D22186A12AFD}.WPF GUI Debug|x64.Build.0 = WPF GUI Debug|x64
+		{E47424A2-4E8E-481F-831E-D22186A12AFD}.WPF GUI Debug|x86.ActiveCfg = WPF GUI Debug|x86
+		{E47424A2-4E8E-481F-831E-D22186A12AFD}.WPF GUI Debug|x86.Build.0 = WPF GUI Debug|x86
+		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}.Build Installers|x64.ActiveCfg = Build Installers|x64
+		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}.Build Installers|x64.Build.0 = Build Installers|x64
+		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}.Build Installers|x86.ActiveCfg = Build Installers|x86
+		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}.Build Installers|x86.Build.0 = Build Installers|x86
+		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}.Console Debug|x64.ActiveCfg = WPF GUI Debug|x64
+		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}.Console Debug|x86.ActiveCfg = WPF GUI Debug|x86
+		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}.WPF GUI Debug|x64.ActiveCfg = WPF GUI Debug|x64
+		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}.WPF GUI Debug|x64.Build.0 = WPF GUI Debug|x64
+		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}.WPF GUI Debug|x86.ActiveCfg = WPF GUI Debug|x86
+		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}.WPF GUI Debug|x86.Build.0 = WPF GUI Debug|x86
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Build Installers|x64.ActiveCfg = Build Installers|x64
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Build Installers|x64.Build.0 = Build Installers|x64
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Build Installers|x86.ActiveCfg = Build Installers|x86
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Build Installers|x86.Build.0 = Build Installers|x86
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Debug|x64.ActiveCfg = Console Debug|x64
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Debug|x64.Build.0 = Console Debug|x64
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Debug|x86.ActiveCfg = Console Debug|x86
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Debug|x86.Build.0 = Console Debug|x86
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Debug|x64.ActiveCfg = WPF GUI Debug|x64
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Debug|x64.Build.0 = WPF GUI Debug|x64
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Debug|x86.ActiveCfg = WPF GUI Debug|x86
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Debug|x86.Build.0 = WPF GUI Debug|x86
+		{ECF1BE05-558D-4967-91C9-9927F17D4E08}.Build Installers|x64.ActiveCfg = Build Installers|x64
+		{ECF1BE05-558D-4967-91C9-9927F17D4E08}.Build Installers|x64.Build.0 = Build Installers|x64
+		{ECF1BE05-558D-4967-91C9-9927F17D4E08}.Build Installers|x86.ActiveCfg = Build Installers|x86
+		{ECF1BE05-558D-4967-91C9-9927F17D4E08}.Build Installers|x86.Build.0 = Build Installers|x86
+		{ECF1BE05-558D-4967-91C9-9927F17D4E08}.Console Debug|x64.ActiveCfg = WPF GUI Debug|x64
+		{ECF1BE05-558D-4967-91C9-9927F17D4E08}.Console Debug|x86.ActiveCfg = WPF GUI Debug|x86
+		{ECF1BE05-558D-4967-91C9-9927F17D4E08}.WPF GUI Debug|x64.ActiveCfg = WPF GUI Debug|x64
+		{ECF1BE05-558D-4967-91C9-9927F17D4E08}.WPF GUI Debug|x64.Build.0 = WPF GUI Debug|x64
+		{ECF1BE05-558D-4967-91C9-9927F17D4E08}.WPF GUI Debug|x86.ActiveCfg = WPF GUI Debug|x86
+		{ECF1BE05-558D-4967-91C9-9927F17D4E08}.WPF GUI Debug|x86.Build.0 = WPF GUI Debug|x86
+		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Build Installers|x64.ActiveCfg = Build Installers|x64
+		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Build Installers|x86.ActiveCfg = Build Installers|x86
+		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Console Debug|x64.ActiveCfg = Console Debug|x64
+		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Console Debug|x64.Build.0 = Console Debug|x64
+		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Console Debug|x86.ActiveCfg = Console Debug|x86
+		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Console Debug|x86.Build.0 = Console Debug|x86
+		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.WPF GUI Debug|x64.ActiveCfg = Console Debug|x64
+		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.WPF GUI Debug|x86.ActiveCfg = Console Debug|x86
+		{3171F14E-0C37-4332-B803-861A6ABF7BC0}.Build Installers|x64.ActiveCfg = Build Installers
+		{3171F14E-0C37-4332-B803-861A6ABF7BC0}.Build Installers|x64.Build.0 = Build Installers
+		{3171F14E-0C37-4332-B803-861A6ABF7BC0}.Build Installers|x86.ActiveCfg = Build Installers
+		{3171F14E-0C37-4332-B803-861A6ABF7BC0}.Build Installers|x86.Build.0 = Build Installers
+		{3171F14E-0C37-4332-B803-861A6ABF7BC0}.Console Debug|x64.ActiveCfg = WPF GUI Debug
+		{3171F14E-0C37-4332-B803-861A6ABF7BC0}.Console Debug|x86.ActiveCfg = WPF GUI Debug
+		{3171F14E-0C37-4332-B803-861A6ABF7BC0}.WPF GUI Debug|x64.ActiveCfg = WPF GUI Debug
+		{3171F14E-0C37-4332-B803-861A6ABF7BC0}.WPF GUI Debug|x86.ActiveCfg = WPF GUI Debug
+		{0CB83340-1FC1-433C-866E-E150A6D6C80C}.Build Installers|x64.ActiveCfg = Build Installers
+		{0CB83340-1FC1-433C-866E-E150A6D6C80C}.Build Installers|x64.Build.0 = Build Installers
+		{0CB83340-1FC1-433C-866E-E150A6D6C80C}.Build Installers|x86.ActiveCfg = Build Installers
+		{0CB83340-1FC1-433C-866E-E150A6D6C80C}.Build Installers|x86.Build.0 = Build Installers
+		{0CB83340-1FC1-433C-866E-E150A6D6C80C}.Console Debug|x64.ActiveCfg = WPF GUI Debug
+		{0CB83340-1FC1-433C-866E-E150A6D6C80C}.Console Debug|x86.ActiveCfg = WPF GUI Debug
+		{0CB83340-1FC1-433C-866E-E150A6D6C80C}.WPF GUI Debug|x64.ActiveCfg = WPF GUI Debug
+		{0CB83340-1FC1-433C-866E-E150A6D6C80C}.WPF GUI Debug|x86.ActiveCfg = WPF GUI Debug
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E47424A2-4E8E-481F-831E-D22186A12AFD} = {4D7AD76C-FB1F-42DA-A47B-C63B5ED4DFBA}
+		{9405229A-6AA8-4320-B52C-AAB5B825898E} = {4D7AD76C-FB1F-42DA-A47B-C63B5ED4DFBA}
+		{ECF1BE05-558D-4967-91C9-9927F17D4E08} = {78C9EA61-BDC4-4CE4-9242-7DB38C45054F}
+		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E} = {78C9EA61-BDC4-4CE4-9242-7DB38C45054F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = ..
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		version = 0.1
+		StartupItem = GraphSynth\GraphSynth.csproj
+	EndGlobalSection
+EndGlobal

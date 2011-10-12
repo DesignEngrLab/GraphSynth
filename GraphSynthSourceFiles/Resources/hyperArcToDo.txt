@@ -1,0 +1,25 @@
+﻿in Representation
+	option->isConfluent
+in Main exe
+	mainWindow.toolsGallery - need buttons and functionality like arc: disconnect head, tail and flip
+	WPFFiler.Rule.cs - see how arc is used
+	WPFFiler.Graph.cs - see how arc is used
+	make similar class to ArcProperty.xaml.cs
+	make similar class to ArcDisplayProperty.xaml.cs
+	....plus need to connect these to property control
+in CustomControls
+	currently working through all GraphGUI functions:
+	GraphDisplay.AddingElements.cs is done
+	GraphDisplay.Basic.cs is done 
+	GraphDisplay.CutCopyPaste.cs is done
+	GraphDisplay.MoveModify.cs is done
+	GraphDisplay.Viewing.cs is done
+	GraphDisplay.OnEvents.cs is done
+	RuleDisplay.cs is done
+	RuleDisplay.GDOverrides.cs is done
+	Selection.cs  is done 
+	...and that should finish up GraphSynth.CustomControls!
+	 actually still need to write drag-drop function.
+	 also selection windows always include origin
+GraphSynth.exe
+	

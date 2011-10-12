@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ruleSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ruleFileNames>
+    <string>SierpinskiDrawRA.grxml</string>
+    <string>SierpinskiDrawLA.grxml</string>
+    <string>SierpinskiDrawInitB.grxml</string>
+    <string>SierpinskiDrawInitA.grxml</string>
+    <string>Sierpinski triangle rule2.grxml</string>
+    <string>Sierpinski triangle rule1.grxml</string>
+    <string>Routerule1.grxml</string>
+    <string>compound - typeBA.grxml</string>
+  </ruleFileNames>
+  <nextGenerationStep>
+    <nextGenerationSteps>Loop</nextGenerationSteps>
+    <nextGenerationSteps>Stop</nextGenerationSteps>
+    <nextGenerationSteps>Stop</nextGenerationSteps>
+    <nextGenerationSteps>Stop</nextGenerationSteps>
+    <nextGenerationSteps>Stop</nextGenerationSteps>
+  </nextGenerationStep>
+  <generationAfterNormal>Loop</generationAfterNormal>
+  <generationAfterChoice>Stop</generationAfterChoice>
+  <generationAfterCycleLimit>Stop</generationAfterCycleLimit>
+  <generationAfterNoRules>Stop</generationAfterNoRules>
+  <generationAfterTriggerRule>Stop</generationAfterTriggerRule>
+  <name>testest</name>
+  <TriggerRuleNum>0</TriggerRuleNum>
+  <choiceMethod>Design</choiceMethod>
+  <interimCandidates>Unspecified</interimCandidates>
+  <finalCandidates>Unspecified</finalCandidates>
+  <recognizeSourceFiles />
+  <applySourceFiles />
+</ruleSet>

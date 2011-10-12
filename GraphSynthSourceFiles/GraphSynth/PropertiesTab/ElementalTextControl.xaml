@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="GraphSynth.UI.ElementalTextControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:u="clr-namespace:GraphSynth.UI;assembly=GraphSynth.CustomControls">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Grid.Column" Value="0" />
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Grid.Column" Value="1" />
+        </Style>
+    </UserControl.Resources>
+    <Border BorderThickness="5" BorderBrush="#80ffffff" CornerRadius="8" Background="#10101010">
+        <Expander Name="expTextProperties" IsExpanded="False" >
+            <Expander.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Label HorizontalAlignment="Left">Set Independent Text Properties</Label>
+                    <CheckBox Name="chkIndependentProperties" IsThreeState="True"
+                             Checked="chkIndependentProperties_Checked"
+                             Unchecked="chkIndependentProperties_Unchecked"/>
+                </StackPanel>
+            </Expander.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <WrapPanel Grid.Row="0" Grid.ColumnSpan="2">
+                <Label>Show Name?</Label><CheckBox Name="chkShowNodeName" IsEnabled="False" IsThreeState="True"
+                         Click="chkShowNodeName_Click" />
+                    <Label>Show Label?</Label>
+                <CheckBox Name="chkShowNodeLabels"  IsEnabled="False" IsThreeState="True" 
+                          Click="chkShowNodeLabels_Click" />
+                </WrapPanel>
+                <Label Grid.Row="1">FontSize</Label>
+                <Label Grid.Row="2">Text Position</Label>
+                <Label Grid.Row="3">Text Distance</Label>
+                
+                <u:SldAndTextbox Grid.Column="1" Grid.Row="1" x:Name="sldFontSize" Label=""
+                              Maximum="60" Minimum="6" IsEnabled="False"
+                              TickPlacement="BottomRight" TickFrequency="3"
+                              HorizontalAlignment="Stretch"
+                              ValueChanged="sldFontSize_ValueChanged">
+                    <u:SldAndTextbox.Converter>
+                        <u:SliderToTextBoxTextLinearConverter SigDigs="1"/>
+                    </u:SldAndTextbox.Converter>
+                </u:SldAndTextbox>
+                <u:SldAndTextbox Grid.Column="1" Grid.Row="2" x:Name="sldPosition" Label=""
+                              Maximum="1" Minimum="0" IsEnabled="False"
+                              TickPlacement="BottomRight" TickFrequency="0.1"
+                              HorizontalAlignment="Stretch"
+                              ValueChanged="sldPosition_ValueChanged">
+                    <u:SldAndTextbox.Converter>
+                        <u:SliderToTextBoxTextLinearConverter SigDigs="2"/>
+                    </u:SldAndTextbox.Converter>
+                </u:SldAndTextbox>
+                <u:SldAndTextbox Grid.Column="1" Grid.Row="3" x:Name="sldDistance" Label=""
+                              Maximum="2" Minimum="-2" IsEnabled="False"
+                              TickPlacement="BottomRight" TickFrequency="0.1"
+                              HorizontalAlignment="Stretch"
+                              ValueChanged="sldDistance_ValueChanged">
+                    <u:SldAndTextbox.Converter>
+                        <u:SliderToTextBoxTextLinearConverter SigDigs="2"/>
+                    </u:SldAndTextbox.Converter>
+                </u:SldAndTextbox>
+            </Grid>
+        </Expander>
+    </Border>
+</UserControl>

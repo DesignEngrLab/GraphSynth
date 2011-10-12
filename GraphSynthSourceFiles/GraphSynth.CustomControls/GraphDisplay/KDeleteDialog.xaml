@@ -1,0 +1,21 @@
+﻿<Window x:Class="GraphSynth.GraphDisplay.KDeleteDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Deleting Elements from K" Height="192" Width="397">
+	<Grid>
+		<TextBlock Height="33" Margin="24,12,12,0" Name="textBlock1" VerticalAlignment="Top" TextWrapping="Wrap">
+			It appears that you are deleting elements from K. Do you intend these to be removed from L and R as well?
+		</TextBlock>
+		<RadioButton Margin="24,51,0,0" Name="radioButtonLKR" Height="Auto" VerticalAlignment="Top" IsEnabled="True" IsChecked="True">
+			Delete Elements from L, K, and R.
+		</RadioButton>
+		<RadioButton Margin="24,74,0,0" Name="radioButtonLK" VerticalAlignment="Top">
+			Delete the elements from L and K but leave them in R.
+		</RadioButton>
+		<RadioButton Margin="24,97,0,0" Name="radioButtonKR" Height="22.134" VerticalAlignment="Top">
+			Delete the elements from K and R but leave them in L.
+		</RadioButton>
+		<Button Height="25.704" HorizontalAlignment="Left" Margin="102,0,0,12" Name="OKbutton" VerticalAlignment="Bottom" 
+                Width="82.11" IsDefault="True" Click="OKbutton_Click">OK</Button>
+		<Button Height="25.704" Margin="0,0,92,12" Name="Cancelbutton" VerticalAlignment="Bottom" Width="82.11"
+                HorizontalAlignment="Right" Click="Cancelbutton_Click">Cancel</Button>
+	</Grid>
+</Window>

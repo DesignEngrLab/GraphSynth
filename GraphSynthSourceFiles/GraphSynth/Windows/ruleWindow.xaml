@@ -1,0 +1,116 @@
+﻿<Window x:Class="GraphSynth.UI.ruleWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gd="clr-namespace:GraphSynth.GraphDisplay;assembly=GraphSynth.CustomControls"
+        Height="350" Width="1050" Activated="BecomeActiveSubWindow"
+        SizeChanged="Window_SizeChanged" Loaded="Window_Loaded">
+    <Grid Name="mainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Name="LKSplitter" Grid.Column="1" Width="6" VerticalAlignment="Stretch" 
+                      HorizontalAlignment="Stretch" DragCompleted="GridSplitter_DragCompleted"
+                      />
+        <!--LayoutUpdated="GridSplitter_LayoutUpdated"/>-->
+        <GridSplitter Name="KRSplitter" Grid.Column="3" Width="6" VerticalAlignment="Stretch" 
+                      HorizontalAlignment="Stretch" DragCompleted="GridSplitter_DragCompleted"/>
+        <!--ResizeBehavior="BasedOnAlignment"/>-->
+
+        <!--Panel for L-->
+        <DockPanel Name="LPane" Grid.Column="0">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" MouseWheel="StackPanel_MouseWheel">
+                <Label Name="lblLLabels" Content="Labels: "/>
+                <TextBox Name="txtLGlobalLabels" BorderBrush="#80808080" BorderThickness="1" MinWidth="12"
+                         LostFocus="txtLGlobalLabels_LostFocus" TextChanged="txtGlobal_TextChanged"
+                         KeyUp="txtLGlobalLabels_KeyUp"/>
+                <Label Name="lblLVariables" Content="Variables: "/>
+                <TextBox Name="txtLGlobalVariables" BorderBrush="#80808080" BorderThickness="1" MinWidth="12"
+                         LostFocus="txtLGlobalVariables_LostFocus" TextChanged="txtGlobal_TextChanged"
+                         KeyUp="txtLGlobalVariables_KeyUp"/>
+            </StackPanel>
+            <Label Content="&lt;  L  &gt;" DockPanel.Dock="Bottom" FontSize="16" HorizontalContentAlignment="Center"
+                   Padding="0" FontWeight="Bold" VerticalContentAlignment="Bottom" Foreground="White"
+                   Background="DarkRed" MouseDoubleClick="LLabel_MouseDoubleClick" />
+            <ScrollViewer Name="scrollViewerL" CanContentScroll="False"
+                          HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <!-- for some unknown reason, it is important to define a single row and column
+                    for the GraphGUI to work correctly-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <gd:RuleDisplay x:Name="graphCanvasL" />
+                </Grid>
+            </ScrollViewer>
+        </DockPanel>
+
+        <!--Panel for K-->
+        <DockPanel Name="KPane" Grid.Column="2">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" MouseWheel="StackPanel_MouseWheel">
+                <Label Name="lblKLabels" Content="Labels: "/>
+                <TextBox Name="txtKGlobalLabels" BorderBrush="#80808080" BorderThickness="1" MinWidth="12"
+                         LostFocus="txtKGlobalLabels_LostFocus" TextChanged="txtGlobal_TextChanged"
+                         KeyUp="txtKGlobalLabels_KeyUp"/>
+                <Label Name="lblKVariables" Content="Variables: "/>
+                <TextBox Name="txtKGlobalVariables" BorderBrush="#80808080" BorderThickness="1" MinWidth="12"
+                         LostFocus="txtKGlobalVariables_LostFocus" TextChanged="txtGlobal_TextChanged"
+                         KeyUp="txtKGlobalVariables_KeyUp"/>
+            </StackPanel>
+            <Label Content="[  K  &gt;" DockPanel.Dock="Bottom" FontSize="16" HorizontalContentAlignment="Center"
+                   Padding="0" FontWeight="Bold" VerticalContentAlignment="Bottom" Foreground="White"
+                   Background="Goldenrod" MouseDoubleClick="KLabel_MouseDoubleClick"/>
+            <ScrollViewer Name="scrollViewerK" CanContentScroll="False"
+                          HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <!-- for some unknown reason, it is important to define a single row and column
+                    for the GraphGUI to work correctly-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <gd:RuleDisplay x:Name="graphCanvasK" />
+                </Grid>
+            </ScrollViewer>
+        </DockPanel>
+
+        <!--Panel for R-->
+        <DockPanel Name="RPane" Grid.Column="4">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" MouseWheel="StackPanel_MouseWheel">
+                <Label Name="lblRLabels" Content="Labels: "/>
+                <TextBox Name="txtRGlobalLabels" BorderBrush="#80808080" BorderThickness="1" MinWidth="12"
+                         LostFocus="txtRGlobalLabels_LostFocus" TextChanged="txtGlobal_TextChanged"
+                         KeyUp="txtRGlobalLabels_KeyUp"/>
+                <Label Name="lblRVariables" Content="Variables: "/>
+                <TextBox Name="txtRGlobalVariables" BorderBrush="#80808080" BorderThickness="1" MinWidth="12"
+                         LostFocus="txtRGlobalVariables_LostFocus" TextChanged="txtGlobal_TextChanged"
+                         KeyUp="txtRGlobalVariables_KeyUp"/>
+            </StackPanel>
+            <Label Content="[  R  ]" DockPanel.Dock="Bottom" FontSize="16" HorizontalContentAlignment="Center"
+                   Padding="0" FontWeight="Bold" VerticalContentAlignment="Bottom" Foreground="White"
+                   Background="DarkGreen" MouseDoubleClick="RLabel_MouseDoubleClick"/>
+            <ScrollViewer Name="scrollViewerR" CanContentScroll="False"
+                          HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <!-- for some unknown reason, it is important to define a single row and column
+                    for the GraphGUI to work correctly-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <gd:RuleDisplay x:Name="graphCanvasR" />
+                </Grid>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</Window>

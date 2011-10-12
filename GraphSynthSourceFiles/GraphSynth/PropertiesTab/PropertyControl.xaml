@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="GraphSynth.UI.PropertyControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:g="clr-namespace:GraphSynth.UI"
+     Width="Auto" Margin="0">
+    <ScrollViewer Name ="scrollProperty" VerticalScrollBarVisibility="Auto">
+        <Border BorderThickness="5" BorderBrush="#80ffffff" CornerRadius="8" >
+            <StackPanel Name="stackAllProps" Orientation="Vertical">
+                <g:NodeArcComboBoxSelector x:Name="ComboBoxNodeArcSelector"/>
+                <Expander Header="Node Properties" Name="expNodeProperties"  VerticalAlignment="Top" 
+                      IsExpanded="False" 
+                        Background="#fffdeada" >
+                    <g:NodeProperty x:Name="NodePrpt" Width="Auto" VerticalAlignment="Top"  />
+                </Expander>
+                <Expander Header="Node-Display Properties" Background="#fffac090" Name="expNodeDisplayProperties" 
+                       VerticalAlignment="Top" IsExpanded="False" >
+                    <g:NodeDisplayProperty x:Name="NodeDispPrpt" Width="Auto" VerticalAlignment="Top"  />
+                </Expander>
+                <Expander Header="Arc Properties" Background="#ffebf1de" Name="expArcProperties" 
+                       VerticalAlignment="Top" IsExpanded="False" >
+                    <Grid>
+                        <g:ArcProperty x:Name="ArcPrpt" Width="Auto" VerticalAlignment="Top"  />
+                    </Grid>
+                </Expander>
+
+                <Expander Header="Arc-Display Properties" Background="#ffc3d69b" Name="expArcDisplayProperties" 
+                        VerticalAlignment="Top" IsExpanded="False" >
+                    <Grid>
+                        <g:ArcDisplayProperty x:Name="ArcDispPrpt" Width="Auto" VerticalAlignment="Top"  />
+                    </Grid>
+                </Expander>
+                
+                <Expander Header="HyperArc Properties" Background="#ffebd1fe" Name="expHyperArcProperties" 
+                       VerticalAlignment="Top" IsExpanded="False" >
+                    <Grid>
+                        <g:HyperArcProperty x:Name="HyperArcPrpt" Width="Auto" VerticalAlignment="Top"  />
+                    </Grid>
+                </Expander>
+                <Expander Header="HyperArc-Display Properties" Background="#ffc396db"  Name="expHyperArcDisplayProperties" 
+                        VerticalAlignment="Top" IsExpanded="False" >
+                    <Grid>
+                        <g:HyperArcDisplayProperty x:Name="HyperArcDispPrpt" Width="Auto" VerticalAlignment="Top"  />
+                    </Grid>
+                </Expander>
+                <Expander Header="Graph Properties" Background="#ffdbeef4" Name="expGraphProperties" 
+                      VerticalAlignment="Top" IsExpanded="False" >
+                    <Grid>
+                        <g:GraphProperty x:Name="GraphPrpt" Width="Auto" VerticalAlignment="Top"  />
+                    </Grid>
+                </Expander>
+                <Expander Header="Rule Properties" Background="#ffc6d9f1"  Name="expRuleProperties" 
+                      VerticalAlignment="Top" IsExpanded="False">
+                    <Grid>
+                        <g:RuleProperty x:Name="RulePrpt" Width="Auto" VerticalAlignment="Top"  />
+                    </Grid>
+                </Expander>
+                <Expander Header="Free-Arc Embedding Rules" Background="#ff558ed5"  Name="expFreeArcEmbedRules"
+                      VerticalAlignment="Top" IsExpanded="False" >
+                    <Grid>
+                        <g:FreeArcEmbeddingRules x:Name="FreeArcEmbedRulePrpt" Width="Auto" VerticalAlignment="Top"  />
+                    </Grid>
+                </Expander>
+                <Expander Header="Canvas Properties"  Background="#ff93cddd" 
+                      Name="expCanvasProperties" VerticalAlignment="Top" IsExpanded="False" />
+                <Expander Header="RuleSet Properties" Name="expRuleSetProperties"  
+                      VerticalAlignment="Top" IsExpanded="False" >
+                    <Grid>
+                        <g:RuleSetProperty x:Name="RuleSetPrpt" Width="Auto" VerticalAlignment="Top"  />
+                    </Grid>
+                </Expander>
+            </StackPanel>
+        </Border>
+    </ScrollViewer>
+</UserControl>

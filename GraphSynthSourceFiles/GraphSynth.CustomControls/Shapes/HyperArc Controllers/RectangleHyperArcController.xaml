@@ -1,0 +1,15 @@
+﻿<g:HyperArcController x:Class="GraphSynth.GraphDisplay.RectangleHyperArcController" 
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                      xmlns:g="clr-namespace:GraphSynth.GraphDisplay"
+                      xmlns:u="clr-namespace:GraphSynth.UI">
+	<StackPanel Orientation="Vertical">
+		<u:SldAndTextbox x:Name="sldtxtRadius" Label="Buffer Radius" Maximum="500" Minimum="0"
+                         HorizontalAlignment="Stretch" TickPlacement="BottomRight" 
+                         TickFrequency="36" ValueChanged="SlidersValuesChanged">
+			<u:SldAndTextbox.Converter>
+				<u:SliderToTextBoxTextLinearConverter SigDigs="1" />
+			</u:SldAndTextbox.Converter>
+		</u:SldAndTextbox>
+	</StackPanel>
+</g:HyperArcController>

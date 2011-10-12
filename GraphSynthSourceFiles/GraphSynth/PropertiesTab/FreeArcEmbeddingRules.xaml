@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="GraphSynth.UI.FreeArcEmbeddingRules"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
+    Background="#FF7099D0">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Grid.Column" Value="0" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Grid.Column" Value="1" />
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Grid.Column" Value="1" />
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Grid.Column" Value="1" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="70*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0">
+                <Button Name="btnAddNew" Click="btnAddNew_Click">
+                    <TextBlock TextWrapping="Wrap" Width="25">Add New</TextBlock>
+                </Button>
+                <Button Name="btnDuplicate" FontSize="9.5" Content="Duplicate" 
+                        ToolTip="Copies current selected rule and pastes it at the end" 
+                        Click="btnDuplicate_Click"/>
+                <Button Name="btnUp" Click="btnUp_Click">
+                    <Path Stroke="Black" Data="M 0 10 H 20 L 10 0 Z"/>
+                </Button>
+                <Button Name="btnDown" Click="btnDown_Click">
+                    <Path Stroke="Black" Data="M 0 0 H 20 L 10 10 Z"/>
+                </Button>
+                <Button Name="btnDelete" Content="Delete" ToolTip="Deletes Current rule" Click="btnDelete_Click"/>
+            </StackPanel>
+            <ScrollViewer Height="112" Grid.Column="1" Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" BorderThickness="4" BorderBrush="#FF7099D0">
+                <ListBox Name="eRulesListBox" Background="#90ffffff" SelectionChanged="eRulesListBox_SelectionChanged" />
+            </ScrollViewer>
+        </Grid>
+        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  FontWeight="Bold" Foreground="White" HorizontalAlignment="Center">
+            Condition</Label>
+
+        <Label Grid.Row="2">Free Arc Labels</Label>
+        <TextBox Grid.Row="2"  Name="txtFreeArcLabels" LostFocus="txtFreeArcLabels_LostFocus" KeyUp="txtFreeArcLabels_KeyUp"/>
+
+        <Label Grid.Row="3">Free Arc Negabels</Label>
+        <TextBox Grid.Row="3" Name="txtFreeArcNegabels" LostFocus="txtFreeArcNegabels_LostFocus" KeyUp="txtFreeArcNegabels_KeyUp"/>
+
+        <Label Grid.Row="4">L Node Name</Label>
+        <ComboBox Name="cmdLNodeName" Grid.Row="4" SelectionChanged="cmdLNodeName_SelectionChanged"/>
+
+        <Label Grid.Row="5">Neighbor Labels</Label>
+        <TextBox Grid.Row="5" Name="txtNeighborLabels" LostFocus="txtNeighborLabels_LostFocus" KeyUp="txtNeighborLabels_KeyUp"/>
+
+        <Label Grid.Row="6">Neighbor Negabels</Label>
+        <TextBox Grid.Row="6" Name="txtNeighborNegabels" LostFocus="txtNeighborNegabels_LostFocus" KeyUp="txtNeighborNegabels_KeyUp"/>
+
+        <Label Grid.Row="7">Original Direction</Label>
+        <ComboBox  Name="cmdOriginalDirection"  Grid.Row="7" SelectionChanged="cmdOriginalDirection_SelectionChanged">
+            <TextBlock>&lt;-1&gt; tail of arc is free</TextBlock>
+            <TextBlock>&lt;0&gt; Either</TextBlock>
+            <TextBlock>&lt;+1&gt; head of arc is free</TextBlock>
+        </ComboBox>
+
+        <Label Grid.Row="8" Grid.ColumnSpan="2" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center">Application</Label>
+
+        <Label Grid.Row="9">R Node Name</Label>
+        <ComboBox Grid.Row="9" Name="cmdRNodeName"  SelectionChanged="cmdRNodeName_SelectionChanged"/>
+
+        <Label Grid.Row="10">Allow Duplication</Label>
+        <CheckBox Grid.Row="10" Grid.Column="1"  Name="chkAllowDup" Checked="chkAllowDup_Checked" 
+                  Unchecked="chkAllowDup_Unchecked"/>
+
+
+        <Label Grid.Row="11">New Direction</Label>
+        <ComboBox Grid.Row="11" Name="cmdNewDirection"  SelectionChanged="cmdNewDirection_SelectionChanged">
+            <TextBlock>[-1] ensure/switch s.t. tail points to new node</TextBlock>
+            <TextBlock>[0] keep as before</TextBlock>
+            <TextBlock>[+1] ensure/switch s.t. head points to new node</TextBlock>
+        </ComboBox>
+
+    </Grid>
+</UserControl>

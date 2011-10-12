@@ -1,0 +1,133 @@
+﻿<UserControl x:Class="GraphSynth.UI.RuleProperty"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:g="clr-namespace:GraphSynth.UI" Background="#ffdbeef4">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Grid.Column" Value="0" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Grid.Column" Value="1" />
+            <Setter Property="MaxLines" Value="1" />
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    <!--Basic Textbox fields-->
+    <StackPanel Orientation="Vertical">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Name="saveBtn" Grid.Row="0" Grid.ColumnSpan="2" Click="saveBtn_Click" >
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="9" Text="Save Rule:" Width="27" TextWrapping="Wrap"  />
+                    <TextBox Grid.Column="1" VerticalAlignment="Center" TextAlignment="Right" Name="txtFilename" 
+                         TextWrapping="NoWrap" MaxLines="1" KeyUp="txtFilename_KeyUp" FontWeight="Bold" />
+                </Grid>
+            </Button>
+            <Label Grid.Row="1">Comments</Label>
+            <Grid Grid.Row="1" Grid.Column="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" Name="txtComment" LostFocus="txtComment_LostFocus" 
+                     KeyUp="txtComment_KeyUp" TextWrapping="WrapWithOverflow" />
+                <Button Click="btnComment_Click" Grid.Column="1">Edit more</Button>
+            </Grid>
+            <Label Grid.Row="2">L Labels</Label>
+            <TextBox Grid.Row="2" Name="txtLGlobalLabels" LostFocus="txtLGlobalLabels_LostFocus" 
+                     KeyUp="txtLGlobalLabels_KeyUp"/>
+
+            <Label Grid.Row="3">Variables</Label>
+            <TextBox Grid.Row="3" Name="txtLVariables"  LostFocus="txtLVariables_LostFocus" 
+                     KeyUp="txtLVariables_KeyUp"/>
+
+            <Label Grid.Row="4">L Negating Labels</Label>
+            <TextBox Grid.Row="4" Name="txtLNegatingLabels"  LostFocus="txtLNegatingLabels_LostFocus" 
+                     KeyUp="txtLNegatingLabels_KeyUp"/>
+
+            <Label Grid.Row="5" >
+                <TextBlock MaxWidth="100" TextWrapping="Wrap" HorizontalAlignment="Right">
+                    Additional Recog-nize Functions</TextBlock></Label>
+            <TextBox Grid.Row="5" Name="txtRecognizeFunctions"
+                     LostFocus="txtRecognizeFunctions_LostFocus" KeyUp="txtRecognizeFunctions_KeyUp"/>
+
+            <Label Grid.Row="6">R Labels</Label>
+            <TextBox Grid.Row="6" Name="txtRGlobalLabels" LostFocus="txtRGlobalLabels_LostFocus" 
+                      KeyUp="txtRGlobalLabels_KeyUp"/>
+
+            <Label Grid.Row="7">R Variables</Label>
+            <TextBox Grid.Row="7" Name="txtRVariables" LostFocus="txtRVariables_LostFocus" 
+                      KeyUp="txtRVariables_KeyUp" />
+
+            <Label Grid.Row="8">
+                <TextBlock MaxWidth="100" TextWrapping="Wrap" HorizontalAlignment="Right">
+                    Additional Apply Functions</TextBlock></Label>
+            <TextBox Grid.Row="8" Name="txtApplyFunctions" LostFocus="txtApplyFunctions_LostFocus" 
+                     KeyUp="txtApplyFunctions_KeyUp"/>
+        </Grid>
+        <!--All the check box fields-->
+        <WrapPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label>Induced</Label>
+                <CheckBox Name="chkInduced" Checked="chkInduced_Checked" Unchecked="chkInduced_Unchecked"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Label>Spanning</Label>
+                <CheckBox Name="chkSpanning" Checked="chkSpanning_Checked" Unchecked="chkSpanning_Unchecked"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Label>Contains All Global Labels</Label>
+                <CheckBox Name="chkContainsAllGlobalLabels" Checked="chkContainsAllGlobalLabels_Checked" 
+                          Unchecked="chkContainsAllGlobalLabels_Unchecked"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Label>Ordered Global Labels</Label>
+                <CheckBox Name="chkOrderedGlobalLabels" Checked="chkOrderedGlobalLabels_Checked"
+                          Unchecked="chkOrderedGlobalLabels_Unchecked"/>
+
+            </StackPanel>
+            <StackPanel Background="#ff9999ee" Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Label FontWeight="Bold">is Termination Rule?</Label>
+                <CheckBox Name="chkTerminationRule" Checked="chkTerminationRule_Checked"
+                          Unchecked="chkTerminationRule_Unchecked"/>
+
+            </StackPanel>
+        </WrapPanel>
+
+        <!--Shape properties-->
+        <g:ShapeProperty x:Name="ShapeRulePrpt"  />
+
+    </StackPanel>
+</UserControl>

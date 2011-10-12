@@ -1,0 +1,150 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>Two Ways to Run GraphSynth.</title>
+    <style type="text/css">
+        .style1
+        {
+            font-size: xx-small;
+        }
+        .style2
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Two Ways to Run GraphSynth</h1>
+    <p class="style2">
+        <i><span class="style1">this page is a mirror of </span>
+        <a href="http://www.graphsynth.com/runfromsource"><span class="style1">
+        http://www.graphsynth.com/runfromsource</span></a></i></p>
+    <p>
+        Recent changes allow one to run GraphSynth as a console application or with 
+        &quot;Windows Presentation Foundation&quot; Graphics in a rich GUI that allows for 
+        viewing, editing, and testing different graph and rule concepts. The Console 
+        approach is useful for running on experiments where the rules, rulesets, ang 
+        other graphs do not need to be edited. The final results can still be saved to 
+        new graph and candidate files. The premise of the code is that you will run a 
+        particular search plugin on the loaded seed and rulesets.
+        This method also allows one to run GraphSynth on <b>Linux</b> or <b>Apple</b> computers.</p>
+    <p>
+        In the current GraphSynth.sln setup, there are four solution folders (note: 
+        solution folders are not fully supported in Express Editions). The &quot;Solution 
+        Items&quot; folder (which will definitely not show up in Express editions), contains 
+        this file, and other assorted data, icon, and text files. Then you will note the 
+        &quot;Console Version&quot; (includes 3 projects), the &quot;WPF GUI Version&quot; (includes 4 
+        projects), and the &quot;Default Plugins&quot; folders (includes 2 projects). This 
+        structure of nine projects is slightly different from what you see in the actual 
+        folders. This is becuase BaseClasses and Representation projects are nearly the 
+        same for the console and gui versions - mostly the differences lie in settings 
+        in the .csproj files. The default plugins only work in the gui-version since 
+        these involve some interactive and visualization elements. </p>
+    <h2>
+        Instructions on Running GraphSynth in the Console </h2>
+    <p>
+        This involves the three projects listed here:</p>
+    <ul>
+        <li>GraphSynthConsole</li>
+        <li>GraphSynthConsole.Representation</li>
+        <li>GraphSynthConsole.BaseClasses</li>
+    </ul>
+    <p>
+        all the other projects can be ignored/removed.</p>
+    <p>
+        This has been greatly simplified from the version posted in early September 
+        (9/2011). All binaries are written to the common bin directory.&nbsp;</p>
+    <h3>
+        Procedure:</h3>
+    <ol>
+        <li>Set GraphSynthConsole as the start-up project - <b><i>this is optional now</i></b><ul>
+            <li>right-click on the GraphSynthConsole project in the Solution Explorer and select
+                &quot;Set as StartUp Project&quot;</li>
+            <li>why is this optional? if you have the GraphSynth gui-version as the default it 
+                will work anyway since all binaries are written to the same bin directory and 
+                the exectubles have the same name: GraphSynth.exe.</li>
+        </ul>
+        </li>
+        <li>Change the Solution Configuration to &quot;Console Debug&quot;<ul>
+            <li>right-click on the solution in the Solution Explorer (very first item, &quot;Solution
+                &#39;GraphSynth&#39; (9 projects).&quot;</li>
+            <li>select &quot;Configuration Manager...&quot;</li>
+            <li>In the upper-left drop-down menu entitled, &quot;Active solution configuration:&quot;
+                choose &quot;Console Debug&quot;</li>
+            <li>an easier way to do this is simply choose &quot;Console Debug&quot; in the drop-down 
+                attached to the Standard toolbar.</li>
+        </ul>
+        </li>
+        <li>if you just change Solution Configuration - <i><b>make sure you re-build!</b></i> 
+            This is because binaries may not seem out-of-date to Visual Studio, since they 
+            are all in the same directory.</li>
+    </ol>
+    <h3>
+        Running the Application</h3>
+    <p>
+        This simply loads the same settings file (*.gsconfig file) that is used in the 
+        full version. You can also supply an alternative .gsconfig file. Again, the 
+        premise is simply to run plugins on the loaded seed and rulesets. Choose which 
+        plugin to run...and that&#39;s it. Verbosity may be changed at the onset but not 
+        during the process.</p>
+    <p>
+        &nbsp;</p>
+    <h2>
+        Instructions on Running GraphSynth as a Windows GUI application </h2>
+    <p>
+        This involves 
+        the four projects listed here:</p>
+    <ul>
+        <li>GraphSynth</li>
+        <li>GraphSynth.CustomControls</li>
+        <li>GraphSynth.Representation</li>
+        <li>GraphSynth.BaseClasses</li>
+    </ul>
+    <p>
+        but the compilation can also make use of the two default plugins: </p>
+    <ul>
+        <li>GraphSynth.GraphLayoutBasic</li>
+        <li>GraphSynth.UserRandLindChoose</li>
+    </ul>
+    <h3>
+        Procedure:</h3>
+    <ol>
+        <li>Set GraphSynth as the start-up project - <b><i>this is optional now</i></b><ul>
+            <li>right-click on the GraphSynth project in the Solution Explorer and select
+                &quot;Set as StartUp Project&quot;</li>
+            <li>why is this optional? if you have the GraphSynthConsole-version as the default 
+                it will work anyway since all binaries are written to the same bin directory and 
+                the exectubles have the same name: GraphSynth.exe.</li>
+        </ul>
+        </li>
+        <li>Change the Solution Configuration to &quot;WPF GUI Debug&quot;<ul>
+            <li>right-click on the solution in the Solution Explorer (very first item, &quot;Solution
+                &#39;GraphSynth&#39; (9 projects).&quot;</li>
+            <li>select &quot;Configuration Manager...&quot;</li>
+            <li>In the upper-left drop-down menu entitled, &quot;Active solution configuration:&quot;
+                choose &quot;WPF GUIDebug&quot;</li>
+            <li>an easier way to do this is simply choose &quot;WPF GUIDebug&quot; in the drop-down 
+                attached to the Standard toolbar.</li>
+        </ul>
+        </li>
+        <li>if you just change Solution Configuration - <i><b>make sure you re-build!</b></i> 
+            This is because binaries may not seem out-of-date to Visual Studio, since they 
+            are all in the same directory.</li>
+    </ol>
+    <h3>
+        Running the Application</h3>
+    <p>
+        This opens the GUI windows and any files specificed in the default 
+        GraphSynthSettings.gsconfig file. For more information on using the program see
+        <a href="http://www.GraphSynth.com/help">http://www.GraphSynth.com/help</a>. </p>
+    <p>
+        &nbsp;</p>
+    <p>
+        Please send any concerns to <a href="mailto:admin@GraphSynth.com">
+        admin@GraphSynth.com</a></p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+</body>
+</html>

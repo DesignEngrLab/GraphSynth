@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="GraphSynth.UI.RuleSetProperty"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:g="clr-namespace:GraphSynth.UI" Background="#fff4eedb">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Grid.Column" Value="0" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Grid.Column" Value="1" />
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Grid.Column" Value="1" />
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Name="txtName" Grid.Row="0" HorizontalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2" />
+
+        <Label Grid.Row="1" >Trigger Rule #</Label>
+        <TextBox Name="txtTriggerRuleNo" Grid.Row="1" LostFocus="txtTriggerRuleNo_LostFocus" KeyUp="txtTriggerRuleNo_KeyUp" />
+
+        <Label Grid.Row="2" >Choice Method</Label>
+        <ComboBox Grid.Row="2" Name="cmdChoiceMethod"  SelectionChanged="cmdChoiceMethod_SelectionChanged"/>
+
+        <Label Grid.Row="3" >Interim candidates are</Label>
+        <ComboBox Grid.Row="3" Name="cmdInterimCandidates" SelectionChanged="cmdInterimCandidates_SelectionChanged"/>
+
+        <Label Grid.Row="4" >Final candidates are</Label>
+        <ComboBox Grid.Row="4" Name="cmdFinalCandidates" SelectionChanged="cmdFinalCandidates_SelectionChanged"/>
+
+        <Label Grid.Row="5" >After Normal Cycle</Label>
+        <ComboBox Grid.Row="5" Name="cmdAfterNormalCycle" SelectionChanged="cmdAfterNormalCycle_SelectionChanged"/>
+
+        <Label Grid.Row="6" >Choice sends a Stop</Label>
+        <ComboBox Grid.Row="6" Name="cmdChoiceSendsStop" SelectionChanged="cmdChoiceSendsStop_SelectionChanged"/>
+        <Label Grid.Row="7" ># of Calls Reached</Label>
+        <ComboBox Grid.Row="7" Name="cmdNoOfCallsReached" SelectionChanged="cmdNoOfCallsReached_SelectionChanged"/>
+        <Label Grid.Row="8" >No Rules Recognized</Label>
+        <ComboBox Grid.Row="8" Name="cmdNoRulesRecognized" SelectionChanged="cmdNoRulesRecognized_SelectionChanged"/>
+        <Label Grid.Row="9" >Trigger Rule Invoked</Label>
+        <ComboBox Grid.Row="9" Name="cmdTriggerRuleInvoked" SelectionChanged="cmdTriggerRuleInvoked_SelectionChanged"/>
+        <Label Grid.Row="10" >Recognize Source files</Label>
+        <TextBox Grid.Row="10" Name="txtRecognizeSourceFiles" LostFocus="txtRecognizeSourceFiles_LostFocus" KeyUp="txtRecognizeSourceFiles_KeyUp"/>
+        <Label Grid.Row="11" >Apply Source files</Label>
+        <TextBox Grid.Row="11" Name="txtApplySourceFiles" LostFocus="txtApplySourceFiles_LostFocus" 
+                 KeyUp="txtApplySourceFiles_KeyUp"/>
+    </Grid>
+</UserControl>

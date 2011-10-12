@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="GraphSynth.UI.WindowsManager" Name="This"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border BorderThickness="5" BorderBrush="#80ffffff" CornerRadius="8" Background="#FFDDD4AA">
+        <Expander Name="expanderWM" IsExpanded="True" Header="Windows Manager" >
+            <StackPanel Name="stkPanel">
+                <ListView x:Name="WinMgrView" ItemsSource=
+        "{Binding ElementName=This, Path= WinCollection}"
+                  SelectionChanged="WinMgrView_SelectionChanged"
+                   MouseDoubleClick="WinMgrView_MouseDoubleClick"
+           SelectionMode="Single" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="117" 
+                DisplayMemberBinding="{Binding WinName}">
+                                <GridViewColumnHeader Click="SortClick" 
+                                  Tag="WinName" 
+                                  Content="Name" />
+                            </GridViewColumn>
+                            <GridViewColumn Width="117" 
+                DisplayMemberBinding="{Binding WinType}">
+                                <GridViewColumnHeader Click="SortClick" 
+                                  Tag="WinType" 
+                                  Content="Type" />
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Expander>
+    </Border>
+</UserControl>

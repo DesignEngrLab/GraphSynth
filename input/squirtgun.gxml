@@ -1,0 +1,1364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<designGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<name>summer2009/squirtgun.repo</name>
+<globalLables />
+<globalVariables />
+<nodes>
+<node>
+<name>tank_o-ring_large</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Black.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="seal" ArtifactCreationDate="2009-06-08" ArtifactDescription="seals between tank ring and tank" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="tank o-ring large" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>tanko-ringlarge-IMAGE</ArtifactImage>
+  <Color ColorName="black" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="rubber" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>pressure_tube</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Red.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="tube" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pressure tube" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pressuretube-IMAGE</ArtifactImage>
+  <Color ColorName="red" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Process ProcessName="extrusion" />
+</opt>
+</node>
+<node>
+<name>cap_valve_holder</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Black.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="securer" ArtifactCreationDate="2009-06-08" ArtifactDescription="keeps check valve from falling out of cap and lets in air" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="cap valve holder" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>capvalveholder-IMAGE</ArtifactImage>
+  <Color ColorName="black" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>trigger_lever_spring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="spring" ArtifactCreationDate="2009-06-08" ArtifactDescription="returns trigger to original position" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="trigger lever spring" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>triggerleverspring-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="1" />
+  <Process ProcessName="oem" />
+  <Texture TextureName="rough" />
+</opt>
+</node>
+<node>
+<name>tank</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.HotPink.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="reservoir" ArtifactCreationDate="2009-06-08" ArtifactDescription="this is where you put water" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="tank" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>tank-IMAGE</ArtifactImage>
+  <Color ColorName="blue" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="dull" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="330" />
+  <Texture TextureName="smooth" />
+</opt>
+</node>
+<node>
+<name>pressure_reservoir</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Black.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="bladder" ArtifactCreationDate="2009-06-08" ArtifactDescription="eggplant shaped rubber pressure bladder" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pressure reservoir" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pressurereservoir-IMAGE</ArtifactImage>
+  <Color ColorName="black" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="dull" />
+  <Material MaterialName="rubber" />
+  <Process ProcessName="casting" />
+  <Texture TextureName="smooth" />
+</opt>
+</node>
+<node>
+<name>cap</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.HotPink.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="knob" ArtifactCreationDate="2009-06-08" ArtifactDescription="like a screw top bottle cap" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="cap" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>cap-IMAGE</ArtifactImage>
+  <Color ColorName="blue" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>detent_bracket</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.HotPink.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="positioner" ArtifactCreationDate="2009-06-08" ArtifactDescription="clamps detents to detent-nozzle plate" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="detent bracket" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>detentbracket-IMAGE</ArtifactImage>
+  <Color></Color>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="5" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>large_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="large screw" ArtifactParent="empty" ArtifactQty="8" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>largescrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.6" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>large_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="large screw" ArtifactParent="empty" ArtifactQty="8" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>largescrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.6" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>large_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="large screw" ArtifactParent="empty" ArtifactQty="8" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>largescrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.6" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>large_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="large screw" ArtifactParent="empty" ArtifactQty="8" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>largescrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.6" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>large_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="large screw" ArtifactParent="empty" ArtifactQty="8" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>largescrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.6" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>large_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="large screw" ArtifactParent="empty" ArtifactQty="8" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>largescrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.6" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>large_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="large screw" ArtifactParent="empty" ArtifactQty="8" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>largescrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.6" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>large_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="large screw" ArtifactParent="empty" ArtifactQty="8" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>largescrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.6" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>pressure_clamp_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Cyan.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="clamp" ArtifactCreationDate="2009-06-08" ArtifactDescription="like an oversized garden hose repair clamp" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pressure clamp ring" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pressureclampring-IMAGE</ArtifactImage>
+  <Color ColorName="cyan" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>shoulder_strap</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Black.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="securer" ArtifactCreationDate="2009-06-08" ArtifactDescription="nylon webbing with carabiner clips" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="shoulder strap" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>shoulderstrap-IMAGE</ArtifactImage>
+  <Color ColorName="black" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="nylon" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="26" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>trigger_lever</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.White.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="changes direction of motion" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="trigger lever" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>triggerlever-IMAGE</ArtifactImage>
+  <Color ColorName="white" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="nylon" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="2" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>detent_spring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Black.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="spring" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="detent spring" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>detentspring-IMAGE</ArtifactImage>
+  <Color ColorName="black" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="1" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>cap_retainer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.HotPink.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="securer" ArtifactCreationDate="2009-06-08" ArtifactDescription="keeps cap from falling off" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="cap retainer" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>capretainer-IMAGE</ArtifactImage>
+  <Color ColorName="blue" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Process ProcessName="stamping" />
+</opt>
+</node>
+<node>
+<name>small_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smallscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.4" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="7" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>small_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smallscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.4" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="7" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>small_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smallscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.4" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="7" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>small_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smallscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.4" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="7" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>small_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smallscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.4" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="7" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>small_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smallscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.4" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="7" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>small_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smallscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.4" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="7" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>small_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smallscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.4" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="7" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>small_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smallscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.4" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="7" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>small_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smallscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.4" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="7" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>cap_check_valve</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Black.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="seal" ArtifactCreationDate="2009-06-08" ArtifactDescription="prevents vacuum from forming in tank" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="cap check valve" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>capcheckvalve-IMAGE</ArtifactImage>
+  <Color ColorName="black" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="rubber" />
+  <Process ProcessName="casting" />
+</opt>
+</node>
+<node>
+<name>pressure_cage</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Brown.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="nylon webbing sewn around pressure bladder to keep it from exploding" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pressure cage" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pressurecage-IMAGE</ArtifactImage>
+  <Color ColorName="brown" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="nylon" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>tank_neck_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Cyan.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="bracket" ArtifactCreationDate="2009-06-08" ArtifactDescription="holds pressure assembly and seals to tank o-ring" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="tank neck ring" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>tankneckring-IMAGE</ArtifactImage>
+  <Color ColorName="cyan" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="fenn@sdf.lonestar.org" CreatorFirstName="ben" CreatorLastName="lipkowitz" />
+  <Finish FinishName="glossy" />
+  <Material MaterialName="plastic" />
+  <Process ProcessName="injection molding" />
+  <Texture TextureName="smooth" />
+</opt>
+</node>
+<node>
+<name>detent</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.HotPink.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="positioner" ArtifactCreationDate="2009-06-08" ArtifactDescription="indexes detent-nozzle plate" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="detent" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>detent-IMAGE</ArtifactImage>
+  <Color></Color>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="1" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>clamp_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Yellow.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="clamp" ArtifactCreationDate="2009-06-08" ArtifactDescription="holds casing together around piston" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="clamp ring" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>clampring-IMAGE</ArtifactImage>
+  <Color ColorName="yellow" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="1" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>ball_valve</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.White.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="valve" ArtifactCreationDate="2009-06-08" ArtifactDescription="opens when you fire the gun" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="ball valve" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>ballvalve-IMAGE</ArtifactImage>
+  <Color ColorName="white" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="nylon" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="15" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>tank_cap_assembly</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.HotPink.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="stopper" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="tank cap assembly" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>tankcapassembly-IMAGE</ArtifactImage>
+  <Color></Color>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="16" />
+</opt>
+</node>
+<node>
+<name>skinny_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="skinny screw" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>skinnyscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2.5" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>skinny_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="skinny screw" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>skinnyscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2.5" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>skinny_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="skinny screw" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>skinnyscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2.5" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>skinny_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="skinny screw" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>skinnyscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2.5" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>skinny_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="skinny screw" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>skinnyscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2.5" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>skinny_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="skinny screw" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>skinnyscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="2.5" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="12" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="4" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>pump_handle</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Yellow.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="handle" ArtifactCreationDate="2009-06-08" ArtifactDescription="provides firm grip for piston" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pump handle" ArtifactParent="" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pumphandle-IMAGE</ArtifactImage>
+  <Color ColorName="yellow" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="14" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>pump_handle</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Yellow.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="handle" ArtifactCreationDate="2009-06-08" ArtifactDescription="provides firm grip for piston" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pump handle" ArtifactParent="" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pumphandle-IMAGE</ArtifactImage>
+  <Color ColorName="yellow" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="14" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>trigger</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.HotPink.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="latch release" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="trigger" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>trigger-IMAGE</ArtifactImage>
+  <Color></Color>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="3" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>trigger_pull_rod</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Black.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="trigger pull rod" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>triggerpullrod-IMAGE</ArtifactImage>
+  <Color ColorName="black" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="12" />
+  <Process ProcessName="rolling" />
+  <Process ProcessName="forming" />
+</opt>
+</node>
+<node>
+<name>pressure_manifold</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.White.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="connects pressure bladder to ball valve and pump" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pressure manifold" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pressuremanifold-IMAGE</ArtifactImage>
+  <Color ColorName="white" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="nylon" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>tank_strap</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.HotPink.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="securer" ArtifactCreationDate="2009-06-08" ArtifactDescription="secures tank to case" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="tank strap" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>tankstrap-IMAGE</ArtifactImage>
+  <Color></Color>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="8" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>flange_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="flange screw" ArtifactParent="empty" ArtifactQty="3" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>flangescrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.6" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="10" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="8" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>flange_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="flange screw" ArtifactParent="empty" ArtifactQty="3" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>flangescrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.6" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="10" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="8" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>flange_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="flange screw" ArtifactParent="empty" ArtifactQty="3" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>flangescrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.6" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="10" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="8" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>tank_guard</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Yellow.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="hosts the colorful logo" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="tank guard" ArtifactParent="" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>tankguard-IMAGE</ArtifactImage>
+  <Color ColorName="yellow" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="25" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>tank_guard</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Yellow.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="hosts the colorful logo" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="tank guard" ArtifactParent="" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>tankguard-IMAGE</ArtifactImage>
+  <Color ColorName="yellow" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="25" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>flanged_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="flanged screw" ArtifactParent="empty" ArtifactQty="3" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>flangedscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>flanged_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="flanged screw" ArtifactParent="empty" ArtifactQty="3" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>flangedscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>flanged_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="flanged screw" ArtifactParent="empty" ArtifactQty="3" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>flangedscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>pump_assembly</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.HotPink.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="hydraulic pump" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pump assembly" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pumpassembly-IMAGE</ArtifactImage>
+  <Color></Color>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="48" />
+</opt>
+</node>
+<node>
+<name>medium_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="10" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>medium_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="10" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>medium_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="10" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>medium_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="10" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>medium_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="10" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>medium_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="10" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>medium_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="10" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>medium_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="10" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>medium_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="10" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>medium_screw</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Gray.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="fastener" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium screw" ArtifactParent="empty" ArtifactQty="10" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumscrew-IMAGE</ArtifactImage>
+  <Color ColorName="gray" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="brilliant" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thread diameter" ParameterUnits="mm" ParameterValue="3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="mm" ParameterValue="10" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="mm" ParameterValue="5" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>tank_o-ring_small</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.Black.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="seal" ArtifactCreationDate="2009-06-08" ArtifactDescription="seals between tank and pump inlet" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="tank o-ring small" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>tanko-ringsmall-IMAGE</ArtifactImage>
+  <Color ColorName="black" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="rubber" />
+  <Process ProcessName="oem" />
+</opt>
+</node>
+<node>
+<name>valve_lever</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.White.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="lever" ArtifactCreationDate="2009-06-08" ArtifactDescription="opens valve" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="valve lever" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>valvelever-IMAGE</ArtifactImage>
+  <Color ColorName="white" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="nylon" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>nozzle_wheel</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.HotPink.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="handle" ArtifactCreationDate="2009-06-08" ArtifactDescription="goes around nozzle-detent plate. rotate to change nozzle type" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="nozzle wheel" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>nozzlewheel-IMAGE</ArtifactImage>
+  <Color></Color>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="23" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>detent_nozzle_plate</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.HotPink.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="nozzle" ArtifactCreationDate="2009-06-08" ArtifactDescription="has five holes which act as both detent stops and nozzles to control the stream shape" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="detent nozzle plate" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <Color></Color>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="16" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+<node>
+<name>case</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.LightBlue.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="stylish techno housing" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="case" ArtifactParent="" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>case-IMAGE</ArtifactImage>
+  <Color ColorName="bright blue" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="glossy" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="178" />
+  <Process ProcessName="injection molding" />
+  <Texture TextureName="smooth" />
+</opt>
+</node>
+<node>
+<name>case</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.LightBlue.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="stylish techno housing" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="case" ArtifactParent="" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>case-IMAGE</ArtifactImage>
+  <Color ColorName="bright blue" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="glossy" />
+  <Material MaterialName="plastic" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="178" />
+  <Process ProcessName="injection molding" />
+  <Texture TextureName="smooth" />
+</opt>
+</node>
+<node>
+<name>piston</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.White.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="hydraulic piston" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="piston" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>piston-IMAGE</ArtifactImage>
+  <Color ColorName="white" />
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="nylon" />
+  <Parameters ParameterDimension="mass" ParameterUnits="grams" ParameterValue="14" />
+  <Process ProcessName="injection molding" />
+</opt>
+</node>
+</nodes>
+<arcs />
+</designGraph>

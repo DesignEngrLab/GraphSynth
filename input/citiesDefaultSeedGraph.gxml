@@ -1,0 +1,212 @@
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:GraphSynth="ignorableUri" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="GraphSynth" Tag="Graph">
+<GraphSynth:Canvas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" AxesColor="#FF000000" AxesOpacity="1" AxesThick="0.5" GridColor="#FF000000" GridOpacity="0.3" GridSpacing="24" GridThick="0.25" SnapToGrid="false" IconOpacity="0.5" ShapeOpacity="1" ShowNodeName="true" ShowNodeLabel="true" ShowArcName="true" ShowArcLabel="true" NodeLabelFontSize="12" ArcLabelFontSize="12" NodeDisplayTextDistance="0" NodeDisplayTextPosition="0" ArcDisplayTextDistance="0" ArcDisplayTextPosition="0.5" BackgroundColor="#FFFFFFFF" ScaleFactor="1" ZoomToFit="false" />
+<GraphSynth:designGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <name>MajorUSAcities</name>
+  <globalLabels />
+  <globalVariables />
+  <arcs />
+  <nodes>
+    <node>
+      <name>NewYork</name>
+      <localLabels />
+      <localVariables />
+      <X>207</X>
+      <Y>146</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>744</screenX>
+      <screenY>88</screenY>
+    </node>
+    <node>
+      <name>LosAngeles</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>-67</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>74</screenX>
+      <screenY>295</screenY>
+    </node>
+    <node>
+      <name>Chicago</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>114</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>462</screenX>
+      <screenY>114</screenY>
+    </node>
+    <node>
+      <name>Philadelphia</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>80</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>725</screenX>
+      <screenY>148</screenY>
+    </node>
+    <node>
+      <name>Phoenix</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>-179</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>240</screenX>
+      <screenY>407</screenY>
+    </node>
+    <node>
+      <name>SanDiego</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>-123.16485599999999</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>100.365753</screenX>
+      <screenY>351.164856</screenY>
+    </node>
+    <node>
+      <name>Dallas</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>-152.78997800000002</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>416.522156</screenX>
+      <screenY>380.789978</screenY>
+    </node>
+    <node>
+      <name>SanFrancisco</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>26</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>35</screenX>
+      <screenY>202</screenY>
+    </node>
+    <node>
+      <name>Jacksonville</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>-202</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>735</screenX>
+      <screenY>430</screenY>
+    </node>
+    <node>
+      <name>Columbus</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>99</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>596</screenX>
+      <screenY>129</screenY>
+    </node>
+    <node>
+      <name>Austin</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>-194</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>405</screenX>
+      <screenY>422</screenY>
+    </node>
+    <node>
+      <name>Boston</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>174.050415</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>783.2687</screenX>
+      <screenY>53.949585</screenY>
+    </node>
+    <node>
+      <name>Washington</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>23.310790999999995</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>706.849548</screenX>
+      <screenY>204.689209</screenY>
+    </node>
+    <node>
+      <name>Seattle</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>199.1134644</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>36.3304443</screenX>
+      <screenY>28.8865356</screenY>
+    </node>
+    <node>
+      <name>Denver</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>39.163085999999993</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>162.793045</screenX>
+      <screenY>188.836914</screenY>
+    </node>
+    <node>
+      <name>Nashville</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>-13.958740000000006</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>479.519653</screenX>
+      <screenY>241.95874</screenY>
+    </node>
+    <node>
+      <name>Portland</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>120.209961</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>41.33368</screenX>
+      <screenY>107.790039</screenY>
+    </node>
+    <node>
+      <name>LasVegas</name>
+      <localLabels />
+      <localVariables />
+      <X>72</X>
+      <Y>-23.40441899999999</Y>
+      <Z>0</Z>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>126.548645</screenX>
+      <screenY>251.404419</screenY>
+    </node>
+  </nodes>
+</GraphSynth:designGraph>
+<Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  RenderTransform="1,0,0,-1,0,500" RenderTransformOrigin="0.5,0">
+<Ellipse Fill="#FF000000" StrokeThickness="1" Tag="NewYork" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransform="1,0,0,-1,276.5,420" Opacity="1" InkCanvas.Top="Auto" InkCanvas.Left="Auto"  /><Ellipse Fill="#FF000000" Tag="LosAngeles" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="207" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="Chicago" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="388" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="Philadelphia" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="354" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="Phoenix" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="95" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="SanDiego" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="150.835144" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="Dallas" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="121.21002199999998" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="SanFrancisco" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="300" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="Jacksonville" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="72" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="Columbus" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="373" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="Austin" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="80" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="Boston" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="448.050415" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="Washington" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="297.310791" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="Seattle" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="473.1134644" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="Denver" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="313.163086" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="Nashville" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="260.04125999999997" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="Portland" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="394.209961" /></Ellipse.RenderTransform></Ellipse><Ellipse Fill="#FF000000" Tag="LasVegas" Width="5" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" ><Ellipse.RenderTransform><TranslateTransform X="141.5" Y="250.595581" /></Ellipse.RenderTransform></Ellipse></Canvas>
+</Page>

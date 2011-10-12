@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="GraphSynth.UI.ShapeProperty"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     >
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Grid.Column" Value="0" />
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Grid.Column" Value="1" />
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Grid.Column" Value="1" />
+        </Style>
+    </UserControl.Resources>
+    <Border BorderThickness="5" BorderBrush="#80ffffff" CornerRadius="8" Background="#10101010">
+        <Expander Name="expShapeRuleProperties" IsExpanded="False" >
+            <Expander.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Label HorizontalAlignment="Left">Shape Rule Properties</Label>
+                    <CheckBox Name="chkShapeRuleProperties" 
+                             Checked="chkShapeRuleProperties_Checked"
+                             Unchecked="chkShapeRuleProperties_Unchecked"/>
+                </StackPanel>
+            </Expander.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0">Translate</Label>
+                <ComboBox Grid.Row="0" Name="cmdTranslate" SelectionChanged="cmdTranslate_SelectionChanged"/>
+
+                <Label Grid.Row="1">Scale</Label>
+                <ComboBox Grid.Row="1" Name="cmdScale" SelectionChanged="cmdScale_SelectionChanged"/>
+
+                <Label Grid.Row="2">Skew</Label>
+                <ComboBox Grid.Row="2" Name="cmdSkew" SelectionChanged="cmdSkew_SelectionChanged"/>
+
+                <Label Grid.Row="3">Flip</Label>
+                <ComboBox Grid.Row="3" Name="cmdFlip" SelectionChanged="cmdFlip_SelectionChanged"/>
+
+                <Label Grid.Row="4">Projection</Label>
+                <ComboBox Grid.Row="4" Name="cmdProjection" SelectionChanged="cmdProjection_SelectionChanged"/>
+
+                <Label Grid.Row="5">Rotate</Label>
+                <CheckBox Grid.Row="5" Name="chkRotate" 
+                          Checked="chkRotate_Checked" Unchecked="chkRotate_Unchecked" />
+
+                <Label Grid.Row="6">Match to R Shapes?</Label>
+                <CheckBox Grid.Row="6" Name="chkMatchRShapes" 
+                          Checked="chkMatchRShapes_Checked" Unchecked="chkMatchRShapes_Unchecked" />
+
+                <Label Grid.Row="7">Transform Node Shapes?</Label>
+                <CheckBox Grid.Row="7" Name="chkTransformNodeShapes" 
+                          Checked="chkTransformNodeShapes_Checked"  Unchecked="chkTransformNodeShapes_Unchecked" />
+            </Grid>
+        </Expander>
+
+    </Border>
+</UserControl>

@@ -1,0 +1,5 @@
+﻿<g:ArcController x:Class="GraphSynth.GraphDisplay.StraightArcController"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:g="clr-namespace:GraphSynth.GraphDisplay"
+                 Content="There are no parameters for straight controllers."/>

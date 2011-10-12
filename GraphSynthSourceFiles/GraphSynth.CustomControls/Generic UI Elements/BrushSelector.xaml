@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="GraphSynth.UI.BrushSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:u="clr-namespace:GraphSynth.UI"
+             Loaded="BrushSelector_Loaded">
+    <Border BorderThickness="5" BorderBrush="#80ffffff" CornerRadius="8">
+    <Expander Name="expBrushSelect">
+        <StackPanel Orientation="Vertical">
+
+            <u:SldAndTextbox  x:Name="sldOpacity" Label="Opacity"
+                              Maximum="255" Minimum="0"
+                              TickPlacement="BottomRight" TickFrequency="255"
+                              HorizontalAlignment="Stretch"
+                              ValueChanged="sliders_ValueChanged">
+                <u:SldAndTextbox.Converter>
+                    <u:SliderToTextBoxTextLinearConverter SigDigs="0"/>
+                </u:SldAndTextbox.Converter>
+            </u:SldAndTextbox>
+            <u:SldAndTextbox  x:Name="sldRed" Label="Red"
+                              Maximum="255" Minimum="0"
+                              TickPlacement="BottomRight" TickFrequency="255"
+                              HorizontalAlignment="Stretch"
+                              ValueChanged="sliders_ValueChanged">
+                <u:SldAndTextbox.Converter>
+                    <u:SliderToTextBoxTextLinearConverter SigDigs="0"/>
+                </u:SldAndTextbox.Converter>
+            </u:SldAndTextbox>
+            <u:SldAndTextbox  x:Name="sldGreen" Label="Green"
+                              Maximum="255" Minimum="0"
+                              TickPlacement="BottomRight" TickFrequency="255"
+                              HorizontalAlignment="Stretch"
+                              ValueChanged="sliders_ValueChanged">
+                <u:SldAndTextbox.Converter>
+                    <u:SliderToTextBoxTextLinearConverter SigDigs="0"/>
+                </u:SldAndTextbox.Converter>
+            </u:SldAndTextbox>
+            <u:SldAndTextbox  x:Name="sldBlue" Label="Blue"
+                              Maximum="255" Minimum="0"
+                              TickPlacement="BottomRight" TickFrequency="255"
+                              HorizontalAlignment="Stretch"
+                              ValueChanged="sliders_ValueChanged">
+                <u:SldAndTextbox.Converter>
+                    <u:SliderToTextBoxTextLinearConverter SigDigs="0"/>
+                </u:SldAndTextbox.Converter>
+            </u:SldAndTextbox>
+            <TextBox HorizontalAlignment="Stretch" Name="textDescription" KeyUp="textDescription_KeyUp" AcceptsReturn="True" TextWrapping="Wrap" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <Label Name="LabelColorTable">Sorted Alphabetically</Label>
+                <WrapPanel Grid.Row="1" Name="WrapPanelForColors" MouseUp="WrapPanelForColors_MouseUp">
+
+                </WrapPanel>
+        </StackPanel>
+    </Expander>
+    </Border>
+</UserControl>

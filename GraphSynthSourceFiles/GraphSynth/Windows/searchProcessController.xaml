@@ -1,0 +1,107 @@
+﻿<Window x:Class="GraphSynth.UI.searchProcessController"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Search Process Controller" SizeToContent="WidthAndHeight" Background="#FFDDDDDD">
+    <Grid Name="grdMainGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="72" />
+            <ColumnDefinition Width="56" />
+            <ColumnDefinition Width="56" />
+            <ColumnDefinition Width="56" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Right">Iterations :</Label>
+        <Label Grid.Column="1" Grid.Row="0" HorizontalContentAlignment="Center" Name="lblIterationBox" 
+                   Background="Black" Foreground="White" FontWeight="Bold">0</Label>
+        <Label Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Name="lblMiscBox" 
+               BorderBrush="LightBlue" BorderThickness="1" Background="Black" Foreground="White" FontStyle="Italic"
+               >misc</Label>
+        <GroupBox Grid.Row="1" Grid.ColumnSpan="4" BorderBrush="LightGray" Background="Black">
+            <StackPanel Orientation="Horizontal">
+                <Label Name="lblTimeText" VerticalContentAlignment="Center" 
+                      Foreground="White" Content="time: (dd,hh:mm:ss.sss):" FontSize="11" />
+                <Label Name="lblTimeDisplay" VerticalContentAlignment="Center"
+                      Foreground="White" Content="00,00:00:00.00" />
+            </StackPanel>
+        </GroupBox>
+
+        <Rectangle Grid.Row="2" Grid.Column="0" Fill="Lime" RadiusX="4" RadiusY="4" />
+        <Button Grid.Row="2" Grid.Column="0" Name="btnPlay" Click="btnPlay_Click" Opacity="0.8" IsDefault="True" >
+            <Path Margin="4" Stroke="#D7000000" Data="M 0 0 L 30 15 L 0 30 Z" />
+        </Button>
+
+        <Rectangle Grid.Row="2" Grid.Column="1" Fill="Yellow" RadiusX="4" RadiusY="4" />
+        <Button Grid.Row="2" Grid.Column="1" Name="btnPause" Click="btnPause_Click" Opacity="0.8">
+            <Path Margin="4" Stroke="#D7000000">
+                <Path.Data>
+                    <GeometryGroup>
+                        <RectangleGeometry Rect="0 0 12 30" RadiusX="2" RadiusY="2" />
+                        <RectangleGeometry Rect="18 0 12 30"  RadiusX="2" RadiusY="2" />
+                    </GeometryGroup>
+                </Path.Data>
+            </Path>
+        </Button>
+
+        <Rectangle Grid.Column="2" Grid.Row="2" Fill="Red" RadiusX="4" RadiusY="4" />
+        <Button Grid.Column="2" Grid.Row="2"  Name="btnStop" Click="btnStop_Click" Opacity="0.8">
+            <Rectangle Margin="4" Stroke="#D7000000"  Width="30" Height="30" RadiusX="2" RadiusY="2" />
+        </Button>
+
+        <Rectangle Grid.Column="3" Grid.Row="2" Fill="#FFFF3388" RadiusX="4" RadiusY="4"/>
+            <Button Grid.Column="3" Grid.Row="2" Name="btnAbort" Click="btnAbort_Click" Opacity="0.8">
+                <Canvas Width="30" Height="30" >
+                    <Path Width="30" Height="30" Stretch="Fill" StrokeThickness="1" 
+                          StrokeLineJoin="Round" Stroke="#d7000000" 
+                          Data="F1 M 1825.99,-70.3925C 1837.03,-70.3925 1845.99,-61.4382 1845.99,
+                          -50.3925L 1845.99,77.2513C 1833.49,79.2498 1816.12,83.1292 1793.88,
+                          88.8895C 1759.83,97.7101 1719.63,104.719 1673.27,109.915C 1713.75,
+                          58.3596 1745.81,20.7527 1769.47,-2.9054C 1793.13,-26.5636 1804.96,
+                          -47.2131 1804.96,-64.8542C 1804.96,-66.7495 1804.84,-68.5955 1804.61,
+                          -70.3925L 1825.99,-70.3925 Z M 1845.99,293.607C 1845.99,304.653 1837.03,
+                          313.607 1825.99,313.607L 1804.52,313.607C 1804.81,311.734 1804.96,
+                          309.82 1804.96,307.864C 1804.96,297.061 1801.78,286.873 1795.42,
+                          277.3C 1789.06,267.727 1780.07,256.719 1768.45,244.274C 1757.37,
+                          232.103 1743.52,217.026 1726.91,199.043C 1710.29,181.061 1692.41,
+                          158.667 1673.27,131.864C 1717.85,137.061 1758.05,144.308 1793.88,
+                          153.608C 1816.52,159.482 1833.88,163.501 1845.99,165.664L 1845.99,
+                          293.607 Z M 1481.99,313.607C 1470.94,313.607 1461.99,304.653 1461.99,
+                          293.607L 1461.99,165.87C 1475,163.69 1493.46,159.397 1517.37,
+                          152.992C 1553.61,143.283 1592.72,136.24 1634.7,131.864C 1617.2,
+                          156.479 1599.63,178.531 1581.98,198.018C 1564.34,217.505 1550.19,
+                          232.924 1539.52,244.274C 1527.08,258.086 1517.88,269.539 1511.93,
+                          278.633C 1505.98,287.727 1503.01,297.471 1503.01,307.864C 1503.01,
+                          309.832 1503.13,311.746 1503.38,313.607L 1481.99,313.607 Z M 1461.99,
+                          -50.3925C 1461.99,-61.4382 1470.94,-70.3925 1481.99,-70.3925L 1503.42,
+                          -70.3925C 1503.15,-68.5859 1503.01,-66.7399 1503.01,-64.8542C 1503.01,
+                          -54.1875 1506.09,-44.2045 1512.24,-34.9055C 1518.4,-25.6063 1527.49,
+                          -14.5294 1539.52,-1.67465C 1549.64,9.12875 1563.87,24.7186 1582.19,
+                          45.0946C 1600.52,65.4707 1618.02,87.0775 1634.7,109.915C 1586.7,
+                          105.129 1546.5,98.2229 1514.09,89.1972C 1492.3,83.1305 1474.94,
+                          79.1027 1461.99,77.1139L 1461.99,-50.3925 Z M 1697.78,264.992C 1702.63,
+                          285.292 1707.53,301.497 1712.49,313.607L 1595.72,313.607C 1600.35,
+                          302.468 1605.48,286.4 1611.11,265.402C 1619.18,235.317 1633.47,
+                          194.496 1653.98,142.941C 1676.55,196.548 1691.15,237.231 1697.78,
+                          264.992 Z M 1613.68,-12.9567C 1606.69,-38.675 1600.66,-57.8203 1595.59,
+                          -70.3925L 1712.64,-70.3925C 1707.75,-57.9466 1702.14,-39.8613 1695.83,
+                          -16.1361C 1687.08,16.7528 1673.13,55.1459 1653.98,99.0434C 1636.89,
+                          60.3425 1623.46,23.0092 1613.68,-12.9567 Z "/>
+                </Canvas>
+            </Button>
+        
+        <Label Grid.Row="3" Content="Priority:" HorizontalContentAlignment="Right" />
+
+        <ComboBox Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="3" Name="cmbPriority" 
+                       SelectionChanged="cmbPriority_SelectionChanged"  />
+
+        <Label Grid.Row="4" Content="Verbosity:"  HorizontalContentAlignment="Right" />
+        <ComboBox Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="4"  Name="cmbVerbosity"
+                       SelectionChanged="cmbVerbosity_SelectionChanged"  />
+
+    </Grid>
+</Window>

@@ -1,0 +1,2 @@
+﻿<Ellipse x:Key="SmallCircleNode" Tag="1" Width="5" Height="5" Fill="Black" HorizontalAlignment="Center"
+             VerticalAlignment="Center"/>

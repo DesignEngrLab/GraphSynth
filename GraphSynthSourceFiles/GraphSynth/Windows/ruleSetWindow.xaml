@@ -1,0 +1,78 @@
+﻿<Window x:Class="GraphSynth.UI.ruleSetWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="ruleSetWindow" Height="500" Width="325"
+        xmlns:ui="clr-namespace:GraphSynth.UI"
+        Activated="BecomeActiveSubWindow">
+    <Window.Resources>
+        <Style x:Key="CheckBoxListStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="SelectionMode" Value="Multiple"></Setter>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="{x:Type ListBoxItem}" >
+                        <Setter Property="Margin" Value="2" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <CheckBox Focusable="False"
+                                                IsChecked="{Binding Path=IsSelected, Mode=TwoWay,
+                                                 RelativeSource={RelativeSource TemplatedParent} }">
+                                        <ContentPresenter></ContentPresenter>
+                                    </CheckBox>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Name="grdMainGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ClipToBounds="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <ListBox Grid.Row="0" Name="listBoxOfRules" Margin="0,0,0,0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource CheckBoxListStyle}" MouseDoubleClick="listBoxOfRules_MouseDoubleClick" SelectionChanged="listBoxOfRules_SelectionChanged"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MinWidth="60"/>
+                <ColumnDefinition Width="*" MinWidth="68"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button  Grid.Column="0" Click="btnCheckAll_Click">Check All</Button>
+            <Button Grid.Column="1" Click="btnClearAll_Click">Uncheck All</Button>
+            <Label Grid.Column="2" Content="with checked :" />
+            <Button Grid.Column="3" Click="btnUp_Click">
+            <Path Stroke="Black" Data="M 0 10 H 20 L 10 0 Z"/>  
+            </Button>
+            <Button Grid.Column="4"  Click="btnDown_Click">
+                <Path Stroke="Black" Data="M 0 0 H 20 L 10 10 Z"/>
+            </Button>
+                <Button Grid.Column="5"  Click="btnDelete_Click">Del</Button>            
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Click="btnAddRule_Click">Add New Rules to RuleSet</Button>
+            <Button Grid.Column="1"  Click="btnSave_Click">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="15*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Save RuleSet" VerticalAlignment="Center" />
+                    <Button Grid.Column="1" Name="btnSaveRules" Click="btnSaveRules_Click" Content="and rules." ToolTip="Open and Resave all Rules" />
+                </Grid>
+            </Button>
+            <!--<CheckBox Grid.Column="1" 
+                      HorizontalAlignment="Right" Margin="3" 
+                      Name="SaveAllCheckBox" VerticalAlignment="Bottom" />-->
+        </Grid>
+    </Grid>
+</Window>

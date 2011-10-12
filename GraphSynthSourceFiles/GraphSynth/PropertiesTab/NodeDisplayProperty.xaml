@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="GraphSynth.UI.NodeDisplayProperty"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:u="clr-namespace:GraphSynth.UI;assembly=GraphSynth.CustomControls" xmlns:g="clr-namespace:GraphSynth.UI" Height="Auto" Width="Auto" Background="#fffac090">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Grid.Column" Value="0" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Grid.Column" Value="1" />
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical">
+        <u:BrushSelector x:Name="FillColorSelector" ValueChanged="FillColorSelector_ValueChanged" Label="Fill Color"/>
+        <u:BrushSelector x:Name="StrokeColorSelector" ValueChanged="StrokeColorSelector_ValueChanged" Label="Stroke Color"/>
+        <u:SldAndTextbox  x:Name="sldStrokeThickness" Label="Thickness"
+                              Maximum="20" Minimum="0"
+                              TickPlacement="BottomRight" TickFrequency="10"
+                              HorizontalAlignment="Stretch"
+                              ValueChanged="sldStrokeThickness_ValueChanged">
+            <u:SldAndTextbox.Converter>
+                <u:SliderToTextBoxTextLinearConverter SigDigs="2"/>
+            </u:SldAndTextbox.Converter>
+        </u:SldAndTextbox>
+        <u:SldAndTextbox  x:Name="sldRotation" Label="Rotation"
+                              Maximum="180" Minimum="-180"
+                              TickPlacement="BottomRight" TickFrequency="10"
+                              HorizontalAlignment="Stretch"
+                              ValueChanged="sldRotation_ValueChanged">
+            <u:SldAndTextbox.Converter>
+                <u:SliderToTextBoxTextLinearConverter SigDigs="1"/>
+            </u:SldAndTextbox.Converter>
+        </u:SldAndTextbox>
+        <Border BorderThickness="5" BorderBrush="#80ffffff" CornerRadius="8">
+            <Expander>
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Size = "/>
+                        <Label Name="lblShapeWidth" DataContext="{Binding ElementName=txtBxWidth}"
+                               Content="{Binding Path=Text}" Foreground="{Binding Path=Foreground}" />                              
+                        <Label Margin="0" Content="W   X "/>
+                        <Label Name="lblShapeHeight" DataContext="{Binding ElementName=txtBxHeight}"
+                               Content="{Binding Path=Text}" Foreground="{Binding Path=Foreground}" />
+                        <Label Content="H"/>
+                    </StackPanel> 
+                </Expander.Header>
+                <Grid Margin="24,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label>Width</Label>
+                    <TextBox Name="txtBxWidth" LostFocus="txtBxWidth_LostFocus"  KeyUp="txtBxWidth_KeyUp"/>
+
+                    <Label Grid.Row="1">Height</Label>
+                    <TextBox Grid.Row="1" Name="txtBxHeight" LostFocus="txtBxHeight_LostFocus"
+                             KeyUp="txtBxHeight_KeyUp"/>
+                </Grid>
+            </Expander>
+        </Border>
+        <g:ElementalTextControl x:Name="textPrpt"  />
+    </StackPanel>
+</UserControl>
+
+ 

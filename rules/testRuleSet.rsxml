@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ruleSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ruleFileNames>
+    <string>Rules12152009\CommonAlternatorRule_&amp;brush2&amp;brush_spring2&amp;brush_holder.grxml</string>
+    <string>Rules12152009\CommonAlternatorRule_&amp;fan.grxml</string>
+    <string>Rules12152009\CommonAlternatorRule_&amp;front_bearing.grxml</string>
+    <string>Rules12152009\CommonAlternatorRule_&amp;pulley.grxml</string>
+    <string>Rules12152009\CommonAlternatorRule_&amp;regulator.grxml</string>
+    <string>Rules12152009\CommonAlternatorRule_&amp;rotor.grxml</string>
+    <string>Rules12152009\CommonAlternatorRule_&amp;shaft.grxml</string>
+    <string>Rules12152009\CommonAlternatorRule_&amp;stator.grxml</string>
+    <string>Rules12152009\HairDryerRule_&amp;ElectricActuatedSwitch.grxml</string>
+    <string>Rules12152009\HairDryerRule_&amp;Fan.grxml</string>
+    <string>Rules12152009\HairDryerRule_&amp;HeatingElement.grxml</string>
+    <string>Rules12152009\HairDryerRule_&amp;HeatingElementWire.grxml</string>
+    <string>Rules12152009\HairDryerRule_&amp;Motor.grxml</string>
+    <string>Rules12152009\HairDryerRule_&amp;MotorWire.grxml</string>
+    <string>Rules12152009\HairDryerRule_&amp;PowerCord.grxml</string>
+    <string>Rules12152009\HydraulicJackRule_&amp;big_lock_ring1&amp;pin_3&amp;bar_1&amp;bolt_1&amp;big_nut50&amp;big_nut51&amp;big_lock_washer58&amp;big_lo&amp;etc_.grxml</string>
+    <string>Rules12152009\HydraulicJackRule_&amp;constraint_pin_2&amp;handle_socket&amp;constraint_pin1.grxml</string>
+    <string>Rules12152009\HydraulicJackRule_&amp;hydraulic.grxml</string>
+    <string>Rules12152009\HydraulicJackRule_&amp;jack_handle.grxml</string>
+    <string>Rules12152009\HydraulicJackRule_&amp;pin_4&amp;pin_5&amp;pump_plunger.grxml</string>
+    <string>Rules12152009\HydraulicJackRule_&amp;small_lock_ring16&amp;small_lock_ring18&amp;pin_1&amp;bar_2&amp;bar_3&amp;bar_4.grxml</string>
+    <string>Rules12152009\LycomingT53TurbineRule_&amp;combustion_chamber.grxml</string>
+    <string>Rules12152009\LycomingT53TurbineRule_&amp;compressor_rotor.grxml</string>
+    <string>Rules12152009\LycomingT53TurbineRule_&amp;diffuser_housing.grxml</string>
+    <string>Rules12152009\LycomingT53TurbineRule_&amp;first_stage_turbine_nozzle_and_flange&amp;power_turbine_nozzle_and_cylinder.grxml</string>
+    <string>Rules12152009\LycomingT53TurbineRule_&amp;first_stage_turbine_rotor.grxml</string>
+    <string>Rules12152009\LycomingT53TurbineRule_&amp;overspeed_governor_and_tachometer_drive.grxml</string>
+    <string>Rules12152009\LycomingT53TurbineRule_&amp;propeller_reduction_sungear.grxml</string>
+    <string>Rules12152009\LycomingT53TurbineRule_&amp;reduction_gear.grxml</string>
+    <string>Rules12152009\PortableAirCompressorRule_&amp;main_power_switch.grxml</string>
+    <string>Rules12152009\PortableAirCompressorRule_&amp;power_cord.grxml</string>
+    <string>Rules12152009\PortableAirCompressorRule_&amp;power_switch_cable28.grxml</string>
+    <string>Rules12152009\PortableAirCompressorRule_&amp;pressure_gauge.grxml</string>
+    <string>Rules12152009\PortableAirCompressorRule_&amp;pressure_release_valve&amp;pressure_gauge_hose.grxml</string>
+    <string>Rules12152009\ProctorToasterRule_&amp;adjusting_knob_lock_spring&amp;adjusting_knob.grxml</string>
+    <string>Rules12152009\ProctorToasterRule_&amp;bread_lifter_knob_base&amp;bread_lifter_knob_cap&amp;bread_lifter_knob_nut_plate&amp;bread&amp;etc_.grxml</string>
+    <string>Rules12152009\ProctorToasterRule_&amp;contact_lifter_bracket&amp;crank_assembly&amp;latch_keeper_assembly&amp;jam_plate_spring&amp;c&amp;etc_.grxml</string>
+    <string>Rules12152009\ProctorToasterRule_&amp;cord_set.grxml</string>
+    <string>Rules12152009\ProctorToasterRule_&amp;element_assembly.grxml</string>
+    <string>Rules12152009\ProctorToasterRule_&amp;thermostat_frame_assembly.grxml</string>
+    <string>Rules12152009\SquirtGunRule_&amp;pump_handle43&amp;pump_handle44.grxml</string>
+    <string>Rules12152009\SquirtGunRule_&amp;shoulder_strap&amp;clamp_ring&amp;case71&amp;case72.grxml</string>
+    <string>Rules12152009\StanleyStapleGunRule_&amp;circuit_board.grxml</string>
+    <string>Rules12152009\StanleyStapleGunRule_&amp;plug_in_cord.grxml</string>
+    <string>Rules12152009\StanleyStapleGunRule_&amp;power_level_adjuster_crank&amp;tigger_switch_board&amp;power_level_adjuster_knob.grxml</string>
+    <string>Rules12152009\StanleyStapleGunRule_&amp;wire_electromagnet&amp;wire_trigger&amp;wire_safetyswitch&amp;wire_onoff.grxml</string>
+    <string>Rules12152009\SubmarineWaterPumpRule_&amp;case.grxml</string>
+    <string>Rules12152009\SubmarineWaterPumpRule_&amp;gasket.grxml</string>
+    <string>Rules12152009\SubmarineWaterPumpRule_&amp;impeller_key&amp;impeller&amp;impeller_nut.grxml</string>
+    <string>Rules12152009\SubmarineWaterPumpRule_&amp;pulley_key.grxml</string>
+    <string>Rules12152009\SubmarineWaterPumpRule_&amp;shaft.grxml</string>
+    <string>Rules12152009\SubmarineWaterPumpRule_&amp;suction_head.grxml</string>
+    <string>Rules12152009\SubmarineWaterPumpRule_&amp;thrust_bearing.grxml</string>
+    <string>Rules12152009\TroyBiltLeafBlowerRule_&amp;Impeller.grxml</string>
+    <string>Rules12152009\TroyBiltLeafBlowerRule_&amp;motor.grxml</string>
+    <string>Rules12152009\TroyBiltLeafBlowerRule_&amp;nozzle1.grxml</string>
+    <string>Rules12152009\TroyBiltLeafBlowerRule_&amp;nozzle2.grxml</string>
+    <string>Rules12152009\TroyBiltLeafBlowerRule_&amp;onOffSwitch.grxml</string>
+    <string>Rules12152009\TroyBiltLeafBlowerRule_&amp;powerCord.grxml</string>
+    <string>Rules12152009\TroyBiltLeafBlowerRule_&amp;vacuumDoor&amp;spring.grxml</string>
+    <string>Rules12152009\VWBugCarburetorRule_&amp;electromagnetic_cutoff_valve.grxml</string>
+    <string>Rules12152009\VWBugCarburetorRule_&amp;gasket.grxml</string>
+    <string>Rules12152009\VWBugCarburetorRule_&amp;plastic_cap&amp;choke_heating_element&amp;cover_retaining_ring.grxml</string>
+    <string>Rules12152009\VWBugCarburetorRule_&amp;throttle_butterfly_valve.grxml</string>
+    <string>Rules12152009\VWBugCarburetorRule_&amp;throttle_return_spring.grxml</string>
+    <string>Rules12152009\VWBugCarburetorRule_&amp;throttle_valve_lever.grxml</string>
+    <string>Rules12152009\VWBugCarburetorRule_&amp;upper_body.grxml</string>
+    <string>Rules12152009\VWBugCarburetorRule_&amp;vacuum_diaphragm_cover&amp;vacuum_diaphragm_spring&amp;vacuum_diaphragm.grxml</string>
+    <string>Old-Skool Rulez\CommonAlternatorRule_n1.grxml</string>
+    <string>Old-Skool Rulez\CommonAlternatorRule_n2.grxml</string>
+    <string>Old-Skool Rulez\CommonAlternatorRule_n3.grxml</string>
+    <string>Old-Skool Rulez\CommonAlternatorRule_n5.grxml</string>
+    <string>Old-Skool Rulez\CommonAlternatorRule_n6.grxml</string>
+    <string>Old-Skool Rulez\CommonAlternatorRule_n7.grxml</string>
+    <string>Old-Skool Rulez\CommonAlternatorRule_n8.grxml</string>
+    <string>Old-Skool Rulez\CommonAlternatorRule_n9.grxml</string>
+    <string>Old-Skool Rulez\CommonAlternatorRule_n10.grxml</string>
+    <string>Old-Skool Rulez\HairDryerRule_n1.grxml</string>
+    <string>Old-Skool Rulez\HairDryerRule_n4.grxml</string>
+    <string>Old-Skool Rulez\HairDryerRule_n5.grxml</string>
+    <string>Old-Skool Rulez\HairDryerRule_n6.grxml</string>
+    <string>Old-Skool Rulez\HairDryerRule_n7.grxml</string>
+    <string>Old-Skool Rulez\HairDryerRule_n8.grxml</string>
+    <string>Old-Skool Rulez\HairDryerRule_n9.grxml</string>
+    <string>Old-Skool Rulez\HairDryerRule_n10.grxml</string>
+    <string>Old-Skool Rulez\HairDryerRule_n11.grxml</string>
+    <string>Old-Skool Rulez\HairDryerRule_n12.grxml</string>
+    <string>Old-Skool Rulez\HairDryerRule_n13.grxml</string>
+    <string>Old-Skool Rulez\HairDryerRule_n15.grxml</string>
+    <string>Old-Skool Rulez\HairDryerRule_n16.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n1.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n2.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n3.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n4.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n5.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n6.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n7.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n8.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n9.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n10.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n11.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n12.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n13.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n14.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n15.grxml</string>
+    <string>Old-Skool Rulez\HydraulicJackRule_n16.grxml</string>
+    <string>Old-Skool Rulez\LycomingT53TurbineRule_n1.grxml</string>
+    <string>Old-Skool Rulez\LycomingT53TurbineRule_n2.grxml</string>
+    <string>Old-Skool Rulez\LycomingT53TurbineRule_n4.grxml</string>
+    <string>Old-Skool Rulez\LycomingT53TurbineRule_n5.grxml</string>
+    <string>Old-Skool Rulez\LycomingT53TurbineRule_n6.grxml</string>
+    <string>Old-Skool Rulez\LycomingT53TurbineRule_n7.grxml</string>
+    <string>Old-Skool Rulez\LycomingT53TurbineRule_n8.grxml</string>
+    <string>Old-Skool Rulez\LycomingT53TurbineRule_n9.grxml</string>
+    <string>Old-Skool Rulez\LycomingT53TurbineRule_n11.grxml</string>
+    <string>Old-Skool Rulez\LycomingT53TurbineRule_n12.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n1.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n3.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n4.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n5.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n7.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n11.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n12.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n13.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n14.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n15.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n16.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n17.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n18.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n19.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n20.grxml</string>
+    <string>Old-Skool Rulez\PortableAirCompressorRule_n22.grxml</string>
+    <string>Old-Skool Rulez\ProctorToasterRule_n1.grxml</string>
+    <string>Old-Skool Rulez\ProctorToasterRule_n2.grxml</string>
+    <string>Old-Skool Rulez\ProctorToasterRule_n3.grxml</string>
+    <string>Old-Skool Rulez\ProctorToasterRule_n4.grxml</string>
+    <string>Old-Skool Rulez\ProctorToasterRule_n6.grxml</string>
+    <string>Old-Skool Rulez\ProctorToasterRule_n7.grxml</string>
+    <string>Old-Skool Rulez\ProctorToasterRule_n10.grxml</string>
+    <string>Old-Skool Rulez\ProctorToasterRule_n11.grxml</string>
+    <string>Old-Skool Rulez\ProctorToasterRule_n12.grxml</string>
+    <string>Old-Skool Rulez\ProctorToasterRule_n13.grxml</string>
+    <string>Old-Skool Rulez\ProctorToasterRule_n14.grxml</string>
+    <string>Old-Skool Rulez\ProctorToasterRule_n15.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n1.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n2.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n3.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n4.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n5.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n6.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n7.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n8.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n9.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n10.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n11.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n12.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n13.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n14.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n15.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n16.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n17.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n18.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n19.grxml</string>
+    <string>Old-Skool Rulez\SquirtGunRule_n20.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n3.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n5.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n6.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n7.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n10.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n11.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n12.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n13.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n14.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n15.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n16.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n17.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n18.grxml</string>
+    <string>Old-Skool Rulez\StanleyStapleGunRule_n24.grxml</string>
+    <string>Old-Skool Rulez\SubmarineWaterPumpRule_n1.grxml</string>
+    <string>Old-Skool Rulez\SubmarineWaterPumpRule_n2.grxml</string>
+    <string>Old-Skool Rulez\SubmarineWaterPumpRule_n3.grxml</string>
+    <string>Old-Skool Rulez\SubmarineWaterPumpRule_n4.grxml</string>
+    <string>Old-Skool Rulez\SubmarineWaterPumpRule_n6.grxml</string>
+    <string>Old-Skool Rulez\SubmarineWaterPumpRule_n7.grxml</string>
+    <string>Old-Skool Rulez\SubmarineWaterPumpRule_n8.grxml</string>
+    <string>Old-Skool Rulez\TroyBiltLeafBlowerRule_n1.grxml</string>
+    <string>Old-Skool Rulez\TroyBiltLeafBlowerRule_n3.grxml</string>
+    <string>Old-Skool Rulez\TroyBiltLeafBlowerRule_n4.grxml</string>
+    <string>Old-Skool Rulez\TroyBiltLeafBlowerRule_n5.grxml</string>
+    <string>Old-Skool Rulez\TroyBiltLeafBlowerRule_n6.grxml</string>
+    <string>Old-Skool Rulez\TroyBiltLeafBlowerRule_n7.grxml</string>
+    <string>Old-Skool Rulez\TroyBiltLeafBlowerRule_n8.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n1.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n2.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n3.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n4.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n5.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n6.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n7.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n9.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n10.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n11.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n12.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n13.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n14.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n15.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n16.grxml</string>
+    <string>Old-Skool Rulez\VWBugCarburetorRule_n18.grxml</string>
+  </ruleFileNames>
+  <nextGenerationStep>
+    <nextGenerationSteps>Loop</nextGenerationSteps>
+    <nextGenerationSteps>Stop</nextGenerationSteps>
+    <nextGenerationSteps>Stop</nextGenerationSteps>
+    <nextGenerationSteps>Stop</nextGenerationSteps>
+    <nextGenerationSteps>Stop</nextGenerationSteps>
+  </nextGenerationStep>
+  <name>testRuleSet</name>
+  <TriggerRuleNum>0</TriggerRuleNum>
+  <choiceMethod>Design</choiceMethod>
+  <interimCandidates>Unspecified</interimCandidates>
+  <finalCandidates>Unspecified</finalCandidates>
+  <recognizeSourceFiles />
+  <applySourceFiles />
+  <generationAfterNormal>Loop</generationAfterNormal>
+  <generationAfterChoice>Stop</generationAfterChoice>
+  <generationAfterCycleLimit>Stop</generationAfterCycleLimit>
+  <generationAfterNoRules>Stop</generationAfterNoRules>
+  <generationAfterTriggerRule>Stop</generationAfterTriggerRule>
+</ruleSet>

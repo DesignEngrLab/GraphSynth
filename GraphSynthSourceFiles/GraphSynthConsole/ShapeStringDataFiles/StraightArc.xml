@@ -1,0 +1,5 @@
+﻿<Path Tag="t" Stroke="Black" StrokeThickness="1">
+  <Path.Data>
+    <PathGeometry Figures="M 0, 0 L 1,1" />
+  </Path.Data>
+</Path>

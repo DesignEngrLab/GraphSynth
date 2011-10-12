@@ -1,0 +1,81 @@
+﻿<Window x:Class="GraphSynth.UI.graphWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gd="clr-namespace:GraphSynth.GraphDisplay;assembly=GraphSynth.CustomControls"
+        xmlns:ui="clr-namespace:GraphSynth.UI"
+        Height="350" Width="350" Activated="BecomeActiveSubWindow"
+        SizeChanged="Window_SizeChanged" Loaded="Window_Loaded">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseWheel="GlobalText_MouseWheel">
+        <StackPanel Orientation="Horizontal">
+            <Label Name="lblLabels" Content="Labels: "/>
+            <TextBox Name="txtGlobalLabels" BorderBrush="#80808080" BorderThickness="1" MinWidth="12"
+                         LostFocus="txtGlobalLabels_LostFocus" TextChanged="txtGlobal_TextChanged"
+                         KeyUp="txtGlobalLabels_KeyUp"/>
+            <Label Name="lblVariables" Content="Variables: "/>
+            <TextBox Name="txtGlobalVariables" BorderBrush="#80808080" BorderThickness="1" MinWidth="12"
+                         LostFocus="txtGlobalVariables_LostFocus" TextChanged="txtGlobal_TextChanged"
+                         KeyUp="txtGlobalVariables_KeyUp"/>
+
+        </StackPanel>
+            
+        </Grid>
+        <ScrollViewer Name="scrollViewer1" VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto" CanContentScroll="False">
+            <Grid>
+                <!-- for some unknown reason, it is important to define a single row and column
+                    for the GraphGUI to work correctly-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <gd:GraphGUI x:Name="graphGUI" />
+            </Grid>
+        </ScrollViewer>
+
+    </DockPanel>
+
+    <!--<Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="OpenOnExecuted" />
+        <CommandBinding Command="ApplicationCommands.Save" Executed="SaveOnExecuted" />
+        <CommandBinding Command="ApplicationCommands.Close" Executed="CloseOnExecuted" />
+        <CommandBinding Command="ApplicationCommands.Cut" CanExecute="CopyOrCutCanExecute"
+                        Executed="CutOnExecuted" />
+        <CommandBinding Command="ApplicationCommands.Copy" CanExecute="CopyOrCutCanExecute"
+                        Executed="CopyOnExecuted" />
+        <CommandBinding Command="ApplicationCommands.Paste" CanExecute="PasteCanExecute" 
+                        Executed="PasteOnExecuted" />
+        <CommandBinding Command="ApplicationCommands.Delete" 
+                        Executed="DeleteOnExecuted" />
+        <CommandBinding Command="ApplicationCommands.SelectAll" Executed="SelectAllOnExecuted" />
+        <CommandBinding Command="ApplicationCommands.Help" Executed="HelpOnExecuted" />
+        <CommandBinding Command="ApplicationCommands.Properties" Executed="PropertiesOnExecuted"/>
+        <CommandBinding Command="{x:Static ui:graphWindow.NewGraphCommand}" 
+                    Executed="NewGraph_ClickOnExecuted" />
+        <CommandBinding Command="{x:Static ui:graphWindow.NewGrammarRuleCommand}"
+                        Executed="NewGrammarRule_ClickOnExecuted" />
+        <CommandBinding Command="{x:Static ui:graphWindow.NewRuleSetCommand}"
+                        Executed="NewRuleSet_ClickOnExecuted" />
+        <CommandBinding Command="{x:Static ui:graphWindow.CloseActiveWindowCommand}"
+                        Executed="CloseActiveWindow_ClickOnExecuted" />
+        <CommandBinding Command="{x:Static ui:graphWindow.CloseAllOpenGraphsCommand}"
+                        Executed="CloseAllOpenGraphs_ClickOnExecuted"                       />
+        <CommandBinding Command="{x:Static ui:graphWindow.ExitCommand}"
+                        Executed="ExitOnExecuted" />
+        <CommandBinding Command="{x:Static ui:graphWindow.RefreshCommand}"
+                        Executed="RefreshOnExecuted" />
+        <CommandBinding Command="{x:Static ui:graphWindow.SettingsCommand}"
+                        Executed="SettingsOnExecuted" />
+        <CommandBinding Command="{x:Static ui:graphWindow.AboutGraphSynthCommand}"
+                        Executed="AboutGraphSynthOnExecuted" />
+        <CommandBinding Command="{x:Static ui:graphWindow.MinimizeAllCommand}"
+                        Executed="MinimizeOnExecuted"
+                        CanExecute="MinimizeCanExecute"/>
+        <CommandBinding Command="{x:Static ui:graphWindow.MaximizeAllCommand}"
+                        Executed="MaximizeOnExecuted"
+                        CanExecute="MaximizeCanExecute"/>
+    </Window.CommandBindings>-->
+
+</Window>

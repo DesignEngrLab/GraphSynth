@@ -1,0 +1,31 @@
+﻿<Page Background="#FF000000" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+mc:Ignorable="GraphSynth" xmlns:GraphSynth="ignorableUri" Tag="Rule" >
+  <Border BorderThickness="1,1,1,1" BorderBrush="#FFA9A9A9" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="300" />
+        <ColumnDefinition Width="6" />
+        <ColumnDefinition Width="300" />
+        <ColumnDefinition Width="6" />
+        <ColumnDefinition Width="300" />
+      </Grid.ColumnDefinitions>
+      <GridSplitter ShowsPreview="True" Width="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" />
+      <GridSplitter ShowsPreview="True" Width="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" />
+      <ScrollViewer CanContentScroll="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Tag="L" Grid.Column="0">
+        <Canvas Background="#FFFFFFFF" Width="454.545454545455" Height="454.545454545455" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransform="1,0,0,-1,0,454.545454545455">
+ <!--insert L shapes here.-->
+        </Canvas>
+      </ScrollViewer>
+      <ScrollViewer CanContentScroll="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Tag="K" Grid.Column="2">
+        <Canvas Background="#FFFFFFFF" Width="454.545454545455" Height="454.545454545455" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransform="1,0,0,-1,0,454.545454545455">
+          <!--insert K shapes here.-->
+        </Canvas>
+      </ScrollViewer>
+      <ScrollViewer CanContentScroll="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Tag="R" Grid.Column="4">
+        <Canvas Background="#FFFFFFFF" Width="454.545454545455" Height="454.545454545455" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransform="1,0,0,-1,0,454.545454545455">
+          <!--insert R shapes here.-->
+        </Canvas>
+      </ScrollViewer>
+    </Grid>
+  </Border>
+</Page>

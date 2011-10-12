@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammarRule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <name>completing rule</name>
+  <spanning>false</spanning>
+  <induced>true</induced>
+  <negateLabels />
+  <containsAllGlobalLabels>true</containsAllGlobalLabels>
+  <embeddingRules />
+  <recognizeFunctions />
+  <applyFunctions />
+  <L>
+    <globalLabels>
+      <string>H</string>
+    </globalLabels>
+    <globalVariables />
+    <nodes>
+      <node xsi:type="ruleNode">
+        <name>city1</name>
+        <localLabels>
+          <string>a</string>
+        </localLabels>
+        <localVariables />
+        <shapekey>largeCircleNode.-2715310.30.30</shapekey>
+        <screenX>53</screenX>
+        <screenY>66</screenY>
+        <containsAllLocalLabels>false</containsAllLocalLabels>
+        <strictDegreeMatch>false</strictDegreeMatch>
+        <negateLabels />
+      </node>
+      <node xsi:type="ruleNode">
+        <name>city2</name>
+        <localLabels>
+          <string>a</string>
+        </localLabels>
+        <localVariables />
+        <shapekey>largeCircleNode.-2715310.30.30</shapekey>
+        <screenX>145</screenX>
+        <screenY>136</screenY>
+        <containsAllLocalLabels>false</containsAllLocalLabels>
+        <strictDegreeMatch>false</strictDegreeMatch>
+        <negateLabels />
+      </node>
+    </nodes>
+    <arcs />
+  </L>
+  <R>
+    <globalLabels>
+      <string>H</string>
+    </globalLabels>
+    <globalVariables />
+    <nodes>
+      <node xsi:type="ruleNode">
+        <name>city1</name>
+        <localLabels>
+          <string>a</string>
+        </localLabels>
+        <localVariables />
+        <shapekey>largeCircleNode.-2715310.30.30</shapekey>
+        <screenX>69.78439</screenX>
+        <screenY>74.6400757</screenY>
+        <containsAllLocalLabels>false</containsAllLocalLabels>
+        <strictDegreeMatch>false</strictDegreeMatch>
+        <negateLabels />
+      </node>
+      <node xsi:type="ruleNode">
+        <name>city2</name>
+        <localLabels>
+          <string>a</string>
+        </localLabels>
+        <localVariables />
+        <shapekey>largeCircleNode.-2715310.30.30</shapekey>
+        <screenX>133.01886</screenX>
+        <screenY>129.311691</screenY>
+        <containsAllLocalLabels>false</containsAllLocalLabels>
+        <strictDegreeMatch>false</strictDegreeMatch>
+        <negateLabels />
+      </node>
+    </nodes>
+    <arcs>
+      <arc xsi:type="ruleArc">
+        <name>a1</name>
+        <localLabels />
+        <localVariables />
+        <toConnector>0</toConnector>
+        <fromConnector>0</fromConnector>
+        <styleKey>Straight.-16777216.1.0</styleKey>
+        <directed>false</directed>
+        <doublyDirected>false</doublyDirected>
+        <From>city1</From>
+        <To>city2</To>
+        <containsAllLocalLabels>false</containsAllLocalLabels>
+        <directionIsEqual>false</directionIsEqual>
+        <nullMeansNull>false</nullMeansNull>
+        <negateLabels />
+      </arc>
+    </arcs>
+  </R>
+</grammarRule>

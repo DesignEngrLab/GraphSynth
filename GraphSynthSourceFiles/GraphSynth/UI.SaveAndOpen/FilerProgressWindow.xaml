@@ -1,0 +1,24 @@
+﻿<Window x:Class="GraphSynth.UI.FilerProgressWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen" Width="400" Height="138">
+    <StackPanel VerticalAlignment="Center" Name="stackContent" Orientation="Vertical">
+        <Label Name="lblopen1"/>
+        <ProgressBar Name="progressBar1" Height="15" />
+        <Label Name="lblopen2"/>
+        <ProgressBar Name="progressBar2" Height="15" />
+        <Grid Height="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Name="txtStatus" Margin="3" Grid.Column="0" TextWrapping="Wrap" HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch">
+                   File operation in progress.</TextBlock>
+            <StackPanel Name="stackButtons" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
+                <Button Name="btnYesOK" Height="30" Click="btnYesOK_Click">Yes</Button>
+                <Button Name="btnNoCancel" Height="30" Click="btnNoCancel_Click">Cancel</Button>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>

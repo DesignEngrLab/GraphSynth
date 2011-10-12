@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<InstallData>
+  <Version>2.1.11.00</Version>
+  <Change>Added negative elements to grammar rule.</Change>
+  <Change>Changes to make compatible with Linux.</Change>
+  <Change>fixed transferLMappingToChild in SearchProcess.cs (to account for hyperarcs and negative elements).</Change>
+  <Version>2.1.10.25</Version>
+  <Change>Many fixes to get console version up and running.</Change>
+  <Change>Changed SearchIO.output to print quicker.</Change>
+  <Version>2.1.10.21</Version>
+  <Change>Many updates completed for cross-platform compatibility.</Change>
+  <Change>Paste: auto-renames elements, position retain in rule.</Change>
+  <Change>
+    Big changes to the way settings are stored. Sorry, this is not backward compatible!\n
+    You will need to redo all settings.
+  </Change>
+  <Change>fixed a problem with nodes at NaN rule</Change>
+  <Change>fixed a problem with old AutoLayout attribute in CanvasProperty</Change>  <Version>2.1.10.05</Version>
+  <Change>Many updates completed for cross-platform compatibility.</Change>
+  <Change>Paste: auto-renames elements, position retain in rule.</Change>
+  <Change>Big changes to the way settings are stored. Sorry, this is not backward compatible!\n
+  You will need to redo all settings.</Change>
+  <Change>fixed a problem with nodes at NaN rule</Change>
+  <Change>fixed a problem with old AutoLayout attribute in CanvasProperty</Change>
+  <Version>2.1.10.0</Version>
+  <Change>fixed a problem with trigger rule</Change>
+  <Change>fixed a problem with recognize in hyperarcs (hopefully the last)</Change>
+  <Change>undo/redo working for graphs working now (not yet for rules)</Change>
+  <Change>finished first pass of GraphSynthConsole project.</Change>
+  <Change>added property to hyperarc to retrieve all intra-connected arcs (IntraArcs)</Change>
+  <Change>added function to rule to Reorder nodes to avoid rare problems with collinear nodes</Change>
+  <Change>added ability in rule to deal with collinear nodes</Change>
+  <Change>fixed arc stroke from always being black</Change>
+  <Change>simplified the need to StarMath - just took the 3 functions needed in</Change>
+  <Change>grammarRule and put them in a file in Representation.</Change>
+  <Version>2.1.9.7</Version>
+  <Change>fixed a problem with recognize in hyperarcs (hopefully the last)</Change>
+  <Change>undo/redo working for graphs fixed problem with small node selection</Change>
+  <Version>2.1.9.4</Version>
+  <Change>fixed problem with small node selection</Change>
+  <Change>fixed problem with human choose automatically undo-ing</Change>
+  <Change>fixed problem with inferred arc.</Change>
+  <Change>fixed problem representation->arc - when arc is connected to self.</Change>
+  <Version>2.1.9.0</Version>
+  <Change>added many graph layout algorithms</Change>
+  <Change>many fixes to hyperarc control in graphs, grammar rules, and in the GUI. </Change>
+  <Change>icons now disappear when your mouse leaves a graph window</Change>
+  <Change>in rule element name change - no need to press confirm - also can hit enter </Change>
+  <Change>adding an option to run recognition in series </Change>
+  <Change>unique text positioning now possible for nodes, arcs, and hyperarcs</Change>
+  <Change>started undo/redo but far to go</Change>
+  <Change>fixing display property controls. Fixed SldAndTextbox.xaml.cs. </Change>
+  <Change>ruleset do update their rules when they say they do! (no need to re-save rulesets or the seed, but you do need to re-save the rules that are a part of the rulesets). </Change>
+  <Change>Selection behavior re-written, optimized. Was a big limitation for large graphs.</Change>
+  <Version>2.1.5.1</Version>
+  <Change>FolderBrowserDialog wasn't selecting quite right. Fixed.</Change>
+  <Version>2.1.5.0</Version>
+  <Change>Finally put in FolderBrowserDialog as opposed to OpenFileDialog</Change>
+  <Change>Fixed long standing problem with loading plugins and their dependencies.</Change>
+  <Change>A new look for node icons. No more need for user set icon opacity. Now set by how close mouse is to object.</Change>
+  <Change>Change to GraphDisplay - removing inconsistencies and inefficiencies.</Change>
+  <Change>GraphDisplay: mouseLocation condensed to a single property.</Change>
+  <Change>Removed ArcDisplayShape.cs and HyperArcDisplayShape.cs in favor of a single DisplayShape.</Change>
+  <Change>Improvements to grammarRule.RecognizeApply. Cleaner, faster.</Change>
+  <Change>HyperArc code is complete in lower dll's. Still need to develop at UI level.</Change>
+  <Change>Improved inefficiency (potential bug) in RCA when applying more than one rule.</Change>
+  <Change>Gglobal settings now includes seedCanvas which becomes the program-wide default.</Change>
+  <Change>Introduced Lindenmayer choose.</Change>
+  <Change>
+    Representation project now includes common RCA overloads for use in user-generated plug-ins:
+    random, random with undo, and lindenmayer choose!
+  </Change>
+  <Change>Added global label check in option->isConfluentWith</Change>
+  <Change>Fixed otherArcsInHost function which is used by Induced constraint; now includes hyperarc check.</Change>
+  <Version>2.1.3.31</Version>
+  <Change>Small fix in minimizing/restoring windows (Ctrl+M now works again. Try it!).</Change>
+  <Version>2.1.3.30</Version>
+  <Change>Replaced lastNode and lastArc with new Linq, Last() function.</Change>
+  <Change>Improved arc controllers. Circle arc in rule still has problem with CW and CCW but doesn't crash.</Change>
+  <Change>Small fix in find valid transform in grammar rule (projection and translation checks were not correct for OnlyX and OnlyY).</Change>
+  <Change>Fixed the most egregious error in option.isConfluentWith. Before it would change the rule, when comparing K-labels. It is fixed now.</Change>
+  <Version>2.1.3.28</Version>
+  <Change>small bug fixes to bug fixes.</Change>
+  <Version>2.1.3.27</Version>
+  <Change>fixed problems with adding arcs.</Change>
+  <Change>improved SaveCandidates class.</Change>
+  <Version>2.1.3.26</Version>
+  <Change>candidate.copy updated to include designParameters .</Change>
+  <Change>lots of ReSharper-izing to code - perhaps a bit quicker now(?).</Change>
+  <Version>2.1.3.25</Version>
+  <Change>bug fix in parallel search for locations</Change>
+  <Change>added designParameters to candidate.</Change>
+  <Change>improved candidate save such that the graph is in another file.</Change>
+  <Version>2.1.3.24</Version>
+  <Change>bug fix in copying graphs with dangling arcs (this time correct!).</Change>
+  <Change>added feature: F2 to quickly get to arc/node labels.</Change>
+  <Change>added feature: F1, or Help now opens browser to living documentation at graphsynth.com.</Change>
+  <Version>2.1.3.23</Version>
+  <Change>improved compiling errors for additional functions</Change>
+  <Change>bug fix in copying graphs with dangling arcs.</Change>
+  <Change>bug fix in isConfluentWith.</Change>
+  <Version>2.1.3.22</Version>
+  <Change>bug fix in WinCollection that would cause crash on some machines</Change>
+  <Change>bug fix on opening and using other ruleset.</Change>
+  <Change>more updates in StarMath.</Change>
+  <Change>bug fix in GraphSynth.Representation - graph.MaxDegree.</Change>
+  <Version>2.1.3.21</Version>
+  <Change>bug fixes in the loading of config files and plugins.</Change>
+  <Change>update to StarMath.</Change>
+  <Version>2.1.3.20</Version>
+  <Change>the "improved" error catcher was crashing. now fixed.</Change>
+  <Change>fixed common bug in showing multiple identical graphs.</Change>
+  <Change>bug fix on old ruleset settings.</Change>
+  <Version>2.1.3.19</Version>
+  <Change>more improvements to RecognizeChooseAndApply.</Change>
+  <Change>added suppress warnings in save.</Change>
+  <Version>2.1.3.18</Version>
+  <Change>Re-wrote functions in RecognizeChooseAndApply.</Change>
+  <Change>Improved error catching.</Change>
+  <Version>2.1.3.17</Version>
+  <Change>Proper try-catch blocks on user-created recognize and apply functions.</Change>
+  <Change>Better presentation of errors produced by user-created recognize and apply functions.</Change>
+  <Version>2.1.3.16</Version>
+  <Change>Small change to ensure that arcs save properly.</Change>
+  <Change>Updated StarMath to match recent changes at starmath.codeplex.com.</Change>
+  <Version>2.1.3.15</Version>
+  <Change>Random choose now properly reads in user input.</Change>
+  <Change>Change additional recognize functions to see rule and shape transform.</Change>
+  <Change>In ruleset, save rules button is now fixed.</Change>
+  <Change>Problems with comma vs. dot as decimal separator fixed! You're welcome Europe.</Change>
+  <Version>2.1.3.12</Version>
+  <Change>Fixed access level (private to protected) for inherited members of SearchProcess.</Change>
+  <Change>Fixed apply node/arc formatting in rules.</Change>
+  <Version>2.1.3.11</Version>
+  <Change>More robust multi-threaded approach to checking for update.</Change>
+  <Change>New approach to applying node/arc formatting.</Change>
+  <Version>2.1.3.10</Version>
+  <Change>Fixed iconArc and text in graph when changing to a different controller.</Change>
+  <Change>Width of R-window now correct when viewing rule as a xaml file.</Change>
+  <Version>2.1.3.9</Version>
+  <Change>Fixed in avoiding bug with new arc-controllers (orig. it will have a null for parent).</Change>
+  <Change>Small fix in designGraph.checkForRepeatNames.</Change>
+  <Change>Circle arc shapes now preserved on save.</Change>
+  <Version>2.1.3.8</Version>
+  <Change>Install now works (hopefully) for both 32- and 64-bit.</Change>
+  <Change>Prevented problems with rule updating (still some issues with arc-icons).</Change>
+  <Version>2.1.3.7</Version>
+  <Change>Fixed problem rule updating shapes.</Change>
+  <Change>Improved opening and saving of gsconfig files (now with save as).</Change>
+  <Change>Improved look of User Choose Window.</Change>
+  <Version>2.1.3.4</Version>
+  <Change>Fixed problem with security issues and saving confg file.</Change>
+  <Version>2.1.3.3</Version>
+  <Change>Allowed Search Plugins to no longer require constructors.</Change>
+  <Version>2.1.3.0</Version>
+  <Change>Finished Random Chooser plugin and dialog.</Change>
+  <Change>Finished User Chooser plugin and dialog - with confluence!</Change>
+  <Version>2.1.2.0</Version>
+  <Change>This is the first update using a new approach.</Change>
+</InstallData>

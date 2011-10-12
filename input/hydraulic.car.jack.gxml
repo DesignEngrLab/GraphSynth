@@ -1,0 +1,1674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<designGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<name>summer2009/hydraulic car jack.repo</name>
+<globalLables />
+<globalVariables />
+<nodes>
+<node>
+<name>big_spring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="spring" ArtifactCreationDate="2009-06-05" ArtifactDescription="returns lifting arm back to original position upon opening the air release valve" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big spring" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bigspring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.651" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="1.95" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="4.9" />
+</opt>
+</node>
+<node>
+<name>big_spring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="spring" ArtifactCreationDate="2009-06-05" ArtifactDescription="returns lifting arm back to original position upon opening the air release valve" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big spring" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bigspring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.651" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="1.95" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="4.9" />
+</opt>
+</node>
+<node>
+<name>big_lock_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="connects to pin 3 to hold the ram and bar 1 together" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big lock ring" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>biglockring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.76" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>big_lock_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="connects to pin 3 to hold the ram and bar 1 together" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big lock ring" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>biglockring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.76" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>lock_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="washer" ArtifactCreationDate="2009-06-05" ArtifactDescription="creates pressure so the nut-bolt system does not loosen" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="lock washer" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>lockwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.435" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>lock_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="washer" ArtifactCreationDate="2009-06-05" ArtifactDescription="creates pressure so the nut-bolt system does not loosen" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="lock washer" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>lockwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.435" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>lock_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="washer" ArtifactCreationDate="2009-06-05" ArtifactDescription="creates pressure so the nut-bolt system does not loosen" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="lock washer" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>lockwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.435" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>constraint_pin_2</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="stop" ArtifactCreationDate="2009-06-05" ArtifactDescription="holds pin 5 in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="constraint pin 2" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>constraintpin2-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="metal" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="1.19" />
+</opt>
+</node>
+<node>
+<name>constraint_pin_2</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="stop" ArtifactCreationDate="2009-06-05" ArtifactDescription="holds pin 5 in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="constraint pin 2" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>constraintpin2-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="metal" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="1.19" />
+</opt>
+</node>
+<node>
+<name>handle_socket</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="connector" ArtifactCreationDate="2009-06-05" ArtifactDescription="connects the handle to piston and the hydraulic body allowing for a pivoting motion" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="handle socket" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>handlesocket-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="width" ParameterUnits="inches" ParameterValue="1.055" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="5.25" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="3.163" />
+</opt>
+</node>
+<node>
+<name>handle_socket</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="connector" ArtifactCreationDate="2009-06-05" ArtifactDescription="connects the handle to piston and the hydraulic body allowing for a pivoting motion" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="handle socket" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>handlesocket-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="width" ParameterUnits="inches" ParameterValue="1.055" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="5.25" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="3.163" />
+</opt>
+</node>
+<node>
+<name>external</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="" ArtifactDescription="empty" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="" ArtifactName="external" ArtifactParent="" ArtifactQty="0" ArtifactReleaseDate="" ArtifactTrademark="empty">
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+</opt>
+</node>
+<node>
+<name>left_side_housing</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="housing" ArtifactCreationDate="2009-06-05" ArtifactDescription="side housing" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="left side housing" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>leftsidehousing-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="39.65" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="16.9" />
+</opt>
+</node>
+<node>
+<name>left_side_housing</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="housing" ArtifactCreationDate="2009-06-05" ArtifactDescription="side housing" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="left side housing" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>leftsidehousing-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="39.65" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="16.9" />
+</opt>
+</node>
+<node>
+<name>ball_bearing</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="bearing" ArtifactCreationDate="2009-06-05" ArtifactDescription="allows back wheels to rotate about z axis" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="ball bearing" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>ballbearing-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="1.4" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.2" />
+</opt>
+</node>
+<node>
+<name>ball_bearing</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="bearing" ArtifactCreationDate="2009-06-05" ArtifactDescription="allows back wheels to rotate about z axis" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="ball bearing" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>ballbearing-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="1.4" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.2" />
+</opt>
+</node>
+<node>
+<name>ball_bearing</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="bearing" ArtifactCreationDate="2009-06-05" ArtifactDescription="allows back wheels to rotate about z axis" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="ball bearing" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>ballbearing-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="plastic" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="1.4" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.2" />
+</opt>
+</node>
+<node>
+<name>plug</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="holds in oil" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="plug" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>plug-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Material MaterialName="rubber" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.45" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="1" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.225" />
+</opt>
+</node>
+<node>
+<name>plug</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="holds in oil" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="plug" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>plug-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Material MaterialName="rubber" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.45" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="1" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.225" />
+</opt>
+</node>
+<node>
+<name>ball</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="ball" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>ball-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.01" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.1" />
+</opt>
+</node>
+<node>
+<name>ball</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="ball" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>ball-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.01" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.1" />
+</opt>
+</node>
+<node>
+<name>plug_pin</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="held by spring. place to hold the ball" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="plug pin" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>plugpin-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.26" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.225" />
+</opt>
+</node>
+<node>
+<name>plug_pin</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="held by spring. place to hold the ball" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="plug pin" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>plugpin-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.26" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.225" />
+</opt>
+</node>
+<node>
+<name>constraint_pin1</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="stop" ArtifactCreationDate="2009-06-05" ArtifactDescription="holds pin 4 in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="constraint pin1" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>constraintpin1-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="metal" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="1.19" />
+</opt>
+</node>
+<node>
+<name>constraint_pin1</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="stop" ArtifactCreationDate="2009-06-05" ArtifactDescription="holds pin 4 in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="constraint pin1" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>constraintpin1-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="metal" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="1.19" />
+</opt>
+</node>
+<node>
+<name>front_wheel_assembly</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-05" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-05" ArtifactName="front wheel assembly" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <CreatorInfo CreatorAffiliation="student" CreatorEmail="mleos101@gmail.com" CreatorFirstName="matt" CreatorLastName="leos" />
+</opt>
+</node>
+<node>
+<name>front_wheel_assembly</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-05" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-05" ArtifactName="front wheel assembly" ArtifactParent="" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <CreatorInfo CreatorAffiliation="student" CreatorEmail="mleos101@gmail.com" CreatorFirstName="matt" CreatorLastName="leos" />
+</opt>
+</node>
+<node>
+<name>right_side_housing</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="housing" ArtifactCreationDate="2009-06-05" ArtifactDescription="side housing" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="right side housing" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>rightsidehousing-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="39.65" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="16.9" />
+</opt>
+</node>
+<node>
+<name>right_side_housing</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="housing" ArtifactCreationDate="2009-06-05" ArtifactDescription="side housing" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="right side housing" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>rightsidehousing-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="39.65" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="16.9" />
+</opt>
+</node>
+<node>
+<name>small_lock_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="holds bars 3 and 4 in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small lock ring" ArtifactParent="empty" ArtifactQty="4" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smalllockring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.5" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>small_lock_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="holds bars 3 and 4 in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small lock ring" ArtifactParent="empty" ArtifactQty="4" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smalllockring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.5" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>small_lock_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="holds bars 3 and 4 in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small lock ring" ArtifactParent="empty" ArtifactQty="4" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smalllockring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.5" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>small_lock_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="holds bars 3 and 4 in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small lock ring" ArtifactParent="empty" ArtifactQty="4" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smalllockring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.5" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>small_lock_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="holds bars 3 and 4 in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small lock ring" ArtifactParent="empty" ArtifactQty="4" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smalllockring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.5" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>back_wheels</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="allow for movement of jack" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="back wheels" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>backwheels-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+</opt>
+</node>
+<node>
+<name>back_wheels</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="allow for movement of jack" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="back wheels" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>backwheels-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+</opt>
+</node>
+<node>
+<name>back_wheels</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="allow for movement of jack" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="back wheels" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>backwheels-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+</opt>
+</node>
+<node>
+<name>jack_handle</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="handle" ArtifactCreationDate="2009-06-05" ArtifactDescription="pumping up and down pushes plunger driving oil into cylinder" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="jack handle" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>jackhandle-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="dull" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="shaft diameter" ParameterUnits="inches" ParameterValue="1" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="15.65" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="16.7" />
+  <Texture TextureName="coarse" />
+</opt>
+</node>
+<node>
+<name>jack_handle</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="handle" ArtifactCreationDate="2009-06-05" ArtifactDescription="pumping up and down pushes plunger driving oil into cylinder" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="jack handle" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>jackhandle-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Finish FinishName="dull" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="shaft diameter" ParameterUnits="inches" ParameterValue="1" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="15.65" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="16.7" />
+  <Texture TextureName="coarse" />
+</opt>
+</node>
+<node>
+<name>pin_1</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="rivet" ArtifactCreationDate="2009-06-05" ArtifactDescription="attach bar 1 and bar 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pin 1" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pin1-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="1.55" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="2" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="inches" ParameterValue="0.478" />
+</opt>
+</node>
+<node>
+<name>pin_1</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="rivet" ArtifactCreationDate="2009-06-05" ArtifactDescription="attach bar 1 and bar 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pin 1" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pin1-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="1.55" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="2" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="inches" ParameterValue="0.478" />
+</opt>
+</node>
+<node>
+<name>pin_2</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="rivet" ArtifactCreationDate="2009-06-05" ArtifactDescription="attach saddle to bar 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pin 2" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pin2-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.75" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.763" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="inches" ParameterValue="0.6870000000000001" />
+</opt>
+</node>
+<node>
+<name>pin_2</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="rivet" ArtifactCreationDate="2009-06-05" ArtifactDescription="attach saddle to bar 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pin 2" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pin2-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.75" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.763" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="inches" ParameterValue="0.6870000000000001" />
+</opt>
+</node>
+<node>
+<name>big_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="washer" ArtifactCreationDate="2009-06-05" ArtifactDescription="distribute force caused by nut-bolt" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big washer" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bigwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="1.1" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.25" />
+</opt>
+</node>
+<node>
+<name>big_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="washer" ArtifactCreationDate="2009-06-05" ArtifactDescription="distribute force caused by nut-bolt" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big washer" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bigwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="1.1" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.25" />
+</opt>
+</node>
+<node>
+<name>big_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="washer" ArtifactCreationDate="2009-06-05" ArtifactDescription="distribute force caused by nut-bolt" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big washer" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bigwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="1.1" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.25" />
+</opt>
+</node>
+<node>
+<name>pin_3</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="rivet" ArtifactCreationDate="2009-06-05" ArtifactDescription="connects pump ram to bar 1" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pin 3" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pin3-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="2.8" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="2" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="inches" ParameterValue="0.59" />
+</opt>
+</node>
+<node>
+<name>pin_3</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="rivet" ArtifactCreationDate="2009-06-05" ArtifactDescription="connects pump ram to bar 1" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pin 3" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pin3-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="2.8" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="2" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="inches" ParameterValue="0.59" />
+</opt>
+</node>
+<node>
+<name>pin_4</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="rivet" ArtifactCreationDate="2009-06-05" ArtifactDescription="connects handle socket to hydraulic" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pin 4" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pin4-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="1.42" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="inches" ParameterValue="0.41" />
+</opt>
+</node>
+<node>
+<name>pin_4</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="rivet" ArtifactCreationDate="2009-06-05" ArtifactDescription="connects handle socket to hydraulic" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pin 4" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pin4-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.5" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="1.42" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="inches" ParameterValue="0.41" />
+</opt>
+</node>
+<node>
+<name>pin_5</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="rivet" ArtifactCreationDate="2009-06-05" ArtifactDescription="connects handle socket to hydraulic" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pin 5" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pin5-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.8" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="1.42" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="inches" ParameterValue="0.41" />
+</opt>
+</node>
+<node>
+<name>pin_5</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="rivet" ArtifactCreationDate="2009-06-05" ArtifactDescription="connects handle socket to hydraulic" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pin 5" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pin5-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.8" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="1.42" />
+  <Parameters ParameterDimension="head diameter" ParameterUnits="inches" ParameterValue="0.41" />
+</opt>
+</node>
+<node>
+<name>bar_1</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="pushed by the pump. it rotates around its joint connected to the housing and helps lift bar 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="bar 1" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bar1-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="19.9" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="7.73" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="2.75" />
+</opt>
+</node>
+<node>
+<name>bar_1</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="pushed by the pump. it rotates around its joint connected to the housing and helps lift bar 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="bar 1" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bar1-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="19.9" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="7.73" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="2.75" />
+</opt>
+</node>
+<node>
+<name>bar_2</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="link" ArtifactCreationDate="2009-06-05" ArtifactDescription="bar in lifting arm mechanism that remains vertical and is in contact with car" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="bar 2" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bar2-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="width" ParameterUnits="inches" ParameterValue="2.673" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="15" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="4.37" />
+</opt>
+</node>
+<node>
+<name>bar_2</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="link" ArtifactCreationDate="2009-06-05" ArtifactDescription="bar in lifting arm mechanism that remains vertical and is in contact with car" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="bar 2" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bar2-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="width" ParameterUnits="inches" ParameterValue="2.673" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="15" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="4.37" />
+</opt>
+</node>
+<node>
+<name>pump_plunger</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="hydraulic piston" ArtifactCreationDate="2009-06-05" ArtifactDescription="pushes oil into the cylinder" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pump plunger" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pumpplunger-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Material MaterialName="rubber" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="1.25" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="2.32" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.5550000000000001" />
+</opt>
+</node>
+<node>
+<name>pump_plunger</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="hydraulic piston" ArtifactCreationDate="2009-06-05" ArtifactDescription="pushes oil into the cylinder" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="pump plunger" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>pumpplunger-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Material MaterialName="rubber" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="1.25" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="2.32" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.5550000000000001" />
+</opt>
+</node>
+<node>
+<name>front_wheel_axel</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="nut-bolt" ArtifactCreationDate="2009-06-05" ArtifactDescription="holds wheels and allows rotation while holding outer siding together" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="front wheel axel" ArtifactParent="front wheel assembly" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>frontwheelaxel-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.587" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="5.95" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="6.03" />
+</opt>
+</node>
+<node>
+<name>front_wheel_axel</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="nut-bolt" ArtifactCreationDate="2009-06-05" ArtifactDescription="holds wheels and allows rotation while holding outer siding together" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="front wheel axel" ArtifactParent="front wheel assembly" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>frontwheelaxel-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.587" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="5.95" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="6.03" />
+</opt>
+</node>
+<node>
+<name>bar_3</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="link" ArtifactCreationDate="2009-06-05" ArtifactDescription="connects housing to bar 2 and helps lift bar 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="bar 3" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bar3-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="width" ParameterUnits="inches" ParameterValue="0.2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="6" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="7.454" />
+</opt>
+</node>
+<node>
+<name>bar_3</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="link" ArtifactCreationDate="2009-06-05" ArtifactDescription="connects housing to bar 2 and helps lift bar 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="bar 3" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bar3-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="width" ParameterUnits="inches" ParameterValue="0.2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="6" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="7.454" />
+</opt>
+</node>
+<node>
+<name>bar_4</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="link" ArtifactCreationDate="2009-06-05" ArtifactDescription="connects housing to bar 2 and helps lift bar 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="bar 4" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bar4-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="width" ParameterUnits="inches" ParameterValue="0.2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="6" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="7.454" />
+</opt>
+</node>
+<node>
+<name>bar_4</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="link" ArtifactCreationDate="2009-06-05" ArtifactDescription="connects housing to bar 2 and helps lift bar 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="bar 4" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bar4-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="width" ParameterUnits="inches" ParameterValue="0.2" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="6" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="7.454" />
+</opt>
+</node>
+<node>
+<name>small_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="washer" ArtifactCreationDate="2009-06-05" ArtifactDescription="distribute force caused by nut-bolt" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small washer" ArtifactParent="front wheel assembly" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smallwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.535" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>small_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="washer" ArtifactCreationDate="2009-06-05" ArtifactDescription="distribute force caused by nut-bolt" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small washer" ArtifactParent="front wheel assembly" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smallwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.535" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>small_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="washer" ArtifactCreationDate="2009-06-05" ArtifactDescription="distribute force caused by nut-bolt" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="small washer" ArtifactParent="front wheel assembly" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>smallwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.535" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>bolt_1</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="nut-bolt" ArtifactCreationDate="2009-06-05" ArtifactDescription="holds outer siding together and acts as a joint for lifting mechanism" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="bolt 1" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bolt1-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="5.7" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="4.426" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.662" />
+</opt>
+</node>
+<node>
+<name>bolt_1</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="nut-bolt" ArtifactCreationDate="2009-06-05" ArtifactDescription="holds outer siding together and acts as a joint for lifting mechanism" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="bolt 1" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bolt1-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="5.7" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="4.426" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.662" />
+</opt>
+</node>
+<node>
+<name>bolt_2</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="nut-bolt" ArtifactCreationDate="2009-06-05" ArtifactDescription="holds outer siding together and holds hydraulic in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="bolt 2" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bolt2-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="5.15" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="4.421" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.625" />
+</opt>
+</node>
+<node>
+<name>bolt_2</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="nut-bolt" ArtifactCreationDate="2009-06-05" ArtifactDescription="holds outer siding together and holds hydraulic in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="bolt 2" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bolt2-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="5.15" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="4.421" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.625" />
+</opt>
+</node>
+<node>
+<name>hydraulic</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="two piston system that takes oil from a reservoir into the smaller piston and drives forward the larger which pushes up the lift arm." ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="hydraulic" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>hydraulic-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="72.90000000000001" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="8.039999999999999" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="2.845" />
+</opt>
+</node>
+<node>
+<name>hydraulic</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="two piston system that takes oil from a reservoir into the smaller piston and drives forward the larger which pushes up the lift arm." ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="hydraulic" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>hydraulic-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="72.90000000000001" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="8.039999999999999" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="2.845" />
+</opt>
+</node>
+<node>
+<name>front_wheel_bearing</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="bearing" ArtifactCreationDate="2009-06-05" ArtifactDescription="allows easy rotation" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="front wheel bearing" ArtifactParent="front wheel assembly" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>frontwheelbearing-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thickness" ParameterUnits="inches" ParameterValue="0.7" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.7" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.6" />
+</opt>
+</node>
+<node>
+<name>front_wheel_bearing</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="bearing" ArtifactCreationDate="2009-06-05" ArtifactDescription="allows easy rotation" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="front wheel bearing" ArtifactParent="front wheel assembly" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>frontwheelbearing-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thickness" ParameterUnits="inches" ParameterValue="0.7" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.7" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.6" />
+</opt>
+</node>
+<node>
+<name>front_wheel_bearing</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="bearing" ArtifactCreationDate="2009-06-05" ArtifactDescription="allows easy rotation" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="front wheel bearing" ArtifactParent="front wheel assembly" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>frontwheelbearing-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thickness" ParameterUnits="inches" ParameterValue="0.7" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.7" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.6" />
+</opt>
+</node>
+<node>
+<name>front_wheel</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="wheel" ArtifactCreationDate="2009-06-05" ArtifactDescription="allows car jack to roll" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="front wheel" ArtifactParent="front wheel assembly" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>frontwheel-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thickness" ParameterUnits="inches" ParameterValue="0.85" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="2.258" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="6.6" />
+</opt>
+</node>
+<node>
+<name>front_wheel</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="wheel" ArtifactCreationDate="2009-06-05" ArtifactDescription="allows car jack to roll" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="front wheel" ArtifactParent="front wheel assembly" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>frontwheel-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thickness" ParameterUnits="inches" ParameterValue="0.85" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="2.258" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="6.6" />
+</opt>
+</node>
+<node>
+<name>front_wheel</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="wheel" ArtifactCreationDate="2009-06-05" ArtifactDescription="allows car jack to roll" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="front wheel" ArtifactParent="front wheel assembly" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>frontwheel-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="thickness" ParameterUnits="inches" ParameterValue="0.85" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="2.258" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="6.6" />
+</opt>
+</node>
+<node>
+<name>shaft</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="shaft" ArtifactCreationDate="2009-06-05" ArtifactDescription="holds left and right side housing together" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="shaft" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>shaft-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="1.15" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="3.74" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.27" />
+</opt>
+</node>
+<node>
+<name>shaft</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="shaft" ArtifactCreationDate="2009-06-05" ArtifactDescription="holds left and right side housing together" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="shaft" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>shaft-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="1.15" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="3.74" />
+  <Parameters ParameterDimension="diameter" ParameterUnits="inches" ParameterValue="0.27" />
+</opt>
+</node>
+<node>
+<name>medium_lock_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="connects to pins 1 and 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium lock ring" ArtifactParent="empty" ArtifactQty="3" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumlockring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.615" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>medium_lock_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="connects to pins 1 and 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium lock ring" ArtifactParent="empty" ArtifactQty="3" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumlockring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.615" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>medium_lock_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="connects to pins 1 and 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium lock ring" ArtifactParent="empty" ArtifactQty="3" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumlockring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.615" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>medium_lock_ring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="connects to pins 1 and 2" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="medium lock ring" ArtifactParent="empty" ArtifactQty="3" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>mediumlockring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.05" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.615" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.05" />
+</opt>
+</node>
+<node>
+<name>saddle</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="able to spin about the z axis and is part actually in contact with car" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="saddle" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>saddle-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="1.841" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="2.4" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.6" />
+</opt>
+</node>
+<node>
+<name>saddle</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="able to spin about the z axis and is part actually in contact with car" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="saddle" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>saddle-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="1.841" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="2.4" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.6" />
+</opt>
+</node>
+<node>
+<name>plug_spring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="plug spring" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>plugspring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.1" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.7" />
+</opt>
+</node>
+<node>
+<name>plug_spring</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="plug spring" ArtifactParent="empty" ArtifactQty="1" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>plugspring-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.3" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.1" />
+  <Parameters ParameterDimension="length" ParameterUnits="inches" ParameterValue="0.7" />
+</opt>
+</node>
+<node>
+<name>big_nut</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="attaches to hold bolts and wheel axel in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big nut" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bignut-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.8" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.4" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.28" />
+</opt>
+</node>
+<node>
+<name>big_nut</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="attaches to hold bolts and wheel axel in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big nut" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bignut-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.8" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.4" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.28" />
+</opt>
+</node>
+<node>
+<name>big_nut</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="attaches to hold bolts and wheel axel in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big nut" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bignut-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.8" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.4" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.28" />
+</opt>
+</node>
+<node>
+<name>big_nut</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="attaches to hold bolts and wheel axel in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big nut" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bignut-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.8" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.4" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.28" />
+</opt>
+</node>
+<node>
+<name>big_nut</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="attaches to hold bolts and wheel axel in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big nut" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bignut-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.8" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.4" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.28" />
+</opt>
+</node>
+<node>
+<name>big_nut</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="attaches to hold bolts and wheel axel in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big nut" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bignut-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.8" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.4" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.28" />
+</opt>
+</node>
+<node>
+<name>big_nut</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="attaches to hold bolts and wheel axel in place" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big nut" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>bignut-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.8" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.4" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="0.28" />
+</opt>
+</node>
+<node>
+<name>big_lock_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-05" ArtifactDescription="creates pressure so the nut-bolt system does not loosen" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big lock washer" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>biglockwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.648" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.1" />
+</opt>
+</node>
+<node>
+<name>big_lock_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-05" ArtifactDescription="creates pressure so the nut-bolt system does not loosen" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big lock washer" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>biglockwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.648" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.1" />
+</opt>
+</node>
+<node>
+<name>big_lock_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-05" ArtifactDescription="creates pressure so the nut-bolt system does not loosen" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big lock washer" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>biglockwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.648" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.1" />
+</opt>
+</node>
+<node>
+<name>big_lock_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-05" ArtifactDescription="creates pressure so the nut-bolt system does not loosen" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big lock washer" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>biglockwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.648" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.1" />
+</opt>
+</node>
+<node>
+<name>big_lock_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-05" ArtifactDescription="creates pressure so the nut-bolt system does not loosen" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big lock washer" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>biglockwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.648" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.1" />
+</opt>
+</node>
+<node>
+<name>big_lock_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-05" ArtifactDescription="creates pressure so the nut-bolt system does not loosen" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big lock washer" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>biglockwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.648" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.1" />
+</opt>
+</node>
+<node>
+<name>big_lock_washer</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-05" ArtifactDescription="creates pressure so the nut-bolt system does not loosen" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="big lock washer" ArtifactParent="empty" ArtifactQty="6" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>biglockwasher-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.648" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.1" />
+</opt>
+</node>
+<node>
+<name>nut</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="holds rear wheel together" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="nut" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>nut-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.57" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.15" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="1.75" />
+</opt>
+</node>
+<node>
+<name>nut</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="holds rear wheel together" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="nut" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>nut-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.57" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.15" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="1.75" />
+</opt>
+</node>
+<node>
+<name>nut</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="2009-06-08" ArtifactDescription="holds rear wheel together" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="2009-06-08" ArtifactName="nut" ArtifactParent="empty" ArtifactQty="2" ArtifactReleaseDate="2000-01-01" ArtifactTrademark="empty">
+  <ArtifactImage>nut-IMAGE</ArtifactImage>
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+  <Material MaterialName="steel" />
+  <Parameters ParameterDimension="outer diameter" ParameterUnits="inches" ParameterValue="0.57" />
+  <Parameters ParameterDimension="mass" ParameterUnits="ounces" ParameterValue="0.15" />
+  <Parameters ParameterDimension="height" ParameterUnits="inches" ParameterValue="1.75" />
+</opt>
+</node>
+<node>
+<name>internal</name>
+<localLabels />
+<localVariables />
+<shapekey>largeCircleNode.-5383962.30.30</shapekey>
+<screenX>0</screenX>
+<screenY>0</screenY>
+<opt ArtifactCBName="none" ArtifactCreationDate="" ArtifactDescription="empty" ArtifactIsAssembly="0" ArtifactManufacturer="empty" ArtifactModificationDate="" ArtifactName="internal" ArtifactParent="" ArtifactQty="0" ArtifactReleaseDate="" ArtifactTrademark="empty">
+  <CreatorInfo CreatorAffiliation="" CreatorEmail="" CreatorFirstName="" CreatorLastName="" />
+</opt>
+</node>
+</nodes>
+<arcs />
+</designGraph>

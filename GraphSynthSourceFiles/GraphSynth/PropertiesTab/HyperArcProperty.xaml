@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="GraphSynth.UI.HyperArcProperty"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="Auto" Width="Auto" Background="#ffebd1fe" MouseEnter="UpdateDisconnectComboBox">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Grid.Column" Value="0" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Grid.Column" Value="1" />
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Name="stackHyperArcProps" Orientation="Vertical">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label>Name</Label>
+            <TextBox Grid.Row="0" Name="txtName" KeyUp="txtName_KeyUp" LostFocus="txtName_LostFocus" />
+            <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="btnConfirm" Click="btnConfirm_Click">Confirm</Button>
+
+            <Label Grid.Row="1">Labels</Label>
+            <TextBox Grid.Row="1" Name="txtLabels" LostFocus="txtLabels_LostFocus" KeyUp="txtLabels_KeyUp"/>
+
+            <Label Grid.Row="2">Variables</Label>
+            <TextBox Grid.Row="2" Name="txtVariables" LostFocus="txtVariables_LostFocus" KeyUp="txtVariables_KeyUp"/>
+
+            <Label Grid.Row="3">Hyperarc Type</Label>
+            <TextBox Grid.Row="3" Name="txtHyperArcType" LostFocus="txtArcType_LostFocus" KeyUp="txtArcType_KeyUp"/>
+            
+        </Grid>
+
+        <WrapPanel Name="wrapRuleBools">
+            <StackPanel Orientation="Horizontal">
+                <Label Name="lblContainsLocalLabels">Contains all local labels</Label>
+                <CheckBox IsThreeState="True" Name="chkContainsLocalLabels"  VerticalAlignment="Center" Click="chkContainsLocalLabels_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Name="lblStrictNodeCount">Strict node count</Label>
+                <CheckBox IsThreeState="True" Name="chkStrictNodeCount" VerticalAlignment="Center"  Click="chkStrictNodeCount_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Name="lblNotExist">Must NOT Exist</Label>
+                <CheckBox IsThreeState="True" Name="chkNotExist"  VerticalAlignment="Center" Click="chkNotExist_Click"/>
+            </StackPanel>
+        </WrapPanel>
+        <Grid Name="gridRuleNegLabels">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label>Negate Labels</Label>
+            <TextBox Name="txtNegLabels" LostFocus="txtNegLabels_LostFocus" KeyUp="txtNegLabels_KeyUp"/>
+        </Grid>
+        <Button HorizontalAlignment="Center" Click="Button_Click" FontSize="11">
+            <WrapPanel>
+                <Label  Height="22" >Disconnect from:</Label>
+                <ComboBox x:Name="cmbNodeList" DisplayMemberPath="Value" Width="100"
+                      SelectedValuePath="Key" IsSynchronizedWithCurrentItem="True" />
+            </WrapPanel>
+        </Button>
+
+    </StackPanel>
+</UserControl>

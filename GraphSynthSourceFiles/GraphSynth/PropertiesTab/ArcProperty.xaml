@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="GraphSynth.UI.ArcProperty"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="Auto" Width="Auto" Background="#ffebf1de">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Grid.Column" Value="0" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Grid.Column" Value="1" />
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Name="stackArcProps" Orientation="Vertical">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label>Name</Label>
+            <TextBox Grid.Row="0" Name="txtName" KeyUp="txtName_KeyUp" LostFocus="txtName_LostFocus" />
+            <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="btnConfirm" Click="btnConfirm_Click">Confirm</Button>
+
+            <Label Grid.Row="1">Labels</Label>
+            <TextBox Grid.Row="1" Name="txtLabels" LostFocus="txtLabels_LostFocus" KeyUp="txtLabels_KeyUp"/>
+
+            <Label Grid.Row="2">Variables</Label>
+            <TextBox Grid.Row="2" Name="txtVariables" LostFocus="txtVariables_LostFocus" KeyUp="txtVariables_KeyUp"/>
+
+            <Label Grid.Row="3">Arc Type</Label>
+            <TextBox Grid.Row="3" Name="txtArcType" LostFocus="txtArcType_LostFocus" KeyUp="txtArcType_KeyUp"/>
+        </Grid>
+        <WrapPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label>directed</Label>
+                <CheckBox IsThreeState="True" Name="chkDirected" Click="chkDirected_Click" />
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Label Name="label4" HorizontalAlignment="Left" >doubly directed</Label>
+                <CheckBox IsThreeState="True" Name="chkDoublyDirected" Click="chkDoublyDirected_Click"/>
+
+            </StackPanel>
+        </WrapPanel>
+        <WrapPanel Name="wrapRuleBools">
+            <StackPanel Orientation="Horizontal">
+                <Label Name="lblContainsLocalLabels">Contains all local labels</Label>
+                <CheckBox IsThreeState="True" Name="chkContainsLocalLabels" Click="chkContainsLocalLabels_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Name="lblDirectionIsEqual">Direction is equal</Label>
+                <CheckBox IsThreeState="True" Name="chkDirectionIsEqual" Click="chkDirectionIsEqual_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Name="lblNullMeansNull">Null Means Null</Label>
+                <CheckBox IsThreeState="True" Name="chkNullMeansNull" Click="chkNullMeansNull_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Name="lblNotExist">Must NOT Exist</Label>
+                <CheckBox IsThreeState="True" Name="chkNotExist" Click="chkNotExist_Click"/>
+            </StackPanel>
+        </WrapPanel>
+        <Grid Name="gridRuleNegLabels">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label>Negate Labels</Label>
+            <TextBox Name="txtNegLabels" LostFocus="txtNegLabels_LostFocus" KeyUp="txtNegLabels_KeyUp"/>
+        </Grid>
+    </StackPanel>
+</UserControl>

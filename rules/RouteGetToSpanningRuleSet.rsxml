@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ruleSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <name>RouteGetToSpanningRuleSet</name>
+  <ruleFileNames>
+    <string>Routerule1.grxml</string>
+    <string>Routerule2.grxml</string>
+  </ruleFileNames>
+  <triggerRuleNum>-1</triggerRuleNum>
+  <choiceMethod>Design</choiceMethod>
+  <interimCandidates>Developing</interimCandidates>
+  <finalCandidates>Feasible</finalCandidates>
+  <ruleSetIndex>0</ruleSetIndex>
+  <recognizeSourceFiles />
+  <applySourceFiles />
+  <generationAfterNormal>Loop</generationAfterNormal>
+  <generationAfterChoice>Stop</generationAfterChoice>
+  <generationAfterCycleLimit>Stop</generationAfterCycleLimit>
+  <generationAfterNoRules>GoToNext</generationAfterNoRules>
+  <generationAfterTriggerRule>Stop</generationAfterTriggerRule>
+</ruleSet>

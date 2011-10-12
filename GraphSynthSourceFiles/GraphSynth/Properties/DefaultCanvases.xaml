@@ -1,0 +1,53 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
+    xmlns:g="clr-namespace:GraphSynth.UI">
+    <DataTemplate x:Key="Graph: Classic Blue Fade">
+        <g:CanvasProperty
+            AxesColor="#FF000000" AxesOpacity="1" AxesThick="0.5" 
+            GridColor="#FF000000" GridOpacity="0.3" GridSpacing="24" 
+            GridThick="0.25" SnapToGrid="false" 
+            ShapeOpacity="1" ShowNodeName="false" ShowNodeLabel="true" 
+            ShowArcName="false" ShowArcLabel="true" ShowHyperArcName="false" ShowHyperArcLabel="true"
+            NodeFontSize="12" ArcFontSize="12" HyperArcFontSize="12" 
+            NodeTextDistance="0" NodeTextPosition="0" ArcTextDistance="0" 
+            ArcTextPosition="0.5" HyperArcTextDistance="0" 
+            HyperArcTextPosition="0.5" CanvasWidth="300, 300, 300, 912" 
+            ScaleFactor="1" ZoomToFit="false" >
+            <g:CanvasProperty.BackgroundColor>
+                <LinearGradientBrush StartPoint="0.3,1" EndPoint="0.7,0">
+                    <GradientStop Color="LightSteelBlue" Offset="0"/>
+                    <GradientStop Color="MintCream" Offset="1"/>
+                </LinearGradientBrush>
+            </g:CanvasProperty.BackgroundColor>
+        </g:CanvasProperty>
+    </DataTemplate>
+    <DataTemplate x:Key="Shape: White with quarter inch Grid">
+        <g:CanvasProperty 
+            AxesColor="#FF000000" AxesOpacity="1" AxesThick="0.5" 
+            GridColor="#FF000000" GridOpacity="1" GridSpacing="24" 
+            GridThick="0.25" SnapToGrid="true"
+            ShapeOpacity="1" ShowNodeName="false" ShowNodeLabel="true" 
+            ShowArcName="false" ShowArcLabel="true" ShowHyperArcName="false" ShowHyperArcLabel="true"
+            NodeFontSize="12" ArcFontSize="12" HyperArcFontSize="12" 
+            NodeTextDistance="0" NodeTextPosition="0" ArcTextDistance="0" 
+            ArcTextPosition="0.5" HyperArcTextDistance="0" 
+            HyperArcTextPosition="0.5" BackgroundColor="#FFFFFFFF"
+            ScaleFactor="1" ZoomToFit="false" CanvasWidth="300, 300, 300, 900" />
+    </DataTemplate>
+    <DataTemplate x:Key="Just Strings">
+        <g:CanvasProperty 
+            AxesColor="#FF000000" AxesOpacity="1" AxesThick="0.5" 
+            GridColor="#FF000000" GridOpacity="0.3" GridSpacing="24" 
+            GridThick="0.25" SnapToGrid="false" 
+            ShapeOpacity="1" ShowNodeName="true" ShowNodeLabel="true" 
+            ShowArcName="true" ShowArcLabel="true" ShowHyperArcName="true" ShowHyperArcLabel="true"
+            NodeFontSize="12" ArcFontSize="12" HyperArcFontSize="12" 
+            NodeTextDistance="0" NodeTextPosition="0" ArcTextDistance="0" 
+            ArcTextPosition="0.5" HyperArcTextDistance="0" 
+            HyperArcTextPosition="0.5" BackgroundColor="#FFFFFFFF" 
+            ScaleFactor="1" ZoomToFit="false"
+            GlobalTextSize="24" CanvasHeight="80"
+            CanvasWidth="300, 300, 300, 912" />
+    </DataTemplate>
+</ResourceDictionary>

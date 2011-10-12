@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<designGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <name>exampleFromHelpFiles</name>
+  <globalLabels />
+  <globalVariables />
+  <nodes>
+    <node>
+      <name>blue</name>
+      <localLabels>
+        <string>a</string>
+        <string>b</string>
+        <string>c</string>
+      </localLabels>
+      <localVariables>
+        <double>1</double>
+        <double>3</double>
+      </localVariables>
+      <shapekey>largeCircleNode.-5383962.30.30</shapekey>
+      <screenX>32.6742172</screenX>
+      <screenY>30.7245026</screenY>
+    </node>
+    <node xsi:type="vertex">
+      <name>black</name>
+      <localLabels />
+      <localVariables />
+      <shapekey>smallCircleNode.Blue.5.5</shapekey>
+      <screenX>156.611</screenX>
+      <screenY>200.74971</screenY>
+      <x>0</x>
+      <y>0</y>
+      <z>0</z>
+    </node>
+    <node>
+      <name>white</name>
+      <localLabels />
+      <localVariables />
+      <shapekey>medCircleNode.Red.10.10</shapekey>
+      <screenX>44.4889221</screenX>
+      <screenY>162.413162</screenY>
+    </node>
+  </nodes>
+  <arcs>
+    <arc>
+      <name>a2</name>
+      <localLabels />
+      <localVariables />
+      <toConnector>0</toConnector>
+      <fromConnector>0</fromConnector>
+      <styleKey>Straight.-16777216.0.0</styleKey>
+      <directed>false</directed>
+      <doublyDirected>false</doublyDirected>
+      <From>black</From>
+      <To>blue</To>
+    </arc>
+    <arc>
+      <name>a1</name>
+      <localLabels />
+      <localVariables />
+      <toConnector>0</toConnector>
+      <fromConnector>0</fromConnector>
+      <styleKey>Straight.-16777216.0.0</styleKey>
+      <directed>false</directed>
+      <doublyDirected>false</doublyDirected>
+      <From>black</From>
+      <To>white</To>
+    </arc>
+    <arc>
+      <name>a3</name>
+      <localLabels />
+      <localVariables />
+      <toConnector>0</toConnector>
+      <fromConnector>0</fromConnector>
+      <styleKey>Straight.-16777216.0.0</styleKey>
+      <directed>false</directed>
+      <doublyDirected>false</doublyDirected>
+      <From>white</From>
+      <To>blue</To>
+    </arc>
+  </arcs>
+</designGraph>

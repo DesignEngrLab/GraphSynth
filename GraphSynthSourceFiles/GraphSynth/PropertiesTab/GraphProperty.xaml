@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="GraphSynth.UI.GraphProperty"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:g="clr-namespace:GraphSynth.UI" Background="#ffdbeef4">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Grid.Column" Value="0" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Grid.Column" Value="1" />
+        </Style>
+    </UserControl.Resources>
+    <!--Basic Textbox fields-->
+    <StackPanel Orientation="Vertical">
+        <TextBlock Name="txtSeed" FontWeight="Bold" />
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Name="saveBtn" Grid.Row="0" Grid.ColumnSpan="2" Click="saveBtn_Click" >
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock FontSize="9" Text="Save Graph:" Width="27" TextWrapping="Wrap"  />
+                <TextBox Grid.Column="1" VerticalAlignment="Center" TextAlignment="Right" Name="txtFilename" 
+                         TextWrapping="NoWrap" MaxLines="1" KeyUp="txtFilename_KeyUp" FontWeight="Bold" />
+            </Grid>
+        </Button>
+        <!--<Label Name="lblFilename" Grid.Row="0" Grid.ColumnSpan="2" />-->
+
+        <Label Grid.Row="1">Global Labels</Label>
+        <TextBox Grid.Row="1" Name="txtGlobalLabels" LostFocus="txtGlobalLabels_LostFocus" 
+                     KeyUp="txtGlobalLabels_KeyUp"/>
+
+        <Label Grid.Row="2">Variables</Label>
+        <TextBox Grid.Row="2" Name="txtVariables"  LostFocus="txtVariables_LostFocus" 
+                     KeyUp="txtVariables_KeyUp"/>
+    </Grid>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="GraphSynth.UI.ArcDisplayProperty"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:u="clr-namespace:GraphSynth.UI;assembly=GraphSynth.CustomControls" xmlns:g="clr-namespace:GraphSynth.UI" Background="#ffc3d69b">
+    <StackPanel Orientation="Vertical" >
+        <u:BrushSelector x:Name="StrokeColorSelector" ValueChanged="StrokeColor_ValueChanged" Label="Stroke Color"/>
+        <u:SldAndTextbox  x:Name="sldStrokeThickness" Label="Thickness"
+                              Maximum="20" Minimum="0.1"
+                              TickPlacement="BottomRight" TickFrequency="10"
+                              HorizontalAlignment="Stretch"
+                              ValueChanged="sldStrokeThickness_ValueChanged">
+            <u:SldAndTextbox.Converter>
+                <u:SliderToTextBoxTextLinearConverter SigDigs="2"/>
+            </u:SldAndTextbox.Converter>
+        </u:SldAndTextbox>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <Label Name="label4" HorizontalAlignment="Center" >Show Arrow Heads</Label>
+            <CheckBox IsThreeState="True" Name="chkShowArrowHeads" VerticalAlignment="Center" HorizontalAlignment="Center"
+                      Click="chkShowArrowHeads_Click"/>
+        </StackPanel>
+        <Expander Expanded="expArcController_Expanded" Header="Shape Control" 
+                  Name="expArcController" Height="Auto" VerticalAlignment="Top" IsExpanded="False"/>
+
+        <g:ElementalTextControl x:Name="textPrpt"  />
+    </StackPanel>
+</UserControl>

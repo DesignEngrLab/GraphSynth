@@ -1,0 +1,30 @@
+<ResourceDictionary
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<!--Nodes-->
+    <Ellipse x:Key="BlueSphereNode" Width="30" Height="30" Stretch="Fill" StrokeThickness="2"  Stroke="White">
+            <Ellipse.Fill>
+                <RadialGradientBrush RadiusX="1.095" RadiusY="1.095" Center="0.362318,0.239131" GradientOrigin="0.362318,0.239131">
+                    <RadialGradientBrush.GradientStops>
+                        <GradientStop Color="#F1DCE7EB" Offset="0.12069"/>
+                        <GradientStop Color="#F10094E8" Offset="0.797414"/>
+                    </RadialGradientBrush.GradientStops>
+                    <RadialGradientBrush.RelativeTransform>
+                        <TransformGroup/>
+                    </RadialGradientBrush.RelativeTransform>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        
+  <Path x:Key="triangleNode" Width="490.851" Height="431.979" Canvas.Left="394" Canvas.Top="296.01" Stretch="Fill" StrokeThickness="44" StrokeLineJoin="Round" Stroke="#FFFF0000" Data="F1 M 416,320L 641.149,705.99L 862.851,318.01L 416,320 Z ">
+		<Path.Fill>
+			<LinearGradientBrush StartPoint="-0.049233,0.5" EndPoint="1.04923,0.5">
+				<LinearGradientBrush.GradientStops>
+					<GradientStop Color="#FF000000" Offset="0"/>
+					<GradientStop Color="#FFFFFFFF" Offset="1"/>
+				</LinearGradientBrush.GradientStops>
+			</LinearGradientBrush>
+		</Path.Fill>
+	</Path>
+
+</ResourceDictionary>
