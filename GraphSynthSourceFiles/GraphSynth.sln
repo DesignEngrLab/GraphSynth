@@ -35,8 +35,6 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GraphSynth2 Installer Setup
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GraphSynth2 Installer Setup X64", "GraphSynth2 Installer Setup X64\GraphSynth2 Installer Setup X64.vdproj", "{0CB83340-1FC1-433C-866E-E150A6D6C80C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSynth.BaseClasses", "..\..\GraphSynth.BaseClasses\GraphSynth.BaseClasses.csproj", "{D679F4E2-FD18-48AC-9C0C-B60155A61D37}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Build Installers|x64 = Build Installers|x64
@@ -110,18 +108,6 @@ Global
 		{0CB83340-1FC1-433C-866E-E150A6D6C80C}.Console Debug|x86.ActiveCfg = WPF GUI Debug
 		{0CB83340-1FC1-433C-866E-E150A6D6C80C}.WPF GUI Debug|x64.ActiveCfg = WPF GUI Debug
 		{0CB83340-1FC1-433C-866E-E150A6D6C80C}.WPF GUI Debug|x86.ActiveCfg = WPF GUI Debug
-		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Build Installers|x64.ActiveCfg = WPF GUI Debug|x64
-		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Build Installers|x64.Build.0 = WPF GUI Debug|x64
-		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Build Installers|x86.ActiveCfg = WPF GUI Debug|x86
-		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Build Installers|x86.Build.0 = WPF GUI Debug|x86
-		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Debug|x64.ActiveCfg = Console Debug|x64
-		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Debug|x64.Build.0 = Console Debug|x64
-		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Debug|x86.ActiveCfg = Console Debug|x86
-		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Debug|x86.Build.0 = Console Debug|x86
-		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Debug|x64.ActiveCfg = WPF GUI Debug|x64
-		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Debug|x64.Build.0 = WPF GUI Debug|x64
-		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Debug|x86.ActiveCfg = WPF GUI Debug|x86
-		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Debug|x86.Build.0 = WPF GUI Debug|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

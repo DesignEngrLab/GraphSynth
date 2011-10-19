@@ -104,15 +104,6 @@
     <EmbeddedResource Include="ShapeStringDataFiles\StarHyper.xml" />
     <EmbeddedResource Include="ShapeStringDataFiles\StraightArc.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\GraphSynth.BaseClasses\GraphSynth.BaseClasses.csproj">
-      <Project>{D679F4E2-FD18-48AC-9C0C-B60155A61D37}</Project>
-      <Name>GraphSynth.BaseClasses</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

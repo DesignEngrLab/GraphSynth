@@ -139,10 +139,6 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\GraphSynth.BaseClasses\GraphSynth.BaseClasses.csproj">
-      <Project>{D679F4E2-FD18-48AC-9C0C-B60155A61D37}</Project>
-      <Name>GraphSynth.BaseClasses</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GraphSynth.CustomControls\GraphSynth.CustomControls.csproj">
       <Project>{E47424A2-4E8E-481F-831E-D22186A12AFD}</Project>
       <Name>GraphSynth.CustomControls</Name>
