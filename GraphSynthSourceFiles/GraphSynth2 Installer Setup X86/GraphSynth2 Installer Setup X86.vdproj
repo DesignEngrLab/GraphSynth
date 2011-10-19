@@ -51,12 +51,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1BCB74E3FE054D1A879B78E8A209C975"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_208725CE87F84FBFAAC45B888F5B0400"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -75,56 +69,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_28DC09566FCB1A04D2247A049271D202"
-        "OwnerKey" = "8:_53AAE585554E4FF4897978E4EB236960"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_28DC09566FCB1A04D2247A049271D202"
-        "OwnerKey" = "8:_ED9DBC76830542A88DE399301C6DB73F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_28F7BB0DB19C4D938C1A769608CD28E8"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2A32A4278EC13EF89640578861FCF00F"
-        "OwnerKey" = "8:_ED9DBC76830542A88DE399301C6DB73F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2A32A4278EC13EF89640578861FCF00F"
-        "OwnerKey" = "8:_E1C70354160048F886FE6F2ABB3A17FA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2A32A4278EC13EF89640578861FCF00F"
-        "OwnerKey" = "8:_5F73AE61E8A54955AEA90C4EC5A6965D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2A32A4278EC13EF89640578861FCF00F"
-        "OwnerKey" = "8:_E60911A30DFC357E66280A15C4524B06"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2A32A4278EC13EF89640578861FCF00F"
-        "OwnerKey" = "8:_28DC09566FCB1A04D2247A049271D202"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2A32A4278EC13EF89640578861FCF00F"
-        "OwnerKey" = "8:_53AAE585554E4FF4897978E4EB236960"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -155,6 +101,30 @@
         {
         "MsmKey" = "8:_53AAE585554E4FF4897978E4EB236960"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5D2859DCA2E0E5FDE5C0FD42BBC4D000"
+        "OwnerKey" = "8:_53AAE585554E4FF4897978E4EB236960"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5D2859DCA2E0E5FDE5C0FD42BBC4D000"
+        "OwnerKey" = "8:_ED9DBC76830542A88DE399301C6DB73F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5D2859DCA2E0E5FDE5C0FD42BBC4D000"
+        "OwnerKey" = "8:_E1C70354160048F886FE6F2ABB3A17FA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5D2859DCA2E0E5FDE5C0FD42BBC4D000"
+        "OwnerKey" = "8:_5F73AE61E8A54955AEA90C4EC5A6965D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -243,12 +213,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B64D17134816405C9BEBC13CF85EB989"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_C43E317D905E4A3D97E37187D0CF70E4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -279,36 +243,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E60911A30DFC357E66280A15C4524B06"
-        "OwnerKey" = "8:_28DC09566FCB1A04D2247A049271D202"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E60911A30DFC357E66280A15C4524B06"
-        "OwnerKey" = "8:_ED9DBC76830542A88DE399301C6DB73F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E60911A30DFC357E66280A15C4524B06"
-        "OwnerKey" = "8:_E1C70354160048F886FE6F2ABB3A17FA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E60911A30DFC357E66280A15C4524B06"
-        "OwnerKey" = "8:_5F73AE61E8A54955AEA90C4EC5A6965D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E60911A30DFC357E66280A15C4524B06"
-        "OwnerKey" = "8:_53AAE585554E4FF4897978E4EB236960"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_ED9DBC76830542A88DE399301C6DB73F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -334,12 +268,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B64D17134816405C9BEBC13CF85EB989"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_5F73AE61E8A54955AEA90C4EC5A6965D"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -352,19 +280,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_28DC09566FCB1A04D2247A049271D202"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E60911A30DFC357E66280A15C4524B06"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2A32A4278EC13EF89640578861FCF00F"
+        "OwnerKey" = "8:_5D2859DCA2E0E5FDE5C0FD42BBC4D000"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -652,37 +568,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_28DC09566FCB1A04D2247A049271D202"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:GraphSynth.CustomControls, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64"
-                "ScatterAssemblies"
-                {
-                    "_28DC09566FCB1A04D2247A049271D202"
-                    {
-                    "Name" = "8:GraphSynth.CustomControls.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:GraphSynth.CustomControls.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_A60ABCB46D14470E9B39ACE994B54E6A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_28F7BB0DB19C4D938C1A769608CD28E8"
             {
             "SourcePath" = "8:..\\..\\input\\exampleFromHelpFiles.gxml"
@@ -701,37 +586,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2A32A4278EC13EF89640578861FCF00F"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:GraphSynth.BaseClasses, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64"
-                "ScatterAssemblies"
-                {
-                    "_2A32A4278EC13EF89640578861FCF00F"
-                    {
-                    "Name" = "8:GraphSynth.BaseClasses.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:GraphSynth.BaseClasses.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_A60ABCB46D14470E9B39ACE994B54E6A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3D1E1C8383DE4AFF95B3BAA8FC4C910F"
@@ -812,6 +666,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5D2859DCA2E0E5FDE5C0FD42BBC4D000"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:GraphSynth.BaseClasses, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64"
+                "ScatterAssemblies"
+                {
+                    "_5D2859DCA2E0E5FDE5C0FD42BBC4D000"
+                    {
+                    "Name" = "8:GraphSynth.BaseClasses.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:GraphSynth.BaseClasses.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_A60ABCB46D14470E9B39ACE994B54E6A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_65E09623EDC1465288EBA6D672619209"
@@ -1154,37 +1039,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E60911A30DFC357E66280A15C4524B06"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:GraphSynth.Representation, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64"
-                "ScatterAssemblies"
-                {
-                    "_E60911A30DFC357E66280A15C4524B06"
-                    {
-                    "Name" = "8:GraphSynth.Representation.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:GraphSynth.Representation.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_A60ABCB46D14470E9B39ACE994B54E6A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F63CF24653C649D0BF29FFA0DD309736"
             {
             "SourcePath" = "8:..\\..\\input\\swirlSeed.gxml"
@@ -1211,7 +1065,7 @@
             "{5EB83D71-FA18-4901-BE56-DE22E13CC478}:_4A9CEEC745654C068775619B2063BE4C"
             {
             "Name" = "8:GraphSynth.rule"
-            "Description" = "8:The GraphSynth2 grammar rule file type is used to make transformations."
+            "Description" = "8:GraphSynth grammar rule"
             "Extensions" = "8:grxml"
             "MIME" = "8:"
             "Icon" = "8:_49D2B5E21E6C48688982DE8D2301632E"
@@ -1234,7 +1088,7 @@
             "{5EB83D71-FA18-4901-BE56-DE22E13CC478}:_5770266C3A9441D8B670E5BFC4AE83E8"
             {
             "Name" = "8:GraphSynth.config"
-            "Description" = "8:A configuration file for GraphSynth."
+            "Description" = "8:GraphSynth configuration file"
             "Extensions" = "8:gsconfig"
             "MIME" = "8:"
             "Icon" = "8:_152A6E4FCCC34C0FB0BE7D5B51616833"
@@ -1257,7 +1111,7 @@
             "{5EB83D71-FA18-4901-BE56-DE22E13CC478}:_E5E26275828B4556AABD09534E0B16F0"
             {
             "Name" = "8:GraphSynth.graph"
-            "Description" = "8:The GraphSynth2 graph file type is a mix of XML and XAML."
+            "Description" = "8:GraphSynth graph file"
             "Extensions" = "8:gxml"
             "MIME" = "8:"
             "Icon" = "8:_3D1E1C8383DE4AFF95B3BAA8FC4C910F"
@@ -1280,7 +1134,7 @@
             "{5EB83D71-FA18-4901-BE56-DE22E13CC478}:_E916FE7DC4BA4544AB8A97601FFA7A8E"
             {
             "Name" = "8:GraphSynth.ruleset"
-            "Description" = "8:The GraphSynth2 ruleset file type includes a list of grammar rules."
+            "Description" = "8:GraphSynth ruleset"
             "Extensions" = "8:rsxml"
             "MIME" = "8:"
             "Icon" = "8:_08EAFE6719544F05B7D63B35E573DEA0"
@@ -1463,15 +1317,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:GraphSynth2"
-        "ProductCode" = "8:{70FC4FFC-C322-4ED2-BB2B-9397843FDC1B}"
-        "PackageCode" = "8:{5A8332C7-768B-4012-93D5-62E9B508C190}"
+        "ProductCode" = "8:{161CC726-FC08-4638-9A63-1F6E2F17F9D5}"
+        "PackageCode" = "8:{DAE6CFB5-0983-465F-BF18-C0E6C8169686}"
         "UpgradeCode" = "8:{5F477164-93E1-44D0-A09C-05AD5B963575}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:2.01.1025"
+        "ProductVersion" = "8:2.01.1104"
         "Manufacturer" = "8:GraphSynth - UT ADLab"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -2067,34 +1921,6 @@
                 {
                 }
             }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_1BCB74E3FE054D1A879B78E8A209C975"
-            {
-            "SourcePath" = "8:..\\..\\bin\\GraphSynth.BaseClasses.XML"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_A60ABCB46D14470E9B39ACE994B54E6A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Documentation"
-            "OutputProjectGuid" = "8:{D679F4E2-FD18-48AC-9C0C-B60155A61D37}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_283CDA5516544C8C840B4E416512D672"
             {
             "SourcePath" = "8:"
@@ -2125,7 +1951,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_53AAE585554E4FF4897978E4EB236960"
             {
-            "SourcePath" = "8:..\\GraphSynth.GraphLayoutBasic\\obj\\x64\\WPF GUI Debug\\GraphLayouts.Basic.dll"
+            "SourcePath" = "8:..\\GraphSynth.GraphLayoutBasic\\obj\\x86\\Build Installers\\GraphLayouts.Basic.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A2ECE53CA9EC4C32BE3DDAD7E145D8B2"
@@ -2181,7 +2007,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_5F73AE61E8A54955AEA90C4EC5A6965D"
             {
-            "SourcePath" = "8:..\\GraphSynth.UserRandLindChoose\\obj\\x64\\WPF GUI Debug\\GraphSynth.UserRandLindChoose.dll"
+            "SourcePath" = "8:..\\GraphSynth.UserRandLindChoose\\obj\\x86\\Build Installers\\GraphSynth.UserRandLindChoose.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A2ECE53CA9EC4C32BE3DDAD7E145D8B2"
@@ -2207,65 +2033,9 @@
                 {
                 }
             }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B64D17134816405C9BEBC13CF85EB989"
-            {
-            "SourcePath" = "8:..\\GraphSynth.BaseClasses\\obj\\x64\\WPF GUI Debug\\GraphSynth.BaseClasses.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_A60ABCB46D14470E9B39ACE994B54E6A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
-            "OutputProjectGuid" = "8:{D679F4E2-FD18-48AC-9C0C-B60155A61D37}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D17A7368C18140DE86F4F97F516B2CB1"
-            {
-            "SourcePath" = "8:"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_A60ABCB46D14470E9B39ACE994B54E6A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Symbols"
-            "OutputProjectGuid" = "8:{D679F4E2-FD18-48AC-9C0C-B60155A61D37}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_E1C70354160048F886FE6F2ABB3A17FA"
             {
-            "SourcePath" = "8:..\\GraphSynth.CustomControls\\obj\\x64\\WPF GUI Debug\\GraphSynth.CustomControls.dll"
+            "SourcePath" = "8:..\\GraphSynth.CustomControls\\obj\\x86\\Build Installers\\GraphSynth.CustomControls.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A60ABCB46D14470E9B39ACE994B54E6A"
@@ -2293,7 +2063,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_ED9DBC76830542A88DE399301C6DB73F"
             {
-            "SourcePath" = "8:..\\GraphSynth\\obj\\x64\\WPF GUI Debug\\GraphSynth.exe"
+            "SourcePath" = "8:..\\GraphSynth\\obj\\x86\\Build Installers\\GraphSynth.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A60ABCB46D14470E9B39ACE994B54E6A"

@@ -75,7 +75,7 @@ namespace GraphSynth.UI
             if (!continueTesting) return new[] { -2 };
             choice = new[] { rnd.Next(options.Count) };
             numOptions = options.Count;
-            option.AssignOptionConfluence(options);
+            AssignOptionConfluence(options, cand);
             numberWithConfluence = options.Count(o => (o.confluence.Count > 0));
             maxConfluence = options.Max(o => o.confluence.Count);
             withMaxConfluence = options.Count(o => (o.confluence.Count == maxConfluence));

@@ -41,7 +41,7 @@ namespace GraphSynth.UserRandLindChoose
 
         public override int[] choose(List<option> options, candidate cand)
         {
-            option.AssignOptionConfluence(options);
+            AssignOptionConfluence(options, cand);
             SearchIO.output("There are " + options.Count + " recognized locations.", 2);
             if (options.Count == 0)
             {

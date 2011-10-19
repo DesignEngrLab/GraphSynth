@@ -107,7 +107,6 @@ namespace GraphSynth.GraphLayout
             {
                 backgroundWorker.ReportProgress(0);
                 throw new Exception("The input graph is not a tree. This layout only works on tree structures.");
-                return false;
             }
 
             FirstWalk(graph.nodes[root]);

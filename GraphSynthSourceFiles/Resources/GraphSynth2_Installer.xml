@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <InstallData>
-  <Version>2.1.11.00</Version>
+  <Version>2.1.11.04</Version>
   <Change>Added negative elements to grammar rule.</Change>
+  <Change>Settings (.gsconfig) is now relativ to the location of the gsconfig file not the binary.</Change>
   <Change>Changes to make compatible with Linux.</Change>
   <Change>fixed transferLMappingToChild in SearchProcess.cs (to account for hyperarcs and negative elements).</Change>
   <Version>2.1.10.25</Version>

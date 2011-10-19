@@ -30,9 +30,7 @@ namespace GraphSynth.UserRandLindChoose
             var setupWin = new LindenmayerStartDialog(this);
             setupWin.ShowDialog();
             if (Cancel) return;
-            var userChoose = new LindenmayerChooseRCA(seedGraph, rulesets, GlobalSettings.ExecDir, settings.CompiledRuleFunctions,
-                                                 numOfCalls,
-                                                 display, settings.RecompileRuleConditions);
+            var userChoose = new LindenmayerChooseRCA(seedGraph, rulesets, numOfCalls, display);
             var cand = userChoose.GenerateOneCandidate();
             SearchIO.addAndShowGraphWindow(cand.graph, "After Rule Application");
         }
