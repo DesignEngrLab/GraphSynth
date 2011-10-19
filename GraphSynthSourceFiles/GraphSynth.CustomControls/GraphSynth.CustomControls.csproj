@@ -41,9 +41,20 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPF GUI Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>..\..\bin\</OutputPath>
+    <Optimize>false</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPF GUI Release|AnyCPU'">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>..\..\bin\</OutputPath>
     <Optimize>true</Optimize>
     <WarningLevel>0</WarningLevel>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
@@ -229,7 +240,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="GraphSynth.BaseClasses">
-      <HintPath>..\GraphSynth.BaseClasses\WPF GUI Debug\GraphSynth.BaseClasses.dll</HintPath>
+      <HintPath>..\GraphSynth.BaseClasses\$(Configuration)\GraphSynth.BaseClasses.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
