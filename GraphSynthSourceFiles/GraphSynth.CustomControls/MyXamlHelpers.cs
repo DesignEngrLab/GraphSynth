@@ -248,13 +248,15 @@ namespace GraphSynth
             AddElement(sb, "SnapsToDevicePixels", p.SnapsToDevicePixels);
             return sb.ToString();
         }
+
         private static void AddElement(StringBuilder sb, string name, object value)
         {
-            if (value == null) return;
+            if (value == null || (typeof(double).IsInstanceOfType(value) && double.IsNaN((double)value))) return;
             var valString = value.ToString();
             if (string.IsNullOrWhiteSpace(valString)) return;
             sb.AppendFormat(" " + name + "=\"{0}\"", valString);
         }
+
 
 
     }
