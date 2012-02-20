@@ -126,11 +126,8 @@
     <Reference Include="GraphSynth.CustomControls">
       <HintPath>..\GraphSynth (basic layouts)\bin\GraphSynth.CustomControls.dll</HintPath>
     </Reference>
-    <Reference Include="GraphSynth.FundamentalClassesAndInterfaces">
-      <HintPath>..\GraphSynth (basic layouts)\bin\GraphSynth.FundamentalClassesAndInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="GraphSynth.Representation">
-      <HintPath>..\GraphSynth (basic layouts)\bin\GraphSynth.Representation.dll</HintPath>
+    <Reference Include="GraphSynth.BaseClasses">
+      <HintPath>..\GraphSynth (basic layouts)\bin\GraphSynth.BaseClasses.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework">
