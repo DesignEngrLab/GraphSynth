@@ -39,10 +39,10 @@ namespace GraphSynth.UI
         private static void createRulesSourceFile(string path)
         {
             var fs = new FileStream(path, FileMode.Create);
-            var w = new StreamWriter(fs, Encoding.UTF8);
+            var w = new StreamWriter(fs, Encoding.Default);
 
             w.WriteLine("using System;\nusing System.Collections.Generic;");
-            w.WriteLine("using GraphSynth;\nusing GraphSynth.Representation;");
+            w.WriteLine("using GraphSynth;\nusing GraphSynth.BaseClasses;");
             w.WriteLine("\nnamespace GraphSynth.ParamRules\n{");
             w.WriteLine("public partial class ParamRules\n{");
             w.WriteLine("/* here are parametric rules written as part of the ruleSet.");

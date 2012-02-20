@@ -421,8 +421,7 @@ namespace GraphSynth.UI
 
             potentialAssemblies.RemoveAll(fs => fs.Contains("/obj/"));
             potentialAssemblies.RemoveAll(fs => fs.Contains("GraphSynth.CustomControls.dll"));
-            potentialAssemblies.RemoveAll(fs => fs.Contains("GraphSynth.FundamentalClassesAndInterfaces.dll"));
-            potentialAssemblies.RemoveAll(fs => fs.Contains("GraphSynth.Representation.dll"));
+            potentialAssemblies.RemoveAll(fs => fs.Contains("GraphSynth.BaseClasses.dll"));
             potentialAssemblies.RemoveAll(fs => fs.Contains("StarMath.dll"));
             potentialAssemblies.RemoveAll(fs => fs.Contains("OptimizationToolbox.dll"));
             return potentialAssemblies;

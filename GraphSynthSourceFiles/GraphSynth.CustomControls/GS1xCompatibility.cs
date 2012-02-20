@@ -78,7 +78,7 @@ namespace GraphSynth.UI
                      || (shapeKey == "7") || (shapeKey == "g") || (shapeKey == "BasicShapes.squareNode"))
                 return updateNodeShapeKeyString("RectangleNode");
             throw new Exception("Error in string to node shape interpreter (WPFFiler.Basic.cs)" +
-                                    " Unable to interpret node shape's textual description (k.e. stringShape)");
+                                    " Unable to interpret node shape's textual description (i.e. stringShape)");
         }
 
         private static string updateArcShapeKeyString(string shapeKey)
