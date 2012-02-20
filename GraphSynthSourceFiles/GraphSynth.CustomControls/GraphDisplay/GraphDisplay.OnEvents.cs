@@ -226,7 +226,7 @@ namespace GraphSynth.GraphDisplay
             {
                 if ((e.Timestamp - TimeStampLeftButtonDown > 200) && (activeNullNode != null))
                 {
-                    if (typeof(arc).IsInstanceOfType(activeNullNode.GraphElement))
+                    if (activeNullNode.GraphElement is arc)
                         completeNewArc((arc)activeNullNode.GraphElement, getNodeFromPoint(MouseLocation),
                             activeNullNode.AttachedToHead);
                     else

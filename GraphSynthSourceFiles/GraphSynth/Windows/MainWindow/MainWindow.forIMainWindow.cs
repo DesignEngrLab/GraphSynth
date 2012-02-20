@@ -221,7 +221,7 @@ namespace GraphSynth.UI
         public void propertyUpdate(object o = null)
         {
             if ((o != null) &&
-                (typeof(GraphGUI).IsInstanceOfType(o)))
+                (o is GraphGUI))
                 windowsMgr.SetActiveGraphCanvas((GraphGUI)o);
             property.Update();
         }

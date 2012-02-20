@@ -135,10 +135,10 @@ namespace GraphSynth.GraphDisplay
         {
             var toPt = arcBody.StartPoint;
             var origSegment = arcBody.Segments[0];
-            if (typeof(LineSegment).IsInstanceOfType(origSegment))
+            if (origSegment is LineSegment)
                 return new LineSegment(toPt, origSegment.IsStroked);
 
-            if (typeof(PolyLineSegment).IsInstanceOfType(origSegment))
+            if (origSegment is PolyLineSegment)
             {
                 var Points = ((PolyLineSegment)origSegment).Points.Reverse().ToList();
                 Points.RemoveAt(0);
@@ -146,10 +146,10 @@ namespace GraphSynth.GraphDisplay
 
                 return new PolyLineSegment(Points, origSegment.IsStroked);
             }
-            if (typeof(BezierSegment).IsInstanceOfType(origSegment))
+            if (origSegment is BezierSegment)
                 return new BezierSegment(((BezierSegment)origSegment).Point2, ((BezierSegment)origSegment).Point1,
                                          toPt, origSegment.IsStroked);
-            if (typeof(ArcSegment).IsInstanceOfType(origSegment))
+            if (origSegment is ArcSegment)
             {
                 var sweep = ((ArcSegment)origSegment).SweepDirection == SweepDirection.Clockwise
                                 ? SweepDirection.Counterclockwise

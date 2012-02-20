@@ -20,7 +20,7 @@ namespace GraphSynth
         {
             if (saveObjects.GetLength(0) == 1)
             {
-                if (typeof(designGraph).IsInstanceOfType(saveObjects[0]))
+                if (saveObjects[0] is designGraph)
                     SaveGraph(filename, (designGraph)saveObjects[0]);
             }
             else

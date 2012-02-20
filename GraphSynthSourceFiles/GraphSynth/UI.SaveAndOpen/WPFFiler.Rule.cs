@@ -23,9 +23,9 @@ namespace GraphSynth
             {
                 if (saveObjects.GetLength(0) == 1)
                 {
-                    if (typeof(grammarRule).IsInstanceOfType(saveObjects[0]))
+                    if (saveObjects[0] is grammarRule)
                         SaveRule(filename, (grammarRule)saveObjects[0], null, null);
-                    else if (typeof(ruleWindow).IsInstanceOfType(saveObjects[0]))
+                    else if (saveObjects[0] is ruleWindow)
                         SaveRule(filename, (ruleWindow)saveObjects[0]);
                 }
                 else

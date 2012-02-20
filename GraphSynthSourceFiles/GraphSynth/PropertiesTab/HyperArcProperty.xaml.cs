@@ -44,7 +44,7 @@ namespace GraphSynth.UI
             var oldLabels = firstHyperArc.localLabels;
             var newLabels = StringCollectionConverter.convert(txtLabels.Text);
 
-            if ((typeof(RuleDisplay).IsInstanceOfType(gui)) &&
+            if ((gui is RuleDisplay) &&
                 (gui == ((RuleDisplay)gui).rW.graphGUIK))
             {
                 var rW = ((RuleDisplay)gui).rW;
@@ -71,7 +71,7 @@ namespace GraphSynth.UI
                 mbe = BindingOperations.GetMultiBindingExpression(nI, IconShape.DisplayTextProperty);
                 mbe.UpdateTarget();
             }
-            else if (typeof(RuleDisplay).IsInstanceOfType(gui))
+            else if (gui is RuleDisplay)
             {
                 // this is a rule LHS or RHS
                 var rW = ((RuleDisplay)gui).rW;
@@ -117,7 +117,7 @@ namespace GraphSynth.UI
             var oldVars = firstHyperArc.localVariables;
             var newVars = DoubleCollectionConverter.convert(txtVariables.Text);
 
-            if ((typeof(RuleDisplay).IsInstanceOfType(gui)) &&
+            if ((gui is RuleDisplay) &&
                 (gui == ((RuleDisplay)gui).rW.graphGUIK))
             {
                 var rW = ((RuleDisplay)gui).rW;
@@ -138,7 +138,7 @@ namespace GraphSynth.UI
                 Rarc.localVariables.Clear();
                 foreach (double a in newRVars) Rarc.localVariables.Add(a);
             }
-            else if (typeof(RuleDisplay).IsInstanceOfType(gui))
+            else if (gui is RuleDisplay)
             {
                 // this is a rule LHS or RHS
                 var rW = ((RuleDisplay)gui).rW;
@@ -297,7 +297,7 @@ namespace GraphSynth.UI
             {
                 txtName.IsEnabled = txtLabels.IsEnabled = txtVariables.IsEnabled = true;
                 txtName.Text = firstHyperArc.name;
-                if (typeof(ruleHyperarc).IsInstanceOfType(firstHyperArc))
+                if (firstHyperArc is ruleHyperarc)
                     btnConfirm.Visibility = Visibility.Visible;
                 else btnConfirm.Visibility = Visibility.Hidden;
                 txtLabels.Text = StringCollectionConverter.convert(firstHyperArc.localLabels);
@@ -306,7 +306,7 @@ namespace GraphSynth.UI
                 txtHyperArcType.IsEnabled = true;
                 txtHyperArcType.Text = firstHyperArc.GetType().ToString();
 
-                if ((typeof(RuleDisplay).IsInstanceOfType(gui))
+                if ((gui is RuleDisplay)
                     && (gui == ((RuleDisplay)gui).rW.graphGUIL))
                 {
                     chkContainsLocalLabels.IsChecked = ((ruleHyperarc)firstHyperArc).containsAllLocalLabels;
@@ -354,7 +354,7 @@ namespace GraphSynth.UI
 
 
 
-                if ((typeof(RuleDisplay).IsInstanceOfType(gui))
+                if ((gui is RuleDisplay)
                     && (gui == ((RuleDisplay)gui).rW.graphGUIL))
                 {
                     allSame = true;

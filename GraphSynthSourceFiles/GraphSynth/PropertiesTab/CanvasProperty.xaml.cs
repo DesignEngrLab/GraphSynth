@@ -387,9 +387,9 @@ namespace GraphSynth.UI
             for (var j = 0; j < numProps; j++)
                 propInfo[j].SetValue(this, propInfo[j].GetValue(canvas, null), null);
             var w = GSApp.main.windowsMgr.activeWindow;
-            if (typeof(graphWindow).IsInstanceOfType(w))
+            if (w is graphWindow)
                 ((graphWindow)w).AdoptWindowWideCanvasProperties();
-            else if (typeof(ruleWindow).IsInstanceOfType(w))
+            else if (w is ruleWindow)
                 ((ruleWindow)w).AdoptWindowWideCanvasProperties();
             Update();
         }

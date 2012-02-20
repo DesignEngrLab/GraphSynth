@@ -83,17 +83,17 @@ namespace GraphSynth
 
         internal static string XamlOfShape(object Shape, string newTag = "")
         {
-            if (typeof(Path).IsInstanceOfType(Shape))
+            if (Shape is Path)
                 return XamlOfPath((Path)Shape, newTag);
-            if (typeof(Ellipse).IsInstanceOfType(Shape))
+            if (Shape is Ellipse)
                 return XamlOfEllipse((Ellipse)Shape, newTag);
-            if (typeof(Rectangle).IsInstanceOfType(Shape))
+            if (Shape is Rectangle)
                 return XamlOfRectangle((Rectangle)Shape, newTag);
-            if (typeof(Polygon).IsInstanceOfType(Shape))
+            if (Shape is Polygon)
                 return XamlOfPolygon((Polygon)Shape, newTag);
-            if (typeof(Polyline).IsInstanceOfType(Shape))
+            if (Shape is Polyline)
                 return XamlOfPolyline((Polyline)Shape, newTag);
-            if (typeof(Line).IsInstanceOfType(Shape))
+            if (Shape is Line)
                 return XamlOfLine((Line)Shape, newTag);
             throw new Exception("Cannot make Xaml String of non-shape (StringOfXamlHelper.XamlOfShape");
         }
@@ -104,9 +104,9 @@ namespace GraphSynth
             sb.Append(ShapeDetails(p, newTag));
             sb.AppendLine(" >");
             sb.AppendLine("<Path.Data>");
-            if (typeof(PathGeometry).IsInstanceOfType(p.Data)) XamlofPathGeometry(sb, (PathGeometry)p.Data);
-            else if (typeof(EllipseGeometry).IsInstanceOfType(p.Data)) XamlofEllipseGeometry(sb, (EllipseGeometry)p.Data);
-            else if (typeof(RectangleGeometry).IsInstanceOfType(p.Data)) XamlofRectangleGeometry(sb, (RectangleGeometry)p.Data);
+            if (p.Data is PathGeometry) XamlofPathGeometry(sb, (PathGeometry)p.Data);
+            else if (p.Data is EllipseGeometry) XamlofEllipseGeometry(sb, (EllipseGeometry)p.Data);
+            else if (p.Data is RectangleGeometry) XamlofRectangleGeometry(sb, (RectangleGeometry)p.Data);
             sb.AppendLine("</Path.Data>");
             sb.AppendLine("</Path>");
 
@@ -143,22 +143,22 @@ namespace GraphSynth
                 sb.AppendLine("<PathFigure.Segments>");
                 foreach (var seg in pf.Segments)
                 {
-                    if (typeof(ArcSegment).IsInstanceOfType(seg))
+                    if (seg is ArcSegment)
                         sb.AppendFormat(
                             "<ArcSegment Point=\"{0},{1}\" Size=\"{2},{3}\" IsLargeArc=\"{4}\" SweepDirection=\"{5}\" />",
                             ((ArcSegment)seg).Point.X, ((ArcSegment)seg).Point.Y, ((ArcSegment)seg).Size.Width,
                             ((ArcSegment)seg).Size.Height, ((ArcSegment)seg).IsLargeArc,
                             ((ArcSegment)seg).SweepDirection);
-                    else if (typeof(BezierSegment).IsInstanceOfType(seg))
+                    else if (seg is BezierSegment)
                         sb.AppendFormat(
                             "<BezierSegment Point1=\"{0},{1}\" Point2=\"{2},{3}\" Point3=\"{4},{5}\" />",
                             ((BezierSegment)seg).Point1.X, ((BezierSegment)seg).Point1.Y,
                             ((BezierSegment)seg).Point2.X, ((BezierSegment)seg).Point2.Y,
                             ((BezierSegment)seg).Point3.X, ((BezierSegment)seg).Point3.Y);
-                    else if (typeof(LineSegment).IsInstanceOfType(seg))
+                    else if (seg is LineSegment)
                         sb.AppendFormat(
                             "<LineSegment Point=\"{0},{1}\" />", ((LineSegment)seg).Point.X, ((LineSegment)seg).Point.Y);
-                    else if (typeof(PolyLineSegment).IsInstanceOfType(seg))
+                    else if (seg is PolyLineSegment)
                         sb.AppendFormat("<PolyLineSegment Points=\"{0}\" />", ((PolyLineSegment)seg).Points);
                 }
                 sb.AppendLine("</PathFigure.Segments>");
@@ -251,7 +251,7 @@ namespace GraphSynth
 
         private static void AddElement(StringBuilder sb, string name, object value)
         {
-            if (value == null || (typeof(double).IsInstanceOfType(value) && double.IsNaN((double)value))) return;
+            if (value == null || (value is double && double.IsNaN((double)value))) return;
             var valString = value.ToString();
             if (string.IsNullOrWhiteSpace(valString)) return;
             sb.AppendFormat(" " + name + "=\"{0}\"", valString);

@@ -38,7 +38,7 @@ namespace GraphSynth.UI
             var oldLabels = firstArc.localLabels;
             var newLabels = StringCollectionConverter.convert(txtLabels.Text);
 
-            if ((typeof(RuleDisplay).IsInstanceOfType(gui)) &&
+            if ((gui is RuleDisplay) &&
                 (gui == ((RuleDisplay)gui).rW.graphGUIK))
             {
                 var rW = ((RuleDisplay)gui).rW;
@@ -65,7 +65,7 @@ namespace GraphSynth.UI
                 mbe = BindingOperations.GetMultiBindingExpression(nI, IconShape.DisplayTextProperty);
                 mbe.UpdateTarget();
             }
-            else if (typeof(RuleDisplay).IsInstanceOfType(gui))
+            else if (gui is RuleDisplay)
             {
                 // this is a rule LHS or RHS
                 var rW = ((RuleDisplay)gui).rW;
@@ -112,7 +112,7 @@ namespace GraphSynth.UI
             var oldVars = firstArc.localVariables;
             var newVars = DoubleCollectionConverter.convert(txtVariables.Text);
 
-            if ((typeof(RuleDisplay).IsInstanceOfType(gui)) &&
+            if ((gui is RuleDisplay) &&
                 (gui == ((RuleDisplay)gui).rW.graphGUIK))
             {
                 var rW = ((RuleDisplay)gui).rW;
@@ -133,7 +133,7 @@ namespace GraphSynth.UI
                 Rarc.localVariables.Clear();
                 foreach (double a in newRVars) Rarc.localVariables.Add(a);
             }
-            else if (typeof(RuleDisplay).IsInstanceOfType(gui))
+            else if (gui is RuleDisplay)
             {
                 // this is a rule LHS or RHS
                 var rW = ((RuleDisplay)gui).rW;
@@ -351,7 +351,7 @@ namespace GraphSynth.UI
             {
                 txtName.IsEnabled = txtLabels.IsEnabled = txtVariables.IsEnabled = true;
                 txtName.Text = firstArc.name;
-                if (typeof(ruleArc).IsInstanceOfType(firstArc))
+                if (firstArc is ruleArc)
                     btnConfirm.Visibility = Visibility.Visible;
                 else btnConfirm.Visibility = Visibility.Hidden;
                 txtLabels.Text = StringCollectionConverter.convert(firstArc.localLabels);
@@ -362,7 +362,7 @@ namespace GraphSynth.UI
                 chkDirected.IsChecked = firstArc.directed;
                 chkDoublyDirected.IsChecked = firstArc.doublyDirected;
 
-                if ((typeof(RuleDisplay).IsInstanceOfType(gui))
+                if ((gui is RuleDisplay)
                     && (gui == ((RuleDisplay)gui).rW.graphGUIL))
                 {
                     chkContainsLocalLabels.IsChecked = ((ruleArc)firstArc).containsAllLocalLabels;
@@ -434,7 +434,7 @@ namespace GraphSynth.UI
                     chkDoublyDirected.IsChecked = aBool;
                 else chkDoublyDirected.IsChecked = null;
 
-                if ((typeof(RuleDisplay).IsInstanceOfType(gui))
+                if ((gui is RuleDisplay)
                     && (gui == ((RuleDisplay)gui).rW.graphGUIL))
                 {
                     allSame = true;

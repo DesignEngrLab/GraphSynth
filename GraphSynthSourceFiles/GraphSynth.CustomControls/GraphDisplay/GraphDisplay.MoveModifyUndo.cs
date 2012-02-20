@@ -131,8 +131,8 @@ namespace GraphSynth.GraphDisplay
                 victim.DisplayShape = datum.DisplayShape.Copy(victim);
                 addNodeShape(victim);
                 foreach (var a in victim.arcs)
-                    if (typeof(arc).IsInstanceOfType(a)) SetUpNewArcShape((arc)a);
-                    else if (typeof(hyperarc).IsInstanceOfType(a)) BindHyperArcToNodeShapes((hyperarc)a);
+                    if (a is arc) SetUpNewArcShape((arc)a);
+                    else if (a is hyperarc) BindHyperArcToNodeShapes((hyperarc)a);
             }
             else
             {

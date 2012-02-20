@@ -207,9 +207,9 @@ namespace GraphSynth.UI
         public void CanExecute_Save(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = ((windowsMgr.activeWindow != null) &&
-                            (typeof(graphWindow).IsInstanceOfType(windowsMgr.activeWindow) ||
-                             typeof(ruleWindow).IsInstanceOfType(windowsMgr.activeWindow) ||
-                             typeof(ruleSetWindow).IsInstanceOfType(windowsMgr.activeWindow)));
+                            (windowsMgr.activeWindow is graphWindow ||
+                             windowsMgr.activeWindow is ruleWindow ||
+                             windowsMgr.activeWindow is ruleSetWindow));
         }
 
         public void SaveActiveWindow(Boolean QueryForFile)
@@ -492,8 +492,8 @@ namespace GraphSynth.UI
 
         public void CopyOrCutCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = ((typeof(graphWindow).IsInstanceOfType(windowsMgr.activeWindow)
-                             || typeof(ruleWindow).IsInstanceOfType(windowsMgr.activeWindow))
+            e.CanExecute = ((windowsMgr.activeWindow is graphWindow
+                             || windowsMgr.activeWindow is ruleWindow)
                             && windowsMgr.activeGraphCanvas.Selection != null
                             && windowsMgr.activeGraphCanvas.Selection.SelectedShapes != null
                             && (windowsMgr.activeGraphCanvas.Selection.selectedArcs.Count +
@@ -504,8 +504,8 @@ namespace GraphSynth.UI
         public void PasteCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = (Clipboard.ContainsData(DataFormats.Text)
-                            && (typeof(graphWindow).IsInstanceOfType(windowsMgr.activeWindow)
-                                || typeof(ruleWindow).IsInstanceOfType(windowsMgr.activeWindow)));
+                            && (windowsMgr.activeWindow is graphWindow
+                                || windowsMgr.activeWindow is ruleWindow));
         }
 
         private void SelectAllCanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -547,9 +547,9 @@ namespace GraphSynth.UI
 
         public void PropertiesCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = (typeof(graphWindow).IsInstanceOfType(windowsMgr.activeWindow)
-                            || typeof(ruleWindow).IsInstanceOfType(windowsMgr.activeWindow)
-                            || typeof(ruleSetWindow).IsInstanceOfType(windowsMgr.activeWindow));
+            e.CanExecute = (windowsMgr.activeWindow is graphWindow
+                            || windowsMgr.activeWindow is ruleWindow
+                            || windowsMgr.activeWindow is ruleSetWindow);
         }
 
         public void SettingsOnExecuted(object sender, ExecutedRoutedEventArgs e)

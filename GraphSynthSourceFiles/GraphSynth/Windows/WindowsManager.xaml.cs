@@ -98,22 +98,22 @@ namespace GraphSynth.UI
 
         public void AddandShowWindow(Window w)
         {
-            if (typeof(graphWindow).IsInstanceOfType(w))
+            if (w is graphWindow)
             {
                 WinCollection.Insert(0, new WinData(w, WindowType.Graph, ((graphWindow)w).filename));
                 activeGraphCanvas = ((graphWindow)w).graphGUI;
             }
-            else if (typeof(ruleWindow).IsInstanceOfType(w))
+            else if (w is ruleWindow)
             {
                 WinCollection.Insert(0, new WinData(w, WindowType.Rule, ((ruleWindow)w).filename));
                 activeGraphCanvas = ((ruleWindow)w).graphCanvasK;
             }
-            else if (typeof(ruleSetWindow).IsInstanceOfType(w))
+            else if (w is ruleSetWindow)
                 WinCollection.Insert(0, new WinData(w, WindowType.RuleSet, ((ruleSetWindow)w).filename));
-            else if (typeof(searchProcessController).IsInstanceOfType(w))
+            else if (w is searchProcessController)
                 WinCollection.Insert(0, new WinData(w, WindowType.SearchProcessController,
                                                     "SearchProcessController" + _searchProcessID));
-            else if (typeof(GlobalSettingWindow).IsInstanceOfType(w))
+            else if (w is GlobalSettingWindow)
             {
                 gSW = (GlobalSettingWindow)w;
                 WinCollection.Insert(0, new WinData(w, WindowType.GlobalSetting,
@@ -143,9 +143,9 @@ namespace GraphSynth.UI
                 isGlobalSettingWindowOpen = false;
                 gSW = null;
             }
-            if (typeof(graphWindow).IsInstanceOfType(activeWindow))
+            if (activeWindow is graphWindow)
                 activeGraphCanvas = ((graphWindow)activeWindow).graphGUI;
-            else if (typeof(ruleWindow).IsInstanceOfType(activeWindow))
+            else if (activeWindow is ruleWindow)
                 activeGraphCanvas = ((ruleWindow)activeWindow).graphCanvasK;
             else activeGraphCanvas = null;
             main.propertyUpdate();

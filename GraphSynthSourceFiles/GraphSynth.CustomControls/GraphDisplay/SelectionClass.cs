@@ -114,11 +114,11 @@ namespace GraphSynth.GraphDisplay
                 var elements = gd.GetSelectedElements().Cast<FrameworkElement>().ToList();
 
                 /* the following if is figure out when dragging an empty arc endpoint */
-                if ((elements.Count == 1) && (typeof(NullNodeIconShape).IsInstanceOfType(elements[0])))
+                if ((elements.Count == 1) && (elements[0] is NullNodeIconShape))
                 {
                     gd.activeNullNode = (NullNodeIconShape)elements[0];
                     gd.Select(SelectedShapes);
-                    if (typeof(arc).IsInstanceOfType(gd.activeNullNode.GraphElement))
+                    if (gd.activeNullNode.GraphElement is arc)
                     {
                         ((DisplayShape)gd.activeNullNode.GraphElement.DisplayShape).icon.Selected = true;
                         selectedArcs.Add((arc)gd.activeNullNode.GraphElement);
@@ -134,7 +134,7 @@ namespace GraphSynth.GraphDisplay
                 int i = 0;
                 while (i < elements.Count)
                 {
-                    if (typeof(NodeIconShape).IsInstanceOfType(elements[i]))
+                    if (elements[i] is NodeIconShape)
                     {
                         /*select node*/
                         var icon = (NodeIconShape)elements[i];
@@ -155,7 +155,7 @@ namespace GraphSynth.GraphDisplay
                             if (index <= i) i--;
                         }
                     }
-                    else if (typeof(ArcIconShape).IsInstanceOfType(elements[i]))
+                    else if (elements[i] is ArcIconShape)
                     {
                         /*select arc*/
                         var a = ((ArcIconShape)elements[i]).GraphElement;
@@ -168,7 +168,7 @@ namespace GraphSynth.GraphDisplay
                         //SelectedShapes.Add((FrameworkElement)a.DisplayShape.Shape);
                         elements.Remove((FrameworkElement)a.DisplayShape.Shape);
                     }
-                    else if (typeof(ArcShape).IsInstanceOfType(elements[i]))
+                    else if (elements[i] is ArcShape)
                     {
                         /*select arc*/
                         var icon = ((ArcShape)elements[i]).icon;
@@ -182,7 +182,7 @@ namespace GraphSynth.GraphDisplay
                         //SelectedShapes.Add(elements[i]);
                         elements.RemoveAt(i);
                     }
-                    else if (typeof(HyperArcIconShape).IsInstanceOfType(elements[i]))
+                    else if (elements[i] is HyperArcIconShape)
                     {
                         /*select node*/
                         var h = ((HyperArcIconShape)elements[i]).GraphElement;
@@ -193,7 +193,7 @@ namespace GraphSynth.GraphDisplay
                         /*select node shape*/
                         elements.Remove((FrameworkElement)h.DisplayShape.Shape);
                     }
-                    else if (typeof(HyperArcShape).IsInstanceOfType(elements[i]))
+                    else if (elements[i] is HyperArcShape)
                     {
                         /*select node*/
                         var icon = ((HyperArcShape)elements[i]).icon;
@@ -239,7 +239,7 @@ namespace GraphSynth.GraphDisplay
                     selectedArcs = selectedArcs.Union(implicitSelectArcs).ToList();
                     /* Third */
                     var implicitHyperArcs = selectedNodes.SelectMany(n => n.arcs)
-                        .Where(h => typeof(hyperarc).IsInstanceOfType(h)).Cast<hyperarc>().ToList();
+                        .Where(h => h is hyperarc).Cast<hyperarc>().ToList();
                     implicitHyperArcs.RemoveAll(h => (selectedHyperArcs.Contains(h)
                         || (h.nodes.Intersect(selectedNodes).Count() < h.nodes.Count)));
                     selectedHyperArcs = selectedHyperArcs.Union(implicitHyperArcs).ToList();

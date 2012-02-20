@@ -236,7 +236,7 @@ namespace GraphSynth.GraphDisplay
                 this, out ctrl))
                 return ctrl;
             /* that didn't work? the old way is to try to parse the shape to get at the right parameters for each controller. */
-            if ((typeof(PathGeometry).IsInstanceOfType(p.Data))
+            if ((p.Data is PathGeometry)
                 && (((PathGeometry)p.Data).Figures.Count > 0)
                 && (((PathGeometry)p.Data).Figures[0].Segments.Count > 0))
             // here we are assuming that the first figure, Figures[0], is the arcBody
@@ -425,7 +425,7 @@ namespace GraphSynth.GraphDisplay
                 var binding = new Binding { Source = fromNodeShape, Mode = BindingMode.OneWay };
                 SetBinding(FromShapeProperty, binding);
 
-                if (typeof(NullNodeIconShape).IsInstanceOfType(fromNodeShape))
+                if (fromNodeShape is NullNodeIconShape)
                     binding = new Binding
                     {
                         Source = fromNodeShape,
@@ -446,7 +446,7 @@ namespace GraphSynth.GraphDisplay
                 SetBinding(ToShapeProperty, binding);
 
 
-                if (typeof(NullNodeIconShape).IsInstanceOfType(toNodeShape))
+                if (toNodeShape is NullNodeIconShape)
                     binding = new Binding
                     {
                         Source = toNodeShape,

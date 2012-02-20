@@ -29,9 +29,9 @@ namespace GraphSynth
         {
             if (saveObjects.GetLength(0) == 1)
             {
-                if (typeof(designGraph).IsInstanceOfType(saveObjects[0]))
+                if (saveObjects[0] is designGraph)
                     SaveGraph(filename, (designGraph)saveObjects[0], null);
-                else if (typeof(graphWindow).IsInstanceOfType(saveObjects[0]))
+                else if (saveObjects[0] is graphWindow)
                     SaveGraph(filename, (graphWindow)saveObjects[0]);
             }
             else

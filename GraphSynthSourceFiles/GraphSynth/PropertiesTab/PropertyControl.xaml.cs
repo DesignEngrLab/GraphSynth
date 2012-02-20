@@ -51,7 +51,7 @@ namespace GraphSynth.UI
         {
             if (!stackAllProps.Children.Contains(c))
                 stackAllProps.Children.Add(c);
-            if (typeof(Expander).IsInstanceOfType(c))
+            if (c is Expander)
                 ((Expander)c).IsExpanded = false;
         }
 
@@ -59,7 +59,7 @@ namespace GraphSynth.UI
         {
             if (!stackAllProps.Children.Contains(c))
                 stackAllProps.Children.Add(c);
-            if (typeof(Expander).IsInstanceOfType(c))
+            if (c is Expander)
                 ((Expander)c).IsExpanded = true;
         }
 

@@ -227,7 +227,7 @@ namespace GraphSynth.UI
 
         private void WrapPanelForColors_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (typeof(ColorSwatch).IsInstanceOfType(e.OriginalSource))
+            if (e.OriginalSource is ColorSwatch)
             {
                 var cs = (ColorSwatch)e.OriginalSource;
                 sldOpacity.UpdateValue(cs.A);

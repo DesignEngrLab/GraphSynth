@@ -207,9 +207,9 @@ namespace GraphSynth.GraphDisplay
                     MyXamlHelpers.SetValue(ref _stringShape, "Fill", value);
                 else
                 {
-                    if ((typeof(string).IsInstanceOfType(value)))
+                    if ((value is string))
                         ((Shape)_shape).Fill = BrushSelector.GetBrushFromString((string)value);
-                    else if ((typeof(Brush).IsInstanceOfType(value))) ((Shape)_shape).Fill = (Brush)value;
+                    else if ((value is Brush)) ((Shape)_shape).Fill = (Brush)value;
                     else throw new Exception("Fill cannot be set to type:" + value.GetType());
                     StringNeedsUpdating = true;
                 }
@@ -237,9 +237,9 @@ namespace GraphSynth.GraphDisplay
                     MyXamlHelpers.SetValue(ref _stringShape, "Stroke", value);
                 else
                 {
-                    if ((typeof(string).IsInstanceOfType(value)))
+                    if ((value is string))
                         ((Shape)_shape).Stroke = BrushSelector.GetBrushFromString((string)value);
-                    else if ((typeof(Brush).IsInstanceOfType(value))) ((Shape)_shape).Stroke = (Brush)value;
+                    else if ((value is Brush)) ((Shape)_shape).Stroke = (Brush)value;
                     else throw new Exception("Stroke cannot be set to type:" + value.GetType());
                     StringNeedsUpdating = true;
                 }

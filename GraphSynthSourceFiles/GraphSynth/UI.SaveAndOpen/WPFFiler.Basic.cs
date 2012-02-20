@@ -76,25 +76,25 @@ namespace GraphSynth
         public override void Save(string filename, object o, Boolean suppressWarnings = false)
         {
             this.suppressWarnings = suppressWarnings;
-            if (typeof(ruleWindow).IsInstanceOfType(o) ||
-                typeof(grammarRule).IsInstanceOfType(o) ||
-                (typeof(object[]).IsInstanceOfType(o) &&
-                 typeof(grammarRule).IsInstanceOfType(((object[])o)[0])))
+            if (o is ruleWindow ||
+                o is grammarRule ||
+                (o is object[] &&
+                 ((object[])o)[0] is grammarRule))
             {
                 if (Thread.CurrentThread.GetApartmentState() == ApartmentState.STA)
                     FilerProgressWindow.SaveRule(filename, false, this, o);
-                else if (typeof(object[]).IsInstanceOfType(o))
+                else if (o is object[])
                     SaveRule(filename, (object[])o);
                 else SaveRule(filename, new[] { o });
             }
-            else if (typeof(graphWindow).IsInstanceOfType(o) ||
-                     typeof(designGraph).IsInstanceOfType(o) ||
-                     (typeof(object[]).IsInstanceOfType(o) &&
-                      typeof(designGraph).IsInstanceOfType(((object[])o)[0])))
+            else if (o is graphWindow ||
+                     o is designGraph ||
+                     (o is object[] &&
+                      ((object[])o)[0] is designGraph))
             {
                 if (Thread.CurrentThread.GetApartmentState() == ApartmentState.STA)
                     FilerProgressWindow.SaveGraph(filename, false, this, o);
-                else if (typeof(object[]).IsInstanceOfType(o))
+                else if (o is object[])
                     SaveGraph(filename, (object[])o);
                 else SaveGraph(filename, new[] { o });
             }
@@ -121,17 +121,17 @@ namespace GraphSynth
                         progWindow.QueryUser("That file is already open, or there is another file open with the" +
                                              " same name. If this is another file, please rename one of the names.",
                                              5000, "OK", "", false);
-                    if (typeof(graphWindow).IsInstanceOfType(main.windowsMgr.activeWindow))
+                    if (main.windowsMgr.activeWindow is graphWindow)
                     {
                         var gWin = (graphWindow)main.windowsMgr.activeWindow;
                         return new object[] { gWin.graph, gWin.canvasProps, gWin.filename };
                     }
-                    else  if (typeof(ruleWindow).IsInstanceOfType(main.windowsMgr.activeWindow))
+                    else  if (main.windowsMgr.activeWindow is ruleWindow)
                     {
                         var rWin = (ruleWindow)main.windowsMgr.activeWindow;
                         return new object[] { rWin.rule, rWin.canvasProps, rWin.filename };
                     }
-                    else if (typeof(ruleSetWindow).IsInstanceOfType(main.windowsMgr.activeWindow))
+                    else if (main.windowsMgr.activeWindow is ruleSetWindow)
                     {
                         var rsWin = (ruleSetWindow)main.windowsMgr.activeWindow;
                         return new object[] { rsWin.ruleset };

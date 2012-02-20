@@ -34,7 +34,7 @@ namespace GraphSynth.GraphDisplay
             try
             {
                 var pathGeom = (PathGeometry)initGeometry;
-                var arcSeg = pathGeom.Figures[0].Segments.FirstOrDefault(s => typeof(ArcSegment).IsInstanceOfType(s));
+                var arcSeg = pathGeom.Figures[0].Segments.FirstOrDefault(s => s is ArcSegment);
                 if (arcSeg == null) BufferRadius = 0;
                 else BufferRadius = ((ArcSegment)arcSeg).RotationAngle;
             }

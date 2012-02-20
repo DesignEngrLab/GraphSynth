@@ -30,19 +30,19 @@ namespace GraphSynth
         /// <param name = "o">The o.</param>
         public override void Save(string filename, object o, Boolean suppressWarnings = false)
         {
-           if (typeof(grammarRule).IsInstanceOfType(o) ||
-                (typeof(object[]).IsInstanceOfType(o) &&
-                 typeof(grammarRule).IsInstanceOfType(((object[])o)[0])))
+           if (o is grammarRule ||
+                (o is object[] &&
+                 ((object[])o)[0] is grammarRule))
             {
-                if (typeof(object[]).IsInstanceOfType(o))
+                if (o is object[])
                     SaveRule(filename, (object[])o);
                 else SaveRule(filename, new[] { o });
             }
-            else if (typeof(designGraph).IsInstanceOfType(o) ||
-                     (typeof(object[]).IsInstanceOfType(o) &&
-                      typeof(designGraph).IsInstanceOfType(((object[])o)[0])))
+            else if (o is designGraph ||
+                     (o is object[] &&
+                      ((object[])o)[0] is designGraph))
             {
-                if (typeof(object[]).IsInstanceOfType(o))
+                if (o is object[])
                     SaveGraph(filename, (object[])o);
                 else SaveGraph(filename, new[] { o });
             }

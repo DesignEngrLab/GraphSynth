@@ -40,7 +40,7 @@ namespace GraphSynth.UI
             var oldLabels = firstNode.localLabels;
             var newLabels = StringCollectionConverter.convert(txtLabels.Text);
 
-            if ((typeof(RuleDisplay).IsInstanceOfType(gui)) &&
+            if ((gui is RuleDisplay) &&
                 (gui == ((RuleDisplay)gui).rW.graphGUIK))
             {
                 var rW = ((RuleDisplay)gui).rW;
@@ -67,7 +67,7 @@ namespace GraphSynth.UI
                 mbe = BindingOperations.GetMultiBindingExpression(nI, IconShape.DisplayTextProperty);
                 mbe.UpdateTarget();
             }
-            else if (typeof(RuleDisplay).IsInstanceOfType(gui))
+            else if (gui is RuleDisplay)
             {
                 // this is a rule LHS or RHS
                 var rW = ((RuleDisplay)gui).rW;
@@ -114,7 +114,7 @@ namespace GraphSynth.UI
             var oldVars = firstNode.localVariables;
             var newVars = DoubleCollectionConverter.convert(txtVariables.Text);
 
-            if ((typeof(RuleDisplay).IsInstanceOfType(gui)) &&
+            if ((gui is RuleDisplay) &&
                 (gui == ((RuleDisplay)gui).rW.graphGUIK))
             {
                 var rW = ((RuleDisplay)gui).rW;
@@ -135,7 +135,7 @@ namespace GraphSynth.UI
                 Rnode.localVariables.Clear();
                 foreach (double a in newRVars) Rnode.localVariables.Add(a);
             }
-            else if (typeof(RuleDisplay).IsInstanceOfType(gui))
+            else if (gui is RuleDisplay)
             {
                 // this is a rule LHS or RHS
                 var rW = ((RuleDisplay)gui).rW;
@@ -209,7 +209,7 @@ namespace GraphSynth.UI
             {
                 n.XmlNodeType = txtNodeType.Text;
                 /* make sure node is of right type - if not call the replacement function */
-                if ((typeof(ruleNode).IsInstanceOfType(n))
+                if ((n is ruleNode)
                     && (n.nodeType != null) && (n.GetType() != n.nodeType))
                     graph.replaceNodeWithInheritedType(n);
             }
@@ -361,7 +361,7 @@ namespace GraphSynth.UI
             {
                 txtName.IsEnabled = txtLabels.IsEnabled = txtVariables.IsEnabled = true;
                 txtName.Text = firstNode.name;
-                btnConfirm.Visibility = typeof(ruleNode).IsInstanceOfType(firstNode)
+                btnConfirm.Visibility = firstNode is ruleNode
                     ? Visibility.Visible : Visibility.Hidden;
                 txtLabels.Text = StringCollectionConverter.convert(firstNode.localLabels);
                 txtVariables.Text = DoubleCollectionConverter.convert(firstNode.localVariables);
@@ -375,7 +375,7 @@ namespace GraphSynth.UI
                 txtBxPosY.Text = firstNode.Y.ToString();
                 txtBxPosZ.Text = firstNode.Z.ToString();
 
-                if ((typeof(RuleDisplay).IsInstanceOfType(gui))
+                if ((gui is RuleDisplay)
                     && (gui == ((RuleDisplay)gui).rW.graphGUIL))
                 {
                     chkContainsLocalLabels.IsChecked = ((ruleNode)firstNode).containsAllLocalLabels;
@@ -483,7 +483,7 @@ namespace GraphSynth.UI
                     txtBxPosZ.Text = "diff";
                 }
 
-                if ((typeof(RuleDisplay).IsInstanceOfType(gui))
+                if ((gui is RuleDisplay)
                     && (gui == ((RuleDisplay)gui).rW.graphGUIL))
                 {
                     allSame = true;

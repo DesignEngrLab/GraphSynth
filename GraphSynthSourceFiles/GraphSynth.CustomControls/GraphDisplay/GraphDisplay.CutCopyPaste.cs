@@ -110,7 +110,7 @@ namespace GraphSynth.GraphDisplay
                 DisconnectArcHead(n.arcsTo[i]);
             for (int i = n.arcsFrom.Count - 1; i >= 0; i--)
                 DisconnectArcTail(n.arcsFrom[i]);
-            var hyperArcs = n.arcs.Where(h => typeof(hyperarc).IsInstanceOfType(h)).Cast<hyperarc>().ToArray();
+            var hyperArcs = n.arcs.Where(h => h is hyperarc).Cast<hyperarc>().ToArray();
             for (int i=hyperArcs.Count()-1; i>=0; i--)
                 DisconnectHyperArcConnection(hyperArcs[i], n);
             var nIS = (NodeIconShape)((DisplayShape)n.DisplayShape).icon;
@@ -125,9 +125,9 @@ namespace GraphSynth.GraphDisplay
             var aIS = ((DisplayShape)a.DisplayShape).icon;
             a.To = null;
             a.From = null;
-            if (typeof(NullNodeIconShape).IsInstanceOfType(aDS.FromShape))
+            if (aDS.FromShape is NullNodeIconShape)
                 nullNodeIcons.Remove((IconShape)aDS.FromShape);
-            if (typeof(NullNodeIconShape).IsInstanceOfType(aDS.ToShape))
+            if (aDS.ToShape is NullNodeIconShape)
                 nullNodeIcons.Remove((IconShape)aDS.ToShape);
             // this gets rid of the deleted shape from the shape collection
             arcIcons.Remove(aIS);

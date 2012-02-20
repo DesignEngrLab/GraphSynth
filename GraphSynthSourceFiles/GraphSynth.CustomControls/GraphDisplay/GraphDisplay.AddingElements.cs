@@ -280,7 +280,7 @@ namespace GraphSynth.GraphDisplay
                 multiBinding.Bindings.Add(binding);
             }
             ((HyperArcShape)ha.DisplayShape.Shape).SetBinding(HyperArcShape.NodeCentersProperty, multiBinding);
-            if (typeof(InferredHyperArcController).IsInstanceOfType(((HyperArcShape)ha.DisplayShape.Shape).Controller))
+            if (((HyperArcShape)ha.DisplayShape.Shape).Controller is InferredHyperArcController)
                 ((InferredHyperArcController)((HyperArcShape)ha.DisplayShape.Shape).Controller).BindToArcs();
         }
 

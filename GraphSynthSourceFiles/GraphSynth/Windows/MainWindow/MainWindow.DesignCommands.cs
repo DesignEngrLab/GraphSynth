@@ -105,7 +105,7 @@ namespace GraphSynth.UI
         public void SetActiveAsRuleSet1CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = ((windowsMgr.activeWindow != null)
-                            && (typeof(ruleSetWindow).IsInstanceOfType(windowsMgr.activeWindow))
+                            && (windowsMgr.activeWindow is ruleSetWindow)
                             && (GSApp.settings.numOfRuleSets > 1));
             if (GSApp.settings.numOfRuleSets > 1)
             {
@@ -127,7 +127,7 @@ namespace GraphSynth.UI
         public void SetActiveAsRuleSet2CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = ((windowsMgr.activeWindow != null)
-                            && (typeof(ruleSetWindow).IsInstanceOfType(windowsMgr.activeWindow))
+                            && (windowsMgr.activeWindow is ruleSetWindow)
                             && (GSApp.settings.numOfRuleSets > 2));
             if (GSApp.settings.numOfRuleSets > 2)
             {
@@ -149,7 +149,7 @@ namespace GraphSynth.UI
         public void SetActiveAsRuleSet3CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = ((windowsMgr.activeWindow != null)
-                            && (typeof(ruleSetWindow).IsInstanceOfType(windowsMgr.activeWindow))
+                            && (windowsMgr.activeWindow is ruleSetWindow)
                             && (GSApp.settings.numOfRuleSets > 3));
             if (GSApp.settings.numOfRuleSets > 3)
             {
@@ -171,7 +171,7 @@ namespace GraphSynth.UI
         public void SetActiveAsRuleSet4CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = ((windowsMgr.activeWindow != null)
-                            && (typeof(ruleSetWindow).IsInstanceOfType(windowsMgr.activeWindow))
+                            && (windowsMgr.activeWindow is ruleSetWindow)
                             && (GSApp.settings.numOfRuleSets > 4));
             if (GSApp.settings.numOfRuleSets > 4)
             {
@@ -193,7 +193,7 @@ namespace GraphSynth.UI
         public void SetActiveAsRuleSet5CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = ((windowsMgr.activeWindow != null)
-                            && (typeof(ruleSetWindow).IsInstanceOfType(windowsMgr.activeWindow))
+                            && (windowsMgr.activeWindow is ruleSetWindow)
                             && (GSApp.settings.numOfRuleSets > 5));
             if (GSApp.settings.numOfRuleSets > 5)
             {
@@ -215,7 +215,7 @@ namespace GraphSynth.UI
         public void SetActiveAsRuleSet6CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = ((windowsMgr.activeWindow != null)
-                            && (typeof(ruleSetWindow).IsInstanceOfType(windowsMgr.activeWindow))
+                            && (windowsMgr.activeWindow is ruleSetWindow)
                             && (GSApp.settings.numOfRuleSets > 6));
             if (GSApp.settings.numOfRuleSets > 6)
             {
@@ -237,7 +237,7 @@ namespace GraphSynth.UI
         public void SetActiveAsRuleSet7CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = ((windowsMgr.activeWindow != null)
-                            && (typeof(ruleSetWindow).IsInstanceOfType(windowsMgr.activeWindow))
+                            && (windowsMgr.activeWindow is ruleSetWindow)
                             && (GSApp.settings.numOfRuleSets > 7));
             if (GSApp.settings.numOfRuleSets > 7)
             {
@@ -259,7 +259,7 @@ namespace GraphSynth.UI
         public void SetActiveAsRuleSet8CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = ((windowsMgr.activeWindow != null)
-                            && (typeof(ruleSetWindow).IsInstanceOfType(windowsMgr.activeWindow))
+                            && (windowsMgr.activeWindow is ruleSetWindow)
                             && (GSApp.settings.numOfRuleSets > 8));
             if (GSApp.settings.numOfRuleSets > 8)
             {
@@ -281,7 +281,7 @@ namespace GraphSynth.UI
         public void SetActiveAsRuleSet9CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = ((windowsMgr.activeWindow != null)
-                            && (typeof(ruleSetWindow).IsInstanceOfType(windowsMgr.activeWindow))
+                            && (windowsMgr.activeWindow is ruleSetWindow)
                             && (GSApp.settings.numOfRuleSets > 9));
             if (GSApp.settings.numOfRuleSets > 9)
             {

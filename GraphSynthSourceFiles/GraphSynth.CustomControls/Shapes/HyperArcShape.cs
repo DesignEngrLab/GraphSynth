@@ -24,22 +24,22 @@ namespace GraphSynth.GraphDisplay
 
         private static Geometry ExtractSegment(Shape p)
         {
-            if (typeof(Ellipse).IsInstanceOfType(p))
+            if (p is Ellipse)
                 return new EllipseGeometry
                            {
                                Center = new Point(p.RenderTransform.Value.OffsetX + p.Width / 2, p.RenderTransform.Value.OffsetY + p.Height / 2),
                                RadiusX = p.Width / 2,
                                RadiusY = p.Height / 2
                            };
-            else if (typeof(Rectangle).IsInstanceOfType(p))
+            else if (p is Rectangle)
                 return new RectangleGeometry
                 {
                     Rect = new Rect(p.RenderTransform.Value.OffsetX + p.Width / 2, p.RenderTransform.Value.OffsetY + p.Height / 2, p.Width, p.Height),
                     RadiusX = ((Rectangle)p).RadiusX,
                     RadiusY = ((Rectangle)p).RadiusY
                 };
-            else if (typeof(Path).IsInstanceOfType(p))
-                if (typeof(StreamGeometry).IsInstanceOfType(((Path)p).Data))
+            else if (p is Path)
+                if (((Path)p).Data is StreamGeometry)
                     return ((Path)p).Data.GetFlattenedPathGeometry();
                 else return ((Path)p).Data;
             else return null;

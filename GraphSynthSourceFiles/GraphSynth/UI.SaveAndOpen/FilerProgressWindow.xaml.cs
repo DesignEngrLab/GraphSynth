@@ -103,7 +103,7 @@ namespace GraphSynth.UI
             fpw.stackContent.Children.Remove(fpw.progressBar2);
             wPFFiler.progWindow = fpw;
             fpw.backgroundWorker.RunWorkerCompleted += fpw.Completed_Save;
-            if (!typeof(object[]).IsInstanceOfType(saveObjects)) fpw.storage = new[] { saveObjects };
+            if (!(saveObjects is object[])) fpw.storage = new[] { saveObjects };
             else fpw.storage = (object[])saveObjects;
             wPFFiler.progWindow = fpw;
             return fpw;

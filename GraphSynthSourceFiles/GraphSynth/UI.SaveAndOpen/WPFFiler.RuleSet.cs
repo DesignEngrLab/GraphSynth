@@ -95,9 +95,8 @@ namespace GraphSynth
                                                       object ruleObj = Open(rulePath);
                                                       if ((typeof(grammarRule)).IsInstanceOfType(ruleObj))
                                                           rs.rules[i] = (grammarRule)ruleObj;
-                                                      else if (typeof(object[]).IsInstanceOfType(ruleObj) &&
-                                                               typeof(grammarRule).IsInstanceOfType(
-                                                                   ((object[])ruleObj)[0]))
+                                                      else if (ruleObj is object[] &&
+                                                               ((object[])ruleObj)[0] is grammarRule)
                                                           rs.rules[i] = ((grammarRule)((object[])ruleObj)[0]);
                                                   });
             }

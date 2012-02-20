@@ -76,10 +76,10 @@ namespace GraphSynth.UI
             foreach (object key in Application.Current.Resources.MergedDictionaries[1].Keys)
             {
                 var o = Application.Current.Resources[key];
-                if (typeof(DataTemplate).IsInstanceOfType(o))
+                if (o is DataTemplate)
                 {
                     object p = ((DataTemplate)o).LoadContent();
-                    if (typeof(CanvasProperty).IsInstanceOfType(p))
+                    if (p is CanvasProperty)
                     {
                         var name = key.ToString();
                         if (selectedkey == name) selectedIndex = numTemplates;

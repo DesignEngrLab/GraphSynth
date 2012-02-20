@@ -38,11 +38,11 @@ namespace GraphSynth.UI
                 eltType = (ShapeRepresents)Enum.Parse(typeof(ShapeRepresents), eltTypeName, true);
                 icons = new List<IconShape>();
                 foreach (var elt in value)
-                    if (typeof(node).IsInstanceOfType(elt))
+                    if (elt is node)
                         icons.Add(gui.nodeIcons.FirstOrDefault(nI => nI.GraphElement == elt));
-                    else if (typeof(arc).IsInstanceOfType(elt))
+                    else if (elt is arc)
                         icons.Add(((ArcShape)elt.DisplayShape.Shape).icon);
-                    else if (typeof(hyperarc).IsInstanceOfType(elt))
+                    else if (elt is hyperarc)
                         icons.Add(((HyperArcShape)elt.DisplayShape.Shape).icon);
                 Update();
             }
