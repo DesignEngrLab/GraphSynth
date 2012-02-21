@@ -91,7 +91,7 @@ namespace GraphSynth
 
             ScaleFactor = gd.ScaleFactor;
             ZoomToFit = gd.ZoomToFit;
-            if ((typeof(SolidColorBrush)).IsInstanceOfType(gd.Background))
+            if (gd.Background is SolidColorBrush)
                 BackgroundColor = gd.Background.ToString();
             else
                 BackgroundColor = "#FFFFFFFF";

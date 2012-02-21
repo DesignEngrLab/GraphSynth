@@ -57,7 +57,7 @@ namespace GraphSynth.GraphDisplay
 
         public void addNodeShape(node n, Boolean redraw = true)
         {
-            if (!(typeof(DisplayShape)).IsInstanceOfType(n.DisplayShape))
+            if (!(n.DisplayShape is DisplayShape))
                 GS1xCompatibility.UpdateNodeShape(n);
             var shape = (Shape)n.DisplayShape.Shape;
             nodeShapes.Add(shape);
@@ -89,7 +89,7 @@ namespace GraphSynth.GraphDisplay
         #region Add New Arcs
         public void AddArcShape(arc a)
         {
-            if (!(typeof(DisplayShape)).IsInstanceOfType(a.DisplayShape))
+            if (!(a.DisplayShape is DisplayShape))
                 GS1xCompatibility.UpdateArcShape(a);
             arcShapes.Add((ArcShape)a.DisplayShape.Shape);
             arcIcons.Add(a, (ArcShape)a.DisplayShape.Shape);

@@ -73,7 +73,7 @@ namespace GraphSynth.UI
         {
             HideAllSections();
             main.windowsMgr.ExpandOrCollapse();
-            if ((typeof(graphWindow)).IsInstanceOfType(main.windowsMgr.activeWindow))
+            if (main.windowsMgr.activeWindow is graphWindow)
             {
                 #region Update Graph Properties
 
@@ -105,7 +105,7 @@ namespace GraphSynth.UI
 
                 #endregion
             }
-            else if ((typeof(ruleWindow)).IsInstanceOfType(main.windowsMgr.activeWindow))
+            else if (main.windowsMgr.activeWindow is ruleWindow)
             {
                 #region Update Rule Properties
 
@@ -145,7 +145,7 @@ namespace GraphSynth.UI
 
                 #endregion
             }
-            else if ((typeof(ruleSetWindow)).IsInstanceOfType(main.windowsMgr.activeWindow))
+            else if (main.windowsMgr.activeWindow is ruleSetWindow)
             {
                 gW = null;
                 rW = null;

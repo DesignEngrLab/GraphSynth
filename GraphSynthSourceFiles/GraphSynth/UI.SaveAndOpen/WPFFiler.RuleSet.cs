@@ -65,11 +65,11 @@ namespace GraphSynth
                 {
                     SearchIO.output("Loading " + ruleFileNames[numLoaded]);
                     object ruleObj = OpenRuleAndCanvas(rulePath);
-                    if ((typeof(grammarRule)).IsInstanceOfType(ruleObj))
+                    if (ruleObj is grammarRule)
                         rules.Add((grammarRule)ruleObj);
-                    else if ((typeof(object[])).IsInstanceOfType(ruleObj))
+                    else if (ruleObj is object[])
                         foreach (object o in (object[])ruleObj)
-                            if ((typeof(grammarRule)).IsInstanceOfType(o))
+                            if (o is grammarRule)
                                 rules.Add((grammarRule)o);
                     numLoaded++;
                 }
@@ -93,7 +93,7 @@ namespace GraphSynth
                                                       var rulePath = rs.rulesDir + rs.ruleFileNames[i];
                                                       SearchIO.output("Loading " + rs.ruleFileNames[i]);
                                                       object ruleObj = Open(rulePath);
-                                                      if ((typeof(grammarRule)).IsInstanceOfType(ruleObj))
+                                                      if (ruleObj is grammarRule)
                                                           rs.rules[i] = (grammarRule)ruleObj;
                                                       else if (ruleObj is object[] &&
                                                                ((object[])ruleObj)[0] is grammarRule)

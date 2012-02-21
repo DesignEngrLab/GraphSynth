@@ -98,12 +98,12 @@ namespace GraphSynth.UI
         {
             var openedItems = GSApp.settings.filer.Open(filename);
             if (openedItems == null) return;
-            else if ((typeof(ruleSet)).IsInstanceOfType(openedItems[0]))
+            else if (openedItems[0] is ruleSet)
             {
                 var rs = (ruleSet)openedItems[0];
                 addAndShowRuleSetWindow(rs, filename);
             }
-            else if ((typeof(candidate)).IsInstanceOfType(openedItems[0]))
+            else if (openedItems[0] is candidate)
             {
                 var tempString = "";
                 var c = (candidate)openedItems[0];
@@ -129,9 +129,9 @@ namespace GraphSynth.UI
                 // graphWindow gW = new graphWindow(c.graph, filename);
                 // windowsMgr.AddandShowWindow(gW);
             }
-            else if ((typeof(designGraph)).IsInstanceOfType(openedItems[0]))
+            else if (openedItems[0] is designGraph)
                 addAndShowGraphWindow(openedItems);
-            else if ((typeof(grammarRule)).IsInstanceOfType(openedItems[0]))
+            else if (openedItems[0] is grammarRule)
                 addAndShowRuleWindow(openedItems);
             else SearchIO.output("Nothing opened. No GraphSynth object found in " + filename);
         }
@@ -189,14 +189,12 @@ namespace GraphSynth.UI
 
         public void ExportAsGS1X_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = ((windowsMgr.activeWindow != null) &&
-                            (typeof(graphWindow)).IsInstanceOfType(windowsMgr.activeWindow));
+            e.CanExecute = (windowsMgr.activeWindow is graphWindow);
         }
 
         public void ExportAsPNG_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = ((windowsMgr.activeWindow != null) &&
-                            (typeof(graphWindow)).IsInstanceOfType(windowsMgr.activeWindow));
+            e.CanExecute = (windowsMgr.activeWindow is graphWindow);
         }
 
         public void CanExecute_Open(object sender, CanExecuteRoutedEventArgs e)
@@ -206,10 +204,9 @@ namespace GraphSynth.UI
 
         public void CanExecute_Save(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = ((windowsMgr.activeWindow != null) &&
-                            (windowsMgr.activeWindow is graphWindow ||
+            e.CanExecute = (windowsMgr.activeWindow is graphWindow ||
                              windowsMgr.activeWindow is ruleWindow ||
-                             windowsMgr.activeWindow is ruleSetWindow));
+                             windowsMgr.activeWindow is ruleSetWindow);
         }
 
         public void SaveActiveWindow(Boolean QueryForFile)
@@ -218,7 +215,7 @@ namespace GraphSynth.UI
             if (windowsMgr.activeWindow == null)
                 MessageBox.Show("Please select an window that contains a graph, rule, or rule set.", "Error Saving",
                                 MessageBoxButton.OK, MessageBoxImage.Error);
-            else if ((typeof(graphWindow)).IsInstanceOfType(windowsMgr.activeWindow))
+            else if (windowsMgr.activeWindow is graphWindow)
             {
                 var gW = (graphWindow)windowsMgr.activeWindow;
                 if (!QueryForFile && (Path.IsPathRooted(gW.filename)))
@@ -234,7 +231,7 @@ namespace GraphSynth.UI
                     gW.Title = gW.graph.name = Path.GetFileNameWithoutExtension(filename);
                 }
             }
-            else if ((typeof(ruleWindow)).IsInstanceOfType(windowsMgr.activeWindow))
+            else if (windowsMgr.activeWindow is ruleWindow)
             {
                 var rW = (ruleWindow)windowsMgr.activeWindow;
                 if (!QueryForFile && (Path.IsPathRooted(rW.filename)))
@@ -249,7 +246,7 @@ namespace GraphSynth.UI
                     rW.Title = rW.rule.name = Path.GetFileNameWithoutExtension(filename);
                 }
             }
-            else if ((typeof(ruleSetWindow)).IsInstanceOfType(windowsMgr.activeWindow))
+            else if (windowsMgr.activeWindow is ruleSetWindow)
             {
                 var rSW = (ruleSetWindow)windowsMgr.activeWindow;
 
@@ -293,7 +290,7 @@ namespace GraphSynth.UI
                 if (windowsMgr.activeWindow == null)
                     MessageBox.Show("Please select an window that contains a graph, rule, or rule set.", "Error Saving",
                                     MessageBoxButton.OK, MessageBoxImage.Error);
-                else if ((typeof(graphWindow)).IsInstanceOfType(windowsMgr.activeWindow))
+                else if (windowsMgr.activeWindow is graphWindow)
                 {
                     var filename = GetSaveFilename("Portable Network Graphics file (*.png)|*.png",
                                                    windowsMgr.activeGraphCanvas.graph.name,
@@ -510,8 +507,8 @@ namespace GraphSynth.UI
 
         private void SelectAllCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = ((typeof(graphWindow)).IsInstanceOfType(windowsMgr.activeWindow)
-                            || (typeof(ruleWindow)).IsInstanceOfType(windowsMgr.activeWindow));
+            e.CanExecute = (windowsMgr.activeWindow is graphWindow
+                            || windowsMgr.activeWindow is ruleWindow);
         }
 
         public void DeleteOnExecuted(object sender, ExecutedRoutedEventArgs e)

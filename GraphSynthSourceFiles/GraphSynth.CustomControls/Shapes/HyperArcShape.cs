@@ -55,9 +55,9 @@ namespace GraphSynth.GraphDisplay
                 && AbstractController.ConstructFromString(p.Tag.ToString().Substring(colonPosition + 1),
                 this, out ctrl))
                 return ctrl;
-            if ((typeof(EllipseGeometry)).IsInstanceOfType(initGeometry))
+            if (initGeometry is EllipseGeometry)
                 return new CircleHyperArcController(this, initGeometry);
-            if ((typeof(RectangleGeometry)).IsInstanceOfType(initGeometry))
+            if (initGeometry is RectangleGeometry)
                 return new RectangleHyperArcController(this, initGeometry);
             return new StarHyperArcController(this, initGeometry);
         }

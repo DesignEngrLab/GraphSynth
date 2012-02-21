@@ -171,14 +171,14 @@ namespace GraphSynth.UI
 
         private void txtName_KeyUp(object sender, KeyEventArgs e)
         {
-            if (!(typeof(ruleNode)).IsInstanceOfType(firstNode)
+            if (!(firstNode is ruleNode)
                 || (e.Key == Key.Return) || (e.Key == Key.Enter))
                 btnConfirm_Click(sender, null);
         }
 
         private void txtName_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (!(typeof(ruleNode)).IsInstanceOfType(firstNode))
+            if (!(firstNode is ruleNode))
             {
                 btnConfirm_Click(sender, null);
                 Update();

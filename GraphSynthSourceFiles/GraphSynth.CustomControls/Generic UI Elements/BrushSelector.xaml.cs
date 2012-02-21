@@ -174,7 +174,7 @@ namespace GraphSynth.UI
             sldRed.UpdateValue(double.NaN);
             sldGreen.UpdateValue(double.NaN);
             sldBlue.UpdateValue(double.NaN);
-            if ((typeof(SolidColorBrush)).IsInstanceOfType(datum))
+            if (datum is SolidColorBrush)
             //&& (!sameSolidColorBrush(datum,Value)))
             {
                 var c = ((SolidColorBrush)datum).Color;
@@ -279,8 +279,8 @@ namespace GraphSynth.UI
 
         public static Boolean EqualBrushes(Brush b1, Brush b2)
         {
-            if ((typeof(SolidColorBrush)).IsInstanceOfType(b1) &&
-                (typeof(SolidColorBrush)).IsInstanceOfType(b2))
+            if (b1 is SolidColorBrush &&
+                b2 is SolidColorBrush)
                 return ((SolidColorBrush)b1).Color.Equals(((SolidColorBrush)b2).Color);
             /* I'm not inclined to write the remaining details of this function for
          * cases when neither is a SolidColorBrush. I was hoping the Brush.Equals

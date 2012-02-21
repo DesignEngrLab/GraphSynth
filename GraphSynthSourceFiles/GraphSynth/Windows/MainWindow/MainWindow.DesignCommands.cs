@@ -35,8 +35,7 @@ namespace GraphSynth.UI
 
         public void SetActiveAsSeedCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = ((windowsMgr.activeWindow != null) &&
-                            ((typeof(graphWindow)).IsInstanceOfType(windowsMgr.activeWindow)));
+            e.CanExecute = (windowsMgr.activeWindow is graphWindow);
         }
 
         private void DesignDropDown_SubmenuOpened(object sender, RoutedEventArgs e)
@@ -93,8 +92,7 @@ namespace GraphSynth.UI
 
         public void SetActiveAsRuleSet0CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = ((windowsMgr.activeWindow != null) &&
-                            ((typeof(ruleSetWindow)).IsInstanceOfType(windowsMgr.activeWindow)));
+            e.CanExecute = (windowsMgr.activeWindow is ruleSetWindow);
         }
 
         public void SetActiveAsRuleSet1OnExecuted(object sender, ExecutedRoutedEventArgs e)

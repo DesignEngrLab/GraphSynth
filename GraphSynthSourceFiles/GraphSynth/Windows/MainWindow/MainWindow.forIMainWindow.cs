@@ -72,36 +72,36 @@ namespace GraphSynth.UI
             var canvas = SeedCanvas;
             string filename = null;
             if (obj == null) dG = null;
-            else if ((typeof(designGraph)).IsInstanceOfType(obj))
+            else if (obj is designGraph)
                 dG = (designGraph)obj;
-            else if ((typeof(object[])).IsInstanceOfType(obj))
+            else if (obj is object[])
             {
                 var objArray = (object[])obj;
                 if (objArray.GetLength(0) > 0)
                 {
-                    if ((typeof(designGraph)).IsInstanceOfType(objArray[0]))
+                    if (objArray[0] is designGraph)
                         dG = (designGraph)objArray[0];
-                    else if ((typeof(CanvasProperty)).IsInstanceOfType(objArray[0]))
+                    else if (objArray[0] is CanvasProperty)
                         canvas = (CanvasProperty)objArray[0];
-                    else if ((typeof(string)).IsInstanceOfType(objArray[0]))
+                    else if (objArray[0] is string)
                         filename = (string)objArray[0];
                 }
                 if (objArray.GetLength(0) > 1)
                 {
-                    if ((typeof(designGraph)).IsInstanceOfType(objArray[1]))
+                    if (objArray[1] is designGraph)
                         dG = (designGraph)objArray[1];
-                    else if ((typeof(CanvasProperty)).IsInstanceOfType(objArray[1]))
+                    else if (objArray[1] is CanvasProperty)
                         canvas = (CanvasProperty)objArray[1];
-                    else if ((typeof(string)).IsInstanceOfType(objArray[1]))
+                    else if (objArray[1] is string)
                         filename = (string)objArray[1];
                 }
                 if (objArray.GetLength(0) > 2)
                 {
-                    if ((typeof(designGraph)).IsInstanceOfType(objArray[2]))
+                    if (objArray[2] is designGraph)
                         dG = (designGraph)objArray[2];
-                    else if ((typeof(CanvasProperty)).IsInstanceOfType(objArray[2]))
+                    else if (objArray[2] is CanvasProperty)
                         canvas = (CanvasProperty)objArray[2];
-                    else if ((typeof(string)).IsInstanceOfType(objArray[2]))
+                    else if (objArray[2] is string)
                         filename = (string)objArray[2];
                 }
             }
@@ -119,36 +119,36 @@ namespace GraphSynth.UI
             var canvas = new CanvasProperty();
             string filename = null;
             if (obj == null) gR = null;
-            else if ((typeof(grammarRule)).IsInstanceOfType(obj))
+            else if (obj is grammarRule)
                 gR = (grammarRule)obj;
-            else if ((typeof(object[])).IsInstanceOfType(obj))
+            else if (obj is object[])
             {
                 var objArray = (object[])obj;
                 if (objArray.GetLength(0) > 0)
                 {
-                    if ((typeof(grammarRule)).IsInstanceOfType(objArray[0]))
+                    if (objArray[0] is grammarRule)
                         gR = (grammarRule)objArray[0];
-                    else if ((typeof(CanvasProperty)).IsInstanceOfType(objArray[0]))
+                    else if (objArray[0] is CanvasProperty)
                         canvas = (CanvasProperty)objArray[0];
-                    else if ((typeof(string)).IsInstanceOfType(objArray[0]))
+                    else if (objArray[0] is string)
                         filename = (string)objArray[0];
                 }
                 if (objArray.GetLength(0) > 1)
                 {
-                    if ((typeof(grammarRule)).IsInstanceOfType(objArray[1]))
+                    if (objArray[1] is grammarRule)
                         gR = (grammarRule)objArray[1];
-                    else if ((typeof(CanvasProperty)).IsInstanceOfType(objArray[1]))
+                    else if (objArray[1] is CanvasProperty)
                         canvas = (CanvasProperty)objArray[1];
-                    else if ((typeof(string)).IsInstanceOfType(objArray[1]))
+                    else if (objArray[1] is string)
                         filename = (string)objArray[1];
                 }
                 if (objArray.GetLength(0) > 2)
                 {
-                    if ((typeof(grammarRule)).IsInstanceOfType(objArray[2]))
+                    if (objArray[2] is grammarRule)
                         gR = (grammarRule)objArray[2];
-                    else if ((typeof(CanvasProperty)).IsInstanceOfType(objArray[2]))
+                    else if (objArray[2] is CanvasProperty)
                         canvas = (CanvasProperty)objArray[2];
-                    else if ((typeof(string)).IsInstanceOfType(objArray[2]))
+                    else if (objArray[2] is string)
                         filename = (string)objArray[2];
                 }
             }
@@ -164,23 +164,23 @@ namespace GraphSynth.UI
             var rs = new ruleSet();
             string filename = null;
             if (obj == null) rs = null;
-            else if ((typeof(ruleSet)).IsInstanceOfType(obj))
+            else if (obj is ruleSet)
                 rs = (ruleSet)obj;
-            else if ((typeof(object[])).IsInstanceOfType(obj))
+            else if (obj is object[])
             {
                 var objArray = (object[]) obj;
                 if (objArray.GetLength(0) > 0)
                 {
-                    if ((typeof (ruleSet)).IsInstanceOfType(objArray[0]))
+                    if (objArray[0] is ruleSet)
                         rs = (ruleSet) objArray[0];
-                    else if ((typeof (string)).IsInstanceOfType(objArray[0]))
+                    else if (objArray[0] is string)
                         filename = (string) objArray[0];
                 }
                 if (objArray.GetLength(0) > 1)
                 {
-                    if ((typeof (ruleSet)).IsInstanceOfType(objArray[1]))
+                    if (objArray[1] is ruleSet)
                         rs = (ruleSet) objArray[1];
-                    else if ((typeof (string)).IsInstanceOfType(objArray[1]))
+                    else if (objArray[1] is string)
                         filename = (string) objArray[1];
                 }
             }

@@ -141,19 +141,19 @@ namespace GraphSynth.GraphDisplay
                 var tempGraph = new designGraph();
                 foreach (node n in copiedSelection.selectedNodes)
                 {
-                    if ((typeof(ruleNode)).IsInstanceOfType(n))
+                    if (n is ruleNode)
                         tempGraph.addNode(n);
                     else tempGraph.addNode(ruleNode.ConvertFromNode(n));
                 }
                 foreach (arc a in copiedSelection.selectedArcs)
                 {
-                    if ((typeof(ruleArc)).IsInstanceOfType(a))
+                    if (a is ruleArc)
                         tempGraph.addArc(a);
                     else tempGraph.addArc(ruleArc.ConvertFromArc(a));
                 }
                 foreach (hyperarc a in copiedSelection.selectedHyperArcs)
                 {
-                    if ((typeof(ruleHyperarc)).IsInstanceOfType(a))
+                    if (a is ruleHyperarc)
                         tempGraph.addHyperArc(a);
                     else tempGraph.addHyperArc(ruleHyperarc.ConvertFromHyperArc(a));
                 }

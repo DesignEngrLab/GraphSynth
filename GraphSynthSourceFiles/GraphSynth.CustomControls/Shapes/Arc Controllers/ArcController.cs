@@ -122,7 +122,7 @@ namespace GraphSynth.GraphDisplay
             /* shapeRotAngle is the angle that the shape has been rotated from 0 to 2*PI. 
              * We could have looked at the acos or asin of M11 and M21 but that would
              * only give us 0 to 180. */
-            if ((typeof(Rectangle)).IsInstanceOfType(displayArc.FromShape))
+            if (displayArc.FromShape is Rectangle)
                 /* if the shape is a Rectangle, then we extend the sides of the rectangle indefinitely
                  * this will make two intersections with the line segment connecting the two points. 
                  * the smaller one is on the actual shape. */
@@ -140,7 +140,7 @@ namespace GraphSynth.GraphDisplay
         protected double findRadiusTo(double approachAngle, double shapeRotAngle)
         {
             if (ToWidth * ToHeight == 0.0) return 0.0;
-            if ((typeof(Rectangle)).IsInstanceOfType(displayArc.ToShape))
+            if (displayArc.ToShape is Rectangle)
                 return Math.Min(Math.Abs(ToWidth / (2 * Math.Cos(approachAngle - shapeRotAngle))),
                                 Math.Abs(ToHeight / (2 * Math.Sin(approachAngle - shapeRotAngle))));
             return (ToWidth * ToHeight)

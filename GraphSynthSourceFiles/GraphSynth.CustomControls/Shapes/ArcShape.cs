@@ -244,11 +244,11 @@ namespace GraphSynth.GraphDisplay
             {
                 var startPt = ((PathGeometry)p.Data).Figures[0].StartPoint;
                 var segment = ((PathGeometry)p.Data).Figures[0].Segments[0];
-                if ((typeof(BezierSegment)).IsInstanceOfType(segment))
+                if (segment is BezierSegment)
                     return new BezierArcController(this, segment, startPt);
-                if ((typeof(PolyLineSegment)).IsInstanceOfType(segment))
+                if (segment is PolyLineSegment)
                     return new RectilinearArcController(this, segment, startPt);
-                if ((typeof(ArcSegment)).IsInstanceOfType(segment))
+                if (segment is ArcSegment)
                     return new CircleArcController(this, segment, startPt);
             }
             return new StraightArcController(this);
