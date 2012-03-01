@@ -716,7 +716,7 @@ namespace GraphSynth.UI
                     var fileStream = new FileStream(filename, FileMode.Create, FileAccess.Write);
                     try
                     {
-                        var sw = new StreamWriter(fileStream, Encoding.UTF8);
+                        var sw = new StreamWriter(fileStream, Encoding.Default);
                         sw.Write(outputTextBox.Text);
                         sw.Flush();
                         sw.Close();

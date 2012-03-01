@@ -11,7 +11,6 @@ namespace GraphSynth.UI
     /// </summary>
     public partial class FilerProgressWindow : Window
     {
-        private Boolean SuppressWarnings;
         public BackgroundWorker backgroundWorker;
         private Boolean completed;
         private string filename;
@@ -27,7 +26,6 @@ namespace GraphSynth.UI
             var fpw = new FilerProgressWindow
                           {
                               filename = filename,
-                              SuppressWarnings = SuppressWarnings,
                               wPFFiler = wPFFiler,
                               Title = "Progress: Opening..."
                           };
@@ -86,14 +84,12 @@ namespace GraphSynth.UI
         }
 
 
-        private static FilerProgressWindow SetUpSavingProgress(string filename, Boolean SuppressWarnings,
-                                                               WPFFiler wPFFiler,
+        private static FilerProgressWindow SetUpSavingProgress(string filename, WPFFiler wPFFiler,
                                                                object saveObjects)
         {
             var fpw = new FilerProgressWindow
                           {
                               filename = filename,
-                              SuppressWarnings = false,
                               wPFFiler = wPFFiler,
                               Title = "Progress: Saving...",
                               lblopen1 = {Content = Path.GetFileName(filename)}
@@ -112,7 +108,7 @@ namespace GraphSynth.UI
         internal static void SaveGraph(string filename, Boolean SuppressWarnings,
                                        WPFFiler wPFFiler, object saveObjects)
         {
-            var fpw = SetUpSavingProgress(filename, SuppressWarnings, wPFFiler, saveObjects);
+            var fpw = SetUpSavingProgress(filename, wPFFiler, saveObjects);
             fpw.backgroundWorker.DoWork += fpw.Do_SaveGraph;
             fpw.backgroundWorker.RunWorkerAsync();
             fpw.ShowDialog();
@@ -122,7 +118,7 @@ namespace GraphSynth.UI
         internal static void SaveRule(string filename, Boolean SuppressWarnings,
                                       WPFFiler wPFFiler, object saveObjects)
         {
-            var fpw = SetUpSavingProgress(filename, SuppressWarnings, wPFFiler, saveObjects);
+            var fpw = SetUpSavingProgress(filename, wPFFiler, saveObjects);
             fpw.backgroundWorker.DoWork += fpw.Do_SaveRule;
             fpw.backgroundWorker.RunWorkerAsync();
             fpw.ShowDialog();

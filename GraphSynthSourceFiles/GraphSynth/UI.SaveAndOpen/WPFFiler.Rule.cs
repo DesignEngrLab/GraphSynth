@@ -197,8 +197,8 @@ namespace GraphSynth
 
         #endregion
         #region CheckRule
-
-        private Boolean checkRule(grammarRule gR)
+         
+        private new Boolean checkRule(grammarRule gR)
         {
             if (progWindow == null) return true;
 

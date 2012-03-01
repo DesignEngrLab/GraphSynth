@@ -41,29 +41,30 @@ namespace GraphSynth.UI
             var fs = new FileStream(path, FileMode.Create);
             var w = new StreamWriter(fs, Encoding.Default);
 
-            w.WriteLine("using System;\nusing System.Collections.Generic;");
-            w.WriteLine("using GraphSynth;\nusing GraphSynth.BaseClasses;");
-            w.WriteLine("\nnamespace GraphSynth.ParamRules\n{");
-            w.WriteLine("public partial class ParamRules\n{");
-            w.WriteLine("/* here are parametric rules written as part of the ruleSet.");
-            w.WriteLine("* these are compiled at runtime into a .dll indicated in the");
-            w.WriteLine("* App.gsconfig file. */");
-            w.WriteLine("#region Parametric Recognition Rules");
-            w.WriteLine("/* Parametric recognition rules receive as input:");
-            w.WriteLine("* 1. the left hand side of the rule (L)");
-            w.WriteLine("* 2. the entire host graph (host)");
-            w.WriteLine("* 3. the location of the nodes in the host that L matches to (locatedNodes).");
-            w.WriteLine("* 4. the location of the arcs in the host that L matches to (locatedArcs). */");
-            w.WriteLine("#endregion\n\n");
-            w.WriteLine("#region Parametric Application Rules");
-            w.WriteLine("/* Parametric application rules receive as input:");
-            w.WriteLine("* 1. the location designGraph indicating the nodes&arcs of host that match with L (Lmapping)");
-            w.WriteLine("* 2. the entire host graph (host)");
-            w.WriteLine("* 3. the location of the nodes in the host that R matches to (Rmapping).");
-            w.WriteLine("* 4. the parameters chosen for instantiating elements of Rmapping (parameters).");
-            w.WriteLine("* 5. the entire rule that is being invoked (rule). */");
-            w.WriteLine("#endregion\n\n");
-            w.WriteLine("}\n}");
+            w.Write("using System;\nusing System.Collections.Generic;\n");
+            w.Write("using GraphSynth;\nusing GraphSynth.BaseClasses;\n");
+            w.Write("\nnamespace GraphSynth.ParamRules\n{\n");
+            w.Write("public partial class ParamRules\n{\n");
+            w.Write("/* here are parametric rules written as part of the ruleSet.\n");
+            w.Write("* these are compiled at runtime into a .dll indicated in the\n");
+            w.Write("* App.gsconfig file. */\n");
+            w.Write("#region Parametric Recognition Rules\n");
+            w.Write("/* Parametric recognition rules receive as input:\n");
+            w.Write("         * 1. the left hand side of the rule (L)\n");
+            w.Write("         * 2. the entire host graph (host)\n");
+            w.Write("         * 3. the location of the nodes, arcs, and hyperarcs as a graph, which references\n");
+            w.Write("         *    elements of the host, but matches the positions of the L graph (location).\n");
+            w.Write("         * 4. the 3x3 transformation matrix to transform node positions from L to host (T[,]). */\n");
+            w.Write("#endregion\n\n\n");
+            w.Write("#region Parametric Application Rules\n");
+            w.Write("/* Parametric application rules receive as input:\n");
+            w.Write("         * 1. the location designGraph indicating the nodes&arcs of host that match with L (Lmapping)\n");
+            w.Write("         * 2. the entire host graph (host)\n");
+            w.Write("         * 3. the location of the nodes in the host that R matches to (Rmapping).\n");
+            w.Write("         * 4. the parameters chosen for instantiating elements of Rmapping (parameters).\n");
+            w.Write("         * 5. the entire rule that is being invoked (rule). */\n");
+            w.Write("#endregion\n\n\n");
+            w.Write("}\n}\n");
             w.Flush();
             w.Close();
             fs.Close();
@@ -87,7 +88,7 @@ namespace GraphSynth.UI
                 found = false;
                 foreach (string file in sourceFiles)
                 {
-                    var r = new StreamReader(new FileStream(file, FileMode.Open, FileAccess.Read), Encoding.UTF8);
+                    var r = new StreamReader(new FileStream(file, FileMode.Open, FileAccess.Read), Encoding.Default);
                     var funcString = "public ";
                     if (isThisRecognize) funcString += "double ";
                     else funcString += "designGraph ";
@@ -156,7 +157,7 @@ namespace GraphSynth.UI
 
         private static void createRecognizeFunctionTemplate(string path, string ruleName, string funcName)
         {
-            var r = new StreamReader(new FileStream(path, FileMode.Open, FileAccess.Read), Encoding.UTF8);
+            var r = new StreamReader(new FileStream(path, FileMode.Open, FileAccess.Read), Encoding.Default);
             var fileString = r.ReadToEnd();
             var position = fileString.IndexOf("#endregion", 0);
             var sb = new StringBuilder("");
@@ -175,7 +176,7 @@ namespace GraphSynth.UI
             sb.Append("return 0.0;\n}\n");
             fileString = fileString.Insert(position, sb.ToString());
 
-            var w = new StreamWriter(new FileStream(path, FileMode.Create, FileAccess.Write), Encoding.UTF8);
+            var w = new StreamWriter(new FileStream(path, FileMode.Create, FileAccess.Write), Encoding.Default);
             w.Write(fileString);
             w.Flush();
             w.Close();
@@ -183,7 +184,7 @@ namespace GraphSynth.UI
 
         private static void createApplyFunctionTemplate(string path, string ruleName, string funcName)
         {
-            var r = new StreamReader(new FileStream(path, FileMode.Open, FileAccess.Read), Encoding.UTF8);
+            var r = new StreamReader(new FileStream(path, FileMode.Open, FileAccess.Read), Encoding.Default);
             var fileString = r.ReadToEnd();
             var position = fileString.IndexOf("#endregion", 0);
             position = fileString.IndexOf("#endregion", position + 1);
@@ -203,7 +204,7 @@ namespace GraphSynth.UI
 
             fileString = fileString.Insert(position, sb.ToString());
 
-            var w = new StreamWriter(new FileStream(path, FileMode.Create, FileAccess.Write), Encoding.UTF8);
+            var w = new StreamWriter(new FileStream(path, FileMode.Create, FileAccess.Write), Encoding.Default);
             w.Write(fileString);
             w.Flush();
             w.Close();

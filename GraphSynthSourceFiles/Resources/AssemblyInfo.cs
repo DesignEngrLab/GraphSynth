@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("GraphSynth")]
-[assembly: AssemblyCopyright("Copyright © 2008-2011")]
+[assembly: AssemblyCopyright("Copyright © 2008-2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -49,5 +49,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.01.11.04")]
-[assembly: AssemblyFileVersion("2.01.11.04")]
+[assembly: AssemblyVersion("2.2.03.01")]
+[assembly: AssemblyFileVersion("2.2.03.01")]
