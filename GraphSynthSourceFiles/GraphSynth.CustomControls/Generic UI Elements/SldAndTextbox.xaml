@@ -8,7 +8,7 @@
 		</Grid.ColumnDefinitions>
 		<Label Grid.Column="0" Name="nameLabel" />
 		<Slider Name="sldSlider" Grid.Column="1" HorizontalAlignment="Stretch" ValueChanged="sldSlider_ValueChanged" 
-                MouseDoubleClick="sldSlider_MouseDoubleClick" />
+                MouseDoubleClick="sldSlider_MouseDoubleClick" Delay="5" />
 		<TextBox Grid.Column="2" Name="txtTextBox" KeyUp="txtTextBox_KeyUp" TextInput="txtTextBoxInput" HorizontalAlignment="Stretch" />
 		<Label Name="clickToSetLabel" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" MouseUp="clickToSetLabel_Click" 
                HorizontalContentAlignment="Center" Background="#99cccccc" Visibility="Hidden">

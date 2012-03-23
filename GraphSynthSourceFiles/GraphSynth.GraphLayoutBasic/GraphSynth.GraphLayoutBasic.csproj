@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="BasicLayouts\BalloonTreeLayout.cs" />
     <Compile Include="BasicLayouts\CircularLayout.cs" />
+    <Compile Include="BasicLayouts\IsometricScaling.cs" />
     <Compile Include="BasicLayouts\ForceDirectedLayout.cs" />
     <Compile Include="BasicLayouts\Force\DragForce.cs" />
     <Compile Include="BasicLayouts\Force\ForceBase.cs" />
