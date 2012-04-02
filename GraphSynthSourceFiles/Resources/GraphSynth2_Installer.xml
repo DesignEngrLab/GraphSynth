@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <InstallData>
+  <Version>2.2.04.02</Version>
+  <Change>Fixed problem with Test Rule Button.</Change>
+  <Change>Fixed problem with NOTEXIST labels applied to hyperarcs which was causing erroneous rule matching.</Change>
   <Version>2.2.03.01</Version>
   <Change>Many changes and bug fixes, mostly associated with rule hyperarcs and negative elements.</Change>
   <Version>2.1.11.04</Version>
