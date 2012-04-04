@@ -319,6 +319,8 @@ namespace GraphSynth
                 progressEnd = 100;
                 RestoreDisplayShapes(shapesR, openRule.R.nodes, openRule.R.arcs, openRule.R.hyperarcs);
 
+                removeNullWhiteSpaceEmptyLabels(openRule.L);
+                removeNullWhiteSpaceEmptyLabels(openRule.R);
                 xR.Close();
                 return new object[] { openRule, canvas, filename };
             }

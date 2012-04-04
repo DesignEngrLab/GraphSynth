@@ -56,6 +56,7 @@ namespace GraphSynth
             if (UserCancelled) return;
             progress = 5;
             graph.name = Path.GetFileNameWithoutExtension(filename);
+            removeNullWhiteSpaceEmptyLabels(graph);
 
             if ((graph.checkForRepeatNames()) && !suppressWarnings)
                 progWindow.QueryUser("Sorry, but you are not allowed to have repeat names. I have changed" +
