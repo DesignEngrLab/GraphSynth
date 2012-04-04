@@ -267,6 +267,13 @@ namespace GraphSynth.UI
 
         public static string SerializeCanvasToXml(CanvasProperty canvas)
         {
+            /* any negative values in CanvasWidth are reset to zero s.t. there are not problems in 
+             * re-opening the canvas. */
+          canvas.CanvasWidth = new Thickness(Math.Max(0.0,canvas.CanvasWidth.Left),
+              Math.Max(0.0,canvas.CanvasWidth.Top),
+              Math.Max(0.0,canvas.CanvasWidth.Right),
+              Math.Max(0.0,canvas.CanvasWidth.Bottom));
+
             var xmlString = XamlWriter.Save(canvas);
             var startOfResources = xmlString.IndexOf("<CanvasProperty.Resources>");
             var endOfResources = xmlString.LastIndexOf("</CanvasProperty>");
@@ -285,7 +292,7 @@ namespace GraphSynth.UI
                 xmlString = xmlString.Replace("</Canvas>", "</CanvasProperty>");
                 var context = new ParserContext();
                 context.XmlnsDictionary.Add("GraphSynth", "clr-namespace:GraphSynth.UI;assembly=GraphSynth");
-                return (CanvasProperty)MyXamlHelpers.Parse(xmlString, context);
+                var canvas= (CanvasProperty)MyXamlHelpers.Parse(xmlString, context);
 
                 /***** Notice!: If you have crashed GS2.0 here, then
                  * the try-catch failed. This happens due to a setting
@@ -294,6 +301,14 @@ namespace GraphSynth.UI
                  * 2) expand Common Language Runtime Exceptions
                  * 3) Scroll Down to System.Windows.Markup.XamlParseException
                  * 4) uncheck the box in the "Thrown" Column. */
+
+                /* any negative values in CanvasWidth are reset to zero s.t. there are not problems in 
+                 * re-opening the canvas. */
+                canvas.CanvasWidth = new Thickness(Math.Max(0.0, canvas.CanvasWidth.Left),
+                    Math.Max(0.0, canvas.CanvasWidth.Top),
+                    Math.Max(0.0, canvas.CanvasWidth.Right),
+                    Math.Max(0.0, canvas.CanvasWidth.Bottom));
+                return canvas;
             }
             catch
             {

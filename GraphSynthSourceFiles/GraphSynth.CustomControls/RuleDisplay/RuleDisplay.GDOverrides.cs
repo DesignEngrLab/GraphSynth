@@ -432,7 +432,7 @@ namespace GraphSynth.GraphDisplay
                 if (Rarc != null)
                     rW.graphGUIR.ApplyArcFormatting(Rarc, a, true, true);
             }
-            else if (this == rW.graphGUIL)
+            else if ((this == rW.graphGUIL) && (rW.graphGUIK.graph != null))
             {
                 var Karc = rW.graphGUIK.graph.arcs.Find(b => string.Equals(b.name, a.name));
                 if (Karc != null)

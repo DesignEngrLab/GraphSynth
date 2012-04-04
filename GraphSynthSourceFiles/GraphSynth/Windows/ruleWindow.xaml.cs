@@ -6,9 +6,13 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Forms;
 using System.Windows.Input;
 using GraphSynth.GraphDisplay;
 using GraphSynth.Representation;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using MessageBox = System.Windows.MessageBox;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace GraphSynth.UI
 {
@@ -127,6 +131,7 @@ namespace GraphSynth.UI
 
         public void AdoptWindowWideCanvasProperties()
         {
+            var border = 0.2;
             lblLLabels.FontSize = lblLVariables.FontSize
                                   = txtLGlobalLabels.FontSize = txtLGlobalVariables.FontSize
                                                                 = canvasProps.GlobalTextSize;
@@ -137,8 +142,10 @@ namespace GraphSynth.UI
                                   = txtRGlobalLabels.FontSize = txtRGlobalVariables.FontSize
                                                                 = canvasProps.GlobalTextSize;
             WindowStartupLocation = WindowStartupLocation.Manual;
-            Left = canvasProps.WindowLeft;
-            Top = canvasProps.WindowTop;
+            Left = Math.Max(canvasProps.WindowLeft, Screen.AllScreens.Min(a => a.WorkingArea.Left + border * a.WorkingArea.Width));
+            Left = Math.Min(Left, Screen.AllScreens.Max(a => a.WorkingArea.Right - +border * a.WorkingArea.Width));
+            Top = Math.Max(canvasProps.WindowTop, Screen.AllScreens.Min(a => a.WorkingArea.Top + border * a.WorkingArea.Height));
+            Top = Math.Min(Top, Screen.AllScreens.Max(a => a.WorkingArea.Bottom - border * a.WorkingArea.Height));
 
             Height = graphCanvasL.Height = graphCanvasK.Height =
                                            graphCanvasR.Height = canvasProps.CanvasHeight;
