@@ -107,7 +107,8 @@ namespace GraphSynth
                     else procArch = "X86";
                     var newChanges = new List<XElement>(data.Elements());
                     newChanges.RemoveAt(0);
-                    var lastPos = newChanges.FindIndex(a => currentVersion.ToString().Equals(a.Value));
+                    var lastPos = newChanges.FindIndex(a => a.Name.LocalName.Equals("Version") 
+                        && currentVersion.CompareTo(new Version(a.Value))>=0);
                     if (lastPos != -1) newChanges.RemoveRange(lastPos, newChanges.Count - lastPos);
                     var changeScript = "";
                     var i = 0;

@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <InstallData>
+  <Version>2.2.04.06</Version>
+  <Change>Fixed problem when graphs and rules don't open on user's screen.</Change>
+  <Change>Fixed problem with opening graphs with circle arcs.</Change>
+  <Change>Check for null, and whitespace labels in graph and rules.</Change>
+  <Change>Fixed problem in dialog that describes the new changes online (since last update).</Change>
   <Version>2.2.04.02</Version>
   <Change>Fixed problem with Test Rule Button.</Change>
   <Change>Fixed problem with NOTEXIST labels applied to hyperarcs which was causing erroneous rule matching.</Change>
