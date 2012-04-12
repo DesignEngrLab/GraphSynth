@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -222,15 +223,23 @@ namespace GraphSynth.UI
 
         private void txtArcType_LostFocus(object sender, RoutedEventArgs e)
         {
-            foreach (arc a in arcs)
+            var newType = Type.GetType(txtArcType.Text);
+            if (newType == null) newType = Type.GetType("GraphSynth." + txtArcType.Text);
+            if (newType == null) newType = Type.GetType("GraphSynth.Representation." + txtArcType.Text);
+            if (newType == null)
             {
-                a.XmlArcType = txtArcType.Text;
-                /* make sure node is of right type - if not call the replacement function */
-                if ((a.arcType != null) && (a.GetType() != typeof(ruleArc))
-                    && (a.GetType() != a.arcType))
-                    graph.replaceArcWithInheritedType(a);
-
+                txtArcType.Text = "";
+                return;
             }
+            if (gui is RuleDisplay)
+                foreach (arc a in arcs) ((ruleArc)a).TargetType = newType.ToString();
+            else
+                foreach (arc a in arcs)
+                {
+                    /* make sure node is of right type - if not call the replacement function */
+                    if (newType.IsInstanceOfType(a))
+                        graph.replaceArcWithInheritedType(a, newType);
+                }
             Update();
         }
 
@@ -358,7 +367,9 @@ namespace GraphSynth.UI
                 txtVariables.Text = DoubleCollectionConverter.convert(firstArc.localVariables);
 
                 txtArcType.IsEnabled = true;
-                txtArcType.Text = firstArc.GetType().ToString();
+                if (gui is RuleDisplay) txtArcType.Text = ((ruleArc)firstArc).TargetType;
+                else txtArcType.Text = firstArc.GetType().ToString();
+
                 chkDirected.IsChecked = firstArc.directed;
                 chkDoublyDirected.IsChecked = firstArc.doublyDirected;
 
@@ -391,22 +402,45 @@ namespace GraphSynth.UI
                 txtName.IsEnabled = txtLabels.IsEnabled = txtVariables.IsEnabled = false;
 
                 var allSame = true;
-                var aType = firstArc.GetType();
-                for (var i = 1; i < arcs.Count; i++)
-                    if (!aType.Equals(arcs[i].GetType()))
-                    {
-                        allSame = false;
-                        break;
-                    }
-                if (allSame)
+                if (gui is RuleDisplay)
                 {
-                    txtArcType.IsEnabled = true;
-                    txtArcType.Text = aType.ToString();
+                    var aType = ((ruleArc)firstArc).TargetType;
+                    for (var i = 1; i < arcs.Count; i++)
+                        if (aType != ((ruleArc)arcs[i]).TargetType)
+                        {
+                            allSame = false;
+                            break;
+                        }
+                    if (allSame)
+                    {
+                        txtArcType.IsEnabled = true;
+                        txtArcType.Text = aType;
+                    }
+                    else
+                    {
+                        txtArcType.IsEnabled = false;
+                        txtArcType.Text = "<multiple types>";
+                    }
                 }
                 else
                 {
-                    txtArcType.IsEnabled = false;
-                    txtArcType.Text = "<multiple types>";
+                    var aType = firstArc.GetType();
+                    for (var i = 1; i < arcs.Count; i++)
+                        if (aType != arcs[i].GetType())
+                        {
+                            allSame = false;
+                            break;
+                        }
+                    if (allSame)
+                    {
+                        txtArcType.IsEnabled = true;
+                        txtArcType.Text = aType.ToString();
+                    }
+                    else
+                    {
+                        txtArcType.IsEnabled = false;
+                        txtArcType.Text = "<multiple types>";
+                    }
                 }
 
 

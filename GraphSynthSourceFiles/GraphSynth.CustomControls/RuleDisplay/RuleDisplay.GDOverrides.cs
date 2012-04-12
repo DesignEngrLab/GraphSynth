@@ -143,19 +143,19 @@ namespace GraphSynth.GraphDisplay
                 {
                     if (n is ruleNode)
                         tempGraph.addNode(n);
-                    else tempGraph.addNode(ruleNode.ConvertFromNode(n));
+                    else tempGraph.addNode(new ruleNode(n));
                 }
                 foreach (arc a in copiedSelection.selectedArcs)
                 {
                     if (a is ruleArc)
                         tempGraph.addArc(a);
-                    else tempGraph.addArc(ruleArc.ConvertFromArc(a));
+                    else tempGraph.addArc(new ruleArc(a));
                 }
                 foreach (hyperarc a in copiedSelection.selectedHyperArcs)
                 {
                     if (a is ruleHyperarc)
                         tempGraph.addHyperArc(a);
-                    else tempGraph.addHyperArc(ruleHyperarc.ConvertFromHyperArc(a));
+                    else tempGraph.addHyperArc(new ruleHyperarc(a));
                 }
                 tempGraph.internallyConnectGraph();
 

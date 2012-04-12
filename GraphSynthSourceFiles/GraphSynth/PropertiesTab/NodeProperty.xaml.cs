@@ -205,13 +205,24 @@ namespace GraphSynth.UI
 
         private void txtNodeType_LostFocus(object sender, RoutedEventArgs e)
         {
-            foreach (node n in nodes)
+            if (gui is RuleDisplay)
+                foreach (node n in nodes) ((ruleNode)n).TargetType = txtNodeType.Text;
+            else
             {
-                n.XmlNodeType = txtNodeType.Text;
-                /* make sure node is of right type - if not call the replacement function */
-                if ((n is ruleNode)
-                    && (n.nodeType != null) && (n.GetType() != n.nodeType))
-                    graph.replaceNodeWithInheritedType(n);
+                var newType = Type.GetType(txtNodeType.Text);
+                if (newType == null) newType = Type.GetType("GraphSynth." + txtNodeType.Text);
+                if (newType == null) newType = Type.GetType("GraphSynth.Representation." + txtNodeType.Text);
+                if (newType == null)
+                {
+                    txtNodeType.Text = "";
+                    return;
+                }
+                foreach (node n in nodes)
+                {
+                    /* make sure node is of right type - if not call the replacement function */
+                    if (newType.IsInstanceOfType(n))
+                        graph.replaceNodeWithInheritedType(n, newType);
+                }
             }
             Update();
         }
@@ -367,8 +378,8 @@ namespace GraphSynth.UI
                 txtVariables.Text = DoubleCollectionConverter.convert(firstNode.localVariables);
 
                 txtNodeType.IsEnabled = true;
-                if (firstNode.nodeType != null)
-                    txtNodeType.Text = firstNode.nodeType.ToString();
+                if (gui is RuleDisplay) txtNodeType.Text = ((ruleNode)firstNode).TargetType;
+                else txtNodeType.Text = firstNode.GetType().ToString();
 
                 txtBxPosX.Foreground = txtBxPosY.Foreground = txtBxPosZ.Foreground = Brushes.Black;
                 txtBxPosX.Text = firstNode.X.ToString();
@@ -406,24 +417,46 @@ namespace GraphSynth.UI
 
                 var allSame = true;
                 /*****************  Node Type *************/
-                var aType = firstNode.GetType();
-                for (var i = 1; i < nodes.Count; i++)
-                    if (!aType.Equals(nodes[i].GetType()))
-                    {
-                        allSame = false;
-                        break;
-                    }
-                if (allSame)
+                if (gui is RuleDisplay)
                 {
-                    txtNodeType.IsEnabled = true;
-                    txtNodeType.Text = aType.ToString();
+                    var aType = ((ruleNode)firstNode).TargetType;
+                    for (var i = 1; i < nodes.Count; i++)
+                        if (aType != ((ruleNode)nodes[i]).TargetType)
+                        {
+                            allSame = false;
+                            break;
+                        }
+                    if (allSame)
+                    {
+                        txtNodeType.IsEnabled = true;
+                        txtNodeType.Text = aType;
+                    }
+                    else
+                    {
+                        txtNodeType.IsEnabled = false;
+                        txtNodeType.Text = "<multiple types>";
+                    }
                 }
                 else
                 {
-                    txtNodeType.IsEnabled = false;
-                    txtNodeType.Text = "<multiple types>";
+                    var aType = firstNode.GetType();
+                    for (var i = 1; i < nodes.Count; i++)
+                        if (aType != nodes[i].GetType())
+                        {
+                            allSame = false;
+                            break;
+                        }
+                    if (allSame)
+                    {
+                        txtNodeType.IsEnabled = true;
+                        txtNodeType.Text = aType.ToString();
+                    }
+                    else
+                    {
+                        txtNodeType.IsEnabled = false;
+                        txtNodeType.Text = "<multiple types>";
+                    }
                 }
-
 
                 /*****************  X-Position *************/
                 allSame = true;

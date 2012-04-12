@@ -10,11 +10,11 @@ namespace GraphSynth.UI
 {
     public class TestRuleChooser
     {
-        public static void Run(designGraph seed, grammarRule rule)
+        public static void Run(designGraph seed, grammarRule rule, Relaxation RelaxationTemplate = null)
         {
             try
             {
-                int choice = -1;
+                if (RelaxationTemplate == null) RelaxationTemplate = new Relaxation(0);
                 var rnd = new Random();
                 int k = 0;
                 var continueTesting = true;
@@ -23,28 +23,33 @@ namespace GraphSynth.UI
                 var dummyRS = new ruleSet();
                 dummyRS.Add(rule);
                 if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
-                var options = dummyRS.recognize(seed);
+                var options = dummyRS.recognize(seed, true, RelaxationTemplate.copy());
                 if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
                 var numOptions = options.Count;
                 if (numOptions == 0)
                 {
-                    MessageBox.Show("There were no recognized options. ", "Test Rule Status",
-                                    MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                  if(  MessageBox.Show("There were no recognized options. Should the rule be relaxed?", "Test Rule Status",
+                                    MessageBoxButton.YesNo,MessageBoxImage.Asterisk, MessageBoxResult.No) ==
+                                               MessageBoxResult.Yes)
+                      Run(seed,rule, new Relaxation(RelaxationTemplate.NumberAllowable+1));
                     return;
                 }
                 do
                 {
                     var status = "There ";
+                    int choice = -1;
                     switch (numOptions)
                     {
                         case 0: throw new Exception("Should not be able to reach here. (Test Rule Chooser, zero options.)");
                         case 1:
                             status += "was only one recognized option and it applied as shown.\n";
                             choice = 0;
+                            status += options[choice].Relaxations.RelaxationSummary;
                             break;
                         default:
                             status += "were " + numOptions + " recognized locations.\n";
                             choice = rnd.Next(options.Count);
+                            status += options[choice].Relaxations.RelaxationSummary;
                             RecognizeChooseApply.AssignOptionConfluence(options, new candidate(seed, 0));
                             var numberWithConfluence = options.Count(o => (o.confluence.Count > 0));
                             var maxConfluence = options.Max(o => o.confluence.Count);
@@ -64,9 +69,9 @@ namespace GraphSynth.UI
                     if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
                     options[choice].apply(seed, null);
                     SearchIO.output("Rule sucessfully applied", 4);
-                    SearchIO.addAndShowGraphWindow(seed.copy(), "After calling " + k + " rules");
+                    SearchIO.addAndShowGraphWindow(seed.copy(), "After calling " + ++k + " rules");
                     if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
-                    options = dummyRS.recognize(seed, true);
+                    options = dummyRS.recognize(seed, true, RelaxationTemplate.copy());
                     if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
                     numOptions = options.Count;
                     switch (numOptions)
@@ -74,7 +79,7 @@ namespace GraphSynth.UI
                         case 0:
                             status += "There are no recognized locations on the new graph";
                             continueTesting = false;
-                            MessageBox.Show(status, "Test Rule Status", MessageBoxButton.OK,MessageBoxImage.Asterisk);
+                            MessageBox.Show(status, "Test Rule Status", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                             break;
                         case 1:
                             status += "There is one recognized location on the new graph. Would you like to invoke it?";

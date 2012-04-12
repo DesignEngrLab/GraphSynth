@@ -202,7 +202,6 @@ namespace GraphSynth
         {
             if (progWindow == null) return true;
 
-            gR.ReorderNodes();
 
             if ((gR.L.checkForRepeatNames()) && !suppressWarnings &&
                 !progWindow.QueryUser("You are not allowed to have repeat names in L. I have changed these " +
@@ -258,6 +257,7 @@ namespace GraphSynth
 
             if (UserCancelled) return false;
             progress += 2;
+            gR.ReorderNodes();
             return true;
         }
         #endregion

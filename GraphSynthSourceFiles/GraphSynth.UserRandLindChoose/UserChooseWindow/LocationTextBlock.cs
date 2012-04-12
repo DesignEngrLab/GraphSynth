@@ -18,7 +18,7 @@ namespace GraphSynth.UserRandLindChoose
         protected override void OnPreviewMouseDown(MouseButtonEventArgs e)
         {
             if (e.ClickCount >= 2)
-                SearchIO.addAndShowGraphWindow(opt.location.copy(),
+                SearchIO.addAndShowGraphWindow(opt.copy(),
                                                "Location for Option " + opt.optionNumber + " from RuleSet " +
                                                opt.ruleSetIndex
                                                + " Rule #" + opt.ruleNumber + ": " + strLocation);
@@ -34,23 +34,23 @@ namespace GraphSynth.UserRandLindChoose
             var KStr = "";
             var RStr = "";
 
-            for (var i = 0; i < opt.location.nodes.Count; i++)
+            for (var i = 0; i < opt.nodes.Count; i++)
             {
-                var elt = opt.location.nodes[i];
+                var elt = opt.nodes[i];
                 if (elt == null) continue;
                 remLocNames.Add("n:" + elt.name);
                 remRuleNames.Add("n:" + opt.rule.L.nodes[i].name);
             }
-            for (var i = 0; i < opt.location.arcs.Count; i++)
+            for (var i = 0; i < opt.arcs.Count; i++)
             {
-                var elt = opt.location.arcs[i];
+                var elt = opt.arcs[i];
                 if (elt == null) continue;
                 remLocNames.Add("a:" + elt.name);
                 remRuleNames.Add("a:" + opt.rule.L.arcs[i].name);
             }
-            for (var i = 0; i < opt.location.hyperarcs.Count; i++)
+            for (var i = 0; i < opt.hyperarcs.Count; i++)
             {
-                var elt = opt.location.hyperarcs[i];
+                var elt = opt.hyperarcs[i];
                 if (elt == null) continue;
                 remLocNames.Add("h:" + elt.name);
                 remRuleNames.Add("h:" + opt.rule.L.hyperarcs[i].name);

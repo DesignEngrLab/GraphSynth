@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -226,17 +227,25 @@ namespace GraphSynth.UI
 
         private void txtArcType_LostFocus(object sender, RoutedEventArgs e)
         {
-            foreach (hyperarc a in hyperarcs)
+            var newType = Type.GetType(txtHyperArcType.Text);
+            if (newType == null) newType = Type.GetType("GraphSynth." + txtHyperArcType.Text);
+            if (newType == null) newType = Type.GetType("GraphSynth.Representation." + txtHyperArcType.Text);
+            if (newType == null)
             {
-                a.XmlHyperarcType = txtHyperArcType.Text;
-                /* make sure node is of right type - if not call the replacement function */
-                if ((a.hyperarcType != null) && (a.GetType() != typeof(ruleHyperarc))
-                    && (a.GetType() != a.hyperarcType))
-                    graph.replaceHyperArcWithInheritedType(a);
+                txtHyperArcType.Text = "";
+                return;
             }
+            if (gui is RuleDisplay)
+                foreach (hyperarc a in hyperarcs) ((ruleHyperarc)a).TargetType = newType.ToString();
+            else
+                foreach (hyperarc a in hyperarcs)
+                {
+                    /* make sure node is of right type - if not call the replacement function */
+                    if (newType.IsInstanceOfType(a))
+                        graph.replaceHyperArcWithInheritedType(a, newType);
+                }
             Update();
         }
-
         #endregion
 
 
@@ -304,7 +313,8 @@ namespace GraphSynth.UI
                 txtVariables.Text = DoubleCollectionConverter.convert(firstHyperArc.localVariables);
 
                 txtHyperArcType.IsEnabled = true;
-                txtHyperArcType.Text = firstHyperArc.GetType().ToString();
+                if (gui is RuleDisplay) txtHyperArcType.Text = ((ruleHyperarc)firstHyperArc).TargetType;
+                else txtHyperArcType.Text = firstHyperArc.GetType().ToString();
 
                 if ((gui is RuleDisplay)
                     && (gui == ((RuleDisplay)gui).rW.graphGUIL))
@@ -334,25 +344,46 @@ namespace GraphSynth.UI
                 txtName.IsEnabled = txtLabels.IsEnabled = txtVariables.IsEnabled = false;
 
                 var allSame = true;
-                var aType = firstHyperArc.GetType();
-                for (var i = 1; i < hyperarcs.Count; i++)
-                    if (!aType.Equals(hyperarcs[i].GetType()))
-                    {
-                        allSame = false;
-                        break;
-                    }
-                if (allSame)
+                if (gui is RuleDisplay)
                 {
-                    txtHyperArcType.IsEnabled = true;
-                    txtHyperArcType.Text = aType.ToString();
+                    var aType = ((ruleHyperarc)firstHyperArc).TargetType;
+                    for (var i = 1; i < hyperarcs.Count; i++)
+                        if (aType != ((ruleHyperarc)hyperarcs[i]).TargetType)
+                        {
+                            allSame = false;
+                            break;
+                        }
+                    if (allSame)
+                    {
+                        txtHyperArcType.IsEnabled = true;
+                        txtHyperArcType.Text = aType;
+                    }
+                    else
+                    {
+                        txtHyperArcType.IsEnabled = false;
+                        txtHyperArcType.Text = "<multiple types>";
+                    }
                 }
                 else
                 {
-                    txtHyperArcType.IsEnabled = false;
-                    txtHyperArcType.Text = "<multiple types>";
+                    var aType = firstHyperArc.GetType();
+                    for (var i = 1; i < hyperarcs.Count; i++)
+                        if (aType != hyperarcs[i].GetType())
+                        {
+                            allSame = false;
+                            break;
+                        }
+                    if (allSame)
+                    {
+                        txtHyperArcType.IsEnabled = true;
+                        txtHyperArcType.Text = aType.ToString();
+                    }
+                    else
+                    {
+                        txtHyperArcType.IsEnabled = false;
+                        txtHyperArcType.Text = "<multiple types>";
+                    }
                 }
-
-
 
                 if ((gui is RuleDisplay)
                     && (gui == ((RuleDisplay)gui).rW.graphGUIL))
