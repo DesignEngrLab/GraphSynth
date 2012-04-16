@@ -349,7 +349,7 @@ namespace GraphSynth
                 else
                 {
                     SearchIO.output("Node: " + n.name + " does not have a shape description in the" +
-                                    " file. A default shape is added");
+                                    " file. A default shape is added", 4);
                     dispatch.Invoke((ThreadStart)delegate
                     {
                         n.DisplayShape = new DisplayShape((string)Application.Current.Resources["SmallCircleNode"],
@@ -372,7 +372,7 @@ namespace GraphSynth
                 else
                 {
                     SearchIO.output("Arc: " + a.name + " does not have a shape description in the" +
-                                    " file. A default shape is added");
+                                    " file. A default shape is added", 4);
                     dispatch.Invoke((ThreadStart)delegate
                     {
                         a.DisplayShape =
@@ -396,7 +396,7 @@ namespace GraphSynth
                 else
                 {
                     SearchIO.output("HyperArc: " + h.name + " does not have a shape description in the" +
-                                    " file. A default shape is added");
+                                    " file. A default shape is added", 4);
                     dispatch.Invoke((ThreadStart)delegate
                     {
                         h.DisplayShape =
