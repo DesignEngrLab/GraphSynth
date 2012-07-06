@@ -261,8 +261,8 @@ namespace GraphSynth.UI
         {
             for (int i = 0; i < WinCollection.Count; i++)
                 WinCollection[i].Win.WindowState = WindowState.Normal;
-                //foreach (WinData t in WinCollection)
-                //    t.Win.WindowState = WindowState.Normal;
+            //foreach (WinData t in WinCollection)
+            //    t.Win.WindowState = WindowState.Normal;
         }
 
         internal void MinimizeWindows()
@@ -313,10 +313,10 @@ namespace GraphSynth.UI
 
         private void WinMgrView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ignoreSelectionChange) return;
             try
             {
                 var wd = (WinData)WinMgrView.SelectedItem;
+                if (ignoreSelectionChange || wd == null) return;
                 wd.Win.Focus();
                 wd.Win.WindowState = WindowState.Normal;
             }
