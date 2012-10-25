@@ -1,0 +1,48 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+	<PropertyGroup>
+		<!-- Select a Product Configuration -->
+		<InstallShieldProductConfiguration>Express</InstallShieldProductConfiguration>
+		<!-- Select a Visual Studio Configuration / InstallShield Release -->
+		<Configuration>Debug</Configuration>
+		<InstallShieldRelease>$(Configuration)</InstallShieldRelease>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- The InstallShieldProject item selects the project to build -->
+		<InstallShieldProject Include="$(MSBuildProjectDirectory)\$(MSBuildProjectName).isl"/>
+		<!-- The InstallShieldReleaseFlags sets Release Flags -->
+		<!--<InstallShieldReleaseFlags Include=""/>-->
+		<!-- The InstallShieldMergeModulePath specifies what directories are
+		searched for Merge Modules -->
+		<!--<InstallShieldMergeModulePath Include=""/>-->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The ProjectReference items refer to any Visual Studio solutions you want to automatically probe for Project Output Groups.  -->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The TaggedOutputs items allow you to explicitly add extra files to output groups. Each item must include both Name and OutputGroup, as well as TargetPath metadata values. -->
+		<!--<TaggedOutputs Include="C:\My Test Exe.exe">
+			<Name>My Test Project</Name>
+			<OutputGroup>Primary output</OutputGroup>
+			<TargetPath>My Test Exe.exe</TargetPath>
+		</TaggedOutputs> -->
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2012SpringLimited\InstallShield.targets"/>
+	<ItemGroup>
+		<ProjectReference Include="..\GraphSynth\GraphSynth.csproj">
+			<Name>GraphSynth</Name>
+			<Project>{9405229A-6AA8-4320-B52C-AAB5B825898E}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\GraphSynth.CustomControls\GraphSynth.CustomControls.csproj">
+			<Name>GraphSynth.CustomControls</Name>
+			<Project>{E47424A2-4E8E-481F-831E-D22186A12AFD}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\GraphSynth.GraphLayoutBasic\GraphSynth.GraphLayoutBasic.csproj">
+			<Name>GraphSynth.GraphLayoutBasic</Name>
+			<Project>{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\GraphSynth.UserRandLindChoose\GraphSynth.UserRandLindChoose.csproj">
+			<Name>GraphSynth.UserRandLindChoose</Name>
+			<Project>{ECF1BE05-558D-4967-91C9-9927F17D4E08}</Project>
+		</ProjectReference>
+	</ItemGroup>
+</Project>
