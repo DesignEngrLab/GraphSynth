@@ -42,7 +42,7 @@ namespace GraphSynth.UI
             var w = new StreamWriter(fs, Encoding.Default);
 
             w.Write("using System;\nusing System.Collections.Generic;\n");
-            w.Write("using GraphSynth;\nusing GraphSynth.BaseClasses;\n");
+            w.Write("using GraphSynth;\nusing GraphSynth.Representation;\n");
             w.Write("\nnamespace GraphSynth.ParamRules\n{\n");
             w.Write("public partial class ParamRules\n{\n");
             w.Write("/* here are parametric rules written as part of the ruleSet.\n");

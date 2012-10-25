@@ -32,6 +32,7 @@ namespace GraphSynth.UserRandLindChoose
             //userChoose.InParallel = false; // this is left here to help with debugging
             var cand = userChoose.GenerateOneCandidate();
             SearchIO.addAndShowGraphWindow(cand.graph, "After Rule Application");
+            SaveResultDialog.Show(settings.filer, cand);
         }
     }
 

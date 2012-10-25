@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <InstallData>
+  <Version>2.2.10.22</Version>
+  <Change>Introduced SaveResultDialog to ask user if result of search is to be saved.</Change>
+  <Change>Fixed problem with set-up of additional rule functions.</Change>
+  <Change>Fixed problem with pre-compiled rules.</Change>
+  <Change>Improved other aspects of base classes.</Change>
   <Version>2.2.04.06</Version>
   <Change>Fixed problem when graphs and rules don't open on user's screen.</Change>
   <Change>Fixed problem with opening graphs with circle arcs.</Change>

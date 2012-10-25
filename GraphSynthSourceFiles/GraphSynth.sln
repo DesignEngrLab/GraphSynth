@@ -1,7 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSynth", "GraphSynth\GraphSynth.csproj", "{9405229A-6AA8-4320-B52C-AAB5B825898E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ECF1BE05-558D-4967-91C9-9927F17D4E08} = {ECF1BE05-558D-4967-91C9-9927F17D4E08}
+		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E} = {D6317B0A-8B33-4482-82B2-2FE5365AFF2E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSynth.CustomControls", "GraphSynth.CustomControls\GraphSynth.CustomControls.csproj", "{E47424A2-4E8E-481F-831E-D22186A12AFD}"
 EndProject
