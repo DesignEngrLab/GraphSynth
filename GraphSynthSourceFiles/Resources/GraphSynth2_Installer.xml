@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <InstallData>
+  <Version>2.2.10.26</Version>
+  <Change>Candidate saving in default plugins - a few more tweaks.</Change>
   <Version>2.2.10.22</Version>
   <Change>Introduced SaveResultDialog to ask user if result of search is to be saved.</Change>
   <Change>Fixed problem with set-up of additional rule functions.</Change>
