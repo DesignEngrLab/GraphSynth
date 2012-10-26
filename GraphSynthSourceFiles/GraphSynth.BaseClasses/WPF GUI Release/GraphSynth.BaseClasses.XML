@@ -427,12 +427,6 @@
             <param name="_graph">The _graph.</param>
             <param name="numRuleSets">The num rule sets.</param>
         </member>
-        <member name="F:GraphSynth.Representation.candidate.prevStates">
-            <summary>
-              currently we store all the previous states of a candidate. This makes candidate a
-              'heavy' class, but it allows us to go back to how it existed quickly.
-            </summary>
-        </member>
         <member name="F:GraphSynth.Representation.candidate.GenerationStatus">
             <summary>
               Just like the discussion for activeRuleSetIndex, GenerationStatus stores what has
