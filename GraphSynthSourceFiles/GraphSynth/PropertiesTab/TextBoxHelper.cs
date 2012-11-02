@@ -15,9 +15,9 @@ namespace GraphSynth.UI
             if (temp)
             {
                 if (tb.CaretIndex < 2) return true;
-                else return !(tb.Text.Substring(tb.CaretIndex - 2, 2).Equals(".0"));
+                return !(tb.Text.Substring(tb.CaretIndex - 2, 2).Equals(".0"));
             }
-            else return false;
+            return false;
         }
 
 
@@ -27,12 +27,17 @@ namespace GraphSynth.UI
                 ((e.Key != Key.Space) && (e.Key != Key.OemComma) && (e.Key != Key.Left)
                  && (e.Key != Key.Right) && (e.Key != Key.Up));
         }
+        public static Boolean CanEvalFileOrFunction(KeyEventArgs e)
+        {
+            return
+                ((e.Key == Key.Enter) || (e.Key == Key.Return) && (e.Key == Key.Escape));
+        }
 
         public static void SetCaret(TextBox tb, int caretIndex, int origLength)
         {
             var pos = caretIndex + (tb.Text.Length - origLength);
-            if (pos >= 0) tb.CaretIndex = pos;
-            else tb.CaretIndex = 0;
+            tb.CaretIndex = (pos >= 0) ? pos : 0;
         }
+
     }
 }

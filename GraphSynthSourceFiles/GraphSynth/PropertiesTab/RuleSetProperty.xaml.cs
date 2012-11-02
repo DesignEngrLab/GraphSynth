@@ -107,8 +107,7 @@ namespace GraphSynth.UI
 
         private void txtApplySourceFiles_KeyUp(object sender, KeyEventArgs e)
         {
-            if ((e.Key == Key.Space) || (e.Key == Key.OemComma) || (e.Key == Key.Enter) || (e.Key == Key.Return)
-                || (e.Key == Key.OemComma))
+            if (TextBoxHelper.CanEvalFileOrFunction(e))
                 txtApplySourceFiles_LostFocus(sender, e);
         }
 
@@ -124,8 +123,7 @@ namespace GraphSynth.UI
 
         private void txtRecognizeSourceFiles_KeyUp(object sender, KeyEventArgs e)
         {
-            if ((e.Key == Key.Space) || (e.Key == Key.OemComma) || (e.Key == Key.Enter) || (e.Key == Key.Return)
-                || (e.Key == Key.OemComma))
+            if (TextBoxHelper.CanEvalFileOrFunction(e))
                 txtRecognizeSourceFiles_LostFocus(sender, e);
         }
 

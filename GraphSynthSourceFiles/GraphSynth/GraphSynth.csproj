@@ -110,6 +110,9 @@
       <DependentUpon>RuleProperty.xaml</DependentUpon>
     </Compile>
     <Compile Include="PropertiesTab\TextBoxHelper.cs" />
+    <Compile Include="UI.SaveAndOpen\AdditionalFunctionToFileDialog.xaml.cs">
+      <DependentUpon>AdditionalFunctionToFileDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI.SaveAndOpen\FilerProgressWindow.xaml.cs">
       <DependentUpon>FilerProgressWindow.xaml</DependentUpon>
     </Compile>
@@ -231,6 +234,10 @@
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI.SaveAndOpen\AdditionalFunctionToFileDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI.SaveAndOpen\FilerProgressWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

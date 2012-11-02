@@ -427,6 +427,12 @@
             <param name="_graph">The _graph.</param>
             <param name="numRuleSets">The num rule sets.</param>
         </member>
+        <member name="F:GraphSynth.Representation.candidate.prevStates">
+            <summary>
+            All the previous states of the graph are stored within a candidate. This makes candidate a
+              'heavy' class, but it allows us to go back to how it existed quickly.
+            </summary>
+        </member>
         <member name="F:GraphSynth.Representation.candidate.GenerationStatus">
             <summary>
               Just like the discussion for activeRuleSetIndex, GenerationStatus stores what has
@@ -450,7 +456,7 @@
         </member>
         <member name="F:GraphSynth.Representation.candidate.designParameters">
             <summary>
-              a list of numbers used to define a candidate's design or decision variable. This is
+              a list of numbers used to define a candidate's design or decision variables. This is
               typically used to define parameters within the graph.
             </summary>
         </member>
@@ -1086,21 +1092,14 @@
         </member>
         <member name="M:GraphSynth.IntCollectionConverter.convert(System.String)">
             <summary>
-              Converts the for a string of comma-separated-values to a List of ints.
+              Converts the for a string of comma-separated-values to a IEnumerable of ints.
             </summary>
             <param name = "value">The value.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.IntCollectionConverter.convert(System.Collections.Generic.List{System.Int32})">
+        <member name="M:GraphSynth.IntCollectionConverter.convert(System.Collections.Generic.IEnumerable{System.Int32})">
             <summary>
-              Converts the specified values from a List of ints to a comma-separated string.
-            </summary>
-            <param name = "values">The values.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.IntCollectionConverter.convert(System.Int32[])">
-            <summary>
-              Converts the specified values from an array of ints to a comma-separated string.
+              Converts the specified values from a IEnumerable of ints to a comma-separated string.
             </summary>
             <param name = "values">The values.</param>
             <returns></returns>
@@ -1154,21 +1153,14 @@
         </member>
         <member name="M:GraphSynth.DoubleCollectionConverter.convert(System.String)">
             <summary>
-              Converts the for a string of comma-separated-values to a List of doubles.
+              Converts the for a string of comma-separated-values to a IEnumerable of doubles.
             </summary>
             <param name = "value">The value.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.DoubleCollectionConverter.convert(System.Collections.Generic.List{System.Double})">
+        <member name="M:GraphSynth.DoubleCollectionConverter.convert(System.Collections.Generic.IEnumerable{System.Double})">
             <summary>
-              Converts the specified values from a List of doubles to a comma-separated string.
-            </summary>
-            <param name = "values">The values.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.DoubleCollectionConverter.convert(System.Double[])">
-            <summary>
-              Converts the specified values from an array of doubles to a comma-separated string.
+              Converts the specified values from a IEnumerable of doubles to a comma-separated string.
             </summary>
             <param name = "values">The values.</param>
             <returns></returns>
@@ -1222,14 +1214,14 @@
         </member>
         <member name="M:GraphSynth.StringCollectionConverter.convert(System.String)">
             <summary>
-              Converts the comma-separated-values into a List of strings.
+              Converts the comma-separated-values into a IEnumerable of strings.
             </summary>
             <param name = "value">The value.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.StringCollectionConverter.convert(System.Collections.Generic.List{System.String})">
+        <member name="M:GraphSynth.StringCollectionConverter.convert(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
-              Converts the specified List of strings into a comma separated single string.
+              Converts the specified IEnumerable of strings into a comma separated single string.
             </summary>
             <param name = "values">The values.</param>
             <returns></returns>
@@ -1887,24 +1879,6 @@
             <param name="RelaxationTemplate">The relaxation template.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.Representation.grammarRule.findLMappedElement(GraphSynth.Representation.designGraph,System.String)">
-            <summary>
-            Given the name of an element in the rule, this functions finds the corresponding element
-            in the host.
-            </summary>
-            <param name="LMapping">the L-mapping for the recognized location of the rule</param>
-            <param name="GraphElementName">the name of an element in the rule</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.Representation.grammarRule.findRMappedElement(GraphSynth.Representation.designGraph,System.String)">
-            <summary>
-            Given the name of an element in the rule, this functions finds the corresponding element
-            in the host.
-            </summary>
-            <param name="RMapping">the R-mapping for the recognized location of the rule</param>
-            <param name="GraphElementName">the name of an element in the rule</param>
-            <returns></returns>
-        </member>
         <member name="M:GraphSynth.Representation.grammarRule.apply(GraphSynth.Representation.designGraph,GraphSynth.Representation.option,System.Double[])">
             <summary>
               Applies the rule to the specified host.
@@ -2164,6 +2138,43 @@
               Returns a copy of this instance of option. Note that location is a 
               shallow copy and applies to the same host.
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Representation.option.findLMappedElement(System.String)">
+            <summary>
+            Finds the L mapped element.
+            </summary>
+            <param name="GraphElementName">Name of the graph element.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">Graph element named \ + GraphElementName + \ was not found in the L-mapping of rule  + GraphElementName</exception>
+        </member>
+        <member name="M:GraphSynth.Representation.option.findLMappedElement(GraphSynth.Representation.graphElement)">
+            <summary>
+            Finds the L mapped element.
+            </summary>
+            <param name="x">The x.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">Graph element not found in rule's left-hand-side (GrammarRule.findMappedElement)</exception>
+        </member>
+        <member name="M:GraphSynth.Representation.option.findLMappedNode(GraphSynth.Representation.node)">
+            <summary>
+            Finds the L mapped node.
+            </summary>
+            <param name="x">The x.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Representation.option.findLMappedArc(GraphSynth.Representation.arc)">
+            <summary>
+            Finds the L mapped arc.
+            </summary>
+            <param name="x">The x.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Representation.option.findLMappedHyperarc(GraphSynth.Representation.hyperarc)">
+            <summary>
+            Finds the L mapped hyperarc.
+            </summary>
+            <param name="x">The x.</param>
             <returns></returns>
         </member>
         <member name="P:GraphSynth.Representation.option.arcs">
@@ -2841,11 +2852,6 @@
             </summary>
             <param name = "status">The status.</param>
             <returns></returns>
-        </member>
-        <member name="M:GraphSynth.Representation.ruleSet.#ctor">
-            <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.ruleSet"/> class.
-            </summary>
         </member>
         <member name="M:GraphSynth.Representation.ruleSet.#ctor(System.String)">
             <summary>
@@ -3764,14 +3770,16 @@
         </member>
         <member name="M:GraphSynth.Search.SearchProcess.transferLmappingToChild(GraphSynth.Representation.designGraph,GraphSynth.Representation.designGraph,System.Collections.Generic.List{GraphSynth.Representation.node},System.Collections.Generic.List{GraphSynth.Representation.arc},System.Collections.Generic.List{GraphSynth.Representation.hyperarc})">
             <summary>
-              A necessary function when multiple (more than one) application of a rule is applied
-              to a host. The function reads in the child graph (often a copy of the current), 
-              the current graph, and the Lmapping. The Lmapping is changed but the child and current are
-              unaffected.
+            A necessary function when multiple (more than one) application of a rule is applied
+            to a host. The function reads in the child graph (often a copy of the current),
+            the current graph, and the Lmapping. The Lmapping is changed but the child and current are
+            unaffected.
             </summary>
-            <param name = "child">The child.</param>
-            <param name = "current">The current.</param>
-            <param name = "Lmapping">The lmapping.</param>
+            <param name="child">The child.</param>
+            <param name="current">The current.</param>
+            <param name="LMappedNodes">The L mapped nodes.</param>
+            <param name="LMappedArcs">The L mapped arcs.</param>
+            <param name="LMappedHyperarcs">The L mapped hyperarcs.</param>
         </member>
         <member name="M:GraphSynth.Search.SearchProcess.nextRuleSet(System.Int32,GraphSynth.GenerationStatuses)">
             <summary>

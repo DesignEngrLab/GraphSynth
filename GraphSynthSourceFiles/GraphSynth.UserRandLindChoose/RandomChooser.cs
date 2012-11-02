@@ -31,8 +31,8 @@ namespace GraphSynth.UserRandLindChoose
             if (Cancel) return;
             var userChoose = new RandomChooseRCA(seedGraph, rulesets, numOfCalls, display);
             var cand = userChoose.GenerateOneCandidate();
-            SaveResultDialog.Show(settings.filer, cand);
             SearchIO.addAndShowGraphWindow(cand.graph, "After Rule Application");
+            SaveResultDialog.Show(settings.filer, cand);
         }
     }
 }

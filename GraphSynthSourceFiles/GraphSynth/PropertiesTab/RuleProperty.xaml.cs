@@ -16,7 +16,7 @@ namespace GraphSynth.UI
     {
         private grammarRule rule;
         private ruleWindow ruleWin;
-        
+
         #region Events
 
         #region Comment
@@ -168,8 +168,7 @@ namespace GraphSynth.UI
 
         private void txtRecognizeFunctions_KeyUp(object sender, KeyEventArgs e)
         {
-            if ((e.Key == Key.Space) || (e.Key == Key.OemComma) || (e.Key == Key.Enter) || (e.Key == Key.Return)
-                || (e.Key == Key.OemComma))
+            if (TextBoxHelper.CanEvalFileOrFunction(e))
                 txtRecognizeFunctions_LostFocus(sender, e);
         }
 
@@ -184,16 +183,15 @@ namespace GraphSynth.UI
             {
                 rule.recognizeFunctions.Add(str);
             }
-            RuleParamCodeFiler.checkForFunctions(true, rule, rule.recognizeFunctions);
             Update();
             senderTextBox.Text += " ";
             TextBoxHelper.SetCaret(senderTextBox, caretIndex, origLength);
+            RuleParamCodeFiler.checkForFunctions(true, rule, rule.recognizeFunctions);
         }
 
         private void txtApplyFunctions_KeyUp(object sender, KeyEventArgs e)
         {
-            if ((e.Key == Key.Space) || (e.Key == Key.OemComma) || (e.Key == Key.Enter) || (e.Key == Key.Return)
-                || (e.Key == Key.OemComma))
+            if (TextBoxHelper.CanEvalFileOrFunction(e))
                 txtApplyFunctions_LostFocus(sender, e);
         }
 
@@ -208,10 +206,10 @@ namespace GraphSynth.UI
             {
                 rule.applyFunctions.Add(str);
             }
-            RuleParamCodeFiler.checkForFunctions(false, rule, rule.applyFunctions);
             Update();
             senderTextBox.Text += " ";
             TextBoxHelper.SetCaret(senderTextBox, caretIndex, origLength);
+            RuleParamCodeFiler.checkForFunctions(false, rule, rule.applyFunctions);
         }
 
         #endregion
