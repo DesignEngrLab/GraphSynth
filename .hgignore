@@ -31,6 +31,7 @@ syntax: glob
 obj/ 
 [Rr]elease*/ 
 _ReSharper*/ 
+Setup1/Setup1/
 [Tt]est[Rr]esult* 
 [Bb]uild[Ll]og.* 
 *.[Pp]ublish.xml 

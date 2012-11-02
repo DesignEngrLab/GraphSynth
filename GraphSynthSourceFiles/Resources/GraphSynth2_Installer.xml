@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <InstallData>
+  <Version>2.2.11.02</Version>
+  <Change>changes to make additional rule functions easier</Change>
   <Version>2.2.10.26</Version>
   <Change>Candidate saving in default plugins - a few more tweaks.</Change>
   <Version>2.2.10.22</Version>

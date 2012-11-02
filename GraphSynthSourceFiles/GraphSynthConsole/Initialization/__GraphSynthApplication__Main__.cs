@@ -63,9 +63,6 @@ namespace GraphSynth
                 var isNewer = onlineVersion.CompareTo(currentVersion);
                 if (isNewer == 1)
                 {
-                    var procArch = Assembly.GetExecutingAssembly().GetName().ProcessorArchitecture.ToString();
-                    if (procArch.Contains("64")) procArch = "X64";
-                    else procArch = "X86";
                     var newChanges = new List<XElement>(data.Elements());
                     newChanges.RemoveAt(0);
                     var lastPos = newChanges.FindIndex(a => currentVersion.ToString().Equals(a.Value));
@@ -87,8 +84,7 @@ namespace GraphSynth
                                           {
                                               StartInfo =
                                                   {
-                                                      FileName = "http://www.graphsynth.com/files/install/" + procArch +
-                                                                 "/setup.exe",
+                                                      FileName = "http://www.graphsynth.com/files/install/setup.exe",
                                                       Verb = "open",
                                                       UseShellExecute = true
                                                   }
