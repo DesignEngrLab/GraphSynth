@@ -75,11 +75,13 @@ namespace GraphSynth.UI
         public static void checkForFunctions(Boolean isThisRecognize, grammarRule SelectedRule,
                                              List<string> newFunctions)
         {
-            var filesWithFunc = new string[newFunctions.Count];
-            var found = new Boolean[newFunctions.Count];
+            var numNewFuncs = newFunctions.Count;
+            if (numNewFuncs == 0) return;
+            var filesWithFunc = new string[numNewFuncs];
+            var found = new Boolean[numNewFuncs];
             var sourceFiles = Directory.GetFiles(GSApp.settings.RulesDirAbs, "*.cs");
 
-            for (int i = 0; i < newFunctions.Count; i++)
+            for (int i = 0; i < numNewFuncs; i++)
             {
                 found[i] = false;
                 var funcName = newFunctions[i];
@@ -114,7 +116,7 @@ namespace GraphSynth.UI
                             found[i] = true;
                             fileString = fileString.Remove(position + 7, 11);
                             fileString = fileString.Insert(position + 7, "void");
-                            position = fileString.IndexOf("return host;",position);
+                            position = fileString.IndexOf("return host;", position, StringComparison.Ordinal);
                             fileString = fileString.Remove(position, 12);
 
                             var w = new StreamWriter(new FileStream(file, FileMode.Create, FileAccess.Write), Encoding.Default);
@@ -128,7 +130,7 @@ namespace GraphSynth.UI
             }
             AdditionalFunctionToFileDialog.Show(isThisRecognize, newFunctions, filesWithFunc, found, sourceFiles);
             if (filesWithFunc.Any(f => f == null)) return;
-            for (int i = 0; i < newFunctions.Count; i++)
+            for (int i = 0; i < numNewFuncs; i++)
             {
                 if (found[i]) continue;
                 if (isThisRecognize)
