@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace GraphSynth.UI
@@ -24,7 +25,8 @@ namespace GraphSynth.UI
         public string[] FilesWithFunc { get; private set; }
 
 
-        public AdditionalFunctionToFileDialog(Boolean isThisRecognize, List<string> newFunctions, string[] filesWithFunc, bool[] found, string[] sourceFiles)
+        public AdditionalFunctionToFileDialog(Boolean isThisRecognize, List<string> newFunctions, string[] filesWithFunc,
+                                              bool[] found, string[] sourceFiles)
         {
             if (isThisRecognize)
                 Title = "Locations of Recognize Functions in Files";
@@ -35,7 +37,7 @@ namespace GraphSynth.UI
             filesWithFunc.CopyTo(origFilesWithFunc, 0);
             FilesWithFunc = filesWithFunc;
             localfound = new Boolean[numFuncs];
-            found.CopyTo(localfound,0);
+            found.CopyTo(localfound, 0);
             numSources = sourceFiles.GetLength(0);
             sourceFilePaths = sourceFiles;
             sourceFileNames = sourceFiles.Select(Path.GetFileName).ToArray();
@@ -43,7 +45,12 @@ namespace GraphSynth.UI
 
             for (int i = 0; i < numFuncs; i++)
             {
-                var row = new StackPanel { Orientation = Orientation.Horizontal };
+                var row = new WrapPanel
+                    {
+                        Orientation = Orientation.Horizontal,
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        MaxWidth = 600
+                    };
                 if (found[i])
                 {
                     row.Children.Add(new TextBlock(new Run(i + ". " + newFunctions[i] + " was found in: ")));
@@ -54,7 +61,7 @@ namespace GraphSynth.UI
                     row.Children.Add(new TextBlock(new Run(i + ". " + newFunctions[i] + " was not found, place in: ")));
                     for (int j = 0; j < numSources; j++)
                     {
-                        var thisRadioBtn = new RadioButton { Content = sourceFileNames[j] };
+                        var thisRadioBtn = new RadioButton { Content = sourceFileNames[j], Margin = new Thickness(0,0,5,0) };
                         thisRadioBtn.Click += radioBtn_Click;
                         row.Children.Add(thisRadioBtn);
                     }
@@ -64,16 +71,16 @@ namespace GraphSynth.UI
             btnOK.IsEnabled = localfound.All(b => b);
         }
 
-        void radioBtn_Click(object sender, RoutedEventArgs e)
+        private void radioBtn_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < numFuncs; i++)
             {
                 if (localfound[i]) continue;
-                var row = (StackPanel)listPanel.Children[i];
+                var row = (WrapPanel)listPanel.Children[i];
                 for (int j = 0; j < numSources; j++)
                 {
                     var btn = (RadioButton)row.Children[j + 1];
-                    if (btn.IsChecked==null || !btn.IsChecked.Value) continue;
+                    if (btn.IsChecked == null || !btn.IsChecked.Value) continue;
                     FilesWithFunc[i] = sourceFilePaths[j];
                     localfound[i] = true;
                     break;
@@ -83,9 +90,11 @@ namespace GraphSynth.UI
         }
 
 
-        internal static void Show(Boolean isThisRecognize, List<string> newFunctions, string[] filesWithFunc, bool[] found, string[] sourceFiles)
+        internal static void Show(Boolean isThisRecognize, List<string> newFunctions, string[] filesWithFunc,
+                                  bool[] found, string[] sourceFiles)
         {
-            var diag = new AdditionalFunctionToFileDialog(isThisRecognize, newFunctions, filesWithFunc, found, sourceFiles);
+            var diag = new AdditionalFunctionToFileDialog(isThisRecognize, newFunctions, filesWithFunc, found,
+                                                          sourceFiles);
             diag.ShowDialog();
         }
 
@@ -100,6 +109,16 @@ namespace GraphSynth.UI
             Close();
         }
 
-
+        private void Window_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            if (e.Handled) return;
+            if ((e.Key == Key.Left) || (e.Key == Key.Right) || (e.Key == Key.Up) || (e.Key == Key.Down) ||
+                (e.Key == Key.Tab)) return;
+            if ((btnOK.IsEnabled) &&
+                ((e.Key == Key.Space) || (e.Key == Key.Return) || (e.Key == Key.Enter) || (e.Key == Key.O) ||
+                 (e.Key == Key.Y)))
+                btnOK_Click(sender, e);
+            else btnCancel_Click(sender, e);
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿<Window x:Class="GraphSynth.UI.AdditionalFunctionToFileDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" SizeToContent="WidthAndHeight" >
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" SizeToContent="WidthAndHeight" KeyUp="Window_KeyUp_1" >
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

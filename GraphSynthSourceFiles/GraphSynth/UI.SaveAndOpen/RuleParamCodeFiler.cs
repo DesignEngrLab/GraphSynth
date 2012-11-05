@@ -326,7 +326,7 @@ namespace GraphSynth.UI
             sb.Append("\npublic void ");
             sb.Append(funcName);
             sb.Append(
-                "(designGraph Lmapping, designGraph host, designGraph Rmapping, double[] parameters)\n{\n");
+                "(option opt, designGraph host, designGraph Rmapping, double[] parameters)\n{\n");
 
 
             sb.Append("#region Define Mapped Elements\n");
@@ -366,7 +366,7 @@ namespace GraphSynth.UI
                 sb.Append("\n * is connected to: " + StringCollectionConverter.convert(n.arcs.Select(a => a.name)) +
                           ";");
                 sb.Append(" and is located at [" + n.X + ", " + n.Y + ", " + n.Z + "]. */\n");
-                sb.Append("var " + n.name + "_added = opt.nodes[" + i + "];\n\n");
+                sb.Append("var " + n.name + "_added = Rmapping.nodes[" + i + "];\n\n");
             }
             for (int i = 0; i < rule.L.arcs.Count; i++)
             {
@@ -396,7 +396,7 @@ namespace GraphSynth.UI
                 var fromName = a.From == null ? "nothing" : a.From.name;
                 var toName = a.To == null ? "nothing" : a.To.name;
                 sb.Append("\n * and is connected from " + fromName + " to " + toName + ". */\n");
-                sb.Append("var " + a.name + "_added = opt.arcs[" + i + "];\n\n");
+                sb.Append("var " + a.name + "_added = Rmapping.arcs[" + i + "];\n\n");
             }
             for (int i = 0; i < rule.L.hyperarcs.Count; i++)
             {
@@ -426,7 +426,7 @@ namespace GraphSynth.UI
                 else sb.Append("/* " + a.name + "_added is the hyperarc in R that has no labels;");
                 sb.Append("\n * and is connected to: " + StringCollectionConverter.convert(a.nodes.Select(n => n.name)) +
                           ". */\n");
-                sb.Append("var " + a.name + "_added = opt.hyperarcs[" + i + "];\n\n");
+                sb.Append("var " + a.name + "_added = Rmapping.hyperarcs[" + i + "];\n\n");
             }
             sb.Append("#endregion\n\n\n");
 

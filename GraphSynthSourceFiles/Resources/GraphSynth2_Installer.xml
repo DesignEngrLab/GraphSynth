@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <InstallData>
+  <Version>2.2.11.05</Version>
+  <Change>bug fixes to new function-file dialog, and aa'n'l apply function template</Change>
   <Version>2.2.11.03</Version>
-  <Change>bug fix to new function-file dialaog, and ruleset saving</Change>
+  <Change>bug fix to new function-file dialog, and ruleset saving</Change>
   <Version>2.2.11.02</Version>
   <Change>changes to make additional rule functions easier</Change>
   <Version>2.2.10.26</Version>
