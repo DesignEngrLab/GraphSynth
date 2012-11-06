@@ -210,10 +210,5 @@ namespace GraphSynth.UserRandLindChoose
                         confluentChoices.Intersect(
                             options[optionNumbers[recognizedRulesList.Items.IndexOf(si)]].confluence));
         }
-
-        private void Window_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            choice = new[] { -2 };
-        }
     }
 }
