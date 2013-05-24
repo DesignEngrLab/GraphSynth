@@ -309,7 +309,7 @@ namespace GraphSynth.UI
              * the same textbox */
             var setOfLabels = txtLGlobalLabels.Text.Split(new[] { "~(" },
                                                           2, StringSplitOptions.RemoveEmptyEntries);
-            if (setOfLabels.Count() > 0)
+            if (setOfLabels.Any())
                 main.property.RulePrpt.txtLGlobalLabels_LostFocus(new TextBox { Text = setOfLabels[0] }, e);
             if (setOfLabels.Count() > 1)
                 main.property.RulePrpt.txtLNegatingLabels_LostFocus(new TextBox { Text = setOfLabels[1] }, e);

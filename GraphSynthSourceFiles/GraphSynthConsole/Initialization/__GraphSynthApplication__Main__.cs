@@ -136,7 +136,7 @@ namespace GraphSynth
                 settings.LoadDefaultSeedAndRuleSets();
                 for (int i = 0; i < settings.numOfRuleSets; i++)
                     if (settings.rulesets[i] != null)
-                        ((ruleSet)settings.rulesets[i]).RuleSetIndex = i;
+                        settings.rulesets[i].RuleSetIndex = i;
 
             }
         }
@@ -144,9 +144,7 @@ namespace GraphSynth
         private static void ReadInSettings()
         {
             /* loadDefaults can be time consuming if there are many ruleSets/rules to load. */
-            if (ArgAltConfig)
-                settings = GlobalSettings.readInSettings(AlternateConfig);
-            else settings = GlobalSettings.readInSettings();
+            settings = ArgAltConfig ? GlobalSettings.readInSettings(AlternateConfig) : GlobalSettings.readInSettings();
             SearchIO.defaultVerbosity = settings.DefaultVerbosity;
             SearchIO.output("Default Verbosity set to " + settings.DefaultVerbosity, 3);
         }

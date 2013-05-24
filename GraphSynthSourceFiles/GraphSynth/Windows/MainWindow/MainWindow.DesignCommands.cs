@@ -22,7 +22,7 @@ namespace GraphSynth.UI
             var activeGD = ((graphWindow)activeWin).graphGUI;
             if ((GSApp.settings.seed == null) || (GSApp.settings.seed == activeGD.graph) ||
                 (MessageBoxResult.Yes == MessageBox.Show("The graph "
-                                                         + ((designGraph)GSApp.settings.seed).name
+                                                         + GSApp.settings.seed.name
                                                          + " is already loaded as the seed."
                                                          + " Replace it with the active graph?", "Seed already defined.",
                                                          MessageBoxButton.YesNo, MessageBoxImage.Information)))
@@ -42,10 +42,12 @@ namespace GraphSynth.UI
         {
             if (GSApp.settings.seed != null)
             {
-                var tb = new TextBlock();
-                tb.Text = "Set Active as Seed: " + ((designGraph)GSApp.settings.seed).name;
+                var tb = new TextBlock
+                    {
+                        Text = "Set Active as Seed: " + GSApp.settings.seed.name,
+                        FontWeight = FontWeights.Bold
                 //tb.FontSize = 9f;
-                tb.FontWeight = FontWeights.Bold;
+                    };
                 SetActiveAsSeedMenuItem.Header = tb;
             }
             else
@@ -86,7 +88,7 @@ namespace GraphSynth.UI
                                 + " this happening in the future.", "May need to save settings.", MessageBoxButton.OK,
                                 MessageBoxImage.Information);
             }
-            GSApp.settings.rulesets = new object[GSApp.settings.numOfRuleSets];
+            GSApp.settings.rulesets = new ruleSet[GSApp.settings.numOfRuleSets];
             defineRuleSet(0);
         }
 

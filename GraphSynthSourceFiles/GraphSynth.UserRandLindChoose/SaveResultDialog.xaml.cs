@@ -1,9 +1,7 @@
-﻿using System;
+﻿using GraphSynth.Representation;
+using System;
 using System.IO;
 using System.Windows;
-using System.Windows.Input;
-using GraphSynth.Representation;
-using GraphSynth.Search;
 
 namespace GraphSynth.UserRandLindChoose
 {
@@ -33,18 +31,18 @@ namespace GraphSynth.UserRandLindChoose
         private void buttonSaveAsGraph_Click_1(object sender, RoutedEventArgs e)
         {
             _filer.Save(_filer.outputDirectory + filenameTextBox.Text + ".gxml", _c.graph);
-            this.Close();
+            Close();
         }
 
         private void buttonSaveAsCandidate_Click_1(object sender, RoutedEventArgs e)
         {
             _filer.Save(_filer.outputDirectory + filenameTextBox.Text + ".xml", _c);
-            this.Close();
+            Close();
         }
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
     }

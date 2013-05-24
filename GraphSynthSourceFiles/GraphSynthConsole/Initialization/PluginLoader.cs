@@ -1,10 +1,9 @@
-﻿using System;
+﻿using GraphSynth.Search;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using GraphSynth;
-using GraphSynth.Search;
 
 namespace GraphSynth
 {
@@ -16,7 +15,7 @@ namespace GraphSynth
         public static void LoadPlugins()
         {
             Assembly searchAssembly = null;
-            Type[] searchprocesses = null;
+            Type[] searchprocesses;
             var potentialAssemblies = getPotentialAssemblies(settings.SearchDirAbs);
             if (potentialAssemblies.Count == 0) return;
 
@@ -27,7 +26,7 @@ namespace GraphSynth
                     searchAssembly = Assembly.LoadFrom(filepath);
                     searchprocesses = searchAssembly.GetExportedTypes();
                     foreach (Type spt in searchprocesses)
-                        if (!spt.IsAbstract && (spt.BaseType == typeof(SearchProcess))
+                        if (!spt.IsAbstract && SearchProcess.IsInheritedType(spt)
                             && !SearchAlgorithms.Any(w => w.GetType().FullName.Equals(spt.FullName)))
                             LoadSearchAlgo(spt);
                 }
@@ -44,7 +43,7 @@ namespace GraphSynth
             searchAssembly = Assembly.GetExecutingAssembly();
             searchprocesses = searchAssembly.GetExportedTypes();
             foreach (Type spt in searchprocesses)
-                if (!spt.IsAbstract && (spt.BaseType == typeof(SearchProcess))
+                if (!spt.IsAbstract && SearchProcess.IsInheritedType(spt)
                     && !SearchAlgorithms.Any(w => w.GetType().FullName.Equals(spt.FullName)))
                     LoadSearchAlgo(spt);
         }
@@ -55,7 +54,7 @@ namespace GraphSynth
             try
             {
                 var constructor = spt.GetConstructor(new Type[0]);
-                SearchProcess searchAlgo = (SearchProcess)constructor.Invoke(null);
+                var searchAlgo = (SearchProcess)constructor.Invoke(null);
                 searchAlgo.settings = GSApp.settings;
                 SearchAlgorithms.Add(searchAlgo);
                 SearchIO.output("\t" + spt.Name + " loaded successfully.", 3);
@@ -88,10 +87,9 @@ namespace GraphSynth
 
         private static void PluginDialog()
         {
-            List<int> inactiveIndices = new List<int>();
-            int numActive = 0;
-            int activeIndex = 0;
-            int choice = -1;
+            var inactiveIndices = new List<int>();
+            var numActive = 0;
+            var activeIndex = 0;
             //if (SearchAlgorithms.Count == 0) SearchIO.output("=== no plugins loaded. ===");
             SearchIO.output("\n========= Plugins ==========");
             for (int i = 0; i < SearchAlgorithms.Count; i++)
@@ -133,9 +131,9 @@ namespace GraphSynth
                     break;
             }
             Key response;
-            if (Enum.TryParse(Console.ReadKey().Key.ToString(), out response))
-                choice = (int)response;
-            else choice = -1;
+            var readKey = Console.ReadKey().Key.ToString();
+            readKey = readKey.Replace("D", "");
+            int choice = Enum.TryParse(readKey, out response) ? (int) response : -1;
             Console.Write("\n");
             if (choice == 30) HelpDialog();
             else if (choice == 31) VerbosityDialog();

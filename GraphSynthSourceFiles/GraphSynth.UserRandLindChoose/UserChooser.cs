@@ -9,7 +9,6 @@ namespace GraphSynth.UserRandLindChoose
     public class UserChooseProcess : SearchProcess
     {
         public UserChooseProcess()
-            : base()
         {
             RequireSeed = true;
             RequiredNumRuleSets = 1;
@@ -42,16 +41,16 @@ namespace GraphSynth.UserRandLindChoose
 
         public override int[] choose(List<option> options, candidate cand)
         {
-            AssignOptionConfluence(options, cand);
+            option.AssignOptionConfluence(options, cand, ConfluenceAnalysis.Full);
             SearchIO.output("There are " + options.Count + " recognized locations.", 2);
             if (options.Count == 0)
             {
-                SearchIO.output("Sorry there are no rules recognized.", 0);
+                SearchIO.output("Sorry there are no rules recognized.");
                 return null;
             }
             if (options.Count > settings.MaxRulesToDisplay)
             {
-                SearchIO.output("Sorry there are too many rules to show.", 0);
+                SearchIO.output("Sorry there are too many rules to show.");
                 return null;
             }
             SearchIO.output("Double-click on one to show the location.", 2);

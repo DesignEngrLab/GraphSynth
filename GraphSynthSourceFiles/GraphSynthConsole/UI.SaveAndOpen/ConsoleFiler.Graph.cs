@@ -41,7 +41,7 @@ namespace GraphSynth
              * The IgnorableSetup string ensures that XAML viewers ignore the following      *
              * GraphSynth specific elements: the canvas data, and the graph data. This eff-  *
              * ectively separates the topology and data of the graph from the graphic elements.       */
-            SaveString = SaveString.Insert(SaveString.IndexOf(">"),
+            SaveString = SaveString.Insert(SaveString.IndexOf(">", StringComparison.Ordinal),
                                            IgnorableSetup + "Tag=\"Graph\" ");
             /* remove the ending Page tag but put it back at the end. */
             SaveString = SaveString.Replace("</Page>", "");
@@ -65,25 +65,6 @@ namespace GraphSynth
         private string BuildXAMLGraphPage(designGraph graph)
         {
             return "";
-            //if (cp == null) cp = new CanvasProperty();
-            //return new Page
-            //           {
-            //               Background = Brushes.Black,
-            //               Content = new Border
-            //                             {
-            //                                 BorderThickness = new Thickness(1),
-            //                                 BorderBrush = Brushes.DarkGray,
-            //                                 HorizontalAlignment = HorizontalAlignment.Center,
-            //                                 VerticalAlignment = VerticalAlignment.Center,
-            //                                 Child = new Viewbox
-            //                                             {
-            //                                                 HorizontalAlignment = HorizontalAlignment.Stretch,
-            //                                                 VerticalAlignment = VerticalAlignment.Stretch,
-            //                                                 StretchDirection = StretchDirection.Both,
-            //                                                 Child = BuildGraphGUICanvas(graph, cp)
-            //                                             }
-            //                             }
-            //           };
         }
 
         //private Canvas BuildGraphGUICanvas(designGraph graph, CanvasProperty cp)
@@ -248,7 +229,7 @@ namespace GraphSynth
             }
             finally
             {
-                xR.Close();
+                if (xR != null) xR.Close();
             }
         }
 

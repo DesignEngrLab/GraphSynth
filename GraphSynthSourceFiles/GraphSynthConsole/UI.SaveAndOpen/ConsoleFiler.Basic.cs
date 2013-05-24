@@ -24,10 +24,11 @@ namespace GraphSynth
 
 
         /// <summary>
-        ///   Saves the specified filename.
+        /// Saves the specified filename.
         /// </summary>
-        /// <param name = "filename">The filename.</param>
-        /// <param name = "o">The o.</param>
+        /// <param name="filename">The filename.</param>
+        /// <param name="o">The o.</param>
+        /// <param name="suppressWarnings">The suppress warnings.</param>
         public override void Save(string filename, object o, Boolean suppressWarnings = false)
         {
            if (o is grammarRule ||
@@ -51,10 +52,9 @@ namespace GraphSynth
 
         public override object[] Open(string filename, Boolean suppressWarnings = false)
         {
-            XmlReader xR;
             try
             {
-                xR = XmlReader.Create(filename);
+                var xR = XmlReader.Create(filename);
                 /* Load the file. */
                 var doc = new XmlDocument();
                 doc.Load(xR);
@@ -94,7 +94,7 @@ namespace GraphSynth
         protected string AddIgnorablePrefix(string x)
         {
             x = x.Insert(x.IndexOf('<') + 1, IgnorablePrefix);
-            return x.Insert(x.LastIndexOf("</") + 2, IgnorablePrefix);
+            return x.Insert(x.LastIndexOf("</", StringComparison.Ordinal) + 2, IgnorablePrefix);
         }
 
         protected static string RemoveXAMLns(string s)

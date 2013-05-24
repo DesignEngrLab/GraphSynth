@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using GraphSynth.Representation;
-using GraphSynth.Search;
+﻿using GraphSynth.Search;
+using System;
 
 namespace GraphSynth.UserRandLindChoose
 {
@@ -12,7 +10,6 @@ namespace GraphSynth.UserRandLindChoose
         public Boolean display;
 
         public RandomChooseProcess()
-            : base()
         {
             RequireSeed = true;
             RequiredNumRuleSets = 1;

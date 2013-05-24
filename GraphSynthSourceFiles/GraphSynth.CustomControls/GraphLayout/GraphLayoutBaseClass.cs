@@ -296,6 +296,21 @@ namespace GraphSynth.GraphLayout
             Close();
         }
 
+        /// <summary>
+        /// Determines whether [the specified type] is inherited from GraphLayoutBaseClass.
+        /// </summary>
+        /// <param name="t">The t.</param>
+        /// <returns></returns>
+        public static Boolean IsInheritedType(Type t)
+        {
+            while (t != typeof(object))
+            {
+                if (t == typeof(GraphLayoutBaseClass)) return true;
+                t = t.BaseType;
+            }
+            return false;
+        }
+
         public static GraphLayoutBaseClass Make(Type lt)
         {
             try

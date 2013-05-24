@@ -1755,7 +1755,7 @@
             how a rule recognizes on a host, and how it makes changes via apply.
             </summary>
         </member>
-        <member name="F:GraphSynth.Representation.grammarRule._host">
+        <member name="F:GraphSynth.Representation.grammarRule.host">
             <summary>
             the host graph is stored as an internal (private) field to a rule during recognition. 
             Since recognition just reads from it, this simplifies the need to pass it along to every
@@ -2175,6 +2175,60 @@
             Finds the L mapped hyperarc.
             </summary>
             <param name="x">The x.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Representation.option.AssignOptionConfluence(System.Collections.Generic.List{GraphSynth.Representation.option},GraphSynth.Representation.candidate,GraphSynth.ConfluenceAnalysis)">
+            <summary>
+            Create lists on integers within each option that indicates what other
+            options in that list it is confluent with. As discussed below confluence
+            is commutative which saves a little time in this function, but it is not
+            transitive - meaning is A is confluent with B and C. It is not necessarily
+            true that B is confluent with C.
+            </summary>
+            <param name="options">The list of options to assign confluence</param>
+            <param name="cand">The cand.</param>
+            <param name="confluenceAnalysis">The confluence analysis.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Representation.option.MakeInvalidationMatrix(System.Collections.Generic.List{GraphSynth.Representation.option},GraphSynth.Representation.candidate,GraphSynth.ConfluenceAnalysis)">
+            <summary>
+            Makes the invalidation matrix.
+            </summary>
+            <param name="options">The options.</param>
+            <param name="cand">The cand.</param>
+            <param name="confluenceAnalysis">The confluence analysis.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Representation.option.doesPInvalidateQ(GraphSynth.Representation.option,GraphSynth.Representation.option,GraphSynth.Representation.candidate,GraphSynth.ConfluenceAnalysis)">
+            <summary>
+            Predicts whether the option p is invalidates option q.
+            This invalidata is a tricky thing. For the most part, this function
+            has been carefully coded to handle almost all cases. The only exceptions
+            are from what the additional recognize and apply functions require or modify.
+            This is handled by actually testing to see if this is true.
+            </summary>
+            <param name="p">The p.</param>
+            <param name="q">The q.</param>
+            <param name="cand">The cand.</param>
+            <param name="confluenceAnalysis">The confluence analysis.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Representation.option.fullInvalidationCheck(GraphSynth.Representation.option,GraphSynth.Representation.option,GraphSynth.Representation.candidate)">
+            <summary>
+            Does a full invalidation check through empirical evidence. That is, it makes
+            a copy of the graph and tests to see if this is true.
+            </summary>
+            <param name="p">The p.</param>
+            <param name="q">The q.</param>
+            <param name="cand">The cand.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Representation.option.sameLocation(GraphSynth.Representation.option,GraphSynth.Representation.option)">
+            <summary>
+            Sames the location.
+            </summary>
+            <param name="qOption">The q option.</param>
+            <param name="newOption">The new option.</param>
             <returns></returns>
         </member>
         <member name="P:GraphSynth.Representation.option.arcs">
@@ -2859,6 +2913,11 @@
             </summary>
             <param name="defaultRulesDir">The default rules dir.</param>
         </member>
+        <member name="M:GraphSynth.Representation.ruleSet.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphSynth.Representation.ruleSet"/> class.
+            </summary>
+        </member>
         <member name="M:GraphSynth.Representation.ruleSet.recognize(GraphSynth.Representation.designGraph,System.Boolean,GraphSynth.Representation.Relaxation)">
             <summary>
             This is the recognize function called within the RCA generation. It is
@@ -3351,6 +3410,31 @@
             Maximize in the search - bigger is better.
             </summary>
         </member>
+        <member name="T:GraphSynth.ConfluenceAnalysis">
+            <summary>
+            Calculating the confluence between options is a complex task which may take an
+            unintended amount of time to determine. In order to control this three possible
+            analyses are defined. 
+            </summary>
+        </member>
+        <member name="F:GraphSynth.ConfluenceAnalysis.ConservativeSimple">
+            <summary>
+            A simple analysis that may produce a number of "unknown" states. Any unknown
+            states are regarded as NOT confluent, even though they may be.
+            </summary>
+        </member>
+        <member name="F:GraphSynth.ConfluenceAnalysis.OptimisticSimple">
+            <summary>
+            A simple analysis that may produce a number of "unknown" states. Any unknown
+            states are regarded as confluent, even though they may not be.
+            </summary>
+        </member>
+        <member name="F:GraphSynth.ConfluenceAnalysis.Full">
+            <summary>
+            The full analysis will run the empirical test for invalidation between a pair
+            of options. This is potentially time-consuming.
+            </summary>
+        </member>
         <member name="T:GraphSynth.OptimizeSort">
             <summary>
             A comparer for optimization that can be used for either 
@@ -3445,14 +3529,35 @@
               can control aspects of the execution through the ruleSets
             </summary>
         </member>
-        <member name="F:GraphSynth.Search.RecognizeChooseApply.rulesets">
+        <member name="F:GraphSynth.Search.RecognizeChooseApply.Rulesets">
             <summary>
               An array of rulesets used in this generation process.
             </summary>
         </member>
+        <member name="F:GraphSynth.Search.RecognizeChooseApply.NumOfRuleSets">
+            <summary>
+            The number of rule sets
+            </summary>
+        </member>
+        <member name="F:GraphSynth.Search.RecognizeChooseApply.MaxNumOfCalls">
+            <summary>
+              The array of the maximum number of calls to make in each ruleset.
+              This is not cumulative - if you return to a previous ruleset, the counter is 
+              reset. It is copied to the numOfCallsLeft at the beginning of the RCACycle into 
+              the numOfCallsLeft slot.
+            </summary>
+            <value>The max num of calls.</value>
+        </member>
+        <member name="F:GraphSynth.Search.RecognizeChooseApply.Display">
+            <summary>
+            A simple Boolean used for debugging or interactive generation. If true then
+            the host will be replotted after each apply action.
+            </summary>
+            <value><c>true</c> if display; otherwise, <c>false</c>.</value>
+        </member>
         <member name="F:GraphSynth.Search.RecognizeChooseApply.InParallel">
             <summary>
-            Gets or sets a value indicating whether [in parallel].
+            A value indicating whether [in parallel].
             </summary>
             <value><c>true</c> if [in parallel]; otherwise, <c>false</c>.</value>
         </member>
@@ -3508,21 +3613,15 @@
             <param name = "startingRuleSet">The starting rule set (if unspecified then the candidate's active ruleset will be used.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.#ctor(GraphSynth.Representation.designGraph,GraphSynth.Representation.ruleSet[],System.Int32[],System.Boolean)">
+        <member name="M:GraphSynth.Search.RecognizeChooseApply.#ctor(GraphSynth.Representation.designGraph,GraphSynth.Representation.ruleSet[],System.Int32[],System.Boolean,System.Boolean)">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Search.RecognizeChooseApply"/> class.
+            Initializes a new instance of the <see cref="T:GraphSynth.Search.RecognizeChooseApply"/> class.
             </summary>
-            <param name="seed">The _seed.</param>
+            <param name="host">The _seed.</param>
             <param name="rulesets">The _rulesets.</param>
             <param name="maxNumOfCalls">The _max num of calls.</param>
             <param name="display">if set to <c>true</c> [_display].</param>
-        </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.#ctor(GraphSynth.GlobalSettings,System.Boolean)">
-            <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Search.RecognizeChooseApply"/> class.
-            </summary>
-            <param name="settings">The settings.</param>
-            <param name="displayIntermediateGraphs">if set to <c>true</c> [display intermediate graphs].</param>
+            <param name="inParallel">The process should be invoked in parallel where possible.</param>
         </member>
         <member name="M:GraphSynth.Search.RecognizeChooseApply.choose(System.Collections.Generic.List{GraphSynth.Representation.option},GraphSynth.Representation.candidate)">
             <summary>
@@ -3544,58 +3643,14 @@
             <param name = "cand">The cand.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.AssignOptionConfluence(System.Collections.Generic.List{GraphSynth.Representation.option},GraphSynth.Representation.candidate)">
+        <member name="P:GraphSynth.Search.RecognizeChooseApply.Host">
             <summary>
-              Create lists on integers within each option that indicates what other
-              options in that list it is confluent with. As discussed below confluence
-              is commutative which saves a little time in this function, but it is not
-              transitive - meaning is A is confluent with B and C. It is not necessarily
-              true that B is confluent with C.
+            Gets or sets the host. Often the same as the seed used as a starting point for the 
+            generation process. That seed is stored here as a accessible propoerty of the class.
             </summary>
-            <param name = "options">The list of options to assign confluence</param>
-            <param name="cand"></param>
-        </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.MakeInvalidationMatrix(System.Collections.Generic.List{GraphSynth.Representation.option},GraphSynth.Representation.candidate)">
-            <summary>
-            Makes the invalidation matrix.
-            </summary>
-            <param name="options">The options.</param>
-            <param name="cand">The cand.</param>
-        </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.ClearInvalidationMatrix">
-            <summary>
-            Clears the invalidation matrix.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.doesPInvalidateQ(GraphSynth.Representation.option,GraphSynth.Representation.option,GraphSynth.Representation.candidate)">
-            <summary>
-              Predicts whether the option p is invalidates option q.
-              This invalidata is a tricky thing. For the most part, this function 
-              has been carefully coded to handle almost all cases. The only exceptions
-              are from what the additional recognize and apply functions require or modify.
-              This is handled by actually testing to see if this is true.
-            </summary>
-            <param name="p">The p.</param>
-            <param name="q">The q.</param>
-            <param name="cand">The cand.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.fullInvalidationCheck(GraphSynth.Representation.option,GraphSynth.Representation.option,GraphSynth.Representation.candidate)">
-            <summary>
-            Does a full invalidation check through empirical evidence. That is, it makes
-            a copy of the graph and tests to see if this is true.
-            </summary>
-            <param name="p">The p.</param>
-            <param name="q">The q.</param>
-            <param name="cand">The cand.</param>
-            <returns></returns>
-        </member>
-        <member name="P:GraphSynth.Search.RecognizeChooseApply.display">
-            <summary>
-            a simple Boolean used for debugging or interactive generation. If true then
-            the host will be replotted after each apply action.
-            </summary>
-            <value><c>true</c> if display; otherwise, <c>false</c>.</value>
+            <value>
+            The host.
+            </value>
         </member>
         <member name="P:GraphSynth.Search.RecognizeChooseApply.choice">
             <summary>
@@ -3603,34 +3658,6 @@
               various implementation of choose. As a result we define it as global to the class.
             </summary>
             <value>The choice.</value>
-        </member>
-        <member name="P:GraphSynth.Search.RecognizeChooseApply.maxNumOfCalls">
-            <summary>
-              Gets or sets the array of the maximum number of calls to make in each ruleset.
-              This is not cumulative - if you return to a previous ruleset, the counter is 
-              reset. It is copied to the numOfCallsLeft at the beginning of the RCACycle into 
-              the numOfCallsLeft slot.
-            </summary>
-            <value>The max num of calls.</value>
-        </member>
-        <member name="P:GraphSynth.Search.RecognizeChooseApply.seed">
-            <summary>
-              Gets or sets the seed. Often the same seed is used as a starting point with the 
-              generation process. That seed is stored here as a global field of the class.
-            </summary>
-            <value>The seed.</value>
-        </member>
-        <member name="P:GraphSynth.Search.RecognizeChooseApply.numOfRuleSets">
-            <summary>
-              Gets or sets the num of rule sets.
-            </summary>
-            <value>The num of rule sets.</value>
-        </member>
-        <member name="P:GraphSynth.Search.RecognizeChooseApply.InvalidationMatrix">
-            <summary>
-            Gets the invalidation matrix.
-            </summary>
-            <value>The invalidation matrix.</value>
         </member>
         <member name="M:GraphSynth.Search.LindenmayerChooseRCA.choose(System.Collections.Generic.List{GraphSynth.Representation.option},GraphSynth.Representation.candidate)">
             <summary>
@@ -3783,20 +3810,31 @@
         </member>
         <member name="M:GraphSynth.Search.SearchProcess.nextRuleSet(System.Int32,GraphSynth.GenerationStatuses)">
             <summary>
-              A helper function to RecognizeChooseApplyCycle. This function returns what the new ruleSet
+              This function returns what the new ruleSet
               will be. Here the enumerator nextGenerationSteps and GenerationStatuses is used to great
               affect. Understand that if a negative number is returned, the cycle will be stopped.
             </summary>
-            <param name = "ruleSetIndex">Index of the rule set.</param>
-            <param name = "status">The status.</param>
+            <param name="ruleSetIndex">Index of the rule set.</param>
+            <param name="status">The status.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.Search.SearchProcess.addNewCandtoPareto(GraphSynth.Representation.candidate,System.Collections.Generic.List{GraphSynth.Representation.candidate})">
+        <member name="M:GraphSynth.Search.SearchProcess.NextRuleSet(GraphSynth.Representation.ruleSet[],System.Int32,GraphSynth.GenerationStatuses)">
             <summary>
-              Adds the new candidate to the pareto set.
+            This function returns what the new ruleSet
+            will be. Here the enumerator nextGenerationSteps and GenerationStatuses is used to great
+            affect. Understand that if a negative number is returned, the cycle will be stopped.
             </summary>
-            <param name = "c">The c.</param>
-            <param name = "ParetoCands">The pareto cands.</param>
+            <param name="RuleSets">The rule sets.</param>
+            <param name="ruleSetIndex">Index of the rule set.</param>
+            <param name="status">The status.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Search.SearchProcess.IsInheritedType(System.Type)">
+            <summary>
+            Determines whether [the specified type] is inherited from SearchProcess.
+            </summary>
+            <param name="t">The t.</param>
+            <returns></returns>
         </member>
         <member name="M:GraphSynth.Search.SearchProcess.addChildToSortedCandList(System.Collections.Generic.List{GraphSynth.Representation.candidate},GraphSynth.Representation.candidate)">
             <summary>
@@ -3806,9 +3844,16 @@
             <param name = "candidates">The candidates.</param>
             <param name = "child">The child.</param>
         </member>
+        <member name="M:GraphSynth.Search.SearchProcess.addNewCandtoPareto(GraphSynth.Representation.candidate,System.Collections.Generic.List{GraphSynth.Representation.candidate})">
+            <summary>
+              Adds the new candidate to the pareto set.
+            </summary>
+            <param name = "c">The c.</param>
+            <param name = "ParetoCands">The pareto cands.</param>
+        </member>
         <member name="M:GraphSynth.Search.SearchProcess.dominates(GraphSynth.Representation.candidate,GraphSynth.Representation.candidate)">
             <summary>
-              Does c1 dominate c2?
+              Does c1 dominate c2? assuming this is a minimization of all objectives 
             </summary>
             <param name = "c1">the subject candidate, c1 (does this dominate...).</param>
             <param name = "c2">the object candidate, c2 (is dominated by).</param>
@@ -3861,6 +3906,14 @@
             </summary>
             <value>The seed candidate.</value>
         </member>
+        <member name="P:GraphSynth.Search.SearchProcess.numOfRuleSets">
+            <summary>
+            Gets the number of RuleSets.
+            </summary>
+            <value>
+            The num of rule sets.
+            </value>
+        </member>
         <member name="P:GraphSynth.Search.SearchProcess.rulesets">
             <summary>
               Gets the rulesets defined in the settings as an array.
@@ -3897,14 +3950,6 @@
               Gets the text describing that is displayed in the menu. It must be overridden in the methods.
             </summary>
             <value>The text.</value>
-        </member>
-        <member name="P:GraphSynth.Search.SearchProcess.OptimizeDirection">
-            <summary>
-              Gets or sets the optimize direction for all performance parameters.
-              This is not a necessity, and specific search process might required some
-              performance parameters to be maximized while others are minimized.
-            </summary>
-            <value>The optimize direction.</value>
         </member>
         <member name="P:GraphSynth.Search.SearchProcess.inputDirectory">
             <summary>

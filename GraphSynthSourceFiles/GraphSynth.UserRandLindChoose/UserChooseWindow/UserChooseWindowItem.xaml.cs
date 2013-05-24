@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Controls;
 using GraphSynth.Representation;
 
@@ -13,7 +14,7 @@ namespace GraphSynth.UserRandLindChoose
         {
             InitializeComponent();
 
-            txtBOptionString.Text = opt.optionNumber.ToString();
+            txtBOptionString.Text = opt.optionNumber.ToString(CultureInfo.InvariantCulture);
             txTBLocation.SetTextAndLink(opt);
             txtBRuleNo.SetTextAndLink(opt, settings);
             txtBConfluenceString.Text = IntCollectionConverter.convert(opt.confluence);
@@ -24,7 +25,7 @@ namespace GraphSynth.UserRandLindChoose
         public override string ToString()
         {
             return "Option: " + txtBOptionString.Text + "; Rule: " + txtBRuleNo.Text
-                   + "; Location: " + txTBLocation.strLocation;
+                   + "; Location: " + txTBLocation.StrLocation;
         }
     }
 }

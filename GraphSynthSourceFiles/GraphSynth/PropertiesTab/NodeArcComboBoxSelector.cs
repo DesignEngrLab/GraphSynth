@@ -37,10 +37,12 @@ namespace GraphSynth.UI
         private void BindSelectCombo()
         {
             BindingOperations.ClearBinding(this, ItemsSourceProperty);
-            var ItemsBinding = new Binding();
-            ItemsBinding.Source = graphGUI;
-            ItemsBinding.Mode = BindingMode.OneWay;
-            ItemsBinding.Converter = new ComboBoxSelectItemsConverter();
+            var ItemsBinding = new Binding
+                {
+                    Source = graphGUI,
+                    Mode = BindingMode.OneWay,
+                    Converter = new ComboBoxSelectItemsConverter()
+                };
             SetBinding(ItemsSourceProperty, ItemsBinding);
             DisplayMemberPath = "name";
         }

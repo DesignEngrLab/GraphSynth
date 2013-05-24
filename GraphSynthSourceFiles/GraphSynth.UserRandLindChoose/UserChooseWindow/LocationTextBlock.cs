@@ -10,24 +10,24 @@ namespace GraphSynth.UserRandLindChoose
     {
         #region Fields
 
-        private option opt;
-        public string strLocation;
+        private option _opt;
+        public string StrLocation;
 
         #endregion
 
         protected override void OnPreviewMouseDown(MouseButtonEventArgs e)
         {
             if (e.ClickCount >= 2)
-                SearchIO.addAndShowGraphWindow(opt.copy(),
-                                               "Location for Option " + opt.optionNumber + " from RuleSet " +
-                                               opt.ruleSetIndex
-                                               + " Rule #" + opt.ruleNumber + ": " + strLocation);
+                SearchIO.addAndShowGraphWindow(_opt.copy(),
+                                               "Location for Option " + _opt.optionNumber + " from RuleSet " +
+                                               _opt.ruleSetIndex
+                                               + " Rule #" + _opt.ruleNumber + ": " + StrLocation);
             base.OnPreviewMouseDown(e);
         }
 
         internal void SetTextAndLink(option opt)
         {
-            this.opt = opt;
+            _opt = opt;
             var remLocNames = new List<string>();
             var remRuleNames = new List<string>();
             var LStr = "";
@@ -114,14 +114,11 @@ namespace GraphSynth.UserRandLindChoose
                 }
                 else RStr += temp;
             }
-            if (LStr.Length == 0) LStr = " ";
-            else LStr = LStr.Remove(LStr.Length - 1);
-            if (KStr.Length == 0) KStr = " ";
-            else KStr = KStr.Remove(KStr.Length - 1);
-            if (RStr.Length == 0) RStr = " ";
-            else RStr = RStr.Remove(RStr.Length - 1);
+            LStr = LStr.Length == 0 ? " " : LStr.Remove(LStr.Length - 1);
+            KStr = KStr.Length == 0 ? " " : KStr.Remove(KStr.Length - 1);
+            RStr = RStr.Length == 0 ? " " : RStr.Remove(RStr.Length - 1);
 
-            strLocation = "<" + LStr + " [" + KStr + " >" + RStr + " ]";
+            StrLocation = "<" + LStr + " [" + KStr + " >" + RStr + " ]";
             Inlines.Add(new Bold(new Run("<")));
             Inlines.Add(new Run(LStr));
             Inlines.Add(new Bold(new Run(" [")));

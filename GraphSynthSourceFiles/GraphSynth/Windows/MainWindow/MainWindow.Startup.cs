@@ -256,7 +256,7 @@ namespace GraphSynth.UI
                     var GraphLayoutAssembly = Assembly.LoadFrom(filepath);
                     var layouts = GraphLayoutAssembly.GetTypes();
                     foreach (Type lt in layouts)
-                        if (!lt.IsAbstract && AncestorTypeIs(lt, typeof(GraphLayoutBaseClass))
+                        if (!lt.IsAbstract && GraphLayoutBaseClass.IsInheritedType(lt)
                             && !GraphLayoutAlgorithms.Any(w => w.FullName.Equals(lt.FullName)))
                         {
                             var newLayAlgo = GraphLayoutBaseClass.Make(lt);
@@ -315,22 +315,11 @@ namespace GraphSynth.UI
             }
         }
 
-        private Boolean AncestorTypeIs(Type objectType, Type ancestorType)
-        {
-            while (objectType != null && objectType != typeof(Object))
-            {
-                if (objectType == ancestorType) return true;
-                objectType = objectType.BaseType;
-            }
-            return false;
-        }
-
         private void GraphLayoutDir_Changed(object sender, FileSystemEventArgs e)
         {
             Dispatcher.Invoke((ThreadStart)setUpGraphLayoutMenu);
         }
-
-
+        
         public void setUpSearchProcessMenu()
         {
             SearchIO.output("Setting Up Search Process Algorithms");
@@ -351,13 +340,13 @@ namespace GraphSynth.UI
                     searchAssembly = Assembly.LoadFrom(filepath);
                     var searchprocesses = searchAssembly.GetExportedTypes();
                     foreach (Type spt in searchprocesses)
-                        if (!spt.IsAbstract && AncestorTypeIs(spt, typeof(SearchProcess))
+                        if (!spt.IsAbstract && SearchProcess.IsInheritedType(spt)
                             && !SearchAlgorithms.Any(w => w.GetType().FullName.Equals(spt.FullName)))
                         {
                             try
                             {
                                 var constructor = spt.GetConstructor(new Type[0]);
-                                SearchProcess searchAlgo = (SearchProcess)constructor.Invoke(null);
+                                var searchAlgo = (SearchProcess)constructor.Invoke(null);
                                 searchAlgo.settings = GSApp.settings;
                                 KeyGesture kg = null;
                                 if (k < endOfFKeys) kg = new KeyGesture((Key)(k + keyNumOffset), ModifierKeys.None);

@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Input;
-using GraphSynth.Search;
 
 namespace GraphSynth.UserRandLindChoose
 {
@@ -100,7 +100,7 @@ namespace GraphSynth.UserRandLindChoose
             }
             else
             {
-                var numOfCallsStr = RandomChooseProcess.numOfCalls[0].ToString();
+                var numOfCallsStr = RandomChooseProcess.numOfCalls[0].ToString(CultureInfo.InvariantCulture);
 
                 for (var i = 1; i < numRS; i++)
                 {

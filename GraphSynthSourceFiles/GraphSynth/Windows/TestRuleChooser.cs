@@ -28,10 +28,10 @@ namespace GraphSynth.UI
                 var numOptions = options.Count;
                 if (numOptions == 0)
                 {
-                  if(  MessageBox.Show("There were no recognized options. Should the rule be relaxed?", "Test Rule Status",
-                                    MessageBoxButton.YesNo,MessageBoxImage.Asterisk, MessageBoxResult.No) ==
-                                               MessageBoxResult.Yes)
-                      Run(seed,rule, new Relaxation(RelaxationTemplate.NumberAllowable+1));
+                    if (MessageBox.Show("There were no recognized options. Should the rule be relaxed?", "Test Rule Status",
+                                      MessageBoxButton.YesNo, MessageBoxImage.Asterisk, MessageBoxResult.No) ==
+                                                 MessageBoxResult.Yes)
+                        Run(seed, rule, new Relaxation(RelaxationTemplate.NumberAllowable + 1));
                     return;
                 }
                 do
@@ -50,7 +50,7 @@ namespace GraphSynth.UI
                             status += "were " + numOptions + " recognized locations.\n";
                             choice = rnd.Next(options.Count);
                             status += options[choice].Relaxations.RelaxationSummary;
-                            RecognizeChooseApply.AssignOptionConfluence(options, new candidate(seed, 0));
+                            option.AssignOptionConfluence(options, new candidate(seed, 0), ConfluenceAnalysis.Full);
                             var numberWithConfluence = options.Count(o => (o.confluence.Count > 0));
                             var maxConfluence = options.Max(o => o.confluence.Count);
                             var withMaxConfluence = options.Count(o => (o.confluence.Count == maxConfluence));
