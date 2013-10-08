@@ -78,7 +78,7 @@ namespace GraphSynth.GraphDisplay
         protected override arc InstantiateNewArc()
         {
             var newArc = new ruleArc(rW.rule.makeUniqueArcName());
-            graph.addArc(newArc);
+            graph.arcs.Add(newArc);
             return newArc;
         }
 
@@ -148,8 +148,8 @@ namespace GraphSynth.GraphDisplay
                 foreach (arc a in copiedSelection.selectedArcs)
                 {
                     if (a is ruleArc)
-                        tempGraph.addArc(a);
-                    else tempGraph.addArc(new ruleArc(a));
+                        tempGraph.arcs.Add(a);
+                    else tempGraph.arcs.Add(new ruleArc(a));
                 }
                 foreach (hyperarc a in copiedSelection.selectedHyperArcs)
                 {
@@ -174,7 +174,7 @@ namespace GraphSynth.GraphDisplay
                 foreach (arc a in tempGraph.arcs)
                 {
                     a.name = rW.rule.makeUniqueArcName(a.name);
-                    graph.addArc(a);
+                    graph.arcs.Add(a);
                     AddArcShape(a);
                     SetUpNewArcShape(a);
                     newSelection.Add((ArcShape)a.DisplayShape.Shape);

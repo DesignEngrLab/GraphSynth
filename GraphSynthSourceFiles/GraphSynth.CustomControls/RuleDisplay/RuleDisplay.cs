@@ -45,10 +45,10 @@ namespace GraphSynth.GraphDisplay
                 Larc.To = rW.graphGUIL.graph.nodes.Find(b => (b.name == a.To.name));
                 Rarc.To = rW.graphGUIR.graph.nodes.Find(b => (b.name == a.To.name));
             }
-            rW.graphGUIL.graph.addArc(Larc);
+            rW.graphGUIL.graph.arcs.Add(Larc);
             rW.graphGUIL.AddArcShape(Larc);
             rW.graphGUIL.SetUpNewArcShape(Larc);
-            rW.graphGUIR.graph.addArc(Rarc);
+            rW.graphGUIR.graph.arcs.Add(Rarc);
             rW.graphGUIR.AddArcShape(Rarc);
             rW.graphGUIR.SetUpNewArcShape(Rarc);
         }

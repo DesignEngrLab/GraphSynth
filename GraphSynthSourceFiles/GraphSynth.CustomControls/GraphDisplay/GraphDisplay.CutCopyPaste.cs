@@ -177,7 +177,7 @@ namespace GraphSynth.GraphDisplay
             foreach (var a in copiedData.arcs)
             {
                 a.name = graph.makeUniqueArcName(a.name);
-                graph.addArc(a);
+                graph.arcs.Add(a);
                 AddArcShape(a);
                 SetUpNewArcShape(a);
                 newSelection.Add((ArcShape)a.DisplayShape.Shape);

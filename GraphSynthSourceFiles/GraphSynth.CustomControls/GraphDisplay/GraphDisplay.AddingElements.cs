@@ -199,7 +199,7 @@ namespace GraphSynth.GraphDisplay
         protected virtual arc InstantiateNewArc()
         {
             var newArc = new arc(graph.makeUniqueArcName());
-            graph.addArc(newArc);
+            graph.arcs.Add(newArc);
             return newArc;
         }
 

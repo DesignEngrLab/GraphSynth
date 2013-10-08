@@ -628,23 +628,11 @@
             <param name = "fromNode">From node.</param>
             <param name = "toNode">To node.</param>
         </member>
-        <member name="M:GraphSynth.Representation.designGraph.addArc(GraphSynth.Representation.arc)">
-            <summary>
-            Adds the arc to the graph and connects it between these two nodes.
-            </summary>
-            <param name="newArc">The new arc.</param>
-        </member>
         <member name="M:GraphSynth.Representation.designGraph.removeArc(GraphSynth.Representation.arc)">
             <summary>
               Removes the arc and references to it in the nodes.
             </summary>
             <param name = "arcToRemove">The arc to remove.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.designGraph.addNode(System.Type)">
-            <summary>
-              Creates and Adds a new node of type nodeType.
-            </summary>
-            <param name = "nodeType">Type of the node.</param>
         </member>
         <member name="M:GraphSynth.Representation.designGraph.addNode(System.String,System.Type)">
             <summary>
@@ -3400,27 +3388,36 @@
             minimization or maximization.
             </summary>
         </member>
-        <member name="M:GraphSynth.OptimizeSort.#ctor(GraphSynth.optimize)">
+        <member name="M:GraphSynth.OptimizeSort.#ctor(GraphSynth.optimize,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:GraphSynth.OptimizeSort"/> class.
             </summary>
             <param name="direction">The direction.</param>
+            <param name="AllowEqualInSort">The allow equal in sort.</param>
         </member>
         <member name="M:GraphSynth.OptimizeSort.Compare(System.Double,System.Double)">
             <summary>
             Compares two objects and returns a value indicating whether the 
             first one is better than the second one. "Better than" is defined
-            by the optimize direction provided in the constructor. In order to
-            avoid errors in the sorting, we make sure that only -1 or 1 is 
-            returned. If they are equal, we return 1. This makes newer items to
-            the list appear before older items. It is slightly more efficient than 
-            returning -1 and conforms with the philosophy of always exploring or
-            preferring new concepts. See: SA's Metropolis Criteria.
+            by the optimize direction provided in the constructor. 
             </summary>
             <returns>
-            A signed integer that indicates the relative values of <paramref name="x"/> and <paramref name="y"/>, as shown in the following table.Value Meaning Less than zero<paramref name="x"/> is less than <paramref name="y"/>.Zero<paramref name="x"/> equals <paramref name="y"/>.Greater than zero<paramref name="x"/> is greater than <paramref name="y"/>.
+            A signed integer that indicates the relative values of <paramref name="x"/> and <paramref name="y"/>, 
+            as shown in the following table. 
+            Value | Meaning 
+            Less than zero | <paramref name="x"/> is less than <paramref name="y"/>.
+            Zero | <paramref name="x"/> equals <paramref name="y"/>.
+            Greater than zero | <paramref name="x"/> is greater than <paramref name="y"/>.
             </returns>
             <param name="x">The first object to compare.</param><param name="y">The second object to compare.</param>
+        </member>
+        <member name="M:GraphSynth.OptimizeSort.BetterThan(System.Double,System.Double)">
+            <summary>
+            Is x betters the than y?
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <returns></returns>
         </member>
         <member name="T:GraphSynth.transfromType">
             <summary>
