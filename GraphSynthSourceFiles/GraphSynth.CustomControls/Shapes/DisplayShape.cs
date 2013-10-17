@@ -93,7 +93,9 @@ namespace GraphSynth.GraphDisplay
                             _stringShape = ((HyperArcShape)_shape).XamlWrite();
                             break;
                         default:
-                            _stringShape = MyXamlHelpers.XamlOfShape(_shape, icon.UpdateTag());
+                            if (icon!=null)
+                                _stringShape = MyXamlHelpers.XamlOfShape(_shape, icon.UpdateTag());
+                            else _stringShape = MyXamlHelpers.XamlOfShape(_shape, (string)this.Tag);
                             break;
                     }
                 }
