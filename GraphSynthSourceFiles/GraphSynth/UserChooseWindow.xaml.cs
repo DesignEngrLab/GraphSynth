@@ -14,7 +14,7 @@ namespace GraphSynth.UserRandLindChoose
     /// <summary>
     ///   Interaction logic for userChooseWindow.xaml
     /// </summary>
-    public partial class userChooseWindow : Window
+    public partial class UserChooseWindow : Window
     {
         private readonly Timer checkForStopTimer = new Timer();
         private readonly List<int> optionNumbers;
@@ -22,14 +22,14 @@ namespace GraphSynth.UserRandLindChoose
         public int[] choice = new[] { -2 };
         private List<int> confluentChoices;
 
-        public userChooseWindow()
+        public UserChooseWindow()
         {
             /* the following is common to all GS window types. */
             InitializeComponent();
             ShowInTaskbar = true;
         }
 
-        private userChooseWindow(List<option> opts, GlobalSettings settings, Boolean hideUndo)
+        private UserChooseWindow(List<option> opts, GlobalSettings settings, Boolean hideUndo)
             : this()
         {
             checkForStopTimer.Elapsed += processTimer_Tick;
@@ -49,7 +49,7 @@ namespace GraphSynth.UserRandLindChoose
 
         public static int[] PromptUser(List<option> opts, GlobalSettings settings, Boolean hideUndo)
         {
-            var sCW = new userChooseWindow(opts, settings, hideUndo);
+            var sCW = new UserChooseWindow(opts, settings, hideUndo);
             sCW.ShowDialog();
             return sCW.choice;
         }

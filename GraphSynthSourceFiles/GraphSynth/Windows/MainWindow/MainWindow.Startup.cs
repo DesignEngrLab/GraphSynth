@@ -251,9 +251,10 @@ namespace GraphSynth.UI
             if (potentialAssemblies.Count == 0) return;
             foreach (string filepath in potentialAssemblies)
             {
+                Assembly GraphLayoutAssembly = null;
                 try
                 {
-                    var GraphLayoutAssembly = Assembly.LoadFrom(filepath);
+                    GraphLayoutAssembly = Assembly.LoadFrom(filepath);
                     var layouts = GraphLayoutAssembly.GetTypes();
                     foreach (Type lt in layouts)
                         if (!lt.IsAbstract && GraphLayoutBaseClass.IsInheritedType(lt)
@@ -319,7 +320,7 @@ namespace GraphSynth.UI
         {
             Dispatcher.Invoke((ThreadStart)setUpGraphLayoutMenu);
         }
-        
+
         public void setUpSearchProcessMenu()
         {
             SearchIO.output("Setting Up Search Process Algorithms");
@@ -330,15 +331,16 @@ namespace GraphSynth.UI
                 DesignDropDown.Items.RemoveAt(14);
 
             var potentialAssemblies = getPotentialAssemblies(GSApp.settings.SearchDirAbs);
-            if (potentialAssemblies.Count == 0) return;
+            potentialAssemblies.Add("thisEXE");
 
             foreach (string filepath in potentialAssemblies)
             {
                 Assembly searchAssembly = null;
                 try
                 {
-                    searchAssembly = Assembly.LoadFrom(filepath);
-                    var searchprocesses = searchAssembly.GetExportedTypes();
+                    if (filepath == "thisEXE") searchAssembly = Assembly.GetExecutingAssembly();
+                    else searchAssembly = Assembly.Load(filepath);
+                    var searchprocesses = searchAssembly.GetTypes();
                     foreach (Type spt in searchprocesses)
                         if (!spt.IsAbstract && SearchProcess.IsInheritedType(spt)
                             && !SearchAlgorithms.Any(w => w.GetType().FullName.Equals(spt.FullName)))
@@ -416,6 +418,7 @@ namespace GraphSynth.UI
             potentialAssemblies.RemoveAll(fs => fs.Contains("GraphSynth.BaseClasses.dll"));
             potentialAssemblies.RemoveAll(fs => fs.Contains("StarMath.dll"));
             potentialAssemblies.RemoveAll(fs => fs.Contains("OptimizationToolbox.dll"));
+
             return potentialAssemblies;
         }
 

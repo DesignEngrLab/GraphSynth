@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GraphSynth</RootNamespace>
     <AssemblyName>GraphSynth</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -55,6 +55,7 @@
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>GraphSynth.GSApp</StartupObject>
@@ -74,6 +75,8 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPF GUI Release|AnyCPU'">
     <DebugSymbols>false</DebugSymbols>
@@ -86,6 +89,8 @@
     <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
     <WarningLevel>0</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\Resources\AssemblyInfo.cs">
@@ -125,6 +130,16 @@
     <Compile Include="UI.SaveAndOpen\WPFFiler.Graph.cs" />
     <Compile Include="UI.SaveAndOpen\WPFFiler.Rule.cs" />
     <Compile Include="UI.SaveAndOpen\WPFFiler.RuleSet.cs" />
+    <Compile Include="UserRandLindChoose\LindenmayerChooser.cs" />
+    <Compile Include="UserRandLindChoose\LindenmayerStartDialog.xaml.cs" />
+    <Compile Include="UserRandLindChoose\LocationTextBlock.cs" />
+    <Compile Include="UserRandLindChoose\RandomChooser.cs" />
+    <Compile Include="UserRandLindChoose\RandomStartDialog.xaml.cs" />
+    <Compile Include="UserRandLindChoose\RuleNoTextBlock.cs" />
+    <Compile Include="UserRandLindChoose\SaveResultDialog.xaml.cs" />
+    <Compile Include="UserRandLindChoose\UserChooser.cs" />
+    <Compile Include="UserRandLindChoose\UserChooseWindow.xaml.cs" />
+    <Compile Include="UserRandLindChoose\UserChooseWindowItem.xaml.cs" />
     <Compile Include="Windows\AboutGraphSynth.xaml.cs">
       <DependentUpon>AboutGraphSynth.xaml</DependentUpon>
     </Compile>
@@ -242,6 +257,26 @@
     <Page Include="UI.SaveAndOpen\FilerProgressWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserRandLindChoose\LindenmayerStartDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserRandLindChoose\RandomStartDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserRandLindChoose\SaveResultDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserRandLindChoose\UserChooseWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserRandLindChoose\UserChooseWindowItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -398,14 +433,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="GraphSynth.BaseClasses">
-      <HintPath>..\GraphSynth.BaseClasses\$(Configuration)\GraphSynth.BaseClasses.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -462,11 +493,18 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\GraphSynth.BaseClasses\GraphSynth.BaseClasses.csproj">
+      <Project>{d679f4e2-fd18-48ac-9c0c-b60155a61d37}</Project>
+      <Name>GraphSynth.BaseClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GraphSynth.CustomControls\GraphSynth.CustomControls.csproj">
       <Project>{E47424A2-4E8E-481F-831E-D22186A12AFD}</Project>
       <Name>GraphSynth.CustomControls</Name>
       <Private>False</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

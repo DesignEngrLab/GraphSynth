@@ -54,7 +54,7 @@ namespace GraphSynth.UserRandLindChoose
                 return null;
             }
             SearchIO.output("Double-click on one to show the location.", 2);
-            return userChooseWindow.PromptUser(options, settings, (cand.recipe.Count == 0));
+            return UserChooseWindow.PromptUser(options, settings, (cand.recipe.Count == 0));
         }
 
         public override double[] choose(option opt, candidate cand)

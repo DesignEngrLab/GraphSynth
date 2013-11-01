@@ -13,5 +13,5 @@
         <bc:RuleNoTextBlock Background="#ffefefff" Grid.Column="1" TextAlignment="Center" x:Name="txtBRuleNo" />
         <bc:LocationTextBlock Background="#ffefffef" Grid.Column="2" TextAlignment="Center" x:Name="txTBLocation" />
         <TextBlock Grid.Column="3" Background="#fffff8f8" TextAlignment="Center" Name="txtBConfluenceString" />
-</Grid>
+    </Grid>
 </ListBoxItem>
