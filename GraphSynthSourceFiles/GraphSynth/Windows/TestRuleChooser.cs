@@ -67,12 +67,17 @@ namespace GraphSynth.UI
                     }
                     if (!continueTesting) continue;
                     if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
-                    var seedCopy = seed.copy();
-                    options[choice].apply(seedCopy, null);
+                    var chosenOption = options[choice];
+                    {
+                        var seedCopy = seed.copy();
+                        SearchProcess.transferLmappingToChild(seedCopy, seed, chosenOption);
+                        seed = seedCopy;
+                    }
+                    chosenOption.apply(seed, null);
                     SearchIO.output("Rule sucessfully applied", 4);
-                    SearchIO.addAndShowGraphWindow(seedCopy, "After calling " + ++k + " rules");
+                    SearchIO.addAndShowGraphWindow(seed, "After calling " + ++k + " rules");
                     if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
-                    options = dummyRS.recognize(seedCopy, true, RelaxationTemplate.copy());
+                    options = dummyRS.recognize(seed, true, RelaxationTemplate.copy());
                     if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
                     numOptions = options.Count;
                     switch (numOptions)
