@@ -339,7 +339,7 @@ namespace GraphSynth.UI
                 try
                 {
                     if (filepath == "thisEXE") searchAssembly = Assembly.GetExecutingAssembly();
-                    else searchAssembly = Assembly.Load(filepath);
+                    else searchAssembly = Assembly.LoadFrom(filepath);
                     var searchprocesses = searchAssembly.GetTypes();
                     foreach (Type spt in searchprocesses)
                         if (!spt.IsAbstract && SearchProcess.IsInheritedType(spt)
