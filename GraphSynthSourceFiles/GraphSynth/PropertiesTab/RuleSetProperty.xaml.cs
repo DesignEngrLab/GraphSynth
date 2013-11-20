@@ -142,7 +142,7 @@ namespace GraphSynth.UI
             SelectedRuleSet = RuleSet;
             txtName.Text = rsW.Title;
             for (int i = 0; i < GSApp.settings.rulesets.GetLength(0); i++)
-                if (GSApp.settings.rulesets[i].Equals(SelectedRuleSet))
+                if (SelectedRuleSet.Equals(GSApp.settings.rulesets[i]))
                 {
                     txtName.Text += " (set to RuleSet #" + i+")";
                     break;
