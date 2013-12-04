@@ -26,13 +26,13 @@ namespace GraphSynth.GraphDisplay
         #region Constructor
 
         public DisplayShape(string s, ShapeRepresents shapeRepresents, graphElement element)
-            :base(s,element)
+            : base(s, element)
         {
             this.shapeRepresents = shapeRepresents;
         }
 
         public DisplayShape(Shape s, ShapeRepresents shapeRepresents, graphElement element)
-            :base(element)
+            : base(element)
         {
             _shape = s;
             StringNeedsUpdating = true;
@@ -73,6 +73,7 @@ namespace GraphSynth.GraphDisplay
                         _shape = (Shape)MyXamlHelpers.Parse(_stringShape);
                         break;
                 }
+                StringNeedsUpdating = true;
                 return _shape;
             }
         }
@@ -93,7 +94,7 @@ namespace GraphSynth.GraphDisplay
                             _stringShape = ((HyperArcShape)_shape).XamlWrite();
                             break;
                         default:
-                            if (icon!=null)
+                            if (icon != null)
                                 _stringShape = MyXamlHelpers.XamlOfShape(_shape, icon.UpdateTag());
                             else _stringShape = MyXamlHelpers.XamlOfShape(_shape, (string)this.Tag);
                             break;
