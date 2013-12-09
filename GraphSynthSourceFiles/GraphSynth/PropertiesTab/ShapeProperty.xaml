@@ -45,32 +45,37 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0">Translate</Label>
-                <ComboBox Grid.Row="0" Name="cmdTranslate" SelectionChanged="cmdTranslate_SelectionChanged"/>
+                <Label Grid.Row="0">3D Affine</Label>
+                <CheckBox Grid.Row="0" Name="chk3DAffine" 
+                          Checked="Chk3DAffine_Checked" Unchecked="Chk3DAffine_Unchecked" />
 
-                <Label Grid.Row="1">Scale</Label>
-                <ComboBox Grid.Row="1" Name="cmdScale" SelectionChanged="cmdScale_SelectionChanged"/>
+                <Label Grid.Row="1">Translate</Label>
+                <ComboBox Grid.Row="1" Name="cmdTranslate" SelectionChanged="cmdTranslate_SelectionChanged"/>
 
-                <Label Grid.Row="2">Skew</Label>
-                <ComboBox Grid.Row="2" Name="cmdSkew" SelectionChanged="cmdSkew_SelectionChanged"/>
+                <Label Grid.Row="2">Scale</Label>
+                <ComboBox Grid.Row="2" Name="cmdScale" SelectionChanged="cmdScale_SelectionChanged"/>
 
-                <Label Grid.Row="3">Flip</Label>
-                <ComboBox Grid.Row="3" Name="cmdFlip" SelectionChanged="cmdFlip_SelectionChanged"/>
+                <Label Grid.Row="3">Skew</Label>
+                <ComboBox Grid.Row="3" Name="cmdSkew" SelectionChanged="cmdSkew_SelectionChanged"/>
 
-                <Label Grid.Row="4">Projection</Label>
-                <ComboBox Grid.Row="4" Name="cmdProjection" SelectionChanged="cmdProjection_SelectionChanged"/>
+                <Label Grid.Row="4">Flip</Label>
+                <ComboBox Grid.Row="4" Name="cmdFlip" SelectionChanged="cmdFlip_SelectionChanged"/>
 
-                <Label Grid.Row="5">Rotate</Label>
-                <CheckBox Grid.Row="5" Name="chkRotate" 
+                <Label Grid.Row="5">Projection</Label>
+                <ComboBox Grid.Row="5" Name="cmdProjection" SelectionChanged="cmdProjection_SelectionChanged"/>
+
+                <Label Grid.Row="6">Rotate</Label>
+                <CheckBox Grid.Row="6" Name="chkRotate" 
                           Checked="chkRotate_Checked" Unchecked="chkRotate_Unchecked" />
 
-                <Label Grid.Row="6">Match to R Shapes?</Label>
-                <CheckBox Grid.Row="6" Name="chkMatchRShapes" 
+                <Label Grid.Row="7">Match to R Shapes?</Label>
+                <CheckBox Grid.Row="7" Name="chkMatchRShapes" 
                           Checked="chkMatchRShapes_Checked" Unchecked="chkMatchRShapes_Unchecked" />
 
-                <Label Grid.Row="7">Transform Node Shapes?</Label>
-                <CheckBox Grid.Row="7" Name="chkTransformNodeShapes" 
+                <Label Grid.Row="8">Transform Node Shapes?</Label>
+                <CheckBox Grid.Row="8" Name="chkTransformNodeShapes" 
                           Checked="chkTransformNodeShapes_Checked"  Unchecked="chkTransformNodeShapes_Unchecked" />
             </Grid>
         </Expander>

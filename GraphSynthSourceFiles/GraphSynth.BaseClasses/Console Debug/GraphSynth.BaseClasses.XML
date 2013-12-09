@@ -2040,6 +2040,12 @@
             </summary>
             <value>The projection.</value>
         </member>
+        <member name="P:GraphSynth.Representation.grammarRule.ThreeDimensional">
+            <summary>
+              Gets or sets the projection transformation allowance.
+            </summary>
+            <value>The projection.</value>
+        </member>
         <member name="T:GraphSynth.Representation.option">
             <summary>
               A rule is not enough - the Opion class captures all the details of
@@ -3439,12 +3445,12 @@
             This type of transform is recognized/performed only in the Y-direction.
             </summary>
         </member>
-        <member name="F:GraphSynth.transfromType.BothUniform">
+        <member name="F:GraphSynth.transfromType.XYZUniform">
             <summary>
             This type of transform is recognized/performed uniformly in both X and Y.
             </summary>
         </member>
-        <member name="F:GraphSynth.transfromType.BothIndependent">
+        <member name="F:GraphSynth.transfromType.XYZIndependent">
             <summary>
             This type of transform is recognized/performed in both X and Y independently.
             </summary>
@@ -4067,6 +4073,16 @@
               position of points (mostly in checking for a valid transformation (see
               ValidTransformation) and if other nodes comply (see otherNodesComply).
             </summary>
+        </member>
+        <member name="M:GraphSynth.MatrixMath.crossProduct3(System.Double[],System.Double[])">
+            <summary>
+            The cross product of two double vectors, A and B, which are of length, 3.
+            This is equivalent to calling crossProduct, but a slight speed advantage
+            may exist in skipping directly to this sub-function.
+            </summary>
+            <param name = "A">1D double Array, A</param>
+            <param name = "B">1D double Array, B</param>
+            <returns></returns>
         </member>
     </members>
 </doc>
