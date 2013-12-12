@@ -54,14 +54,14 @@ namespace GraphSynth.UI
             w.Write("         * 1. the option which includes the rule, 3x3 transformation matrix to transform node\n" +
                     "              positions from L to host (T[,]), the location of the nodes, arcs, and hyperarcs\n" +
                     "              of the LHS, and some extraneous data.\n");
-            w.Write("         * 2. the entire host graph (host)\n");
+            w.Write("         * 2. the entire host graph (host) */ \n");
             w.Write("#endregion\n\n\n");
             w.Write("#region Parametric Application Rules\n");
             w.Write("/* Parametric application rules receive as input:\n");
             w.Write("         * 1. the location designGraph indicating the nodes&arcs of host that match with L (Lmapping)\n");
             w.Write("         * 2. the entire host graph (host)\n");
             w.Write("         * 3. the location of the nodes in the host that R matches to (Rmapping).\n");
-            w.Write("         * 4. the parameters chosen for instantiating elements of Rmapping (parameters).\n");
+            w.Write("         * 4. the parameters chosen for instantiating elements of Rmapping (parameters). */\n");
             w.Write("#endregion\n\n\n");
             w.Write("}\n}\n");
             w.Flush();
