@@ -33,7 +33,8 @@
             </Expander.Header>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="53"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -45,38 +46,33 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0">3D Affine</Label>
-                <CheckBox Grid.Row="0" Name="chk3DAffine" 
-                          Checked="Chk3DAffine_Checked" Unchecked="Chk3DAffine_Unchecked" />
+                <Label Grid.Row="0" Grid.ColumnSpan="2">Translate</Label>
+                <ComboBox Grid.Row="0" Name="cmdTranslate" SelectionChanged="cmdTranslate_SelectionChanged" Grid.Column="2"/>
 
-                <Label Grid.Row="1">Translate</Label>
-                <ComboBox Grid.Row="1" Name="cmdTranslate" SelectionChanged="cmdTranslate_SelectionChanged"/>
+                <Label Grid.Row="1" Grid.Column="1">Scale</Label>
+                <ComboBox Grid.Row="1" Name="cmdScale" SelectionChanged="cmdScale_SelectionChanged" Grid.Column="2"/>
 
-                <Label Grid.Row="2">Scale</Label>
-                <ComboBox Grid.Row="2" Name="cmdScale" SelectionChanged="cmdScale_SelectionChanged"/>
+                <Label Grid.Row="2" Grid.Column="1">Skew</Label>
+                <ComboBox Grid.Row="2" Name="cmdSkew" SelectionChanged="cmdSkew_SelectionChanged" Grid.Column="2"/>
 
-                <Label Grid.Row="3">Skew</Label>
-                <ComboBox Grid.Row="3" Name="cmdSkew" SelectionChanged="cmdSkew_SelectionChanged"/>
+                <Label Grid.Row="3" Grid.Column="1">Flip</Label>
+                <ComboBox Grid.Row="3" Name="cmdFlip" SelectionChanged="cmdFlip_SelectionChanged" Grid.Column="2"/>
 
-                <Label Grid.Row="4">Flip</Label>
-                <ComboBox Grid.Row="4" Name="cmdFlip" SelectionChanged="cmdFlip_SelectionChanged"/>
+                <Label Grid.Row="4" Grid.ColumnSpan="2">Projection</Label>
+                <ComboBox Grid.Row="4" Name="cmdProjection" SelectionChanged="cmdProjection_SelectionChanged" Grid.Column="2"/>
 
-                <Label Grid.Row="5">Projection</Label>
-                <ComboBox Grid.Row="5" Name="cmdProjection" SelectionChanged="cmdProjection_SelectionChanged"/>
+                <Label Grid.Row="5" Grid.ColumnSpan="2">Allow Rotation?</Label>
+                <CheckBox Grid.Row="5" Name="chkRotate" 
+                          Checked="chkRotate_Checked" Unchecked="chkRotate_Unchecked" Grid.Column="2" Margin="5,6" />
 
-                <Label Grid.Row="6">Rotate</Label>
-                <CheckBox Grid.Row="6" Name="chkRotate" 
-                          Checked="chkRotate_Checked" Unchecked="chkRotate_Unchecked" />
+                <Label Grid.Row="6" Grid.ColumnSpan="2">Replace with R Shapes?</Label>
+                <CheckBox Grid.Row="6" Name="chkMatchRShapes" 
+                          Checked="chkMatchRShapes_Checked" Unchecked="chkMatchRShapes_Unchecked" Grid.Column="2" Margin="5,6" />
 
-                <Label Grid.Row="7">Match to R Shapes?</Label>
-                <CheckBox Grid.Row="7" Name="chkMatchRShapes" 
-                          Checked="chkMatchRShapes_Checked" Unchecked="chkMatchRShapes_Unchecked" />
-
-                <Label Grid.Row="8">Transform Node Shapes?</Label>
-                <CheckBox Grid.Row="8" Name="chkTransformNodeShapes" 
-                          Checked="chkTransformNodeShapes_Checked"  Unchecked="chkTransformNodeShapes_Unchecked" />
+                <Label Grid.Row="7" Grid.ColumnSpan="2">Transform Node Shapes?</Label>
+                <CheckBox Grid.Row="7" Name="chkTransformNodeShapes" 
+                          Checked="chkTransformNodeShapes_Checked"  Unchecked="chkTransformNodeShapes_Unchecked" Grid.Column="2" Margin="5,6" />
             </Grid>
         </Expander>
 

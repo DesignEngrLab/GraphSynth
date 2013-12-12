@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:gd="clr-namespace:GraphSynth.GraphDisplay;assembly=GraphSynth.CustomControls"
         Height="350" Width="1050" Activated="BecomeActiveSubWindow"
-        SizeChanged="Window_SizeChanged" Loaded="Window_Loaded">
+        SizeChanged="Window_SizeChanged" Loaded="Window_Loaded" LostFocus="GraphCanvasL_OnLostFocus" >
     <Grid Name="mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

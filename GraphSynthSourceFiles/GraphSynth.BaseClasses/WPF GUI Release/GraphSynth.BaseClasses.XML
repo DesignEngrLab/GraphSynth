@@ -2078,7 +2078,7 @@
         </member>
         <member name="P:GraphSynth.Representation.grammarRule.ThreeDimensional">
             <summary>
-              Gets or sets the projection transformation allowance.
+              Gets or sets whether the rule is three-dimensional.
             </summary>
             <value>The projection.</value>
         </member>
@@ -3486,15 +3486,20 @@
             This type of transform is recognized/performed only in the Y-direction.
             </summary>
         </member>
+        <member name="F:GraphSynth.transfromType.OnlyZ">
+            <summary>
+            This type of transform is recognized/performed only in the Z-direction.
+            </summary>
+        </member>
         <member name="F:GraphSynth.transfromType.XYZUniform">
             <summary>
             This type of transform is recognized/performed uniformly in both X and Y.
-            </summary>
+            </summary>  
         </member>
         <member name="F:GraphSynth.transfromType.XYZIndependent">
             <summary>
             This type of transform is recognized/performed in both X and Y independently.
-            </summary>
+            </summary>    
         </member>
         <member name="T:GraphSynth.MyIOPath">
             <summary>

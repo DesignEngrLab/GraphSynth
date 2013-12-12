@@ -356,6 +356,10 @@ namespace GraphSynth.GraphDisplay
 
         public Boolean propagateChange = true;
 
+        public void OnLostFocusPublic(RoutedEventArgs e)
+        {
+            rW.rule.ResetRegularizationMatrix();
+        }
         protected override void OnLostFocus(RoutedEventArgs e)
         {
             base.OnLostFocus(e);

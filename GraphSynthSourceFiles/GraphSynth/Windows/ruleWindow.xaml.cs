@@ -555,5 +555,12 @@ namespace GraphSynth.UI
         {
             canvasProps.ViewValueChanged(null, null);
           }
+
+        private void GraphCanvasL_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            Console.Write("lostFocus ");
+            graphGUIL.OnLostFocusPublic(e);
+        }
+
     }
 }

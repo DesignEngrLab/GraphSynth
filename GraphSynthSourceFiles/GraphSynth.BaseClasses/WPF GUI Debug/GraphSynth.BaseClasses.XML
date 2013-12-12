@@ -1891,7 +1891,7 @@
               this matrix determines the transform to place the first node at (0,0) and the 
               second node at (r,0). This is not stored in the file since it can be quickly 
               determined.
-            </summary>
+            </summary>                                
         </member>
         <member name="M:GraphSynth.Representation.grammarRule.ResetRegularizationMatrix">
             <summary>
@@ -2071,12 +2071,6 @@
             <value><c>true</c> if rotate; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:GraphSynth.Representation.grammarRule.Projection">
-            <summary>
-              Gets or sets the projection transformation allowance.
-            </summary>
-            <value>The projection.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.ThreeDimensional">
             <summary>
               Gets or sets the projection transformation allowance.
             </summary>
@@ -3486,15 +3480,20 @@
             This type of transform is recognized/performed only in the Y-direction.
             </summary>
         </member>
+        <member name="F:GraphSynth.transfromType.OnlyZ">
+            <summary>
+            This type of transform is recognized/performed only in the Z-direction.
+            </summary>
+        </member>
         <member name="F:GraphSynth.transfromType.XYZUniform">
             <summary>
             This type of transform is recognized/performed uniformly in both X and Y.
-            </summary>
+            </summary>  
         </member>
         <member name="F:GraphSynth.transfromType.XYZIndependent">
             <summary>
             This type of transform is recognized/performed in both X and Y independently.
-            </summary>
+            </summary>    
         </member>
         <member name="T:GraphSynth.MyIOPath">
             <summary>

@@ -40,6 +40,7 @@ namespace GraphSynth.UI
                 chkRotate.IsChecked = _rule.Rotate;
                 chkMatchRShapes.IsChecked = _rule.RestrictToNodeShapeMatch;
                 chkTransformNodeShapes.IsChecked = _rule.TransformNodeShapes;
+                chkShapeRuleProperties.IsChecked = _rule.UseShapeRestrictions;
             }
         }
 
@@ -58,6 +59,7 @@ namespace GraphSynth.UI
             transformDict.Add("Not Allowed", transfromType.Prohibited);
             transformDict.Add("Allowed only in X", transfromType.OnlyX);
             transformDict.Add("Allowed only in Y", transfromType.OnlyY);
+            transformDict.Add("Allowed only in Z", transfromType.OnlyY);
             transformDict.Add("Allowed Uniformly in X,Y,& Z", transfromType.XYZUniform);
             transformDict.Add("Allowed in X,Y,& Z Independently", transfromType.XYZIndependent);
         }
@@ -129,20 +131,6 @@ namespace GraphSynth.UI
         {
             rule.UseShapeRestrictions = false;
             expShapeRuleProperties.IsExpanded = false;
-        }
-
-        private void Chk3DAffine_Checked(object sender, RoutedEventArgs e)
-        {
-            rule.ThreeDimensional = true;
-            cmdProjection.SelectedIndex =
-                cmdSkew.SelectedIndex = 0;
-            cmdProjection.IsEnabled = cmdSkew.IsEnabled = false;
-        }
-
-        private void Chk3DAffine_Unchecked(object sender, RoutedEventArgs e)
-        {
-            rule.ThreeDimensional = false;
-            cmdProjection.IsEnabled = cmdSkew.IsEnabled = true;
         }
     }
 }
