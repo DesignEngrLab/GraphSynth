@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D679F4E2-FD18-48AC-9C0C-B60155A61D37}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GraphSynth</RootNamespace>
+    <AssemblyName>GraphSynth.BaseClasses</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPF GUI Debug|AnyCPU'">
+    <OutputPath>..\GraphSynth\GraphSynthSourceFiles\GraphSynth.BaseClasses\WPF GUI Debug\</OutputPath>
+    <DefineConstants>WPF</DefineConstants>
+    <DocumentationFile>..\GraphSynth\GraphSynthSourceFiles\GraphSynth.BaseClasses\WPF GUI Debug\GraphSynth.BaseClasses.XML</DocumentationFile>
+    <Optimize>false</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Console Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\GraphSynth\GraphSynthSourceFiles\GraphSynth.BaseClasses\Console Debug\</OutputPath>
+    <DocumentationFile>..\GraphSynth\GraphSynthSourceFiles\GraphSynth.BaseClasses\Console Debug\GraphSynth.BaseClasses.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <DefineConstants />
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPF GUI Release|AnyCPU'">
+    <OutputPath>..\GraphSynth\GraphSynthSourceFiles\GraphSynth.BaseClasses\WPF GUI Release\</OutputPath>
+    <DefineConstants>WPF</DefineConstants>
+    <DocumentationFile>..\GraphSynth\GraphSynthSourceFiles\GraphSynth.BaseClasses\WPF GUI Release\GraphSynth.BaseClasses.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Console Release|AnyCPU'">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>..\GraphSynth\GraphSynthSourceFiles\GraphSynth.BaseClasses\Console Release\</OutputPath>
+    <DocumentationFile>..\GraphSynth\GraphSynthSourceFiles\GraphSynth.BaseClasses\Console Release\GraphSynth.BaseClasses.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <WarningLevel>0</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Logistics\BasicFiler.cs" />
+    <Compile Include="BasicGraphClasses\arc.cs" />
+    <Compile Include="BasicGraphClasses\candidate.cs" />
+    <Compile Include="BasicGraphClasses\designGraph.cs" />
+    <Compile Include="BasicGraphClasses\graphElement.cs" />
+    <Compile Include="BasicGraphClasses\hyperarc.cs" />
+    <Compile Include="BasicGraphClasses\node.cs" />
+    <Compile Include="Logistics\Converters\IntCollectionConverter.cs" />
+    <Compile Include="Logistics\Converters\DoubleCollectionConverter.cs" />
+    <Compile Include="Logistics\Converters\StringCollectionConverter.cs" />
+    <Compile Include="Logistics\ErrorLogger.cs" />
+    <Compile Include="Logistics\GlobalSettings.cs" />
+    <Compile Include="Logistics\IMainWindow.cs" />
+    <Compile Include="Logistics\SearchIOToTextWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuleClasses\embeddingRule.cs" />
+    <Compile Include="RuleClasses\grammarRule.Basic.cs" />
+    <Compile Include="RuleClasses\grammarRule.MatchingMethods.cs" />
+    <Compile Include="RuleClasses\grammarRule.NegativeRecognize.cs" />
+    <Compile Include="RuleClasses\grammarRule.RecognizeApply.cs" />
+    <Compile Include="RuleClasses\grammarRule.ShapeMethods.cs" />
+    <Compile Include="RuleClasses\option.cs" />
+    <Compile Include="RuleClasses\Relaxation.cs" />
+    <Compile Include="RuleClasses\ruleArc.cs" />
+    <Compile Include="RuleClasses\ruleHyperarc.cs" />
+    <Compile Include="RuleClasses\ruleNode.cs" />
+    <Compile Include="RuleClasses\ruleSet.Basic.cs" />
+    <Compile Include="RuleClasses\ruleSet.File.cs" />
+    <Compile Include="Logistics\SearchIO.cs" />
+    <Compile Include="Logistics\ComparerAndEnumerators.cs" />
+    <Compile Include="Logistics\MyIOPath.cs" />
+    <Compile Include="SearchProcess\LindenmayerChoose.cs" />
+    <Compile Include="SearchProcess\RandomChoose.cs" />
+    <Compile Include="SearchProcess\RandomChooseWithUndo.cs" />
+    <Compile Include="SearchProcess\RecognizeChooseApply.cs" />
+    <Compile Include="SearchProcess\SearchProcess.cs" />
+    <Compile Include="Logistics\ShapeData.cs" />
+    <Compile Include="Logistics\MatrixMathFunctions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

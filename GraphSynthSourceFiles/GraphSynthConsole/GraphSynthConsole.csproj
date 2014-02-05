@@ -80,9 +80,6 @@
     <Compile Include="UI.SaveAndOpen\ConsoleFiler.RuleSet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Reference Include="GraphSynth.BaseClasses">
-      <HintPath>..\GraphSynth.BaseClasses\$(Configuration)\GraphSynth.BaseClasses.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
@@ -118,6 +115,12 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GraphSynth.BaseClasses\GraphSynth.BaseClasses.csproj">
+      <Project>{d679f4e2-fd18-48ac-9c0c-b60155a61d37}</Project>
+      <Name>GraphSynth.BaseClasses</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

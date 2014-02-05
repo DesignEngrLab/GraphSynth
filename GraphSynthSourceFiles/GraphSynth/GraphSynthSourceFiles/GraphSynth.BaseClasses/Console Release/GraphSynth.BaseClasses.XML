@@ -1855,7 +1855,7 @@
               this matrix determines the transform to place the first node at (0,0) and the 
               second node at (r,0). This is not stored in the file since it can be quickly 
               determined.
-            </summary>
+            </summary>                                
         </member>
         <member name="M:GraphSynth.Representation.grammarRule.ResetRegularizationMatrix">
             <summary>
@@ -2037,12 +2037,6 @@
         <member name="P:GraphSynth.Representation.grammarRule.Projection">
             <summary>
               Gets or sets the projection transformation allowance.
-            </summary>
-            <value>The projection.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.ThreeDimensional">
-            <summary>
-              Gets or sets whether the rule is three-dimensional.
             </summary>
             <value>The projection.</value>
         </member>

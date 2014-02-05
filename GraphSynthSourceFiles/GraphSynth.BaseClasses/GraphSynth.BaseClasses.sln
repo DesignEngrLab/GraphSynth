@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSynth.BaseClasses", "GraphSynth.BaseClasses.csproj", "{D679F4E2-FD18-48AC-9C0C-B60155A61D37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Console Debug|Any CPU = Console Debug|Any CPU
+		Console Release|Any CPU = Console Release|Any CPU
+		WPF GUI Debug|Any CPU = WPF GUI Debug|Any CPU
+		WPF GUI Release|Any CPU = WPF GUI Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Debug|Any CPU.ActiveCfg = Console Debug|Any CPU
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Debug|Any CPU.Build.0 = Console Debug|Any CPU
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Release|Any CPU.ActiveCfg = Console Release|Any CPU
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Release|Any CPU.Build.0 = Console Release|Any CPU
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Debug|Any CPU.ActiveCfg = WPF GUI Debug|Any CPU
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Debug|Any CPU.Build.0 = WPF GUI Debug|Any CPU
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Release|Any CPU.ActiveCfg = WPF GUI Release|Any CPU
+		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Release|Any CPU.Build.0 = WPF GUI Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

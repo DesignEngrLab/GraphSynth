@@ -432,10 +432,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup> 
-    <Reference Include="GraphSynth.BaseClasses">  
-       <HintPath>..\GraphSynth.BaseClasses\$(Configuration)\GraphSynth.BaseClasses.dll</HintPath>  
-    </Reference>  
+  <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -496,6 +493,10 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GraphSynth.BaseClasses\GraphSynth.BaseClasses.csproj">
+      <Project>{d679f4e2-fd18-48ac-9c0c-b60155a61d37}</Project>
+      <Name>GraphSynth.BaseClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GraphSynth.CustomControls\GraphSynth.CustomControls.csproj">
       <Project>{E47424A2-4E8E-481F-831E-D22186A12AFD}</Project>
       <Name>GraphSynth.CustomControls</Name>
