@@ -252,7 +252,7 @@ namespace GraphSynth.Representation
                                                .Select(o => o.assignRuleInfo(ruleIndex + 1, RuleSetIndex))).AsParallel().ToList();
             else /* do in series */
                 options = rules.SelectMany((rule, ruleIndex) =>
-                                               rule.recognize(host, true, (generationAfterNoRules == nextGenerationSteps.Stop) ? RelaxationTemplate : null)
+                                               rule.recognize(host, false, (generationAfterNoRules == nextGenerationSteps.Stop) ? RelaxationTemplate : null)
                                                .Select(o => o.assignRuleInfo(ruleIndex + 1, RuleSetIndex))).ToList();
             for (var i = 0; i < options.Count; i++)
                 options[i].optionNumber = i;

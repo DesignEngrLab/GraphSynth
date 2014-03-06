@@ -532,9 +532,9 @@ namespace GraphSynth.Representation
             vL_length = Math.Sqrt(vL[0] * vL[0] + vL[1] * vL[1] + vL[2] * vL[2]);
             vHost = new[]
             {
-                locatedNodes[2].X - locatedNodes[0].X, 
-                locatedNodes[2].Y - locatedNodes[0].Y,
-                locatedNodes[2].Z - locatedNodes[0].Z
+                locatedNodes[3].X - locatedNodes[0].X, 
+                locatedNodes[3].Y - locatedNodes[0].Y,
+                locatedNodes[3].Z - locatedNodes[0].Z
             };
             vHost_length = Math.Sqrt(vHost[0] * vHost[0] + vHost[1] * vHost[1] + vHost[2] * vHost[2]);
             var zScale = vHost_length / vL_length;
@@ -584,20 +584,21 @@ namespace GraphSynth.Representation
             switch (Scale)
             {
                 case transfromType.Prohibited:
-                    if (MatrixMath.sameCloseZero(sx) && MatrixMath.sameCloseZero(sy) && MatrixMath.sameCloseZero(sz))
+                    if (MatrixMath.sameCloseZero(Math.Abs(sx),1) && MatrixMath.sameCloseZero(Math.Abs(sy),1) 
+                        && MatrixMath.sameCloseZero(Math.Abs(sz),1))
                         break;
                     else return false;
                 case transfromType.OnlyX:
-                    if (MatrixMath.sameCloseZero(sy) && MatrixMath.sameCloseZero(sz)) break;
+                    if (MatrixMath.sameCloseZero(Math.Abs(sy),1) && MatrixMath.sameCloseZero(Math.Abs(sz),1)) break;
                     else return false;
                 case transfromType.OnlyY:
-                    if (MatrixMath.sameCloseZero(sx) && MatrixMath.sameCloseZero(sz)) break;
+                    if (MatrixMath.sameCloseZero(Math.Abs(sx),1) && MatrixMath.sameCloseZero(Math.Abs(sz),1)) break;
                     else return false;
                 case transfromType.OnlyZ:
-                    if (MatrixMath.sameCloseZero(sx) && MatrixMath.sameCloseZero(sy)) break;
+                    if (MatrixMath.sameCloseZero(Math.Abs(sx),1) && MatrixMath.sameCloseZero(Math.Abs(sy),1)) break;
                     else return false;
                 case transfromType.XYZUniform:
-                    if (MatrixMath.sameCloseZero(sx, sy) && MatrixMath.sameCloseZero(sy, sz)) break;
+                    if (MatrixMath.sameCloseZero(Math.Abs(sx), Math.Abs(sy)) && MatrixMath.sameCloseZero(Math.Abs(sy), Math.Abs(sz))) break;
                     else return false;
             }
             switch (Flip)

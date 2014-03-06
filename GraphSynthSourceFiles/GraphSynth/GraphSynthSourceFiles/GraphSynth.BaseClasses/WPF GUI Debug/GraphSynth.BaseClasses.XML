@@ -1594,6 +1594,42 @@
             </summary>
             <value><c>true</c> if [stay on]; otherwise, <c>false</c>.</value>
         </member>
+        <member name="P:GraphSynth.IMainWindow.Dispatcher">
+            <summary>
+            Gets the dispatcher.
+            </summary>
+            <value>The dispatcher.</value>
+        </member>
+        <member name="P:GraphSynth.IMainWindow.shortCutKeys">
+            <summary>
+            Gets the short cut keys.
+            </summary>
+            <value>The short cut keys.</value>
+        </member>
+        <member name="T:GraphSynth.SearchIOToTextWriter">
+            <summary>
+              this class simply helps SearchIO get its output to the sidebar in GraphSynth.
+              It does this by inheriting from the TextWriter class. Borrowed from ? on CodeProject.
+            </summary>
+        </member>
+        <member name="F:GraphSynth.SearchIOToTextWriter.outputBox">
+            <summary>
+              The output box where text is presented to the user.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.SearchIOToTextWriter.WriteLine(System.String)">
+            <summary>
+              Writes the line.
+            </summary>
+            <param name = "str">The STR.</param>
+        </member>
+        <member name="P:GraphSynth.SearchIOToTextWriter.Encoding">
+            <summary>
+              When overridden in a derived class, returns the <see cref = "T:System.Text.Encoding" /> in which the output is written.
+            </summary>
+            <value></value>
+            <returns>The Encoding in which the output is written.</returns>
+        </member>
         <member name="T:GraphSynth.Representation.embeddingRule">
             <summary>
               The embedding rule defines what to do with arcs that are freed (one or both of its connecting
@@ -2145,6 +2181,9 @@
         <member name="M:GraphSynth.Representation.option.MakeInvalidationMatrix(System.Collections.Generic.List{GraphSynth.Representation.option},GraphSynth.Representation.candidate,GraphSynth.ConfluenceAnalysis)">
             <summary>
             Makes the invalidation matrix.
+            a -1 means that the row option does NOT violate the column option
+            a 0 means Maybe - this happens when the ConfluenceAnalysis is not set to Full and rules have additional functions
+            a +1 means that the row option DOES invalide the column option
             </summary>
             <param name="options">The options.</param>
             <param name="cand">The cand.</param>
@@ -2154,8 +2193,8 @@
         <member name="M:GraphSynth.Representation.option.doesPInvalidateQ(GraphSynth.Representation.option,GraphSynth.Representation.option,GraphSynth.Representation.candidate,GraphSynth.ConfluenceAnalysis)">
             <summary>
             Predicts whether the option p  invalidates option q.
-            This invalidata is a tricky thing. For the most part, this function
-            has been carefully coded to handle almost all cases. The only exceptions
+            This invalidation is a tricky thing. For the most part, this function
+            has been carefully coded to handle all cases. The only exceptions
             are from what the additional recognize and apply functions require or modify.
             This is handled by actually testing to see if this is true.
             </summary>
@@ -3117,35 +3156,40 @@
         </member>
         <member name="M:GraphSynth.SearchIO.MessageBoxShow(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
-            Messages the box show.
+            Shows a messagebox (pop-up or dialog) - redirects to System.Windows.MessageBox.Show().
             </summary>
             <param name="messageBoxText">The message box text.</param>
             <param name="caption">The caption.</param>
-            <param name="iconStr">The icon string.</param>
-            <param name="buttonStr">The button string.</param>
-            <param name="defaultResultStr">The default result string.</param>
-            <param name="optionsStr">The options string.</param>
+            <param name="iconStr">The icon STR.</param>
+            <param name="buttonStr">The buttons to show.</param>
+            <param name="defaultResultStr">The default result STR.</param>
+            <param name="optionsStr">The options STR.</param>
             <returns></returns>
+        </member>
+        <member name="F:GraphSynth.SearchIO.main">
+            <summary>
+              A reference to the main window
+            </summary>
         </member>
         <member name="M:GraphSynth.SearchIO.addAndShowGraphWindow(System.Object,System.String)">
             <summary>
-            Adds the and show graph window.
+              Adds and shows a graph window.
             </summary>
-            <param name="graphObjects">The graph objects.</param>
-            <param name="title">The title.</param>
+            <param name = "graphObjects">The graph objects.</param>
+            <param name = "title">The title.</param>
         </member>
         <member name="M:GraphSynth.SearchIO.addAndShowRuleWindow(System.Object,System.String)">
             <summary>
-            Adds the and show rule window.
+              Adds and shows a rule window.
             </summary>
-            <param name="ruleObjects">The rule objects.</param>
-            <param name="title">The title.</param>
+            <param name = "ruleObjects">The rule objects.</param>
+            <param name = "title">The title.</param>
         </member>
         <member name="M:GraphSynth.SearchIO.addAndShowRuleSetWindow(System.Object,System.String)">
             <summary>
-            Adds the and show rule set window.
+            Adds and shows a ruleset window.
             </summary>
-            <param name="ruleObjects">The rule objects.</param>
+            <param name="ruleSetObjects">The rule set objects.</param>
             <param name="title">The title.</param>
         </member>
         <member name="P:GraphSynth.SearchIO.processNum">

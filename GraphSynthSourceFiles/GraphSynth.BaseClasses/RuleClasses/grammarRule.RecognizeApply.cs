@@ -475,7 +475,7 @@ namespace GraphSynth.Representation
                     newElements.Add(D.nodes.Last());
                     /* add the new node to the list of newElements that is returned by this function.*/
                     TransformPositionOfNode(D.nodes.Last(), positionT, rNode);
-                    if (TransformNodeShapes)
+                    if (TransformNodeShapes && D.nodes.Last().DisplayShape!=null)
                         TransfromShapeOfNode(D.nodes.Last(), positionT);
                 }
                 #endregion
@@ -498,9 +498,10 @@ namespace GraphSynth.Representation
                                     KNode.localVariables);
                     if (TransformNodePositions)
                         TransformPositionOfNode(KNode, positionT, rNode);
-                    if (TransformNodeShapes)
+                    if (rNode.DisplayShape != null && TransformNodeShapes)
                     {
-                        if (rNode.DisplayShape != null && rNode.DisplayShape.GetType()==KNode.DisplayShape.GetType())
+                        if (KNode.DisplayShape == null 
+                            ||rNode.DisplayShape.GetType() == KNode.DisplayShape.GetType())
                             KNode.DisplayShape = rNode.DisplayShape.Copy(KNode);
                         TransfromShapeOfNode(KNode, positionT);
                     }

@@ -317,6 +317,7 @@ namespace GraphSynth.Representation
                             options[j].confluence.Add(i);
                         }
                     }
+                    // else confluenceAnalysis == ConfluenceAnalysis.ConservativeSimple
                     else if (invalidationMatrix[i, j] < 0 && invalidationMatrix[j, i] < 0)
                     {
                         options[i].confluence.Add(j);
@@ -328,6 +329,9 @@ namespace GraphSynth.Representation
 
         /// <summary>
         /// Makes the invalidation matrix.
+        /// a -1 means that the row option does NOT violate the column option
+        /// a 0 means Maybe - this happens when the ConfluenceAnalysis is not set to Full and rules have additional functions
+        /// a +1 means that the row option DOES invalide the column option
         /// </summary>
         /// <param name="options">The options.</param>
         /// <param name="cand">The cand.</param>
@@ -341,15 +345,15 @@ namespace GraphSynth.Representation
                 for (var j = 0; j < numOpts; j++)
                 {
                     if (i == j) invalidationMatrix[i, j] = -1;
-                    invalidationMatrix[i, j] = doesPInvalidateQ(options[i], options[j], cand, confluenceAnalysis);
+                    else invalidationMatrix[i, j] = doesPInvalidateQ(options[i], options[j], cand, confluenceAnalysis);
                 }
             return invalidationMatrix;
         }
 
         /// <summary>
-        /// Predicts whether the option p is invalidates option q.
-        /// This invalidata is a tricky thing. For the most part, this function
-        /// has been carefully coded to handle almost all cases. The only exceptions
+        /// Predicts whether the option p  invalidates option q.
+        /// This invalidation is a tricky thing. For the most part, this function
+        /// has been carefully coded to handle all cases. The only exceptions
         /// are from what the additional recognize and apply functions require or modify.
         /// This is handled by actually testing to see if this is true.
         /// </summary>
@@ -655,17 +659,17 @@ namespace GraphSynth.Representation
                 #endregion
             }
 
-            /* you've run the gauntlet of easy check
-            * except (1) if there is something caught by additional recognition functions,
+            /* you've run the gauntlet of easy checks, now need to check
+            * (1) if there is something caught by additional recognition functions,
             * or (2) NOTExist elements now exist. These can only be solving by an empirical
             * test, which will be expensive. 
-            * So, now we switch from conditions that return false to conditions that return true.
+            * So, now we switch from conditions that return true (or a 1; p does invalidate q) to conditions that return false.
             */
 
-            if (q.rule.ContainsNegativeElements || q.rule.recognizeFuncs.Count > 0 || p.rule.applyFuncs.Count > 0)
+            if (q.rule.ContainsNegativeElements || q.rule.recognizeFuncs.Any() || p.rule.applyFuncs.Any())
                 if (confluenceAnalysis == ConfluenceAnalysis.Full) return fullInvalidationCheck(p, q, cand);
-                else return 0;
-            return -1;
+                else return 0;   //return 0 is like "I don't know"
+            return -1;   //like false, there is no invalidating - in otherwords confluence (maybe)!
 
             #endregion
         }
