@@ -466,7 +466,8 @@ namespace GraphSynth.Representation
             {
                 // if the two vectors are the same then the cross product will be all zeroes
                 axis = vHost;
-                angle = 0.0;
+                if (vHost[0] < 0) angle = Math.PI;
+                else angle = 0.0;
             }
             else angle = Math.Acos(vHost[0] / vHost_length); // essentially, the dot product to find the angle
             //now construct the quaternion for this rotation and multiply by T
@@ -584,18 +585,18 @@ namespace GraphSynth.Representation
             switch (Scale)
             {
                 case transfromType.Prohibited:
-                    if (MatrixMath.sameCloseZero(Math.Abs(sx),1) && MatrixMath.sameCloseZero(Math.Abs(sy),1) 
-                        && MatrixMath.sameCloseZero(Math.Abs(sz),1))
+                    if (MatrixMath.sameCloseZero(Math.Abs(sx), 1) && MatrixMath.sameCloseZero(Math.Abs(sy), 1)
+                        && MatrixMath.sameCloseZero(Math.Abs(sz), 1))
                         break;
                     else return false;
                 case transfromType.OnlyX:
-                    if (MatrixMath.sameCloseZero(Math.Abs(sy),1) && MatrixMath.sameCloseZero(Math.Abs(sz),1)) break;
+                    if (MatrixMath.sameCloseZero(Math.Abs(sy), 1) && MatrixMath.sameCloseZero(Math.Abs(sz), 1)) break;
                     else return false;
                 case transfromType.OnlyY:
-                    if (MatrixMath.sameCloseZero(Math.Abs(sx),1) && MatrixMath.sameCloseZero(Math.Abs(sz),1)) break;
+                    if (MatrixMath.sameCloseZero(Math.Abs(sx), 1) && MatrixMath.sameCloseZero(Math.Abs(sz), 1)) break;
                     else return false;
                 case transfromType.OnlyZ:
-                    if (MatrixMath.sameCloseZero(Math.Abs(sx),1) && MatrixMath.sameCloseZero(Math.Abs(sy),1)) break;
+                    if (MatrixMath.sameCloseZero(Math.Abs(sx), 1) && MatrixMath.sameCloseZero(Math.Abs(sy), 1)) break;
                     else return false;
                 case transfromType.XYZUniform:
                     if (MatrixMath.sameCloseZero(Math.Abs(sx), Math.Abs(sy)) && MatrixMath.sameCloseZero(Math.Abs(sy), Math.Abs(sz))) break;
