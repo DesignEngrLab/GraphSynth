@@ -23,7 +23,7 @@ namespace GraphSynth.UI
                 var dummyRS = new ruleSet();
                 dummyRS.Add(rule);
                 if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
-                var options = dummyRS.recognize(seed, true, RelaxationTemplate.copy());
+                var options = dummyRS.recognize(seed, false, RelaxationTemplate.copy());
                 if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
                 var numOptions = options.Count;
                 if (numOptions == 0)

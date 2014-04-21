@@ -1900,7 +1900,11 @@
         </member>
         <member name="M:GraphSynth.Representation.grammarRule.calculateRegularizationMatrix">
             <summary>
-              Calculates the regularization matrix.
+            Calculates the regularization matrix. This is a matrix that is used to simplify the 
+            shape recognition process. Multiplying the LHS by R (the regulaization matrix), the
+            first node will now be at {0,0,0}, the second is on the x-axis {d, 0, 0}, then third
+            is on the x-y plane. This simplifies the calculations in finding the transformation
+            of the LHS to get it to match the host shape.
             </summary>
         </member>
         <member name="M:GraphSynth.Representation.grammarRule.ReorderNodes">
@@ -4126,6 +4130,15 @@
             <param name = "A">1D double Array, A</param>
             <param name = "B">1D double Array, B</param>
             <returns></returns>
+        </member>
+        <member name="M:GraphSynth.MatrixMath.norm2(System.Double[],System.Int32,System.Boolean)">
+            <summary>
+            Returns to 2-norm (square root of the sum of squares of all terms)
+            of the vector, x.
+            </summary>
+            <param name="x">The vector, x.</param>
+            <param name="dontDoSqrt">if set to <c>true</c> [don't take the square root].</param>
+            <returns>Scalar value of 2-norm.</returns>
         </member>
     </members>
 </doc>

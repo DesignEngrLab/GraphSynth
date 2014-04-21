@@ -29,6 +29,8 @@
  *************************************************************************/
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GraphSynth
 {
@@ -105,5 +107,23 @@ namespace GraphSynth
                            A[0]*B[1] - B[0]*A[1]
                        };
         }
+
+        /// <summary>
+        /// Returns to 2-norm (square root of the sum of squares of all terms)
+        /// of the vector, x.
+        /// </summary>
+        /// <param name="x">The vector, x.</param>
+        /// <param name="dontDoSqrt">if set to <c>true</c> [don't take the square root].</param>
+        /// <returns>Scalar value of 2-norm.</returns>
+        public static double norm2(double[] x, int size = -1, Boolean dontDoSqrt = false)
+        {
+            if (size == -1) size = x.GetLength(0);
+            if (x == null) throw new Exception("The vector, x, is null.");
+            var value = 0.0;
+            for (int i = 0; i < size; i++)
+                value += x[i] * x[i];
+            return dontDoSqrt ? value : Math.Sqrt(value);
+        }
+
     }
 }

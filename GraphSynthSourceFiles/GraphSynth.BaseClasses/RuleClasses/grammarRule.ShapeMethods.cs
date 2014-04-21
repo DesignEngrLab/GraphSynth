@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 
@@ -71,28 +72,37 @@ namespace GraphSynth.Representation
         }
 
         /// <summary>
-        ///   Calculates the regularization matrix.
+        /// Calculates the regularization matrix. This is a matrix that is used to simplify the 
+        /// shape recognition process. Multiplying the LHS by R (the regulaization matrix), the
+        /// first node will now be at {0,0,0}, the second is on the x-axis {d, 0, 0}, then third
+        /// is on the x-y plane. This simplifies the calculations in finding the transformation
+        /// of the LHS to get it to match the host shape.
         /// </summary>
         private void calculateRegularizationMatrix()
         {
             double[,] quaternion1, quaternion2;
+            // start with the regularization matrix at the origin.
             _regularizationMatrix = MatrixMath.Identity(4);
+            _inverseRegMatrix = MatrixMath.Identity(4);
+            // if there are no nodes, then just return with identity
             if (L.nodes.Count == 0) return;
+            // for the first node, simply add translation terms
             _regularizationMatrix[0, 3] = -L.nodes[0].X;
             _regularizationMatrix[1, 3] = -L.nodes[0].Y;
             _regularizationMatrix[2, 3] = -L.nodes[0].Z;
-            _inverseRegMatrix = MatrixMath.Identity(4);
             _inverseRegMatrix[0, 3] = L.nodes[0].X;
             _inverseRegMatrix[1, 3] = L.nodes[0].Y;
             _inverseRegMatrix[2, 3] = L.nodes[0].Z;
             if (L.nodes.Count == 1) return;
+            // if two or more nodes, then we add some rotation to move the second node (L.nodes[1])
+            // to the x axis.
             var xaxis = new[] { 1.0, 0.0, 0.0 };
             var vL1 = MatrixMath.multiply(_regularizationMatrix, new[] { L.nodes[1].X, L.nodes[1].Y, L.nodes[1].Z, 1 }, 4);
             double angle = 0.0;
             var axis = xaxis;
             if (!(MatrixMath.sameCloseZero(vL1[1]) && MatrixMath.sameCloseZero(vL1[2])))
             {
-                var vL1_length = Math.Sqrt(vL1[0] * vL1[0] + vL1[1] * vL1[1] + vL1[2] * vL1[2]);
+                var vL1_length = MatrixMath.norm2(vL1);
                 angle = Math.Acos(vL1[0] / vL1_length);
                 axis = MatrixMath.crossProduct3(vL1, xaxis);
                 quaternion1 = makeQuaternion(axis, angle);
@@ -101,6 +111,7 @@ namespace GraphSynth.Representation
                 _inverseRegMatrix = MatrixMath.multiply(_inverseRegMatrix, quaternion1, 4);
             }
             if (L.nodes.Count == 2) return;
+            // if three or more, then we move the thrid node (L.nodes[2]) to the x-y plane/
             var vL2 = MatrixMath.multiply(_regularizationMatrix, new[] { L.nodes[2].X, L.nodes[2].Y, L.nodes[2].Z, 1 }, 4);
             // now, how much do we have to rotate about the x-axis to move the 3rd point into the x-y plane (s.t. it's z-value will be zero)
             var theta = Math.Atan2(vL2[2], vL2[1]);
@@ -433,14 +444,16 @@ namespace GraphSynth.Representation
 
         private Boolean find3DTransform(IList<node> locatedNodes, out double[,] T)
         {
+            // T = trans*Quat2*Quat1*Scale*R*LHS
             T = MatrixMath.Identity(4);
             // if there are no nodes, just return the identity matrix
             if (locatedNodes.Count == 0) return true;
             /* move the first node into location by translation */
             var transMatrix = MatrixMath.Identity(4);
-            transMatrix[0, 3] = locatedNodes[0].X;
-            transMatrix[1, 3] = locatedNodes[0].Y;
-            transMatrix[2, 3] = locatedNodes[0].Z;
+            var refPt = new double[3];
+            transMatrix[0, 3] = refPt[0] = locatedNodes[0].X;
+            transMatrix[1, 3] = refPt[1] = locatedNodes[0].Y;
+            transMatrix[2, 3] = refPt[2] = locatedNodes[0].Z;
             if (!ValidTranslation(MatrixMath.multiply(transMatrix, RegularizationMatrix, 4))) return false;
             if (locatedNodes.Count == 1) return true;
             // if there is just one node find the proper translation matrix (this T matrix * Regularization) and return
@@ -449,19 +462,20 @@ namespace GraphSynth.Representation
             /* first, figure out how much to scale the shape */
             var vHost = new[]
                     {
-                        locatedNodes[1].X - locatedNodes[0].X,
-                        locatedNodes[1].Y - locatedNodes[0].Y,
-                        locatedNodes[1].Z - locatedNodes[0].Z
+                        locatedNodes[1].X - refPt[0],
+                        locatedNodes[1].Y - refPt[1],
+                        locatedNodes[1].Z - refPt[2]
                     };
-            var vHost_length = Math.Sqrt(vHost[0] * vHost[0] + vHost[1] * vHost[1] + vHost[2] * vHost[2]);
+            var vHost_length = MatrixMath.norm2(vHost);
+
 
             var vL = MatrixMath.multiply(RegularizationMatrix, new[] { L.nodes[1].X, L.nodes[1].Y, L.nodes[1].Z, 1 }, 4);
             var vL_length = vL[0];
             var xScale = vHost_length / vL_length;
-            vL = new[] { 1.0, 0.0, 0.0 }; // for simplicity
+            vL = new[] { 1.0, 0.0, 0.0 }; // turn vL into a unit vector - this is simply 1,0,0 since - after regularization
+            // the point is on the x-axisw
             var axis = MatrixMath.crossProduct3(vL, vHost);
-            double angle = double.NaN;
-            double dot = double.NaN;
+            double angle;
             if (MatrixMath.sameCloseZero(axis.Sum()))
             {
                 // if the two vectors are the same then the cross product will be all zeroes
@@ -478,12 +492,12 @@ namespace GraphSynth.Representation
             if (locatedNodes.Count == 2)
             {
                 if (ValidScaling(MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4)))
-                    T = MatrixMath.multiply(scaleMatrix, _regularizationMatrix, 4);
+                    T = MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4);
                 else
                 {
                     scaleMatrix[1, 1] = scaleMatrix[2, 2] = xScale;
                     if (ValidScaling(MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4)))
-                        T = MatrixMath.multiply(scaleMatrix, _regularizationMatrix, 4);
+                        T = MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4);
                     else return false;
                 }
                 T = MatrixMath.multiply(quaternion1, T, 4);
@@ -494,32 +508,64 @@ namespace GraphSynth.Representation
             /* if there are 3 or more points, then we find a new Quaternion that will multiply
              * the former result. In order to keep the second node in place, we use the vHost
              * as the axis of rotation. */
-            vL = MatrixMath.multiply(MatrixMath.multiply(scaleMatrix, _regularizationMatrix, 4), new[] { L.nodes[2].X, L.nodes[2].Y, L.nodes[2].Z, 1 }, 4);
-            vL_length = Math.Sqrt(vL[0] * vL[0] + vL[1] * vL[1] + vL[2] * vL[2]);
+            // T = trans*Quat2*Quat1*Scale*R*LHS
+            axis = vHost;
+            var axisUnitVector = new[] { axis[0] / vHost_length, axis[1] / vHost_length, axis[2] / vHost_length };
+            // move the third L point (L.nodes[2] to the proper orientation. Note that it is not multiplied 
+            // by translation since it is essentially the delta from the reference point - without translation, this
+            // is zero given the way Regularization puts the first node at {0,0,0}.
+            vL = MatrixMath.multiply(RegularizationMatrix, new[] { L.nodes[2].X, L.nodes[2].Y, L.nodes[2].Z, 1 }, 4);
+            vL = MatrixMath.multiply(scaleMatrix, vL, 4);
+            vL = MatrixMath.multiply(quaternion1, vL, 4);
+            // dxAlongAxis is the dot project of where this point vL is projected to the the axis.
+            var dxAlongAxisL = vL[0] * axisUnitVector[0] + vL[1] * axisUnitVector[1] + vL[2] * axisUnitVector[2];
+            // set up a new host vector from the reference point, which is the location of the first node
             vHost = new[]
             {
-                locatedNodes[2].X - locatedNodes[0].X, 
-                locatedNodes[2].Y - locatedNodes[0].Y,
-                locatedNodes[2].Z - locatedNodes[0].Z
+                locatedNodes[2].X - refPt[0], 
+                locatedNodes[2].Y - refPt[1],
+                locatedNodes[2].Z - refPt[2]
+            };         
+            // find the distance (dx) along the axis for this one as well.
+            var dxAlongAxisHost = vHost[0] * axisUnitVector[0] + vHost[1] * axisUnitVector[1] + vHost[2] * axisUnitVector[2];
+            // todo: what if dxAlongAxisL and dxAlongAxisHost are different? then I suppose there is a skew x w.r.t.y we could calculate
+
+            // reformulate vL as the vector to the L-node from the axis.
+            vL = new[]
+            {
+                vL[0] - dxAlongAxisL*refPt[0], 
+                vL[1] - dxAlongAxisL*refPt[1],
+                vL[2] - dxAlongAxisL*refPt[2]
             };
-            vHost_length = Math.Sqrt(vHost[0] * vHost[0] + vHost[1] * vHost[1] + vHost[2] * vHost[2]);
+            vL_length = MatrixMath.norm2(vL, 3);
+            // similarly reformulate vHost as the vector to the host-node from the axis.
+            vHost = new[]
+            {
+                vHost[0] - dxAlongAxisHost*refPt[0], 
+                vHost[1] - dxAlongAxisHost*refPt[1],
+                vHost[2] - dxAlongAxisHost*refPt[2]
+            };
+            vHost_length = MatrixMath.norm2(vHost);
+            // the ratio of these new lengths is the scale-Y term (well, this scale matrix if adulterated by the regularization, so it is
+            // not the true scale-y
             var yScale = vHost_length / vL_length;
             scaleMatrix[1, 1] = yScale;
-            axis = MatrixMath.crossProduct3(vL, vHost);
-            dot = vL[0] * vHost[0] + vL[1] * vHost[1] + vL[2] * vHost[2];
-            dot /= (vHost_length * vL_length);
-            angle = Math.Acos(dot);
+            // by using the dot-product equals cos(angle) identity, solve for the angle for the second quarternion operation
+            vL = new[] { vL[0] / vL_length + vL[1] / vL_length + vL[2] / vL_length };
+            vHost = new[] { vHost[0] / vHost_length + vHost[1] / vHost_length + vHost[2] / vHost_length };
+            var dot = vL[0] * vHost[0] + vL[1] * vHost[1] + vL[2] * vHost[2];
+            angle = MatrixMath.sameCloseZero(dot, 1.0) ? 0.0 : Math.Acos(dot);
             if (!ValidRotation(angle)) return false;
             var quaternion2 = (MatrixMath.sameCloseZero(angle)) ? MatrixMath.Identity(4) : makeQuaternion(axis, angle);
             if (locatedNodes.Count == 3)
             {
                 if (ValidScaling(MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4)))
-                    T = MatrixMath.multiply(scaleMatrix, _regularizationMatrix, 4);
+                    T = MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4);
                 else
                 {
                     scaleMatrix[2, 2] = yScale;
                     if (ValidScaling(MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4)))
-                        T = MatrixMath.multiply(scaleMatrix, _regularizationMatrix, 4);
+                        T = MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4);
                     else return false;
                 }
                 T = MatrixMath.multiply(quaternion1, T, 4);
@@ -529,20 +575,20 @@ namespace GraphSynth.Representation
                 return true;
             }
             // else, there are 4 or more 
-            vL = MatrixMath.multiply(MatrixMath.multiply(scaleMatrix, _regularizationMatrix, 4), new[] { L.nodes[3].X, L.nodes[3].Y, L.nodes[3].Z, 1 }, 4);
-            vL_length = Math.Sqrt(vL[0] * vL[0] + vL[1] * vL[1] + vL[2] * vL[2]);
+            vL = MatrixMath.multiply(MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4), new[] { L.nodes[3].X, L.nodes[3].Y, L.nodes[3].Z, 1 }, 4);
+            vL_length = MatrixMath.norm2(vL);
             vHost = new[]
             {
                 locatedNodes[3].X - locatedNodes[0].X, 
                 locatedNodes[3].Y - locatedNodes[0].Y,
                 locatedNodes[3].Z - locatedNodes[0].Z
             };
-            vHost_length = Math.Sqrt(vHost[0] * vHost[0] + vHost[1] * vHost[1] + vHost[2] * vHost[2]);
+            vHost_length = MatrixMath.norm2(vHost);
             var zScale = vHost_length / vL_length;
             scaleMatrix[2, 2] = zScale;
 
             if (!ValidScaling(MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4))) return false;
-            T = MatrixMath.multiply(scaleMatrix, _regularizationMatrix, 4);
+            T = MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4);
             T = MatrixMath.multiply(quaternion1, T, 4);
             T = MatrixMath.multiply(quaternion2, T, 4);
             T = MatrixMath.multiply(transMatrix, T, 4);
@@ -622,7 +668,7 @@ namespace GraphSynth.Representation
         private double[,] makeQuaternion(double[] axis, double angle)
         {
             /* this is informed by http://www.cprogramming.com/tutorial/3d/quaternions.html */
-            var length = Math.Sqrt(axis[0] * axis[0] + axis[1] * axis[1] + axis[2] * axis[2]);
+            var length = MatrixMath.norm2(axis);
             var axisNormalized = axis.Select(value => value / length).ToArray();
             var halfAngle = -angle / 2;
             var w = Math.Cos(halfAngle);
