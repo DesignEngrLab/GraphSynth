@@ -138,6 +138,7 @@ namespace GraphSynth.Search
 
                 #region ***** RECOGNIZE *****
 
+                
                 SearchIO.output("begin RCA loop for RuleSet #" + ruleSetIndex, 4);
                 var options = Rulesets[ruleSetIndex].recognize(host.graph, InParallel);
 
@@ -191,7 +192,7 @@ namespace GraphSynth.Search
                     host.addToRecipe(options[c]);
                     SearchIO.output("Rule sucessfully applied", 4);
                 }
-                if (Display)
+                if (Display && Rulesets[ruleSetIndex].choiceMethod == choiceMethods.Design)
                     SearchIO.addAndShowGraphWindow(host.graph.copy(),
                                                    "After calling " + host.numRulesCalled + " rules");
                 if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;

@@ -252,6 +252,9 @@ namespace GraphSynth.GraphDisplay
 
         public void AddHyperArcShape(hyperarc h, Point? point = null)
         {
+            if (!(h.DisplayShape is DisplayShape))
+                h.DisplayShape = new DisplayShape((string)Application.Current.Resources["StarHyper"], ShapeRepresents.HyperArc, h);
+            hyperarcShapes.Add((HyperArcShape)h.DisplayShape.Shape);
             hyperarcShapes.Add((HyperArcShape)h.DisplayShape.Shape);
             if (point.HasValue)
                 ((HyperArcShape)h.DisplayShape.Shape).Center = point.Value;

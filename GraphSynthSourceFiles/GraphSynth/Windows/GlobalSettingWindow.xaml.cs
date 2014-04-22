@@ -247,6 +247,17 @@ namespace GraphSynth.UI
             }
             Close();
         }
+        private void btnLoadConfigFile_Click(object sender, RoutedEventArgs e)
+        {
+            var filename = "";
+            if (getOpenFilename(newSettings.WorkingDirAbsolute,
+                                "Open a config file", "GraphSynth config file (*.gsconfig)|*.gsconfig",
+                                out filename, true))
+
+                newSettings = GlobalSettings.readInSettings(filename); ;
+            refreshTextBoxes();
+            
+        }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {

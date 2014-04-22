@@ -44,6 +44,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <TabControl Name="SettingsTabs" Grid.Row="0">
             <TabItem Name="LimitsTab" Header="Limits &amp; Booleans">
@@ -171,7 +172,7 @@
             </TabItem>
         </TabControl>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  Width="25*"/>
                 <ColumnDefinition  Width="25*"/>
@@ -186,6 +187,14 @@
                     Click="btnApplyInThisProcess_Click">Apply in this Process</Button>
             <Button Grid.Column="3" Name="btnCancel"                         
                        Click="btnCancel_Click">Cancel</Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="130*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Name="btnLoadConfigFile" IsDefault="True"
+                 Click="btnLoadConfigFile_Click">Load Configuration File</Button>
+            
         </Grid>
     </Grid>
 </Window>
