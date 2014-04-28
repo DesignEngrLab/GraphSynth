@@ -486,7 +486,7 @@ namespace GraphSynth.Representation
             else angle = Math.Acos(vHost[0] / vHost_length); // essentially, the dot product to find the angle
             //now construct the quaternion for this rotation and multiply by T
             double[,] quaternion1 = (MatrixMath.sameCloseZero(angle)) ? MatrixMath.Identity(4) : makeQuaternion(axis, angle);
-            if (!ValidRotation(angle)) return false;
+            if (!ValidRotation(vHost)) return false;
             var scaleMatrix = MatrixMath.Identity(4);
             scaleMatrix[0, 0] = xScale;
             if (locatedNodes.Count == 2)
@@ -525,7 +525,7 @@ namespace GraphSynth.Representation
                 locatedNodes[2].X - refPt[0], 
                 locatedNodes[2].Y - refPt[1],
                 locatedNodes[2].Z - refPt[2]
-            };         
+            };
             // find the distance (dx) along the axis for this one as well.
             var dxAlongAxisHost = vHost[0] * axisUnitVector[0] + vHost[1] * axisUnitVector[1] + vHost[2] * axisUnitVector[2];
             // todo: what if dxAlongAxisL and dxAlongAxisHost are different? then I suppose there is a skew x w.r.t.y we could calculate
@@ -551,8 +551,8 @@ namespace GraphSynth.Representation
             var yScale = vHost_length / vL_length;
             scaleMatrix[1, 1] = yScale;
             // by using the dot-product equals cos(angle) identity, solve for the angle for the second quarternion operation
-            vL = new[] { vL[0] / vL_length , vL[1] / vL_length , vL[2] / vL_length };
-            vHost = new[] { vHost[0] / vHost_length , vHost[1] / vHost_length , vHost[2] / vHost_length };
+            vL = new[] { vL[0] / vL_length, vL[1] / vL_length, vL[2] / vL_length };
+            vHost = new[] { vHost[0] / vHost_length, vHost[1] / vHost_length, vHost[2] / vHost_length };
             var dot = vL[0] * vHost[0] + vL[1] * vHost[1] + vL[2] * vHost[2];
             angle = MatrixMath.sameCloseZero(dot, 1.0) ? 0.0 : Math.Acos(dot);
             if (!ValidRotation(angle)) return false;
@@ -594,6 +594,13 @@ namespace GraphSynth.Representation
             T = MatrixMath.multiply(transMatrix, T, 4);
             snapToIntValues(T);
             return true;
+        }
+
+        private bool ValidRotation(double[] vHost)
+        {
+            var vL = new[] { L.nodes[1].X - L.nodes[0].X, L.nodes[1].Y - L.nodes[0].Y, L.nodes[1].Z - L.nodes[0].Z };
+            return (MatrixMath.sameCloseZero(MatrixMath.norm2(MatrixMath.crossProduct3(vL, vHost)))
+                && (0 < vL[0] * vHost[0] + vL[1] * vHost[1] + vL[2] * vHost[2]));
         }
 
         private Boolean ValidRotation(double angle)
