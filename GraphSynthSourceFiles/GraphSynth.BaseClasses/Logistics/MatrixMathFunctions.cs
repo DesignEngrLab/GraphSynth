@@ -43,7 +43,7 @@ namespace GraphSynth
         ///   position of points (mostly in checking for a valid transformation (see
         ///   ValidTransformation) and if other nodes comply (see otherNodesComply).
         /// </summary>
-        private const double epsilon = 0.000001;
+        private const double epsilon = 0.00001;
 
         internal static Boolean sameCloseZero(double x1)
         {

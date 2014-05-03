@@ -137,7 +137,7 @@ namespace GraphSynth.Representation
 
         private transfromType _flip = transfromType.Prohibited;
         private transfromType _projection = transfromType.Prohibited;
-        private Boolean _rotate = true;
+        private transfromType _rotate = transfromType.XYZIndependent;
         private transfromType _scale = transfromType.XYZIndependent;
         private transfromType _skew = transfromType.Prohibited;
         private transfromType _translate = transfromType.XYZIndependent;
@@ -238,7 +238,7 @@ namespace GraphSynth.Representation
         ///   Gets or sets a value indicating whether this <see cref = "grammarRule" /> allows a rotation transformation.
         /// </summary>
         /// <value><c>true</c> if rotate; otherwise, <c>false</c>.</value>
-        public Boolean Rotate
+        public transfromType Rotate
         {
             get { return _rotate; }
             set { _rotate = value; }
@@ -486,7 +486,6 @@ namespace GraphSynth.Representation
             else angle = Math.Acos(vHost[0] / vHost_length); // essentially, the dot product to find the angle
             //now construct the quaternion for this rotation and multiply by T
             double[,] quaternion1 = (MatrixMath.sameCloseZero(angle)) ? MatrixMath.Identity(4) : makeQuaternion(axis, angle);
-            if (!ValidRotation(vHost)) return false;
             var scaleMatrix = MatrixMath.Identity(4);
             scaleMatrix[0, 0] = xScale;
             if (locatedNodes.Count == 2)
@@ -503,7 +502,7 @@ namespace GraphSynth.Representation
                 T = MatrixMath.multiply(quaternion1, T, 4);
                 T = MatrixMath.multiply(transMatrix, T, 4);
                 snapToIntValues(T);
-                return true;
+                return ValidRotation(T, MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4));
             }
             /* if there are 3 or more points, then we find a new Quaternion that will multiply
              * the former result. In order to keep the second node in place, we use the vHost
@@ -532,18 +531,18 @@ namespace GraphSynth.Representation
 
             // reformulate vL as the vector to the L-node from the axis.
             vL = new[]
-            {
-                vL[0] - dxAlongAxisL*refPt[0], 
-                vL[1] - dxAlongAxisL*refPt[1],
-                vL[2] - dxAlongAxisL*refPt[2]
+            {                                                     
+                vL[0] - (dxAlongAxisL*axisUnitVector[0]), 
+                vL[1] - (dxAlongAxisL*axisUnitVector[1]), 
+                vL[2] - (dxAlongAxisL*axisUnitVector[2])
             };
             vL_length = MatrixMath.norm2(vL, 3);
             // similarly reformulate vHost as the vector to the host-node from the axis.
             vHost = new[]
-            {
-                vHost[0] - dxAlongAxisHost*refPt[0], 
-                vHost[1] - dxAlongAxisHost*refPt[1],
-                vHost[2] - dxAlongAxisHost*refPt[2]
+            {                                       
+                vHost[0] - (dxAlongAxisL*axisUnitVector[0]), 
+                vHost[1] - (dxAlongAxisL*axisUnitVector[1]), 
+                vHost[2] - (dxAlongAxisL*axisUnitVector[2])
             };
             vHost_length = MatrixMath.norm2(vHost);
             // the ratio of these new lengths is the scale-Y term (well, this scale matrix if adulterated by the regularization, so it is
@@ -555,7 +554,6 @@ namespace GraphSynth.Representation
             vHost = new[] { vHost[0] / vHost_length, vHost[1] / vHost_length, vHost[2] / vHost_length };
             var dot = vL[0] * vHost[0] + vL[1] * vHost[1] + vL[2] * vHost[2];
             angle = MatrixMath.sameCloseZero(dot, 1.0) ? 0.0 : Math.Acos(dot);
-            if (!ValidRotation(angle)) return false;
             var quaternion2 = (MatrixMath.sameCloseZero(angle)) ? MatrixMath.Identity(4) : makeQuaternion(axis, angle);
             if (locatedNodes.Count == 3)
             {
@@ -572,7 +570,7 @@ namespace GraphSynth.Representation
                 T = MatrixMath.multiply(quaternion2, T, 4);
                 T = MatrixMath.multiply(transMatrix, T, 4);
                 snapToIntValues(T);
-                return true;
+                return ValidRotation(T, MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4));
             }
             // else, there are 4 or more 
             vL = MatrixMath.multiply(MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4), new[] { L.nodes[3].X, L.nodes[3].Y, L.nodes[3].Z, 1 }, 4);
@@ -593,11 +591,53 @@ namespace GraphSynth.Representation
             T = MatrixMath.multiply(quaternion2, T, 4);
             T = MatrixMath.multiply(transMatrix, T, 4);
             snapToIntValues(T);
-            return true;
+            return ValidRotation(T, MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4));
+        }
+
+        private bool ValidRotation(double[,] T, double[,] scaleMatrix)
+        {
+            if (Rotate == transfromType.XYZIndependent || Rotate == transfromType.BothIndependent) return true;
+            var inverseScale = MatrixMath.Identity(4);
+            inverseScale[0, 0] = 1 / scaleMatrix[0, 0];
+            inverseScale[2, 1] = 1 / scaleMatrix[1, 1];
+            inverseScale[2, 2] = 1 / scaleMatrix[2, 2];
+            var t = MatrixMath.multiply(inverseScale, T, 4);
+            // http://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToEuler/index.htm
+            double rotX, rotY, rotZ;
+            if (MatrixMath.sameCloseZero(t[1, 0], 1))
+            { // singularity at north pole
+                rotX = Math.Atan2(t[0, 2], t[2, 2]);
+                rotY = Math.PI / 2;
+                rotZ = 0;
+            }
+            else if (MatrixMath.sameCloseZero(t[1, 0], -1))
+            { // singularity at south pole
+                rotX = Math.Atan2(t[0, 2], t[2, 2]);
+                rotY = -Math.PI / 2;
+                rotZ = 0;
+            }
+            else
+            {
+                rotX = Math.Atan2(-t[2, 0], t[0, 0]);
+                rotZ = Math.Atan2(-t[1, 2], t[1, 1]);
+                rotY = Math.Asin(t[1, 0]);
+            }
+            if (Rotate == transfromType.XYZUniform || Rotate == transfromType.BothUniform)
+                return (MatrixMath.sameCloseZero(rotX, rotY) && MatrixMath.sameCloseZero(rotY, rotZ));
+            if (Rotate == transfromType.Prohibited)
+                return (MatrixMath.sameCloseZero(rotX) && MatrixMath.sameCloseZero(rotY) && MatrixMath.sameCloseZero(rotZ));
+            if (Rotate == transfromType.OnlyX)
+                return (MatrixMath.sameCloseZero(rotY) && MatrixMath.sameCloseZero(rotZ));
+            if (Rotate == transfromType.OnlyY)
+                return (MatrixMath.sameCloseZero(rotX) && MatrixMath.sameCloseZero(rotZ));
+            if (Rotate == transfromType.OnlyZ)
+                return (MatrixMath.sameCloseZero(rotY) && MatrixMath.sameCloseZero(rotX));
+            return false;
         }
 
         private bool ValidRotation(double[] vHost)
         {
+            if (Rotate == transfromType.XYZIndependent) return true;
             var vL = new[] { L.nodes[1].X - L.nodes[0].X, L.nodes[1].Y - L.nodes[0].Y, L.nodes[1].Z - L.nodes[0].Z };
             return (MatrixMath.sameCloseZero(MatrixMath.norm2(MatrixMath.crossProduct3(vL, vHost)))
                 && (0 < vL[0] * vHost[0] + vL[1] * vHost[1] + vL[2] * vHost[2]));
@@ -605,7 +645,7 @@ namespace GraphSynth.Representation
 
         private Boolean ValidRotation(double angle)
         {
-            if (Rotate) return true;
+            if (Rotate == transfromType.XYZIndependent) return true;
             return (MatrixMath.sameCloseZero(angle));
         }
 
@@ -770,7 +810,7 @@ namespace GraphSynth.Representation
          * in T as skewX, skewY, scaleX, and scaleY. The approach taken here is to solve 
          * for theta (the amount of rotation) and then call/return what the overload produces
          * which requires theta and solves for skewX, skewY, scaleX, and scaleY. */
-            if (!Rotate) return validTransform(T, 0.0);
+            if (Rotate == transfromType.Prohibited || Rotate == transfromType.OnlyX || Rotate == transfromType.OnlyY) return validTransform(T, 0.0);
             /* Skew restrictions are easier than Scale, because they default to (as in the 
          * identity matrix) 0 whereas Scale is 1. */
             if ((Skew == transfromType.Prohibited) || (Skew == transfromType.OnlyY))

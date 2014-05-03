@@ -37,7 +37,7 @@ namespace GraphSynth.UI
                 cmdSkew.SelectedIndex = (int)_rule.Skew;
                 cmdFlip.SelectedIndex = (int)_rule.Flip;
                 cmdProjection.SelectedIndex = (int)_rule.Projection;
-                chkRotate.IsChecked = _rule.Rotate;
+                cmdRotate.SelectedIndex = (int)_rule.Rotate;
                 chkMatchRShapes.IsChecked = _rule.RestrictToNodeShapeMatch;
                 chkTransformNodeShapes.IsChecked = _rule.TransformNodeShapes;
                 chkShapeRuleProperties.IsChecked = _rule.UseShapeRestrictions;
@@ -89,16 +89,10 @@ namespace GraphSynth.UI
             rule.Projection = TransformDict[cmdProjection.SelectedItem.ToString()];
         }
 
-        private void chkRotate_Checked(object sender, RoutedEventArgs e)
+        private void cmdRotation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            rule.Rotate = true;
-        }
-
-        private void chkRotate_Unchecked(object sender, RoutedEventArgs e)
-        {
-            rule.Rotate = false;
-        }
-
+            rule.Rotate = TransformDict[cmdProjection.SelectedItem.ToString()];
+        }     
 
         private void chkMatchRShapes_Checked(object sender, RoutedEventArgs e)
         {

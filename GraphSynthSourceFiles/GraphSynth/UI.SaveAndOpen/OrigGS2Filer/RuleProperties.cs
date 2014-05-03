@@ -13,7 +13,7 @@ namespace GraphSynth
         [XmlAttribute]
         public bool OrderedGlobalLabels;
         public transfromType Projection;
-        public Boolean Rotate;
+        public transfromType Rotate;
 
         public transfromType Scale;
 

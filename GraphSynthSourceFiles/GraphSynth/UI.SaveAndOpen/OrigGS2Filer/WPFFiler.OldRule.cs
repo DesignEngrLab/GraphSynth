@@ -233,7 +233,7 @@ namespace GraphSynth
                     var s = x.OuterXml;
                     if (a.name.Equals(MyXamlHelpers.GetValue(s, "Tag")))
                     {
-                        dispatch.Invoke((ThreadStart)delegate 
+                        dispatch.Invoke((ThreadStart)delegate
                         { a.DisplayShape = new DisplayShape(s, ShapeRepresents.Arc, a); });
                         break;
                     }
