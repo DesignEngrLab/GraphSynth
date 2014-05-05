@@ -293,7 +293,7 @@ namespace GraphSynth.Representation
                 && (arcMatches(newLArc, (arc)a, fromHostNode, nextHostNode, (newLArc.From == fromLNode))
                 || arcMatchRelaxed(newLArc, (arc)a, location, fromHostNode, nextHostNode, (newLArc.From == fromLNode)))).Cast<arc>();
             //relaxelt
-            if ((nextHostNode != null) || newLArc.nullMeansNull)
+            if ((nextHostNode != null) || nextLNode == null)
                 foreach (var HostArc in neighborHostArcs)
                 {
                     var newLocation = location.copy();
@@ -475,7 +475,7 @@ namespace GraphSynth.Representation
                     newElements.Add(D.nodes.Last());
                     /* add the new node to the list of newElements that is returned by this function.*/
                     TransformPositionOfNode(D.nodes.Last(), positionT, rNode);
-                    if (TransformNodeShapes && D.nodes.Last().DisplayShape!=null)
+                    if (TransformNodeShapes && D.nodes.Last().DisplayShape != null)
                         TransfromShapeOfNode(D.nodes.Last(), positionT);
                 }
                 #endregion
@@ -500,8 +500,8 @@ namespace GraphSynth.Representation
                         TransformPositionOfNode(KNode, positionT, rNode);
                     if (rNode.DisplayShape != null && TransformNodeShapes)
                     {
-                        if (KNode.DisplayShape == null 
-                            ||rNode.DisplayShape.GetType() == KNode.DisplayShape.GetType())
+                        if (KNode.DisplayShape == null
+                            || rNode.DisplayShape.GetType() == KNode.DisplayShape.GetType())
                             KNode.DisplayShape = rNode.DisplayShape.Copy(KNode);
                         TransfromShapeOfNode(KNode, positionT);
                     }
