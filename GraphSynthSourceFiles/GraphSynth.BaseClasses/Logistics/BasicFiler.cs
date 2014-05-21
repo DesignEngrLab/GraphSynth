@@ -504,6 +504,10 @@ namespace GraphSynth
         {
             try
             {
+              xmlString=  xmlString.Replace("<Rotate>true</Rotate>", "<Rotate>OnlyZ</Rotate>");
+              xmlString = xmlString.Replace("<Rotate>false</Rotate>", "<Rotate>Prohibited</Rotate>");
+              xmlString = xmlString.Replace("<Rotate >true</Rotate>", "<Rotate>OnlyZ</Rotate>");
+              xmlString = xmlString.Replace("<Rotate >false</Rotate>", "<Rotate>Prohibited</Rotate>");
                 var stringReader = new StringReader(xmlString);
                 var ruleDeserializer = new XmlSerializer(typeof(grammarRule));
                 var newGrammarRule = (grammarRule)ruleDeserializer.Deserialize(stringReader);
@@ -517,7 +521,7 @@ namespace GraphSynth
                 {
                     foreach (var unkXmlElt in er.oldLabels)
                     {
-                        /* this doesn't seem like the best place for this, but the doub'e foreach
+                        /* this doesn't seem like the best place for this, but the double foreach
                            * loop is intended to help load old grammar rules that have the simpler
                            * version of embedding rules. */
                         if ((unkXmlElt.Name == "freeArcLabel") && (unkXmlElt.InnerText.Length > 0))

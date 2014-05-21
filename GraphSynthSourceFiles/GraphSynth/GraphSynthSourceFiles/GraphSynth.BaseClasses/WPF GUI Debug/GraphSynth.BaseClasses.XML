@@ -784,6 +784,31 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:GraphSynth.Representation.designGraph.Equals(System.Object)">
+            <summary>
+            Overrides the object method to check all details of the graphs to see
+            if they are identical. It is potentially time-consuming as it makes
+            rules and assigns the graphs as the L of the rule, and then performs
+            the "recognize" function on the other graph.
+            </summary>
+            <param name="obj">The other graph to compare to this one.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:GraphSynth.Representation.designGraph.Equals(System.Object,System.Boolean)">
+            <summary>
+            Overrides the object method to check all details of the graphs to see
+            if they are identical. It is potentially time-consuming as it makes
+            rules and assigns the graphs as the L of the rule, and then performs
+            the "recognize" function on the other graph.
+            </summary>
+            <param name="obj">The other graph to compare to this one.</param>
+            <param name="contentsOfGraphAreEqual">if set to <c>true</c> then check that contents of graph are equal even though they occupy different memory.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
         <member name="P:GraphSynth.Representation.designGraph.name">
             <summary>
               Gets or sets the name.

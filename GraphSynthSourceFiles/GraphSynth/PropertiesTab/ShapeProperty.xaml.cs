@@ -23,6 +23,7 @@ namespace GraphSynth.UI
                 cmdSkew.Items.Add(s.ToString());
                 cmdFlip.Items.Add(s.ToString());
                 cmdProjection.Items.Add(s.ToString());
+                cmdRotate.Items.Add(s.ToString());
             }
         }
 
@@ -40,7 +41,9 @@ namespace GraphSynth.UI
                 cmdRotate.SelectedIndex = (int)_rule.Rotate;
                 chkMatchRShapes.IsChecked = _rule.RestrictToNodeShapeMatch;
                 chkTransformNodeShapes.IsChecked = _rule.TransformNodeShapes;
+                chkTransformNodePositions.IsChecked = _rule.TransformNodePositions;
                 chkShapeRuleProperties.IsChecked = _rule.UseShapeRestrictions;
+                EnableOrDisableComboBoxes();
             }
         }
 
@@ -59,7 +62,7 @@ namespace GraphSynth.UI
             transformDict.Add("Not Allowed", transfromType.Prohibited);
             transformDict.Add("Allowed only in X", transfromType.OnlyX);
             transformDict.Add("Allowed only in Y", transfromType.OnlyY);
-            transformDict.Add("Allowed only in Z", transfromType.OnlyY);
+            transformDict.Add("Allowed only in Z", transfromType.OnlyZ);
             transformDict.Add("Allowed Uniformly in X,Y,& Z", transfromType.XYZUniform);
             transformDict.Add("Allowed in X,Y,& Z Independently", transfromType.XYZIndependent);
         }
@@ -91,7 +94,7 @@ namespace GraphSynth.UI
 
         private void cmdRotation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            rule.Rotate = TransformDict[cmdProjection.SelectedItem.ToString()];
+            rule.Rotate = TransformDict[cmdRotate.SelectedItem.ToString()];
         }     
 
         private void chkMatchRShapes_Checked(object sender, RoutedEventArgs e)
@@ -114,17 +117,38 @@ namespace GraphSynth.UI
             rule.TransformNodeShapes = false;
         }
 
+        private void chkTransformNodePositions_Checked(object sender, RoutedEventArgs e)
+        {
+            rule.TransformNodePositions = true;
+        }
+
+        private void chkTransformNodePositions_Unchecked(object sender, RoutedEventArgs e)
+        {
+            rule.TransformNodePositions = false;
+        }
+
 
         private void chkShapeRuleProperties_Checked(object sender, RoutedEventArgs e)
         {
             rule.UseShapeRestrictions = true;
-            expShapeRuleProperties.IsExpanded = true;
+            EnableOrDisableComboBoxes();
         }
 
         private void chkShapeRuleProperties_Unchecked(object sender, RoutedEventArgs e)
         {
             rule.UseShapeRestrictions = false;
-            expShapeRuleProperties.IsExpanded = false;
+            EnableOrDisableComboBoxes();
+        }
+
+        void EnableOrDisableComboBoxes()
+        {
+            cmdTranslate.IsEnabled =
+                cmdScale.IsEnabled =
+                    cmdSkew.IsEnabled =
+                        cmdFlip.IsEnabled =
+                            cmdProjection.IsEnabled =
+                                cmdRotate.IsEnabled = rule.UseShapeRestrictions;
+
         }
     }
 }

@@ -288,7 +288,6 @@ namespace GraphSynth
         /// This type of transform is not recognized/performed.
         /// </summary>
         Prohibited=0,
-        False = 0,
         /// <summary>
         /// This type of transform is recognized/performed only in the X-direction.
         /// </summary>
@@ -311,6 +310,5 @@ namespace GraphSynth
         /// </summary>    
         XYZIndependent = 5,
         BothIndependent = 5,
-        True = 5
     };
 }

@@ -683,6 +683,68 @@ namespace GraphSynth.Representation
 
         #endregion
 
+        /// <summary>
+        /// Overrides the object method to check all details of the graphs to see
+        /// if they are identical. It is potentially time-consuming as it makes
+        /// rules and assigns the graphs as the L of the rule, and then performs
+        /// the "recognize" function on the other graph.
+        /// </summary>
+        /// <param name="obj">The other graph to compare to this one.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            return Equals(obj, false);
+        }
+
+        /// <summary>
+        /// Overrides the object method to check all details of the graphs to see
+        /// if they are identical. It is potentially time-consuming as it makes
+        /// rules and assigns the graphs as the L of the rule, and then performs
+        /// the "recognize" function on the other graph.
+        /// </summary>
+        /// <param name="obj">The other graph to compare to this one.</param>
+        /// <param name="contentsOfGraphAreEqual">if set to <c>true</c> then check that contents of graph are equal even though they occupy different memory.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+        /// </returns>
+        public bool Equals(object obj, bool contentsOfGraphAreEqual)
+        {
+            if (base.Equals(obj)) return true;
+            if (!contentsOfGraphAreEqual) return false;
+            if (!(obj is designGraph)) return false;
+            var g = (designGraph)obj;
+            if (nodes.Count != g.nodes.Count) return false;
+            if (arcs.Count != g.arcs.Count) return false;
+            if (hyperarcs.Count != g.hyperarcs.Count) return false;
+
+            var dummyRule = new grammarRule();
+            #region put g's nodes, arcs and hyperarcs into the LHS of the rule
+            dummyRule.L = new designGraph();
+            foreach (var n in g.nodes)
+                dummyRule.L.nodes.Add(new ruleNode(n));
+            foreach (var n in g.arcs)
+                dummyRule.L.arcs.Add(new ruleArc(n));
+            foreach (var n in g.hyperarcs)
+                dummyRule.L.hyperarcs.Add(new ruleHyperarc(n));
+            dummyRule.L.internallyConnectGraph();
+            #endregion
+            if (dummyRule.recognize(g).Count < 1) return false;
+
+            #region put this's nodes, arcs and hyperarcs into the LHS of the rule
+            dummyRule.L = new designGraph();
+            foreach (var n in g.nodes)
+                dummyRule.L.nodes.Add(new ruleNode(n));
+            foreach (var n in g.arcs)
+                dummyRule.L.arcs.Add(new ruleArc(n));
+            foreach (var n in g.hyperarcs)
+                dummyRule.L.hyperarcs.Add(new ruleHyperarc(n));
+            dummyRule.L.internallyConnectGraph();
+            #endregion
+            if (dummyRule.recognize(this).Count < 1) return false;
+            return true;
+        }
         #endregion
 
     }

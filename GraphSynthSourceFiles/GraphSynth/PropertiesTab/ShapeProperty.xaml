@@ -22,20 +22,13 @@
         </Style>
     </UserControl.Resources>
     <Border BorderThickness="5" BorderBrush="#80ffffff" CornerRadius="8" Background="#10101010">
-        <Expander Name="expShapeRuleProperties" IsExpanded="False" >
-            <Expander.Header>
-                <StackPanel Orientation="Horizontal">
-                    <Label HorizontalAlignment="Left">Shape Rule Properties</Label>
-                    <CheckBox Name="chkShapeRuleProperties" 
-                             Checked="chkShapeRuleProperties_Checked"
-                             Unchecked="chkShapeRuleProperties_Unchecked"/>
-                </StackPanel>
-            </Expander.Header>
+        <Expander Name="expShapeRuleProperties" IsExpanded="False" Header="Shape Rule Properties" >
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="53"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="45"/>
+                    <ColumnDefinition Width="45"/>
+                    <ColumnDefinition Width="66"/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -46,32 +39,50 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Grid.ColumnSpan="2">Translate</Label>
-                <ComboBox Grid.Row="0" Name="cmdTranslate" SelectionChanged="cmdTranslate_SelectionChanged" Grid.Column="2"/>
 
-                <Label Grid.Row="1" Grid.Column="1">Scale</Label>
-                <ComboBox Grid.Row="1" Name="cmdScale" SelectionChanged="cmdScale_SelectionChanged" Grid.Column="2"/>
+                <StackPanel  Background="#7F8B0000" Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="2" Orientation="Vertical" >
+                    <TextBlock Foreground="White" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" FontSize="14" Height="51" >&lt;  L  &gt; Shape Restrictions</TextBlock>
+                    <TextBlock Foreground="White" TextAlignment="Center"  TextWrapping="Wrap" Height="64"  >(check to apply restrictions on right)</TextBlock>
+                    <CheckBox Name="chkShapeRuleProperties" Checked="chkShapeRuleProperties_Checked" Unchecked="chkShapeRuleProperties_Unchecked" Margin="38,0,25,0" Width="27" />
+                </StackPanel>
+                <TextBlock Grid.Row="8" Grid.Column="0" Background="#7F006400" Foreground="White" TextWrapping="Wrap" 
+                           TextAlignment="Center" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2" Margin="0,22,28.667,-45"  >
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>&lt;  R  &gt; Changes</TextBlock>
 
-                <Label Grid.Row="2" Grid.Column="1">Skew</Label>
-                <ComboBox Grid.Row="2" Name="cmdSkew" SelectionChanged="cmdSkew_SelectionChanged" Grid.Column="2"/>
+                <Label Grid.Row="0" Grid.Column="2" Width="58">Translate</Label>
+                <ComboBox Grid.Row="0" Name="cmdTranslate" SelectionChanged="cmdTranslate_SelectionChanged" Grid.Column="3"  />
 
-                <Label Grid.Row="3" Grid.Column="1">Flip</Label>
-                <ComboBox Grid.Row="3" Name="cmdFlip" SelectionChanged="cmdFlip_SelectionChanged" Grid.Column="2"/>
+                <Label Grid.Row="1" Grid.Column="2" Width="37">Scale</Label>
+                <ComboBox Grid.Row="1" Name="cmdScale" SelectionChanged="cmdScale_SelectionChanged" Grid.Column="3" />
 
-                <Label Grid.Row="4" Grid.ColumnSpan="2">Projection</Label>
-                <ComboBox Grid.Row="4" Name="cmdProjection" SelectionChanged="cmdProjection_SelectionChanged" Grid.Column="2"/>
+                <Label Grid.Row="2" Grid.Column="2" Width="37">Skew</Label>
+                <ComboBox Grid.Row="2" Name="cmdSkew" SelectionChanged="cmdSkew_SelectionChanged" Grid.Column="3" />
 
-                <Label Grid.Row="5" Grid.ColumnSpan="2">Rotation</Label>
-                <ComboBox Grid.Row="5" Name="cmdRotate" SelectionChanged="cmdRotation_SelectionChanged" Grid.Column="2" />
+                <Label Grid.Row="3"  Grid.Column="2" Width="29">Flip</Label>
+                <ComboBox Grid.Row="3" Name="cmdFlip" SelectionChanged="cmdFlip_SelectionChanged" Grid.Column="3" />
 
-                <Label Grid.Row="6" Grid.ColumnSpan="2">Replace with R Shapes?</Label>
-                <CheckBox Grid.Row="6" Name="chkMatchRShapes" 
-                          Checked="chkMatchRShapes_Checked" Unchecked="chkMatchRShapes_Unchecked" Grid.Column="2" Margin="5,6" />
+                <Label Grid.Row="4" Grid.Column="2" Width="63">Projection</Label>
+                <ComboBox Grid.Row="4" Name="cmdProjection" SelectionChanged="cmdProjection_SelectionChanged" Grid.Column="3" />
 
-                <Label Grid.Row="7" Grid.ColumnSpan="2">Transform Node Shapes?</Label>
-                <CheckBox Grid.Row="7" Name="chkTransformNodeShapes" 
-                          Checked="chkTransformNodeShapes_Checked"  Unchecked="chkTransformNodeShapes_Unchecked" Grid.Column="2" Margin="5,6" />
+                <Label Grid.Row="5"  Grid.Column="2" Width="55">Rotation</Label>
+                <ComboBox Grid.Row="5" Name="cmdRotate" SelectionChanged="cmdRotation_SelectionChanged" Grid.Column="3"  />
+
+
+                <CheckBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Name="chkMatchRShapes" Width="145" Height="22" HorizontalAlignment="Left" VerticalContentAlignment="Center"
+                          Checked="chkMatchRShapes_Checked" Unchecked="chkMatchRShapes_Unchecked" Margin="4,0,0,0" >Replace with R Shapes?</CheckBox>
+                <CheckBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" Name="chkTransformNodeShapes" Margin="4,0,0,0" Width="171" Height="22" HorizontalAlignment="Left" VerticalContentAlignment="Center"
+                          Checked="chkTransformNodeShapes_Checked"  Unchecked="chkTransformNodeShapes_Unchecked">Apply Transform to Nodes?</CheckBox>
+                <CheckBox Grid.Row="8"  Grid.Column="1" Grid.ColumnSpan="3" Name="chkTransformNodePositions" Margin="4,0,0,0" Width="163" Height="22" HorizontalAlignment="Left" VerticalContentAlignment="Center"
+                          Checked="chkTransformNodePositions_Checked"  Unchecked="chkTransformNodePositions_Unchecked">Transform Node Positions?</CheckBox>
             </Grid>
         </Expander>
 
