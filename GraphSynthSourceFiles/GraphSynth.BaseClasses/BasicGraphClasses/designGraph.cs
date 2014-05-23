@@ -730,7 +730,7 @@ namespace GraphSynth.Representation
                 dummyRule.L.hyperarcs.Add(new ruleHyperarc(n));
             dummyRule.L.internallyConnectGraph();
             #endregion
-            if (dummyRule.recognize(g).Count < 1) return false;
+            if (dummyRule.recognize(this).Count < 1) return false;
 
             #region put this's nodes, arcs and hyperarcs into the LHS of the rule
             dummyRule.L = new designGraph();
@@ -742,7 +742,7 @@ namespace GraphSynth.Representation
                 dummyRule.L.hyperarcs.Add(new ruleHyperarc(n));
             dummyRule.L.internallyConnectGraph();
             #endregion
-            if (dummyRule.recognize(this).Count < 1) return false;
+            if (dummyRule.recognize(g).Count < 1) return false;
             return true;
         }
         #endregion
