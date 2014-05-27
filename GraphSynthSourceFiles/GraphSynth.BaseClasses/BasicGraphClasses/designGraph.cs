@@ -718,12 +718,17 @@ namespace GraphSynth.Representation
             if (nodes.Count != g.nodes.Count) return false;
             if (arcs.Count != g.arcs.Count) return false;
             if (hyperarcs.Count != g.hyperarcs.Count) return false;
-
+            for (int i = 0; i < nodes.Count; i++)
+                if (DegreeSequence[i] != g.DegreeSequence[i]) return false;
+            var maxDegree = DegreeSequence[0];
             var dummyRule = new grammarRule();
             #region put g's nodes, arcs and hyperarcs into the LHS of the rule
             dummyRule.L = new designGraph();
             foreach (var n in g.nodes)
-                dummyRule.L.nodes.Add(new ruleNode(n));
+            {
+                if (n.degree == maxDegree) dummyRule.L.nodes.Insert(0, new ruleNode(n));
+                else dummyRule.L.nodes.Add(new ruleNode(n));
+            }
             foreach (var n in g.arcs)
                 dummyRule.L.arcs.Add(new ruleArc(n));
             foreach (var n in g.hyperarcs)
@@ -734,11 +739,14 @@ namespace GraphSynth.Representation
 
             #region put this's nodes, arcs and hyperarcs into the LHS of the rule
             dummyRule.L = new designGraph();
-            foreach (var n in g.nodes)
+            foreach (var n in this.nodes)
+            {
+                if (n.degree == maxDegree) dummyRule.L.nodes.Insert(0, new ruleNode(n));
                 dummyRule.L.nodes.Add(new ruleNode(n));
-            foreach (var n in g.arcs)
+            }
+            foreach (var n in this.arcs)
                 dummyRule.L.arcs.Add(new ruleArc(n));
-            foreach (var n in g.hyperarcs)
+            foreach (var n in this.hyperarcs)
                 dummyRule.L.hyperarcs.Add(new ruleHyperarc(n));
             dummyRule.L.internallyConnectGraph();
             #endregion

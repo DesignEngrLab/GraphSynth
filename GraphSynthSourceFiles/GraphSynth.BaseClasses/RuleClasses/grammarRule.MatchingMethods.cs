@@ -45,7 +45,7 @@ namespace GraphSynth.Representation
             if (string.IsNullOrWhiteSpace(TargetType) || Type.GetType(TargetType) == null)
                 return true;
             var t = Type.GetType(TargetType);
-            return (hostElt.GetType().IsInstanceOfType(t));
+            return (hostElt.GetType().Equals(t)||hostElt.GetType().IsSubclassOf(t));
         }
 
         private static Boolean LabelsMatch(IEnumerable<string> hostLabels, IEnumerable<string> positiveLabels, IEnumerable<string> negateLabels,
