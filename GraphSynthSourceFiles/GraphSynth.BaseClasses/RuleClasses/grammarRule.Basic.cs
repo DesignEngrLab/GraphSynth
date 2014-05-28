@@ -261,8 +261,8 @@ namespace GraphSynth.Representation
             {
                 return new List<int>(from n in L.nodes
                                      where !((ruleNode)n).NotExist
-                                     orderby n.degree descending
-                                     select n.degree);
+                                     orderby n.arcs.Count(a=>!((ruleArc)a).NotExist) descending
+                                     select n.arcs.Count(a => !((ruleArc)a).NotExist));
             }
         }
         IList<int> LHyperArcDegreeSequence
@@ -271,8 +271,8 @@ namespace GraphSynth.Representation
             {
                 return new List<int>(from ha in L.hyperarcs
                                      where !((ruleHyperarc)ha).NotExist
-                                     orderby ha.degree descending
-                                     select ha.degree);
+                                     orderby ha.nodes.Count(n => !((ruleNode)n).NotExist) descending
+                                     select ha.nodes.Count(n => !((ruleNode)n).NotExist));
             }
         }
         //private grammarRule copy()

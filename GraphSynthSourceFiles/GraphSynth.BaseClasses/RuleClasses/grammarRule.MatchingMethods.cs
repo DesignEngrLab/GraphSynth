@@ -442,7 +442,7 @@ namespace GraphSynth.Representation
                        || (!OrderedGlobalLabels && LabelsMatch(host.globalLabels, L.globalLabels, negateLabels, containsAllGlobalLabels)))
                    && hasLargerOrEqualDegreeSeqence(host.DegreeSequence, LDegreeSequence)
                    && hasLargerOrEqualDegreeSeqence(host.HyperArcDegreeSequence, LHyperArcDegreeSequence)
-                   && (host.arcs.Count >= L.arcs.Count);
+                   && (host.arcs.Count >= L.arcs.Count(a=>!((ruleArc)a).NotExist));
         }
 
         private Boolean InitialRuleCheckRelaxed(option location)
