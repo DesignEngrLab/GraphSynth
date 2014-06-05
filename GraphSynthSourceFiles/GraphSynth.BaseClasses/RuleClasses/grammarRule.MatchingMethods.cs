@@ -45,7 +45,7 @@ namespace GraphSynth.Representation
             if (string.IsNullOrWhiteSpace(TargetType) || Type.GetType(TargetType) == null)
                 return true;
             var t = Type.GetType(TargetType);
-            return (hostElt.GetType().Equals(t)||hostElt.GetType().IsSubclassOf(t));
+            return (hostElt.GetType().Equals(t) || hostElt.GetType().IsSubclassOf(t));
         }
 
         private static Boolean LabelsMatch(IEnumerable<string> hostLabels, IEnumerable<string> positiveLabels, IEnumerable<string> negateLabels,
@@ -437,12 +437,12 @@ namespace GraphSynth.Representation
         #region Initial Rule Check (global labels, spanning)
         private Boolean InitialRuleCheck()
         {
-            return (!spanning || (L.nodes.Count == host.nodes.Count))
+            return (!spanning || (L.nodes.Count(rn => !((ruleNode)rn).NotExist) == host.nodes.Count))
                    && ((OrderedGlobalLabels && OrderLabelsMatch(host.globalLabels))
                        || (!OrderedGlobalLabels && LabelsMatch(host.globalLabels, L.globalLabels, negateLabels, containsAllGlobalLabels)))
                    && hasLargerOrEqualDegreeSeqence(host.DegreeSequence, LDegreeSequence)
                    && hasLargerOrEqualDegreeSeqence(host.HyperArcDegreeSequence, LHyperArcDegreeSequence)
-                   && (host.arcs.Count >= L.arcs.Count(a=>!((ruleArc)a).NotExist));
+                   && (host.arcs.Count >= L.arcs.Count(a => !((ruleArc)a).NotExist));
         }
 
         private Boolean InitialRuleCheckRelaxed(option location)
@@ -595,7 +595,7 @@ namespace GraphSynth.Representation
             {
                 var positiveNodes = new List<node>(location.nodes);
                 positiveNodes.RemoveRange(firstNotExistIndex, (positiveNodes.Count - firstNotExistIndex));
-                validTransform = findTransform(positiveNodes,out T);
+                validTransform = findTransform(positiveNodes, out T);
             }
             if (UseShapeRestrictions && (!validTransform || !otherNodesComply(T, location.nodes)))
                 return false; // not a valid option
