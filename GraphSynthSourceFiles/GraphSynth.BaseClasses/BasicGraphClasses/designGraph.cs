@@ -733,6 +733,7 @@ namespace GraphSynth.Representation
                 dummyRule.L.arcs.Add(new ruleArc(n));
             foreach (var n in g.hyperarcs)
                 dummyRule.L.hyperarcs.Add(new ruleHyperarc(n));
+          
             dummyRule.L.internallyConnectGraph();
             #endregion
             if (dummyRule.recognize(this).Count < 1) return false;
@@ -742,13 +743,14 @@ namespace GraphSynth.Representation
             foreach (var n in this.nodes)
             {
                 if (n.degree == maxDegree) dummyRule.L.nodes.Insert(0, new ruleNode(n));
-                dummyRule.L.nodes.Add(new ruleNode(n));
+                else  dummyRule.L.nodes.Add(new ruleNode(n));
             }
             foreach (var n in this.arcs)
                 dummyRule.L.arcs.Add(new ruleArc(n));
             foreach (var n in this.hyperarcs)
                 dummyRule.L.hyperarcs.Add(new ruleHyperarc(n));
             dummyRule.L.internallyConnectGraph();
+            
             #endregion
             if (dummyRule.recognize(g).Count < 1) return false;
             return true;
