@@ -65,7 +65,7 @@ namespace GraphSynth.UserRandLindChoose
 
         private void tbNumCalls_LostFocus(object sender, RoutedEventArgs e)
         {
-            var numbers = DoubleCollectionConverter.convert(tbNumCalls.Text);
+            var numbers = DoubleCollectionConverter.Convert(tbNumCalls.Text);
             LindenmayerChooseProcess.numOfCalls = new int[numbers.Count];
             for (var i = 0; i < numbers.Count; i++)
                 LindenmayerChooseProcess.numOfCalls[i] = (int)numbers[i];

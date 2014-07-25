@@ -196,7 +196,7 @@ namespace GraphSynth.UI
                 newSettings.defaultRSFileNames.RemoveRange(newSettings.numOfRuleSets, newSettings.defaultRSFileNames.Count
                     - newSettings.numOfRuleSets);
             newSettings.DefaultRuleSets
-                = StringCollectionConverter.convert(newSettings.defaultRSFileNames);
+                = StringCollectionConverter.Convert(newSettings.defaultRSFileNames);
             newSettings.saveNewSettings();
             btnApplyInThisProcess.IsDefault = true;
         }
@@ -207,7 +207,7 @@ namespace GraphSynth.UI
                 newSettings.defaultRSFileNames.RemoveRange(newSettings.numOfRuleSets, newSettings.defaultRSFileNames.Count
                     - newSettings.numOfRuleSets);
             newSettings.DefaultRuleSets
-                = StringCollectionConverter.convert(newSettings.defaultRSFileNames);
+                = StringCollectionConverter.Convert(newSettings.defaultRSFileNames);
             newSettings.saveNewSettings(main.GetSaveFilename("GraphSynth config file (*.gsconfig)|*.gsconfig",
                                                              "", GSApp.settings.WorkingDirAbsolute));
             btnApplyInThisProcess.IsDefault = true;
@@ -220,7 +220,7 @@ namespace GraphSynth.UI
                 newSettings.defaultRSFileNames.RemoveRange(newSettings.numOfRuleSets,newSettings.defaultRSFileNames.Count
                     -newSettings.numOfRuleSets);
             newSettings.DefaultRuleSets
-                = StringCollectionConverter.convert(newSettings.defaultRSFileNames);
+                = StringCollectionConverter.Convert(newSettings.defaultRSFileNames);
             var tempSettings = GSApp.settings;
             GSApp.settings = newSettings;
             SearchIO.defaultVerbosity = newSettings.DefaultVerbosity;

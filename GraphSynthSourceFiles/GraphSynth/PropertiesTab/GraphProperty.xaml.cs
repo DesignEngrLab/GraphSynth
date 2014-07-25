@@ -30,7 +30,7 @@ namespace GraphSynth.UI
             var senderTextBox = (TextBox)sender;
             var caretIndex = senderTextBox.CaretIndex;
             var origLength = senderTextBox.Text.Length;
-            var lststr = StringCollectionConverter.convert(senderTextBox.Text);
+            var lststr = StringCollectionConverter.Convert(senderTextBox.Text);
             selectedGraph.globalLabels.Clear();
             foreach (string str in lststr)
             {
@@ -55,7 +55,7 @@ namespace GraphSynth.UI
             var senderTextBox = (TextBox)sender;
             var caretIndex = senderTextBox.CaretIndex;
             var origLength = senderTextBox.Text.Length;
-            var lst = DoubleCollectionConverter.convert(senderTextBox.Text);
+            var lst = DoubleCollectionConverter.Convert(senderTextBox.Text);
             selectedGraph.globalVariables.Clear();
             foreach (double d in lst)
             {
@@ -98,9 +98,9 @@ namespace GraphSynth.UI
                 txtSeed.Height = 0.0;
             }
             graphWin.txtGlobalVariables.Text = txtVariables.Text
-                                               = DoubleCollectionConverter.convert(selectedGraph.globalVariables);
+                                               = DoubleCollectionConverter.Convert(selectedGraph.globalVariables);
             graphWin.txtGlobalLabels.Text = txtGlobalLabels.Text
-                                            = StringCollectionConverter.convert(selectedGraph.globalLabels);
+                                            = StringCollectionConverter.Convert(selectedGraph.globalLabels);
         }
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)

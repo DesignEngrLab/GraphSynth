@@ -341,7 +341,7 @@ namespace GraphSynth.UI
 
         private void txtKGlobalLabels_LostFocus(object sender, RoutedEventArgs e)
         {
-            var labels = StringCollectionConverter.convert(txtKGlobalLabels.Text);
+            var labels = StringCollectionConverter.Convert(txtKGlobalLabels.Text);
             var removedKLabels = KLabels.Where(a => !labels.Contains(a)).ToList();
             foreach (string a in removedKLabels)
             {
@@ -353,7 +353,7 @@ namespace GraphSynth.UI
             main.property.RulePrpt.txtLGlobalLabels_LostFocus(new TextBox
                                                                   {
                                                                       Text =
-                                                                          StringCollectionConverter.convert(
+                                                                          StringCollectionConverter.Convert(
                                                                               new List<string>(union))
                                                                   }, null);
 
@@ -361,7 +361,7 @@ namespace GraphSynth.UI
             main.property.RulePrpt.txtRGlobalLabels_LostFocus(new TextBox
                                                                   {
                                                                       Text =
-                                                                          StringCollectionConverter.convert(
+                                                                          StringCollectionConverter.Convert(
                                                                               new List<string>(union))
                                                                   }, null);
         }
@@ -381,7 +381,7 @@ namespace GraphSynth.UI
 
         private void txtKGlobalVariables_LostFocus(object sender, RoutedEventArgs e)
         {
-            var vars = DoubleCollectionConverter.convert(txtKGlobalVariables.Text);
+            var vars = DoubleCollectionConverter.Convert(txtKGlobalVariables.Text);
             var removedKVars = KVariables.Where(a => !vars.Contains(a)).ToList();
             foreach (double a in removedKVars)
             {
@@ -393,13 +393,13 @@ namespace GraphSynth.UI
             var union = KVariables.Union(rule.L.globalVariables);
             txtLGlobalVariables_LostFocus(new TextBox
                                               {
-                                                  Text = DoubleCollectionConverter.convert(new List<double>(union))
+                                                  Text = DoubleCollectionConverter.Convert(new List<double>(union))
                                               }, null);
 
             union = KVariables.Union(rule.R.globalVariables);
             txtRGlobalVariables_LostFocus(new TextBox
                                               {
-                                                  Text = DoubleCollectionConverter.convert(new List<double>(union))
+                                                  Text = DoubleCollectionConverter.Convert(new List<double>(union))
                                               }, null);
         }
 

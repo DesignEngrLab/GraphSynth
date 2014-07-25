@@ -272,7 +272,7 @@ namespace GraphSynth
         {
             base.OnStartupNextInstance(e);
             GSApp.InputArgs = new List<string>(e.CommandLine);
-            SearchIO.output(StringCollectionConverter.convert(GSApp.InputArgs));
+            SearchIO.output(StringCollectionConverter.Convert(GSApp.InputArgs));
             GSApp.ParseArguments();
             if (GSApp.ArgAltConfig)
                 GSApp.settings =

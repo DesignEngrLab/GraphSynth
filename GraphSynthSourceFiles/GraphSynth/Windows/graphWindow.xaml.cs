@@ -105,8 +105,8 @@ namespace GraphSynth.UI
 
             graphGUI.InitDrawGraph();
 
-            txtGlobalVariables.Text = DoubleCollectionConverter.convert(graph.globalVariables);
-            txtGlobalLabels.Text = StringCollectionConverter.convert(graph.globalLabels);
+            txtGlobalVariables.Text = DoubleCollectionConverter.Convert(graph.globalVariables);
+            txtGlobalLabels.Text = StringCollectionConverter.Convert(graph.globalLabels);
         }
 
         public void AdoptWindowWideCanvasProperties()

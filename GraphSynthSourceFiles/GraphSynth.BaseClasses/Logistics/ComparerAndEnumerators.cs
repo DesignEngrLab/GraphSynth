@@ -301,14 +301,20 @@ namespace GraphSynth
         /// </summary>
         OnlyZ = 3,
         /// <summary>
-        /// This type of transform is recognized/performed uniformly in both X and Y.
+        /// This type of transform is recognized/performed uniformly in X, Y, and Z.
         /// </summary>  
         XYZUniform = 4,
+        /// <summary>        
+        /// Deprecated. The type of transform is recognized/performed uniformly in BOTH X and Y (should use XYZUniform).
+        /// </summary>
         BothUniform = 4,
         /// <summary>
-        /// This type of transform is recognized/performed in both X and Y independently.
+        /// This type of transform is recognized/performed independently in X, Y, and Z.
         /// </summary>    
         XYZIndependent = 5,
+        /// <summary>        
+        /// Deprecated. The type of transform is recognized/performed independently in BOTH X and Y (should use XYZIndependent).
+        /// </summary>
         BothIndependent = 5,
     };
 }

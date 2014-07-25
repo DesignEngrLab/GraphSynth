@@ -144,7 +144,6 @@ namespace GraphSynth.Representation
         private Boolean _restrictToNodeShapeMatch;
         private Boolean _transformNodeShapes = true;
         private Boolean _transformNodePositions = true;
-        private double[] scaling;
 
         /// <summary>
         ///   Gets or sets a value indicating whether [use shape restrictions].

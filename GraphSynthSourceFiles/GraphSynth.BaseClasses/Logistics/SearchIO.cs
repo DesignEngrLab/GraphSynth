@@ -38,20 +38,7 @@ namespace GraphSynth
     ///   Search Process.
     /// </summary>
     public static class SearchIO
-    {
-        /// <summary>
-        ///   Gets the process number.
-        /// </summary>
-        /// <value>The process number.</value>
-        public static int processNum
-        {
-            get
-            {
-                var namelength = Thread.CurrentThread.Name.Length;
-                return int.Parse(Thread.CurrentThread.Name.Substring(1, namelength - 3));
-            }
-        }
-
+    {        
         #region Iteration Handling
 
         private const int defaultIteration = 0;

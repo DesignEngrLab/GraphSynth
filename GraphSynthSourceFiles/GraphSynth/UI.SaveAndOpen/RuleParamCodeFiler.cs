@@ -252,13 +252,13 @@ namespace GraphSynth.UI
                 if (n.NotExist) continue;
                 if (n.localLabels.Count > 0)
                     sb.Append("/* " + n.name + " is the node in L that has labels: " +
-                              StringCollectionConverter.convert(n.localLabels) + ";");
+                              StringCollectionConverter.Convert(n.localLabels) + ";");
                 else
                     sb.Append("/* " + n.name + " is the node in L that has no labels;");
                 if (n.negateLabels.Count > 0)
                     sb.Append(" has the negating labels: " +
-                              StringCollectionConverter.convert(n.negateLabels) + ";");
-                sb.Append("\n * is connected to: " + StringCollectionConverter.convert(n.arcs.Select(a => a.name)) +
+                              StringCollectionConverter.Convert(n.negateLabels) + ";");
+                sb.Append("\n * is connected to: " + StringCollectionConverter.Convert(n.arcs.Select(a => a.name)) +
                           ";");
                 sb.Append(" and is located at [" + n.X + ", " + n.Y + ", " + n.Z + "]. */\n");
                 sb.Append("var " + n.name + " = opt.nodes[" + i + "];\n\n");
@@ -269,11 +269,11 @@ namespace GraphSynth.UI
                 if (a.NotExist) continue;
                 if (a.localLabels.Count > 0)
                     sb.Append("/* " + a.name + " is the arc in L that has labels: " +
-                              StringCollectionConverter.convert(a.localLabels) + ";");
+                              StringCollectionConverter.Convert(a.localLabels) + ";");
                 else
                     sb.Append("/* " + a.name + " is the arc in L that has no labels;");
                 if (a.negateLabels.Count > 0)
-                    sb.Append(" has the negating labels: " + StringCollectionConverter.convert(a.negateLabels) + ";");
+                    sb.Append(" has the negating labels: " + StringCollectionConverter.Convert(a.negateLabels) + ";");
                 sb.Append("\n * and is connected from " + a.From.name + " to " + a.To.name + ". */\n");
                 sb.Append("var " + a.name + " = opt.arcs[" + i + "];\n\n");
             }
@@ -283,13 +283,13 @@ namespace GraphSynth.UI
                 if (ha.NotExist) continue;
                 if (ha.localLabels.Count > 0)
                     sb.Append("/* " + ha.name + " is the hypearc in L that has labels: " +
-                              StringCollectionConverter.convert(ha.localLabels) + ";");
+                              StringCollectionConverter.Convert(ha.localLabels) + ";");
                 else
                     sb.Append("/* " + ha.name + " is the hyperarc in L that no labels;");
                 if (ha.negateLabels.Count > 0)
                     sb.Append(" has the negating labels: " +
-                              StringCollectionConverter.convert(ha.negateLabels) + ";\n");
-                sb.Append("\n * and is connected to: " + StringCollectionConverter.convert(ha.nodes.Select(n => n.name)) +
+                              StringCollectionConverter.Convert(ha.negateLabels) + ";\n");
+                sb.Append("\n * and is connected to: " + StringCollectionConverter.Convert(ha.nodes.Select(n => n.name)) +
                           ". */\n");
                 sb.Append("var " + ha.name + " = opt.hyperarcs[" + i + "];\n\n");
             }
@@ -343,13 +343,13 @@ namespace GraphSynth.UI
                 var where = (rule.R.nodes.Any(rn => rn.name.Equals(n.name))) ? "K" : "L";
                 if (n.localLabels.Count > 0)
                     sb.Append("/* " + name + " is the node in " + where + " that has labels: " +
-                              StringCollectionConverter.convert(n.localLabels) + ";");
+                              StringCollectionConverter.Convert(n.localLabels) + ";");
                 else
                     sb.Append("/* " + name + " is the node in " + where + " that has no labels;");
                 if (n.negateLabels.Count > 0)
                     sb.Append(" has the negating labels: " +
-                              StringCollectionConverter.convert(n.negateLabels) + ";");
-                sb.Append("\n * is connected to: " + StringCollectionConverter.convert(n.arcs.Select(a => a.name)) +
+                              StringCollectionConverter.Convert(n.negateLabels) + ";");
+                sb.Append("\n * is connected to: " + StringCollectionConverter.Convert(n.arcs.Select(a => a.name)) +
                           ";");
                 sb.Append(" and is located at [" + n.X + ", " + n.Y + ", " + n.Z + "]. */\n");
                 sb.Append("var " + name + " = opt.nodes[" + i + "];\n\n");
@@ -360,10 +360,10 @@ namespace GraphSynth.UI
                 if (rule.L.nodes.Any(ln => ln.name.Equals(n.name))) continue;
                 if (n.localLabels.Count > 0)
                     sb.Append("/* " + n.name + "_added is the node in R that has labels: " +
-                              StringCollectionConverter.convert(n.localLabels) + ";");
+                              StringCollectionConverter.Convert(n.localLabels) + ";");
                 else
                     sb.Append("/* " + n.name + "_added is the node in R that has no labels;");
-                sb.Append("\n * is connected to: " + StringCollectionConverter.convert(n.arcs.Select(a => a.name)) +
+                sb.Append("\n * is connected to: " + StringCollectionConverter.Convert(n.arcs.Select(a => a.name)) +
                           ";");
                 sb.Append(" and is located at [" + n.X + ", " + n.Y + ", " + n.Z + "]. */\n");
                 sb.Append("var " + n.name + "_added = Rmapping.nodes[" + i + "];\n\n");
@@ -376,10 +376,10 @@ namespace GraphSynth.UI
                 var where = (rule.R.arcs.Any(ra => ra.name.Equals(a.name))) ? "K" : "L";
                 if (a.localLabels.Count > 0)
                     sb.Append("/* " + name + " is the arc in " + where + " that has labels: " +
-                              StringCollectionConverter.convert(a.localLabels) + ";");
+                              StringCollectionConverter.Convert(a.localLabels) + ";");
                 else sb.Append("/* " + name + " is the arc in " + where + " that has no labels;");
                 if (a.negateLabels.Count > 0)
-                    sb.Append(" has the negating labels: " + StringCollectionConverter.convert(a.negateLabels) + ";");
+                    sb.Append(" has the negating labels: " + StringCollectionConverter.Convert(a.negateLabels) + ";");
                 var fromName = a.From == null ? "nothing" : a.From.name;
                 var toName = a.To == null ? "nothing" : a.To.name;
                 sb.Append("\n * and is connected from " + fromName + " to " + toName + ". */\n");
@@ -391,7 +391,7 @@ namespace GraphSynth.UI
                 if (rule.L.arcs.Any(ln => ln.name.Equals(a.name))) continue;
                 if (a.localLabels.Count > 0)
                     sb.Append("/* " + a.name + "_added is the arc in R that has labels: " +
-                              StringCollectionConverter.convert(a.localLabels) + ";");
+                              StringCollectionConverter.Convert(a.localLabels) + ";");
                 else sb.Append("/* " + a.name + "_added is the arc in R that has no labels;");
                 var fromName = a.From == null ? "nothing" : a.From.name;
                 var toName = a.To == null ? "nothing" : a.To.name;
@@ -406,13 +406,13 @@ namespace GraphSynth.UI
                 var where = (rule.R.hyperarcs.Any(ra => ra.name.Equals(ha.name))) ? "K" : "L";
                 if (ha.localLabels.Count > 0)
                     sb.Append("/* " + name + " is the hypearc in " + where + " that has labels: " +
-                              StringCollectionConverter.convert(ha.localLabels) + ";");
+                              StringCollectionConverter.Convert(ha.localLabels) + ";");
                 else
                     sb.Append("/* " + name + " is the hyperarc in " + where + " that no labels;");
                 if (ha.negateLabels.Count > 0)
                     sb.Append(" has the negating labels: " +
-                              StringCollectionConverter.convert(ha.negateLabels) + ";\n");
-                sb.Append("\n * and is connected to: " + StringCollectionConverter.convert(ha.nodes.Select(n => n.name)) +
+                              StringCollectionConverter.Convert(ha.negateLabels) + ";\n");
+                sb.Append("\n * and is connected to: " + StringCollectionConverter.Convert(ha.nodes.Select(n => n.name)) +
                           ". */\n");
                 sb.Append("var " + name + " = opt.hyperarcs[" + i + "];\n\n");
             }
@@ -422,9 +422,9 @@ namespace GraphSynth.UI
                 if (rule.L.hyperarcs.Any(ln => ln.name.Equals(a.name))) continue;
                 if (a.localLabels.Count > 0)
                     sb.Append("/* " + a.name + "_added is the hyperarc in R that has labels: " +
-                              StringCollectionConverter.convert(a.localLabels) + ";");
+                              StringCollectionConverter.Convert(a.localLabels) + ";");
                 else sb.Append("/* " + a.name + "_added is the hyperarc in R that has no labels;");
-                sb.Append("\n * and is connected to: " + StringCollectionConverter.convert(a.nodes.Select(n => n.name)) +
+                sb.Append("\n * and is connected to: " + StringCollectionConverter.Convert(a.nodes.Select(n => n.name)) +
                           ". */\n");
                 sb.Append("var " + a.name + "_added = Rmapping.hyperarcs[" + i + "];\n\n");
             }

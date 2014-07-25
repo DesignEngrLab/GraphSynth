@@ -43,7 +43,7 @@ namespace GraphSynth.UI
             var caretIndex = txtLabels.CaretIndex;
             var origLength = txtLabels.Text.Length;
             var oldLabels = firstHyperArc.localLabels;
-            var newLabels = StringCollectionConverter.convert(txtLabels.Text);
+            var newLabels = StringCollectionConverter.Convert(txtLabels.Text);
 
             if ((gui is RuleDisplay) &&
                 (gui == ((RuleDisplay)gui).rW.graphGUIK))
@@ -116,7 +116,7 @@ namespace GraphSynth.UI
             var caretIndex = txtVariables.CaretIndex;
             var origLength = txtVariables.Text.Length;
             var oldVars = firstHyperArc.localVariables;
-            var newVars = DoubleCollectionConverter.convert(txtVariables.Text);
+            var newVars = DoubleCollectionConverter.Convert(txtVariables.Text);
 
             if ((gui is RuleDisplay) &&
                 (gui == ((RuleDisplay)gui).rW.graphGUIK))
@@ -203,7 +203,7 @@ namespace GraphSynth.UI
 
         private void txtNegLabels_LostFocus(object sender, RoutedEventArgs e)
         {
-            var lststr = StringCollectionConverter.convert(txtNegLabels.Text);
+            var lststr = StringCollectionConverter.Convert(txtNegLabels.Text);
             ((ruleHyperarc)firstHyperArc).negateLabels.Clear();
             foreach (string str in lststr)
                 ((ruleHyperarc)firstHyperArc).negateLabels.Add(str);
@@ -309,8 +309,8 @@ namespace GraphSynth.UI
                 if (firstHyperArc is ruleHyperarc)
                     btnConfirm.Visibility = Visibility.Visible;
                 else btnConfirm.Visibility = Visibility.Hidden;
-                txtLabels.Text = StringCollectionConverter.convert(firstHyperArc.localLabels);
-                txtVariables.Text = DoubleCollectionConverter.convert(firstHyperArc.localVariables);
+                txtLabels.Text = StringCollectionConverter.Convert(firstHyperArc.localLabels);
+                txtVariables.Text = DoubleCollectionConverter.Convert(firstHyperArc.localVariables);
 
                 txtHyperArcType.IsEnabled = true;
                 if (gui is RuleDisplay) txtHyperArcType.Text = ((ruleHyperarc)firstHyperArc).TargetType;
@@ -324,7 +324,7 @@ namespace GraphSynth.UI
                     chkNotExist.IsChecked = ((ruleHyperarc)firstHyperArc).NotExist;
                     txtNegLabels.IsEnabled = true;
                     txtNegLabels.Text
-                        = StringCollectionConverter.convert(((ruleHyperarc)firstHyperArc).negateLabels);
+                        = StringCollectionConverter.Convert(((ruleHyperarc)firstHyperArc).negateLabels);
                     if (!stackHyperArcProps.Children.Contains(wrapRuleBools))
                         stackHyperArcProps.Children.Add(wrapRuleBools);
                     if (!stackHyperArcProps.Children.Contains(gridRuleNegLabels))

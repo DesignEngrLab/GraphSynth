@@ -153,7 +153,7 @@ namespace GraphSynth.Search
                     ruleSetIndex = newRSIndex;
                     continue;
                 }
-                if (SearchIO.GetTerminateRequest(Thread.CurrentThread.ManagedThreadId)) return;
+                if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
 
                 #endregion
 
@@ -172,7 +172,7 @@ namespace GraphSynth.Search
                 }
                 if ((choice == null) || (choice[0] < 0) || (choice[0] >= options.Count))
                 {
-                    SearchIO.output("Choice = #" + IntCollectionConverter.convert(choice), 4);
+                    SearchIO.output("Choice = #" + IntCollectionConverter.Convert(choice), 4);
                     /* the overloaded choice function may want to communicate to the loop that it
                      * should finish the process. */
                     SearchIO.output("Choice received a STOP request", 4);
@@ -195,7 +195,7 @@ namespace GraphSynth.Search
                 if (Display && Rulesets[ruleSetIndex].choiceMethod == choiceMethods.Design)
                     SearchIO.addAndShowGraphWindow(host.graph.copy(),
                                                    "After calling " + host.numRulesCalled + " rules");
-                if (SearchIO.GetTerminateRequest(Thread.CurrentThread.ManagedThreadId)) return;
+                if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
 
                 #endregion
 

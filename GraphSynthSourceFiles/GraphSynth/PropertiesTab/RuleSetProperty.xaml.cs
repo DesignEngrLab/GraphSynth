@@ -113,12 +113,12 @@ namespace GraphSynth.UI
 
         private void txtApplySourceFiles_LostFocus(object sender, RoutedEventArgs e)
         {
-            var lststr = StringCollectionConverter.convert(txtApplySourceFiles.Text);
+            var lststr = StringCollectionConverter.Convert(txtApplySourceFiles.Text);
             SelectedRuleSet.applySourceFiles.Clear();
             foreach (string s in lststr)
                 RuleParamCodeFiler.checkForRuleFile(SelectedRuleSet,
                                                     SelectedRuleSet.applySourceFiles, s);
-            txtApplySourceFiles.Text = StringCollectionConverter.convert(SelectedRuleSet.applySourceFiles);
+            txtApplySourceFiles.Text = StringCollectionConverter.Convert(SelectedRuleSet.applySourceFiles);
         }
 
         private void txtRecognizeSourceFiles_KeyUp(object sender, KeyEventArgs e)
@@ -129,12 +129,12 @@ namespace GraphSynth.UI
 
         private void txtRecognizeSourceFiles_LostFocus(object sender, RoutedEventArgs e)
         {
-            var lststr = StringCollectionConverter.convert(txtRecognizeSourceFiles.Text);
+            var lststr = StringCollectionConverter.Convert(txtRecognizeSourceFiles.Text);
             SelectedRuleSet.recognizeSourceFiles.Clear();
             foreach (string s in lststr)
                 RuleParamCodeFiler.checkForRuleFile(SelectedRuleSet,
                                                     SelectedRuleSet.recognizeSourceFiles, s);
-            txtRecognizeSourceFiles.Text = StringCollectionConverter.convert(SelectedRuleSet.recognizeSourceFiles);
+            txtRecognizeSourceFiles.Text = StringCollectionConverter.Convert(SelectedRuleSet.recognizeSourceFiles);
         }
 
         internal void Update(ruleSet RuleSet, ruleSetWindow rsW)
@@ -163,8 +163,8 @@ namespace GraphSynth.UI
                 cmdNoRulesRecognized.Items.IndexOf(SelectedRuleSet.generationAfterNoRules);
             cmdTriggerRuleInvoked.SelectedIndex =
                 cmdTriggerRuleInvoked.Items.IndexOf(SelectedRuleSet.generationAfterTriggerRule);
-            txtRecognizeSourceFiles.Text = StringCollectionConverter.convert(SelectedRuleSet.recognizeSourceFiles);
-            txtApplySourceFiles.Text = StringCollectionConverter.convert(SelectedRuleSet.applySourceFiles);
+            txtRecognizeSourceFiles.Text = StringCollectionConverter.Convert(SelectedRuleSet.recognizeSourceFiles);
+            txtApplySourceFiles.Text = StringCollectionConverter.Convert(SelectedRuleSet.applySourceFiles);
         }
 
     }

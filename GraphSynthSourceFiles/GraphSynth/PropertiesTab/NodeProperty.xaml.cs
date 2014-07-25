@@ -38,7 +38,7 @@ namespace GraphSynth.UI
             var caretIndex = txtLabels.CaretIndex;
             var origLength = txtLabels.Text.Length;
             var oldLabels = firstNode.localLabels;
-            var newLabels = StringCollectionConverter.convert(txtLabels.Text);
+            var newLabels = StringCollectionConverter.Convert(txtLabels.Text);
 
             if ((gui is RuleDisplay) &&
                 (gui == ((RuleDisplay)gui).rW.graphGUIK))
@@ -112,7 +112,7 @@ namespace GraphSynth.UI
             var caretIndex = txtVariables.CaretIndex;
             var origLength = txtVariables.Text.Length;
             var oldVars = firstNode.localVariables;
-            var newVars = DoubleCollectionConverter.convert(txtVariables.Text);
+            var newVars = DoubleCollectionConverter.Convert(txtVariables.Text);
 
             if ((gui is RuleDisplay) &&
                 (gui == ((RuleDisplay)gui).rW.graphGUIK))
@@ -338,7 +338,7 @@ namespace GraphSynth.UI
         {
             var caretIndex = txtNegLabels.CaretIndex;
             var origLength = txtNegLabels.Text.Length;
-            var lststr = StringCollectionConverter.convert(txtNegLabels.Text);
+            var lststr = StringCollectionConverter.Convert(txtNegLabels.Text);
             ((ruleNode)firstNode).negateLabels.Clear();
             foreach (string str in lststr)
                 ((ruleNode)firstNode).negateLabels.Add(str);
@@ -374,8 +374,8 @@ namespace GraphSynth.UI
                 txtName.Text = firstNode.name;
                 btnConfirm.Visibility = firstNode is ruleNode
                     ? Visibility.Visible : Visibility.Hidden;
-                txtLabels.Text = StringCollectionConverter.convert(firstNode.localLabels);
-                txtVariables.Text = DoubleCollectionConverter.convert(firstNode.localVariables);
+                txtLabels.Text = StringCollectionConverter.Convert(firstNode.localLabels);
+                txtVariables.Text = DoubleCollectionConverter.Convert(firstNode.localVariables);
 
                 txtNodeType.IsEnabled = true;
                 if (gui is RuleDisplay) txtNodeType.Text = ((ruleNode)firstNode).TargetType;
@@ -395,7 +395,7 @@ namespace GraphSynth.UI
 
                     txtNegLabels.IsEnabled = true;
                     txtNegLabels.Text
-                        = StringCollectionConverter.convert(((ruleNode)firstNode).negateLabels);
+                        = StringCollectionConverter.Convert(((ruleNode)firstNode).negateLabels);
                     if (!stackNodeProps.Children.Contains(wrapRuleBools))
                         stackNodeProps.Children.Add(wrapRuleBools);
                     if (!stackNodeProps.Children.Contains(gridRuleNegLabels))

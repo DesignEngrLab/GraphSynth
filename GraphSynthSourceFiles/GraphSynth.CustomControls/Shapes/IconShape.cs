@@ -103,7 +103,7 @@ namespace GraphSynth.GraphDisplay
             GraphElement = e;
             if (textDisplayData == null) textDisplayData = "";
             else textDisplayData = textDisplayData.ToString().Split(new[] { ':' })[0];
-            var tDDataList = StringCollectionConverter.convert(textDisplayData.ToString());
+            var tDDataList = StringCollectionConverter.Convert(textDisplayData.ToString());
             double result;
             if ((tDDataList.Count > 1) && (double.TryParse(tDDataList[1], out result)))
                 DisplayTextDistance = result;

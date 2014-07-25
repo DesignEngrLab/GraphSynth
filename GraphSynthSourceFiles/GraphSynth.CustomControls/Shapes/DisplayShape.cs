@@ -148,7 +148,7 @@ namespace GraphSynth.GraphDisplay
             {
                 List<double> terms;
                 if (StringIsUpToDateAndShapeIsNotAccessible)
-                    terms = DoubleCollectionConverter.convert(
+                    terms = DoubleCollectionConverter.Convert(
                         MyXamlHelpers.GetValue(_stringShape, "RenderTransform"));
                 else terms = new List<double>
                                 {
@@ -171,7 +171,7 @@ namespace GraphSynth.GraphDisplay
                 if (value == null) value = new double[,] { { 1, 1, 0 }, { 1, 1, 0 }, { 0, 0, 1 } };
                 if (StringIsUpToDateAndShapeIsNotAccessible)
                 {
-                    var replace = DoubleCollectionConverter.convert(
+                    var replace = DoubleCollectionConverter.Convert(
                         new[]
                             {
                                 value[0, 0], value[0, 1], value[1, 0], value[1, 1], value[0, 2], value[1, 2]
@@ -345,7 +345,7 @@ namespace GraphSynth.GraphDisplay
                 {
                     if (StringIsUpToDateAndShapeIsNotAccessible)
                     {
-                        var transform = DoubleCollectionConverter.convert(
+                        var transform = DoubleCollectionConverter.Convert(
                             MyXamlHelpers.GetValue(_stringShape, "RenderTransform"));
                         if (transform.Count > 5)
                             return transform[4] + Width / 2;
@@ -366,10 +366,10 @@ namespace GraphSynth.GraphDisplay
                     var renderTStr = MyXamlHelpers.GetValue(_stringShape, "RenderTransform");
                     var transform = new List<double>(new double[] { 1, 0, 0, -1, 0, 0 });
                     if (renderTStr != null)
-                        transform = DoubleCollectionConverter.convert(renderTStr);
+                        transform = DoubleCollectionConverter.Convert(renderTStr);
                     transform[4] = value - Width / 2;
                     MyXamlHelpers.SetValue(ref _stringShape, "RenderTransform",
-                                                DoubleCollectionConverter.convert(transform));
+                                                DoubleCollectionConverter.Convert(transform));
                 }
                 else
                 {
@@ -399,7 +399,7 @@ namespace GraphSynth.GraphDisplay
                 {
                     if (StringIsUpToDateAndShapeIsNotAccessible)
                     {
-                        var transform = DoubleCollectionConverter.convert(
+                        var transform = DoubleCollectionConverter.Convert(
                             MyXamlHelpers.GetValue(_stringShape, "RenderTransform"));
                         if (transform.Count > 6)
                             return transform[5] + Height / 2;
@@ -420,10 +420,10 @@ namespace GraphSynth.GraphDisplay
                     var renderTStr = MyXamlHelpers.GetValue(_stringShape, "RenderTransform");
                     var transform = new List<double>(new double[] { 1, 0, 0, -1, 0, 0 });
                     if (renderTStr != null)
-                        transform = DoubleCollectionConverter.convert(renderTStr);
+                        transform = DoubleCollectionConverter.Convert(renderTStr);
                     transform[5] = value - Height / 2;
                     MyXamlHelpers.SetValue(ref _stringShape, "RenderTransform",
-                                                DoubleCollectionConverter.convert(transform));
+                                                DoubleCollectionConverter.Convert(transform));
                 }
                 else
                 {

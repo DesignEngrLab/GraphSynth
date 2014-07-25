@@ -117,7 +117,7 @@ namespace GraphSynth.UI
 
         private void txtFreeArcLabels_LostFocus(object sender, RoutedEventArgs e)
         {
-            var lststr = StringCollectionConverter.convert(txtFreeArcLabels.Text.Replace("<any>", ""));
+            var lststr = StringCollectionConverter.Convert(txtFreeArcLabels.Text.Replace("<any>", ""));
             selectedEmbeddingRule.freeArcLabels.Clear();
             foreach (string str in lststr)
                 selectedEmbeddingRule.freeArcLabels.Add(str);
@@ -131,7 +131,7 @@ namespace GraphSynth.UI
 
         private void txtFreeArcNegabels_LostFocus(object sender, RoutedEventArgs e)
         {
-            var lststr = StringCollectionConverter.convert(txtFreeArcNegabels.Text.Replace("<none>", ""));
+            var lststr = StringCollectionConverter.Convert(txtFreeArcNegabels.Text.Replace("<none>", ""));
             selectedEmbeddingRule.freeArcNegabels.Clear();
             foreach (string str in lststr)
                 selectedEmbeddingRule.freeArcNegabels.Add(str);
@@ -155,7 +155,7 @@ namespace GraphSynth.UI
 
         private void txtNeighborLabels_LostFocus(object sender, RoutedEventArgs e)
         {
-            var lststr = StringCollectionConverter.convert(txtNeighborLabels.Text.Replace("<any>", ""));
+            var lststr = StringCollectionConverter.Convert(txtNeighborLabels.Text.Replace("<any>", ""));
             selectedEmbeddingRule.neighborNodeLabels.Clear();
             foreach (string str in lststr)
                 selectedEmbeddingRule.neighborNodeLabels.Add(str);
@@ -169,7 +169,7 @@ namespace GraphSynth.UI
 
         private void txtNeighborNegabels_LostFocus(object sender, RoutedEventArgs e)
         {
-            var lststr = StringCollectionConverter.convert(txtNeighborNegabels.Text.Replace("<none>", ""));
+            var lststr = StringCollectionConverter.Convert(txtNeighborNegabels.Text.Replace("<none>", ""));
             selectedEmbeddingRule.neighborNodeNegabels.Clear();
             foreach (string str in lststr)
                 selectedEmbeddingRule.neighborNodeNegabels.Add(str);
@@ -298,13 +298,13 @@ namespace GraphSynth.UI
             if (selectedEmbeddingRule.freeArcLabels.Count == 0)
                 txtFreeArcLabels.Text = "<any>";
             else
-                txtFreeArcLabels.Text = StringCollectionConverter.convert(selectedEmbeddingRule.freeArcLabels);
+                txtFreeArcLabels.Text = StringCollectionConverter.Convert(selectedEmbeddingRule.freeArcLabels);
 
             //free arc neg labels
             if (selectedEmbeddingRule.freeArcNegabels.Count == 0)
                 txtFreeArcNegabels.Text = "<none>";
             else
-                txtFreeArcNegabels.Text = StringCollectionConverter.convert(selectedEmbeddingRule.freeArcNegabels);
+                txtFreeArcNegabels.Text = StringCollectionConverter.Convert(selectedEmbeddingRule.freeArcNegabels);
 
             //L node name
             if ((string.IsNullOrWhiteSpace(selectedEmbeddingRule.LNodeName))
@@ -317,13 +317,13 @@ namespace GraphSynth.UI
             if (selectedEmbeddingRule.neighborNodeLabels.Count == 0)
                 txtNeighborLabels.Text = "<any>";
             else
-                txtNeighborLabels.Text = StringCollectionConverter.convert(selectedEmbeddingRule.neighborNodeLabels);
+                txtNeighborLabels.Text = StringCollectionConverter.Convert(selectedEmbeddingRule.neighborNodeLabels);
 
             // neighbor node negabels
             if (selectedEmbeddingRule.neighborNodeNegabels.Count == 0)
                 txtNeighborNegabels.Text = "<none>";
             else
-                txtNeighborNegabels.Text = StringCollectionConverter.convert(selectedEmbeddingRule.neighborNodeNegabels);
+                txtNeighborNegabels.Text = StringCollectionConverter.Convert(selectedEmbeddingRule.neighborNodeNegabels);
 
             // orginal direction
             if (cmdOriginalDirection.SelectedIndex != selectedEmbeddingRule.originalDirection + 1)

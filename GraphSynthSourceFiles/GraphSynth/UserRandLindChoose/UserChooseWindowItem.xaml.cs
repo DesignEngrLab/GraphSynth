@@ -17,7 +17,7 @@ namespace GraphSynth.UserRandLindChoose
             txtBOptionString.Text = opt.optionNumber.ToString(CultureInfo.InvariantCulture);
             txTBLocation.SetTextAndLink(opt);
             txtBRuleNo.SetTextAndLink(opt, settings);
-            txtBConfluenceString.Text = IntCollectionConverter.convert(opt.confluence);
+            txtBConfluenceString.Text = IntCollectionConverter.Convert(opt.confluence);
         }
 
         public Boolean IsConfluent { get; set; }

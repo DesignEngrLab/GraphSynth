@@ -56,7 +56,7 @@ namespace GraphSynth.UI
             var senderTextBox = (TextBox)sender;
             var origLength = senderTextBox.Text.Length;
             var caretIndex = senderTextBox.CaretIndex;
-            var lststr = StringCollectionConverter.convert(senderTextBox.Text);
+            var lststr = StringCollectionConverter.Convert(senderTextBox.Text);
             rule.L.globalLabels.Clear();
             foreach (string str in lststr)
             {
@@ -79,7 +79,7 @@ namespace GraphSynth.UI
             var senderTextBox = (TextBox)sender;
             var caretIndex = senderTextBox.CaretIndex;
             var origLength = senderTextBox.Text.Length;
-            var lststr = StringCollectionConverter.convert(senderTextBox.Text);
+            var lststr = StringCollectionConverter.Convert(senderTextBox.Text);
             rule.negateLabels.Clear();
             foreach (string str in lststr)
             {
@@ -102,7 +102,7 @@ namespace GraphSynth.UI
             var senderTextBox = (TextBox)sender;
             var caretIndex = senderTextBox.CaretIndex;
             var origLength = senderTextBox.Text.Length;
-            var lststr = StringCollectionConverter.convert(senderTextBox.Text);
+            var lststr = StringCollectionConverter.Convert(senderTextBox.Text);
             rule.R.globalLabels.Clear();
             foreach (string str in lststr)
             {
@@ -129,7 +129,7 @@ namespace GraphSynth.UI
             var senderTextBox = (TextBox)sender;
             var caretIndex = senderTextBox.CaretIndex;
             var origLength = senderTextBox.Text.Length;
-            var lst = DoubleCollectionConverter.convert(senderTextBox.Text);
+            var lst = DoubleCollectionConverter.Convert(senderTextBox.Text);
             rule.L.globalVariables.Clear();
             foreach (double d in lst)
             {
@@ -152,7 +152,7 @@ namespace GraphSynth.UI
             var senderTextBox = (TextBox)sender;
             var caretIndex = senderTextBox.CaretIndex;
             var origLength = senderTextBox.Text.Length;
-            var lst = DoubleCollectionConverter.convert(senderTextBox.Text);
+            var lst = DoubleCollectionConverter.Convert(senderTextBox.Text);
             rule.R.globalVariables.Clear();
             foreach (double d in lst)
             {
@@ -177,7 +177,7 @@ namespace GraphSynth.UI
             var senderTextBox = (TextBox)sender;
             var caretIndex = senderTextBox.CaretIndex;
             var origLength = senderTextBox.Text.Length;
-            var lststr = StringCollectionConverter.convert(senderTextBox.Text);
+            var lststr = StringCollectionConverter.Convert(senderTextBox.Text);
             rule.recognizeFunctions.Clear();
             foreach (string str in lststr)
             {
@@ -200,7 +200,7 @@ namespace GraphSynth.UI
             var senderTextBox = (TextBox)sender;
             var caretIndex = senderTextBox.CaretIndex;
             var origLength = senderTextBox.Text.Length;
-            var lststr = StringCollectionConverter.convert(senderTextBox.Text);
+            var lststr = StringCollectionConverter.Convert(senderTextBox.Text);
             rule.applyFunctions.Clear();
             foreach (string str in lststr)
             {
@@ -294,20 +294,20 @@ namespace GraphSynth.UI
             txtFilename.PageRight();
             /* updating L, K, and R global variables. */
             ruleWin.txtLGlobalVariables.Text = txtLVariables.Text
-                                               = DoubleCollectionConverter.convert(rule.L.globalVariables);
+                                               = DoubleCollectionConverter.Convert(rule.L.globalVariables);
             ruleWin.txtRGlobalVariables.Text = txtRVariables.Text
-                                               = DoubleCollectionConverter.convert(rule.R.globalVariables);
+                                               = DoubleCollectionConverter.Convert(rule.R.globalVariables);
             var KVars = rule.R.globalVariables.Intersect(rule.L.globalVariables);
             var listKVars = new List<double>();
             foreach (double x in KVars) listKVars.Add(x);
-            ruleWin.txtKGlobalVariables.Text = DoubleCollectionConverter.convert(listKVars);
+            ruleWin.txtKGlobalVariables.Text = DoubleCollectionConverter.Convert(listKVars);
 
             /* updating L, K, and R global labels. This involves an additional need to consider both order labels and
              * negating labels. */
             ruleWin.txtLGlobalLabels.Text = txtLGlobalLabels.Text
-                                            = StringCollectionConverter.convert(rule.L.globalLabels);
+                                            = StringCollectionConverter.Convert(rule.L.globalLabels);
             ruleWin.txtRGlobalLabels.Text = txtRGlobalLabels.Text
-                                            = StringCollectionConverter.convert(rule.R.globalLabels);
+                                            = StringCollectionConverter.Convert(rule.R.globalLabels);
             /* the idea below was to change the way orderLabels appear but it lead to problems when switching
              * back and forth between ordered and unordered. It is repairable but truthfully, most rules do not have
              * a lot of labels. The host may build up a substantial amount, so this concept may be more appropriate
@@ -323,13 +323,13 @@ namespace GraphSynth.UI
             //else
             //{
             var listKLabels = new List<string>(rule.R.globalLabels.Intersect(rule.L.globalLabels));
-            ruleWin.txtKGlobalLabels.Text = StringCollectionConverter.convert(listKLabels);
+            ruleWin.txtKGlobalLabels.Text = StringCollectionConverter.Convert(listKLabels);
             //}
-            txtLNegatingLabels.Text = StringCollectionConverter.convert(rule.negateLabels);
+            txtLNegatingLabels.Text = StringCollectionConverter.Convert(rule.negateLabels);
             if (txtLNegatingLabels.Text.Length > 0)
                 ruleWin.txtLGlobalLabels.Text += " ~(" + txtLNegatingLabels.Text + ")";
-            txtApplyFunctions.Text = StringCollectionConverter.convert(rule.applyFunctions);
-            txtRecognizeFunctions.Text = StringCollectionConverter.convert(rule.recognizeFunctions);
+            txtApplyFunctions.Text = StringCollectionConverter.Convert(rule.applyFunctions);
+            txtRecognizeFunctions.Text = StringCollectionConverter.Convert(rule.recognizeFunctions);
             chkContainsAllGlobalLabels.IsChecked = rule.containsAllGlobalLabels;
             chkInduced.IsChecked = rule.induced;
             chkOrderedGlobalLabels.IsChecked = rule.OrderedGlobalLabels;

@@ -315,7 +315,7 @@ namespace GraphSynth.UI
         public string GetSaveFilename(string filter, string name, string dir)
         {
             var fileChooser = new SaveFileDialog();
-            fileChooser.Title = "Save Active " + StringCollectionConverter.convert(filter)[0] + " as ...";
+            fileChooser.Title = "Save Active " + StringCollectionConverter.Convert(filter)[0] + " as ...";
             fileChooser.InitialDirectory = dir;
             fileChooser.Filter = filter;
             fileChooser.FileName = name;

@@ -40,7 +40,7 @@ namespace GraphSynth.GraphDisplay
         }
         public sealed override string ToString()
         {
-            return ":" + GetType().Name + "," + DoubleCollectionConverter.convert(parameters);
+            return ":" + GetType().Name + "," + DoubleCollectionConverter.Convert(parameters);
         }
 
 
@@ -50,7 +50,7 @@ namespace GraphSynth.GraphDisplay
             {
                 var ctrlData = p.Split(new[] { ',' }, 2);
                 var ctrlName = ctrlData[0];
-                var ctrlParams = DoubleCollectionConverter.convert(ctrlData[1]).ToArray();
+                var ctrlParams = DoubleCollectionConverter.Convert(ctrlData[1]).ToArray();
                 var ctrlType = Type.GetType("GraphSynth.GraphDisplay." + ctrlName, true);
                 var constructor = ctrlType.GetConstructor(new[] { typeof(Shape), typeof(double[]) });
                 Controller = (AbstractController)constructor.Invoke(new object[] { displayShape, ctrlParams });

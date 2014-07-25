@@ -683,20 +683,6 @@ namespace GraphSynth.Representation
 
         #endregion
 
-        /// <summary>
-        /// Overrides the object method to check all details of the graphs to see
-        /// if they are identical. It is potentially time-consuming as it makes
-        /// rules and assigns the graphs as the L of the rule, and then performs
-        /// the "recognize" function on the other graph.
-        /// </summary>
-        /// <param name="obj">The other graph to compare to this one.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
-        /// </returns>
-        public override bool Equals(object obj)
-        {
-            return Equals(obj, false);
-        }
 
         /// <summary>
         /// Overrides the object method to check all details of the graphs to see
@@ -711,7 +697,7 @@ namespace GraphSynth.Representation
         /// </returns>
         public bool Equals(object obj, bool contentsOfGraphAreEqual)
         {
-            if (base.Equals(obj)) return true;
+            if (Equals(obj)) return true;
             if (!contentsOfGraphAreEqual) return false;
             if (!(obj is designGraph)) return false;
             var g = (designGraph)obj;
@@ -753,6 +739,8 @@ namespace GraphSynth.Representation
             if (dummyRule.recognize(g).Count < 1) return false;
             return true;
         }
+
+
         #endregion
 
     }

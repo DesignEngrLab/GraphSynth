@@ -113,8 +113,12 @@ namespace GraphSynth
         /// of the vector, x.
         /// </summary>
         /// <param name="x">The vector, x.</param>
+        /// <param name="size">The size or length of the array.</param>
         /// <param name="dontDoSqrt">if set to <c>true</c> [don't take the square root].</param>
-        /// <returns>Scalar value of 2-norm.</returns>
+        /// <returns>
+        /// Scalar value of 2-norm.
+        /// </returns>
+        /// <exception cref="System.Exception">The vector, x, is null.</exception>
         public static double norm2(double[] x, int size = -1, Boolean dontDoSqrt = false)
         {
             if (size == -1) size = x.GetLength(0);

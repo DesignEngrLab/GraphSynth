@@ -784,18 +784,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.Representation.designGraph.Equals(System.Object)">
-            <summary>
-            Overrides the object method to check all details of the graphs to see
-            if they are identical. It is potentially time-consuming as it makes
-            rules and assigns the graphs as the L of the rule, and then performs
-            the "recognize" function on the other graph.
-            </summary>
-            <param name="obj">The other graph to compare to this one.</param>
-            <returns>
-              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
-            </returns>
-        </member>
         <member name="M:GraphSynth.Representation.designGraph.Equals(System.Object,System.Boolean)">
             <summary>
             Overrides the object method to check all details of the graphs to see
@@ -1061,56 +1049,14 @@
               A converter class for changing a collection of ints into a string and vice-versa.
             </summary>
         </member>
-        <member name="M:GraphSynth.IntCollectionConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
-            <summary>
-              Returns whether this converter can convert an object of the given type to the type of this converter, using the specified context.
-            </summary>
-            <param name = "context">An <see cref = "T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context.</param>
-            <param name = "sourceType">A <see cref = "T:System.Type" /> that represents the type you want to convert from.</param>
-            <returns>
-              true if this converter can perform the conversion; otherwise, false.
-            </returns>
-        </member>
-        <member name="M:GraphSynth.IntCollectionConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
-            <summary>
-              Converts the given object to the type of this converter, using the specified context and culture information.
-            </summary>
-            <param name = "context">An <see cref = "T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context.</param>
-            <param name = "culture">The <see cref = "T:System.Globalization.CultureInfo" /> to use as the current culture.</param>
-            <param name = "value">The <see cref = "T:System.Object" /> to convert.</param>
-            <returns>
-              An <see cref = "T:System.Object" /> that represents the converted value.
-            </returns>
-            <exception cref = "T:System.NotSupportedException">The conversion cannot be performed. </exception>
-        </member>
-        <member name="M:GraphSynth.IntCollectionConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
-            <summary>
-              Determines whether this instance [can convert to] the specified context.
-            </summary>
-            <param name = "context">The context.</param>
-            <param name = "sourceType">Type of the source.</param>
-            <returns>
-              <c>true</c> if this instance [can convert to] the specified context; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:GraphSynth.IntCollectionConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
-            <summary>
-              Converts to.
-            </summary>
-            <param name = "context">The context.</param>
-            <param name = "culture">The culture.</param>
-            <param name = "value">The value.</param>
-            <param name = "s">The s.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.IntCollectionConverter.convert(System.String)">
+        <member name="M:GraphSynth.IntCollectionConverter.Convert(System.String)">
             <summary>
               Converts the for a string of comma-separated-values to a IEnumerable of ints.
             </summary>
             <param name = "value">The value.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.IntCollectionConverter.convert(System.Collections.Generic.IEnumerable{System.Int32})">
+        <member name="M:GraphSynth.IntCollectionConverter.Convert(System.Collections.Generic.IEnumerable{System.Int32})">
             <summary>
               Converts the specified values from a IEnumerable of ints to a comma-separated string.
             </summary>
@@ -1122,56 +1068,14 @@
               A converter class for changing a collection of doubles into a string and vice-versa.
             </summary>
         </member>
-        <member name="M:GraphSynth.DoubleCollectionConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
-            <summary>
-              Returns whether this converter can convert an object of the given type to the type of this converter, using the specified context.
-            </summary>
-            <param name = "context">An <see cref = "T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context.</param>
-            <param name = "sourceType">A <see cref = "T:System.Type" /> that represents the type you want to convert from.</param>
-            <returns>
-              true if this converter can perform the conversion; otherwise, false.
-            </returns>
-        </member>
-        <member name="M:GraphSynth.DoubleCollectionConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
-            <summary>
-              Converts the given object to the type of this converter, using the specified context and culture information.
-            </summary>
-            <param name = "context">An <see cref = "T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context.</param>
-            <param name = "culture">The <see cref = "T:System.Globalization.CultureInfo" /> to use as the current culture.</param>
-            <param name = "value">The <see cref = "T:System.Object" /> to convert.</param>
-            <returns>
-              An <see cref = "T:System.Object" /> that represents the converted value.
-            </returns>
-            <exception cref = "T:System.NotSupportedException">The conversion cannot be performed. </exception>
-        </member>
-        <member name="M:GraphSynth.DoubleCollectionConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
-            <summary>
-              Determines whether this instance [can convert to] the specified context.
-            </summary>
-            <param name = "context">The context.</param>
-            <param name = "sourceType">Type of the source.</param>
-            <returns>
-              <c>true</c> if this instance [can convert to] the specified context; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:GraphSynth.DoubleCollectionConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
-            <summary>
-              Converts to.
-            </summary>
-            <param name = "context">The context.</param>
-            <param name = "culture">The culture.</param>
-            <param name = "value">The value.</param>
-            <param name = "s">The s.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.DoubleCollectionConverter.convert(System.String)">
+        <member name="M:GraphSynth.DoubleCollectionConverter.Convert(System.String)">
             <summary>
               Converts the for a string of comma-separated-values to a IEnumerable of doubles.
             </summary>
             <param name = "value">The value.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.DoubleCollectionConverter.convert(System.Collections.Generic.IEnumerable{System.Double})">
+        <member name="M:GraphSynth.DoubleCollectionConverter.Convert(System.Collections.Generic.IEnumerable{System.Double})">
             <summary>
               Converts the specified values from a IEnumerable of doubles to a comma-separated string.
             </summary>
@@ -1183,56 +1087,14 @@
               Used to convert a single string into a list of strings and vice-versa.
             </summary>
         </member>
-        <member name="M:GraphSynth.StringCollectionConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
-            <summary>
-              Returns whether this converter can convert an object of the given type to the type of this converter, using the specified context.
-            </summary>
-            <param name = "context">An <see cref = "T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context.</param>
-            <param name = "sourceType">A <see cref = "T:System.Type" /> that represents the type you want to convert from.</param>
-            <returns>
-              true if this converter can perform the conversion; otherwise, false.
-            </returns>
-        </member>
-        <member name="M:GraphSynth.StringCollectionConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
-            <summary>
-              Converts the given object to the type of this converter, using the specified context and culture information.
-            </summary>
-            <param name = "context">An <see cref = "T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context.</param>
-            <param name = "culture">The <see cref = "T:System.Globalization.CultureInfo" /> to use as the current culture.</param>
-            <param name = "value">The <see cref = "T:System.Object" /> to convert.</param>
-            <returns>
-              An <see cref = "T:System.Object" /> that represents the converted value.
-            </returns>
-            <exception cref = "T:System.NotSupportedException">The conversion cannot be performed. </exception>
-        </member>
-        <member name="M:GraphSynth.StringCollectionConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
-            <summary>
-              Determines whether this instance [can convert to] the specified context.
-            </summary>
-            <param name = "context">The context.</param>
-            <param name = "sourceType">Type of the source.</param>
-            <returns>
-              <c>true</c> if this instance [can convert to] the specified context; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:GraphSynth.StringCollectionConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
-            <summary>
-              Converts to.
-            </summary>
-            <param name = "context">The context.</param>
-            <param name = "culture">The culture.</param>
-            <param name = "value">The value.</param>
-            <param name = "s">The s.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.StringCollectionConverter.convert(System.String)">
+        <member name="M:GraphSynth.StringCollectionConverter.Convert(System.String)">
             <summary>
               Converts the comma-separated-values into a IEnumerable of strings.
             </summary>
             <param name = "value">The value.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.StringCollectionConverter.convert(System.Collections.Generic.IEnumerable{System.String})">
+        <member name="M:GraphSynth.StringCollectionConverter.Convert(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
               Converts the specified IEnumerable of strings into a comma separated single string.
             </summary>
@@ -3221,12 +3083,6 @@
             <param name="ruleSetObjects">The rule set objects.</param>
             <param name="title">The title.</param>
         </member>
-        <member name="P:GraphSynth.SearchIO.processNum">
-            <summary>
-              Gets the process number.
-            </summary>
-            <value>The process number.</value>
-        </member>
         <member name="P:GraphSynth.SearchIO.iteration">
             <summary>
               Gets or sets the iteration.
@@ -3519,13 +3375,23 @@
         </member>
         <member name="F:GraphSynth.transfromType.XYZUniform">
             <summary>
-            This type of transform is recognized/performed uniformly in both X and Y.
+            This type of transform is recognized/performed uniformly in X, Y, and Z.
             </summary>  
+        </member>
+        <member name="F:GraphSynth.transfromType.BothUniform">
+            <summary>        
+            Deprecated. The type of transform is recognized/performed uniformly in BOTH X and Y (should use XYZUniform).
+            </summary>
         </member>
         <member name="F:GraphSynth.transfromType.XYZIndependent">
             <summary>
-            This type of transform is recognized/performed in both X and Y independently.
+            This type of transform is recognized/performed independently in X, Y, and Z.
             </summary>    
+        </member>
+        <member name="F:GraphSynth.transfromType.BothIndependent">
+            <summary>        
+            Deprecated. The type of transform is recognized/performed independently in BOTH X and Y (should use XYZIndependent).
+            </summary>
         </member>
         <member name="T:GraphSynth.MyIOPath">
             <summary>
@@ -4162,8 +4028,12 @@
             of the vector, x.
             </summary>
             <param name="x">The vector, x.</param>
+            <param name="size">The size or length of the array.</param>
             <param name="dontDoSqrt">if set to <c>true</c> [don't take the square root].</param>
-            <returns>Scalar value of 2-norm.</returns>
+            <returns>
+            Scalar value of 2-norm.
+            </returns>
+            <exception cref="T:System.Exception">The vector, x, is null.</exception>
         </member>
     </members>
 </doc>
