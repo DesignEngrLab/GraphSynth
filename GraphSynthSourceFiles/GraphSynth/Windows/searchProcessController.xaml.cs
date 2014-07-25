@@ -43,7 +43,7 @@ namespace GraphSynth.UI
                 //this.Text = "Search Process #" + processNum.ToString();
                 searchThread.Name = "S" + processNum + "> ";
                 cmbPriority.SelectedIndex = 0;
-                SearchIO.setVerbosity(searchThread.Name, GSApp.settings.DefaultVerbosity);
+                SearchIO.setVerbosity(searchThread.ManagedThreadId, GSApp.settings.DefaultVerbosity);
                 cmbVerbosity.SelectedIndex = GSApp.settings.DefaultVerbosity;
                 processTimer.Tick += updateSPCDisplay;
                 processTimer.Interval = getIntervalFromVerbosity();
@@ -83,9 +83,9 @@ namespace GraphSynth.UI
                 var currentState = searchThread.ThreadState;
                 /* the ugly truth is that the threadState can change during the following
                  * conditions. To avoid problems we set up a local variable first. */
-                lblIterationBox.Content = SearchIO.getIteration(searchThread.Name).ToString();
-                lblMiscBox.Content = SearchIO.getMiscObject(searchThread.Name);
-                cmbVerbosity.SelectedIndex = SearchIO.getVerbosity(searchThread.Name);
+                lblIterationBox.Content = SearchIO.getIteration(searchThread.ManagedThreadId).ToString();
+                lblMiscBox.Content = SearchIO.getMiscObject(searchThread.ManagedThreadId);
+                cmbVerbosity.SelectedIndex = SearchIO.getVerbosity(searchThread.ManagedThreadId);
                 processTimer.Interval = getIntervalFromVerbosity();
                 try
                 {
@@ -174,7 +174,7 @@ namespace GraphSynth.UI
                         searchThread.Resume();
                         processTimer.IsEnabled = true;
                         startTime = DateTime.Now.Ticks -
-                                    SearchIO.getTimeInterval(searchThread.Name).Ticks;
+                                    SearchIO.getTimeInterval(searchThread.ManagedThreadId).Ticks;
                         break;
                     default:
                         SearchIO.output("Cannot (re-)start thread because it is " +
@@ -238,7 +238,7 @@ namespace GraphSynth.UI
             {
                 if (searchThread.ThreadState != ThreadState.Suspended)
                 {
-                    SearchIO.setTerminationRequest(searchThread.Name);
+                    SearchIO.setTerminationRequest(searchThread.ManagedThreadId);
                     SearchIO.output("A stop request has been sent to your search process.");
                 }
                 else SearchIO.output("Cannot stop thread because it is currently paused.", 2);
@@ -265,7 +265,7 @@ namespace GraphSynth.UI
         {
             try
             {
-                SearchIO.setVerbosity(searchThread.Name, cmbVerbosity.SelectedIndex);
+                SearchIO.setVerbosity(searchThread.ManagedThreadId, cmbVerbosity.SelectedIndex);
             }
             catch (Exception exc)
             {
@@ -280,7 +280,7 @@ namespace GraphSynth.UI
              * systems. The time it returns is in tenths-of-a-microsecond, and 
              * so 10,000 corresponds to an update every millisecond and 10,000,000
              * is a second. */
-            switch (SearchIO.getVerbosity(searchThread.Name))
+            switch (SearchIO.getVerbosity(searchThread.ManagedThreadId))
             {
                 case 0:
                     return new TimeSpan(25000000);
@@ -300,7 +300,7 @@ namespace GraphSynth.UI
         {
             var dispStr = "";
             var dispTime = new TimeSpan(DateTime.Now.Ticks - startTime);
-            SearchIO.setTimeInterval(searchThread.Name, dispTime);
+            SearchIO.setTimeInterval(searchThread.ManagedThreadId, dispTime);
             if (dispTime.Days > 0) dispStr += dispTime.Days + ",";
             if (dispTime.Hours > 0) dispStr += dispTime.Hours.ToString().PadLeft(2, '0') + ":";
             if (dispTime.Minutes > 0) dispStr += dispTime.Minutes.ToString().PadLeft(2, '0') + ":";

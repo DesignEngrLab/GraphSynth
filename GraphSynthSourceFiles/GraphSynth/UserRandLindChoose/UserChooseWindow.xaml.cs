@@ -141,7 +141,7 @@ namespace GraphSynth.UserRandLindChoose
 
         private void processTimer_Tick(object sender, ElapsedEventArgs e)
         {
-            if (!SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
+            if (!SearchIO.GetTerminateRequest(Thread.CurrentThread.ManagedThreadId)) return;
             choice = new[] { -2 };
             Close();
         }

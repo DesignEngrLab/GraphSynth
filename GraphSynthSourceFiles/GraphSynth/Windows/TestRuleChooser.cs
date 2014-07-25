@@ -22,9 +22,9 @@ namespace GraphSynth.UI
                 SearchIO.output("begin recognizing rule: " + rule.name + "on graph :" + seed.name, 2);
                 var dummyRS = new ruleSet();
                 dummyRS.Add(rule);
-                if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
+                if (SearchIO.GetTerminateRequest(Thread.CurrentThread.ManagedThreadId)) return;
                 var options = dummyRS.recognize(seed, false, RelaxationTemplate.copy());
-                if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
+                if (SearchIO.GetTerminateRequest(Thread.CurrentThread.ManagedThreadId)) return;
                 var numOptions = options.Count;
                 if (numOptions == 0)
                 {
@@ -66,7 +66,7 @@ namespace GraphSynth.UI
                             break;
                     }
                     if (!continueTesting) continue;
-                    if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
+                    if (SearchIO.GetTerminateRequest(Thread.CurrentThread.ManagedThreadId)) return;
                     var chosenOption = options[choice];
                     {
                         var seedCopy = seed.copy();
@@ -76,9 +76,9 @@ namespace GraphSynth.UI
                     chosenOption.apply(seed, null);
                     SearchIO.output("Rule sucessfully applied", 4);
                     SearchIO.addAndShowGraphWindow(seed, "After calling " + ++k + " rules");
-                    if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
+                    if (SearchIO.GetTerminateRequest(Thread.CurrentThread.ManagedThreadId)) return;
                     options = dummyRS.recognize(seed, true, RelaxationTemplate.copy());
-                    if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
+                    if (SearchIO.GetTerminateRequest(Thread.CurrentThread.ManagedThreadId)) return;
                     numOptions = options.Count;
                     switch (numOptions)
                     {

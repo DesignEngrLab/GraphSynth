@@ -2959,41 +2959,41 @@
               Search Process.
             </summary>
         </member>
-        <member name="M:GraphSynth.SearchIO.getIteration(System.String)">
+        <member name="M:GraphSynth.SearchIO.getIteration(System.Int32)">
             <summary>
               Gets the iteration.
             </summary>
             <param name = "threadName">Name of the thread.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.SearchIO.getMiscObject(System.String)">
+        <member name="M:GraphSynth.SearchIO.getMiscObject(System.Int32)">
             <summary>
               Gets the misc object.
             </summary>
             <param name = "threadName">Name of the thread.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.SearchIO.GetTerminateRequest(System.String)">
+        <member name="M:GraphSynth.SearchIO.GetTerminateRequest(System.Int32)">
             <summary>
             Gets the Boolean indicating whether a termination request has been sent.
             </summary>
             <param name="searchThreadName">Name of the search thread.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.SearchIO.setTerminationRequest(System.String)">
+        <member name="M:GraphSynth.SearchIO.setTerminationRequest(System.Int32)">
             <summary>
               Sets the termination request.
             </summary>
             <param name = "threadName">Name of the thread.</param>
         </member>
-        <member name="M:GraphSynth.SearchIO.setTimeInterval(System.String,System.TimeSpan)">
+        <member name="M:GraphSynth.SearchIO.setTimeInterval(System.Int32,System.TimeSpan)">
             <summary>
               Sets the time interval.
             </summary>
             <param name = "threadName">Name of the thread.</param>
             <param name = "value">The value.</param>
         </member>
-        <member name="M:GraphSynth.SearchIO.getTimeInterval(System.String)">
+        <member name="M:GraphSynth.SearchIO.getTimeInterval(System.Int32)">
             <summary>
               Gets the time interval.
             </summary>
@@ -3005,14 +3005,14 @@
               Defines the default verbosity of all search threads.
             </summary>
         </member>
-        <member name="M:GraphSynth.SearchIO.setVerbosity(System.String,System.Int32)">
+        <member name="M:GraphSynth.SearchIO.setVerbosity(System.Int32,System.Int32)">
             <summary>
               Sets the verbosity.
             </summary>
             <param name = "threadName">Name of the thread.</param>
             <param name = "value">The value.</param>
         </member>
-        <member name="M:GraphSynth.SearchIO.getVerbosity(System.String)">
+        <member name="M:GraphSynth.SearchIO.getVerbosity(System.Int32)">
             <summary>
               Gets the verbosity.
             </summary>

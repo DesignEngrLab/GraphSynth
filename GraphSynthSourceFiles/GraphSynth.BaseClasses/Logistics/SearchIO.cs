@@ -26,6 +26,7 @@
  *************************************************************************/
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading;
 #if WPF
 using System.Windows;
@@ -38,11 +39,11 @@ namespace GraphSynth
     ///   Search Process.
     /// </summary>
     public static class SearchIO
-    {        
+    {
         #region Iteration Handling
 
         private const int defaultIteration = 0;
-        private static readonly Hashtable iterations = new Hashtable();
+        private static readonly Dictionary<int, int> iterations = new Dictionary<int, int>();
 
         /// <summary>
         ///   Gets or sets the iteration.
@@ -52,14 +53,14 @@ namespace GraphSynth
         {
             set
             {
-                var searchThreadName = Thread.CurrentThread.Name ?? "";
+                var searchThreadName = Thread.CurrentThread.ManagedThreadId;
                 if (iterations.ContainsKey(searchThreadName))
                     iterations[searchThreadName] = value;
                 else iterations.Add(searchThreadName, value);
             }
             get
             {
-                return getIteration(Thread.CurrentThread.Name);
+                return getIteration(Thread.CurrentThread.ManagedThreadId);
             }
         }
 
@@ -68,10 +69,10 @@ namespace GraphSynth
         /// </summary>
         /// <param name = "threadName">Name of the thread.</param>
         /// <returns></returns>
-        public static int getIteration(string threadName)
+        public static int getIteration(int threadID)
         {
-            if ((!string.IsNullOrWhiteSpace(threadName)) && iterations.ContainsKey(threadName))
-                return (int)iterations[threadName];
+            if (iterations.ContainsKey(threadID))
+                return (int)iterations[threadID];
             return defaultIteration;
         }
 
@@ -79,8 +80,8 @@ namespace GraphSynth
 
         #region miscObject Handling
 
-        private const string defaultMiscObject = "misc";
-        private static readonly Hashtable miscHash = new Hashtable();
+        private const string defaultMiscObject = "misc";    
+        private static readonly Dictionary<int, object> miscHash = new Dictionary<int, object>();
 
         /// <summary>
         ///   Gets or sets the misc object.
@@ -90,14 +91,14 @@ namespace GraphSynth
         {
             set
             {
-                var searchThreadName = Thread.CurrentThread.Name ?? "";
+                var searchThreadName = Thread.CurrentThread.ManagedThreadId;
                 if (miscHash.ContainsKey(searchThreadName))
                     miscHash[searchThreadName] = value;
                 else miscHash.Add(searchThreadName, value);
             }
             get
             {
-                return getMiscObject(Thread.CurrentThread.Name);
+                return getMiscObject(Thread.CurrentThread.ManagedThreadId);
             }
         }
 
@@ -106,9 +107,9 @@ namespace GraphSynth
         /// </summary>
         /// <param name = "threadName">Name of the thread.</param>
         /// <returns></returns>
-        public static string getMiscObject(string threadName)
+        public static string getMiscObject(int threadName)
         {
-            if ((!string.IsNullOrWhiteSpace(threadName)) && miscHash.ContainsKey(threadName))
+            if (miscHash.ContainsKey(threadName))
                 return miscHash[threadName].ToString();
             return defaultMiscObject;
         }
@@ -117,7 +118,7 @@ namespace GraphSynth
 
         #region Termination Request Handling
 
-        private static readonly Hashtable termRequests = new Hashtable();
+        private static readonly Dictionary<int, Boolean> termRequests = new Dictionary<int, Boolean>();
 
         /// <summary>
         ///   Gets a value indicating whether [terminate request].
@@ -125,7 +126,7 @@ namespace GraphSynth
         /// <value><c>true</c> if [terminate request]; otherwise, <c>false</c>.</value>
         public static Boolean terminateRequest
         {
-            get { return GetTerminateRequest(Thread.CurrentThread.Name); }
+            get { return GetTerminateRequest(Thread.CurrentThread.ManagedThreadId); }
         }
 
         /// <summary>
@@ -133,10 +134,9 @@ namespace GraphSynth
         /// </summary>
         /// <param name="searchThreadName">Name of the search thread.</param>
         /// <returns></returns>
-        public static Boolean GetTerminateRequest(string searchThreadName = null)
+        public static Boolean GetTerminateRequest(int searchThreadName)
         {
-            if (!string.IsNullOrWhiteSpace(searchThreadName)) searchThreadName = Thread.CurrentThread.Name;
-            if (!string.IsNullOrWhiteSpace(searchThreadName) && termRequests.ContainsKey(searchThreadName))
+            if (termRequests.ContainsKey(searchThreadName))
                 return (Boolean)termRequests[searchThreadName];
             return false;
         }
@@ -145,10 +145,9 @@ namespace GraphSynth
         ///   Sets the termination request.
         /// </summary>
         /// <param name = "threadName">Name of the thread.</param>
-        public static void setTerminationRequest(string threadName)
+        public static void setTerminationRequest(int threadName)
         {
-            if (threadName == null) throw new Exception("The theadname was null in setTerminationRequest");
-            if ((!string.IsNullOrWhiteSpace(threadName)) && termRequests.ContainsKey(threadName))
+            if (termRequests.ContainsKey(threadName))
                 termRequests[threadName] = true;
             else termRequests.Add(threadName, true);
         }
@@ -157,7 +156,7 @@ namespace GraphSynth
 
         #region Time Interval Handling
 
-        private static readonly Hashtable timeIntervals = new Hashtable();
+        private static readonly Dictionary<int, TimeSpan> timeIntervals = new Dictionary<int, TimeSpan>();
         private static readonly TimeSpan zeroTimeInterval = new TimeSpan(0);
 
         /// <summary>
@@ -168,7 +167,7 @@ namespace GraphSynth
         {
             get
             {
-                return getTimeInterval(Thread.CurrentThread.Name);
+                return getTimeInterval(Thread.CurrentThread.ManagedThreadId);
             }
         }
 
@@ -177,7 +176,7 @@ namespace GraphSynth
         /// </summary>
         /// <param name = "threadName">Name of the thread.</param>
         /// <param name = "value">The value.</param>
-        public static void setTimeInterval(string threadName, TimeSpan value)
+        public static void setTimeInterval(int threadName, TimeSpan value)
         {
             if (timeIntervals.ContainsKey(threadName))
                 timeIntervals[threadName] = value;
@@ -189,9 +188,9 @@ namespace GraphSynth
         /// </summary>
         /// <param name = "threadName">Name of the thread.</param>
         /// <returns></returns>
-        public static TimeSpan getTimeInterval(string threadName)
+        public static TimeSpan getTimeInterval(int threadName)
         {
-            if ((!string.IsNullOrWhiteSpace(threadName)) && timeIntervals.ContainsKey(threadName))
+            if ( timeIntervals.ContainsKey(threadName))
                 return (TimeSpan)timeIntervals[threadName];
             return zeroTimeInterval;
         }
@@ -206,7 +205,7 @@ namespace GraphSynth
         public static int defaultVerbosity;
 
 
-        private static readonly Hashtable verbosities = new Hashtable();
+        private static readonly Dictionary<int, int> verbosities = new Dictionary<int, int>();
 
         /// <summary>
         ///   Gets the verbosity.
@@ -216,7 +215,7 @@ namespace GraphSynth
         {
             get
             {
-                return getVerbosity(Thread.CurrentThread.Name);
+                return getVerbosity(Thread.CurrentThread.ManagedThreadId);
             }
         }
 
@@ -225,7 +224,7 @@ namespace GraphSynth
         /// </summary>
         /// <param name = "threadName">Name of the thread.</param>
         /// <param name = "value">The value.</param>
-        public static void setVerbosity(string threadName, int value)
+        public static void setVerbosity(int threadName, int value)
         {
             if (verbosities.ContainsKey(threadName))
                 verbosities[threadName] = value;
@@ -237,9 +236,9 @@ namespace GraphSynth
         /// </summary>
         /// <param name = "threadName">Name of the thread.</param>
         /// <returns></returns>
-        public static int getVerbosity(string threadName)
+        public static int getVerbosity(int threadName)
         {
-            if ((!string.IsNullOrWhiteSpace(threadName)) && verbosities.ContainsKey(threadName))
+            if ( verbosities.ContainsKey(threadName))
                 return (int)verbosities[threadName];
             return defaultVerbosity;
         }
