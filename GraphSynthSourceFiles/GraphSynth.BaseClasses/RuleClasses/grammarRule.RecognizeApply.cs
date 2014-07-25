@@ -126,12 +126,12 @@ namespace GraphSynth.Representation
              * host (as is the case in the last three cases below). In this case we start with any hyperarcs
              * that have already been matched to one in the host, and see if it connects to any nodes that
              * have yet to be matched. */
-            var startHyperArc = (ruleHyperarc)L.hyperarcs.Find(ha => ((location.findLMappedHyperarc(ha) != null)
+            var startHyperArc = (ruleHyperarc)L.hyperarcs.FirstOrDefault(ha => ((location.findLMappedHyperarc(ha) != null)
                 && (ha.nodes.Any(n => (location.findLMappedNode(n) == null)))));
             if (startHyperArc != null)
             {
                 var hostHyperArc = location.findLMappedHyperarc(startHyperArc);
-                var newLNode = (ruleNode)startHyperArc.nodes.Find(n => (location.findLMappedNode(n) == null));
+                var newLNode = (ruleNode)startHyperArc.nodes.FirstOrDefault(n => (location.findLMappedNode(n) == null));
                 foreach (var n in hostHyperArc.nodes.Where(n => !location.nodes.Contains(n)))
                     checkNode(location.copy(), newLNode, n);
                 return;
@@ -142,14 +142,14 @@ namespace GraphSynth.Representation
              * Therefore, we see if there are any nodes already matched to a node in L that has an arc in L
              * that has yet to be matched with a host arc. This is more efficient than the last 3 cases 
              * because they look through the entire host, which is potentially large. */
-            var startNode = (ruleNode)L.nodes.Find(n => ((location.findLMappedNode(n) != null)
+            var startNode = (ruleNode)L.nodes.FirstOrDefault(n => ((location.findLMappedNode(n) != null)
                 && (n.arcs.Any(a => (location.findLMappedElement(a) == null)))));
             /* is there a node already matched (which would only occur if your recursed to get here) that has an
              * unrecognized arc attaced to it. If yes, try all possible arcs in the host with the one that needs
              * to be fulfilled in L. */
             if (startNode != null)
             {
-                var newLArc = startNode.arcs.Find(a => (location.findLMappedElement(a) == null));
+                var newLArc = startNode.arcs.FirstOrDefault(a => (location.findLMappedElement(a) == null));
                 if (newLArc is ruleHyperarc)
                     checkHyperArc(location, startNode, location.findLMappedNode(startNode), (ruleHyperarc)newLArc);
                 else if (newLArc is ruleArc)
@@ -162,7 +162,7 @@ namespace GraphSynth.Representation
              * prior three cases have conditions which require some non-nulls in the location, this is likely where the 
              * process will start when invoked from line 87 of recognize above. Hyperarcs are most efficient to start from 
              * since there are likely fewer hyperarcs in the host than nodes, or arcs. */
-            startHyperArc = (ruleHyperarc)L.hyperarcs.Find(ha => (location.findLMappedHyperarc(ha) == null));
+            startHyperArc = (ruleHyperarc)L.hyperarcs.FirstOrDefault(ha => (location.findLMappedHyperarc(ha) == null));
             if (startHyperArc != null)
             {
                 if (_in_parallel_)
@@ -185,7 +185,7 @@ namespace GraphSynth.Representation
              * three conditions were met (obviously) but this also implies that there are multiple components in the
              * LHS, and we are now jumping to a new one with this. This is potentially time intensive if there are
              * a lot of nodes in the host. We allow for the possibility that this recognition can be done in parallel. */
-            startNode = (ruleNode)L.nodes.Find(n => (location.findLMappedNode(n) == null));
+            startNode = (ruleNode)L.nodes.FirstOrDefault(n => (location.findLMappedNode(n) == null));
             if (startNode != null)
             {
                 if (_in_parallel_)
@@ -203,7 +203,7 @@ namespace GraphSynth.Representation
             }
             #endregion
             #region Case 6: Check entire host for a matching arc
-            var looseArc = (ruleArc)L.arcs.Find(a => (location.findLMappedArc(a) == null));
+            var looseArc = (ruleArc)L.arcs.FirstOrDefault(a => (location.findLMappedArc(a) == null));
             /* the only way one can get here is if there are one or more arcs NOT connected to any nodes
              * in L - a floating arc, dangling on both sides, like an eyelash. */
             if (looseArc != null)
@@ -236,7 +236,7 @@ namespace GraphSynth.Representation
             if (!nodeMatches(LNode, hostNode, location) && !nodeMatchRelaxed(LNode, hostNode, location))
                 return;
             location.nodes[L.nodes.IndexOf(LNode)] = hostNode;
-            var newLArc = LNode.arcs.Find(a => (location.findLMappedElement(a) == null));
+            var newLArc = LNode.arcs.FirstOrDefault(a => (location.findLMappedElement(a) == null));
             if (newLArc == null) findNewStartElement(location);
             else if (newLArc is ruleHyperarc)
                 checkHyperArc(location, LNode, hostNode, (ruleHyperarc)newLArc);
@@ -248,7 +248,7 @@ namespace GraphSynth.Representation
             if (!hyperArcMatches(LHyperArc, hostHyperArc) && !hyperArcMatchRelaxed(LHyperArc, hostHyperArc, location))
                 return;
             location.hyperarcs[L.hyperarcs.IndexOf(LHyperArc)] = hostHyperArc;
-            var newLNode = (ruleNode)LHyperArc.nodes.Find(n => (location.findLMappedNode(n) == null));
+            var newLNode = (ruleNode)LHyperArc.nodes.FirstOrDefault(n => (location.findLMappedNode(n) == null));
             if (newLNode == null) findNewStartElement(location);
             else
                 foreach (var n in hostHyperArc.nodes.Where(n => !location.nodes.Contains(n)))
@@ -489,7 +489,7 @@ namespace GraphSynth.Representation
                      * are no longer in R and delete them, and we need to add the new labels
                      * that are in R but not already in L. The ones common to both are left
                      * alone. */
-                    var LNode = L.nodes.Find(n => (rNode.name.Equals(n.name)));
+                    var LNode = L.nodes.FirstOrDefault(n => (rNode.name.Equals(n.name)));
                     /* find index of the common node in L...*/
                     var KNode = Lmapping.findLMappedNode(LNode); /*...and then set Knode to the actual node in D.*/
                     Rmapping.nodes[i] = KNode; /*also, make sure that the Rmapping is to this same node.*/
@@ -528,7 +528,7 @@ namespace GraphSynth.Representation
                     /* if the arc is coming from a node that is in K, then it must've been
              * part of the location (or Lmapping) that was originally recognized.*/
                     {
-                        var LNode = L.nodes.Find(b => (rArc.From.name == b.name));
+                        var LNode = L.nodes.FirstOrDefault(b => (rArc.From.name == b.name));
                         /* therefore we need to find the position/index of that node in L. */
 
                         from = Lmapping.findLMappedNode(LNode);
@@ -540,7 +540,7 @@ namespace GraphSynth.Representation
              * created at the beginning of this function (see step 1) and is now
              * one of the references in Rmapping. */
                     {
-                        var RNode = R.nodes.Find(b => (rArc.From.name == b.name));
+                        var RNode = R.nodes.FirstOrDefault(b => (rArc.From.name == b.name));
                         from = findRMappedNode(Rmapping, RNode);
                     }
 
@@ -555,12 +555,12 @@ namespace GraphSynth.Representation
                         to = null;
                     else if (L.nodes.Exists(b => (b.name == rArc.To.name)))
                     {
-                        var LNode = L.nodes.Find(b => (rArc.To.name == b.name));
+                        var LNode = L.nodes.FirstOrDefault(b => (rArc.To.name == b.name));
                         to = Lmapping.findLMappedNode(LNode);
                     }
                     else
                     {
-                        var RNode = R.nodes.Find(b => (rArc.To.name == b.name));
+                        var RNode = R.nodes.FirstOrDefault(b => (rArc.To.name == b.name));
                         to = findRMappedNode(Rmapping, RNode);
                     }
 
@@ -578,7 +578,7 @@ namespace GraphSynth.Representation
                 else
                 {
                     /* first find the position of the same arc in L. */
-                    var currentLArc = (ruleArc)L.arcs.Find(b => (rArc.name == b.name));
+                    var currentLArc = (ruleArc)L.arcs.FirstOrDefault(b => (rArc.name == b.name));
                     var mappedArc = Lmapping.findLMappedArc(currentLArc);
                     /* then find the actual arc in D that is to be changed.*/
                     /* one very subtle thing just happend here! (07/06/06) if the direction is reversed, then
@@ -601,7 +601,7 @@ namespace GraphSynth.Representation
                     }
                     else if (rArc.From != null)
                     {
-                        var RNode = R.nodes.Find(b => (rArc.From.name == b.name));
+                        var RNode = R.nodes.FirstOrDefault(b => (rArc.From.name == b.name));
                         /* find the position of node that this arc is supposed to connect to in R */
                         if (KArcIsReversed) mappedArc.To = findRMappedNode(Rmapping, RNode);
                         else mappedArc.From = findRMappedNode(Rmapping, RNode);
@@ -614,7 +614,7 @@ namespace GraphSynth.Representation
                     }
                     else if (rArc.To != null)
                     {
-                        var RNode = R.nodes.Find(b => (rArc.To.name == b.name));
+                        var RNode = R.nodes.FirstOrDefault(b => (rArc.To.name == b.name));
                         if (KArcIsReversed) mappedArc.From = findRMappedNode(Rmapping, RNode);
                         else mappedArc.To = findRMappedNode(Rmapping, RNode);
                     }

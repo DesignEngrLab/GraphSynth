@@ -161,9 +161,9 @@ namespace GraphSynth.Representation
         {
             get
             {
-                var gE = (nodes.Find(a => (a.name == eltName)) ??
-                                   (graphElement)arcs.Find(a => (a.name == eltName))) ??
-                                  hyperarcs.Find(h => (h.name == eltName));
+                var gE = (nodes.FirstOrDefault(a => (a.name == eltName)) ??
+                                   (graphElement)arcs.FirstOrDefault(a => (a.name == eltName))) ??
+                                  hyperarcs.FirstOrDefault(h => (h.name == eltName));
                 return gE;
             }
         }
@@ -557,7 +557,7 @@ namespace GraphSynth.Representation
                     a.From = null;
                 else
                 {
-                    var fromNode = nodes.Find(b => (b.name == a.From.name));
+                    var fromNode = nodes.FirstOrDefault(b => (b.name == a.From.name));
                     if (fromNode == null) throw new Exception("Arc, " + a.name + ", was to connect to node, " + a.From.name +
                       ", but the node did not load as part of the graph.");
                     a.From = fromNode;
@@ -567,7 +567,7 @@ namespace GraphSynth.Representation
                     a.To = null;
                 else
                 {
-                    var toNode = nodes.Find(b => (b.name == a.To.name));
+                    var toNode = nodes.FirstOrDefault(b => (b.name == a.To.name));
                     if (toNode == null) throw new Exception("Arc, " + a.name + ", was to connect to node, " + a.To.name +
                       ", but the node did not load as part of the graph.");
                     a.To = toNode;
@@ -578,7 +578,7 @@ namespace GraphSynth.Representation
                 {
                     if (h.nodes[i] != null)
                     {
-                        var attachedNode = nodes.Find(b => (b.name == h.nodes[i].name));
+                        var attachedNode = nodes.FirstOrDefault(b => (b.name == h.nodes[i].name));
                         if (attachedNode == null)
                             throw new Exception("Hyperarc, " + h.name + ", was to connect to node, "
                                                 + h.nodes[i].name + ", but the node did not load as part of the graph.");

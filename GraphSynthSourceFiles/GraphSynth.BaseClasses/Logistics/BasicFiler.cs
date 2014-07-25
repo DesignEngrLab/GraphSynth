@@ -614,7 +614,7 @@ namespace GraphSynth
             var badArcNames = "";
             foreach (var a in gR.L.arcs)
             {
-                var b = (ruleArc)gR.R.arcs.Find(c => (c.name.Equals(a.name)));
+                var b = (ruleArc)gR.R.arcs.FirstOrDefault(c => (c.name.Equals(a.name)));
                 if (b != null)
                 {
                     if (((a.To != null) && (b.From != null) && (a.To.name == b.From.name)) ||

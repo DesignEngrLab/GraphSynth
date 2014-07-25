@@ -153,7 +153,7 @@ namespace GraphSynth.Search
                     ruleSetIndex = newRSIndex;
                     continue;
                 }
-                if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
+                if (SearchIO.GetTerminateRequest(Thread.CurrentThread.ManagedThreadId)) return;
 
                 #endregion
 
@@ -195,7 +195,7 @@ namespace GraphSynth.Search
                 if (Display && Rulesets[ruleSetIndex].choiceMethod == choiceMethods.Design)
                     SearchIO.addAndShowGraphWindow(host.graph.copy(),
                                                    "After calling " + host.numRulesCalled + " rules");
-                if (SearchIO.GetTerminateRequest(Thread.CurrentThread.Name)) return;
+                if (SearchIO.GetTerminateRequest(Thread.CurrentThread.ManagedThreadId)) return;
 
                 #endregion
 

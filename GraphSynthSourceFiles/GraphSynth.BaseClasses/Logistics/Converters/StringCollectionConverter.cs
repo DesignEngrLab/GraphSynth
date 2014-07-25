@@ -35,78 +35,14 @@ namespace GraphSynth
     /// <summary>
     ///   Used to convert a single string into a list of strings and vice-versa.
     /// </summary>
-    public class StringCollectionConverter : TypeConverter
-    {
-        /// <summary>
-        ///   Returns whether this converter can convert an object of the given type to the type of this converter, using the specified context.
-        /// </summary>
-        /// <param name = "context">An <see cref = "T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context.</param>
-        /// <param name = "sourceType">A <see cref = "T:System.Type" /> that represents the type you want to convert from.</param>
-        /// <returns>
-        ///   true if this converter can perform the conversion; otherwise, false.
-        /// </returns>
-        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
-        {
-            return sourceType == typeof(string);
-        }
-
-        /// <summary>
-        ///   Converts the given object to the type of this converter, using the specified context and culture information.
-        /// </summary>
-        /// <param name = "context">An <see cref = "T:System.ComponentModel.ITypeDescriptorContext" /> that provides a format context.</param>
-        /// <param name = "culture">The <see cref = "T:System.Globalization.CultureInfo" /> to use as the current culture.</param>
-        /// <param name = "value">The <see cref = "T:System.Object" /> to convert.</param>
-        /// <returns>
-        ///   An <see cref = "T:System.Object" /> that represents the converted value.
-        /// </returns>
-        /// <exception cref = "T:System.NotSupportedException">The conversion cannot be performed. </exception>
-        public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
-        {
-            if (value is string)
-            {
-                return convert((string)value);
-            }
-            return null;
-        }
-
-        /// <summary>
-        ///   Determines whether this instance [can convert to] the specified context.
-        /// </summary>
-        /// <param name = "context">The context.</param>
-        /// <param name = "sourceType">Type of the source.</param>
-        /// <returns>
-        ///   <c>true</c> if this instance [can convert to] the specified context; otherwise, <c>false</c>.
-        /// </returns>
-        public override bool CanConvertTo(ITypeDescriptorContext context, Type sourceType)
-        {
-            return (sourceType == typeof(IEnumerable<string>)) || (sourceType == typeof(string[]));
-        }
-
-        /// <summary>
-        ///   Converts to.
-        /// </summary>
-        /// <param name = "context">The context.</param>
-        /// <param name = "culture">The culture.</param>
-        /// <param name = "value">The value.</param>
-        /// <param name = "s">The s.</param>
-        /// <returns></returns>
-        public override object ConvertTo(ITypeDescriptorContext context,
-                                         CultureInfo culture, object value, Type s)
-        {
-            if (value is IEnumerable<string>)
-            {
-                return convert((IEnumerable<string>)value);
-            }
-            return null;
-        }
-
-
+    public class StringCollectionConverter
+    {    
         /// <summary>
         ///   Converts the comma-separated-values into a IEnumerable of strings.
         /// </summary>
         /// <param name = "value">The value.</param>
         /// <returns></returns>
-        public static List<string> convert(string value)
+        public static List<string> Convert(string value)
         {
             var items = new List<string>();
             var charSeparators = new[] { ',', '(', ')', ' ', ';', '\'', '\"', '*', '?', '<', '>', '|' };
@@ -126,7 +62,7 @@ namespace GraphSynth
         /// </summary>
         /// <param name = "values">The values.</param>
         /// <returns></returns>
-        public static string convert(IEnumerable<string> values)
+        public static string Convert(IEnumerable<string> values)
         {
             var text = "";
          

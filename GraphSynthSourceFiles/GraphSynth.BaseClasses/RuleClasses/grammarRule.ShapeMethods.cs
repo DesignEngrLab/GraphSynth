@@ -30,9 +30,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Windows.Media;
-using System.Windows.Media.Media3D;
 
 namespace GraphSynth.Representation
 {
@@ -910,7 +907,7 @@ namespace GraphSynth.Representation
         public void ReorderNodes()
         {
             /* put not-exist nodes at the end of the list. */
-            var notExistNodes = L.nodes.FindAll(n => ((ruleNode)n).NotExist);
+            var notExistNodes = L.nodes.Where(n => ((ruleNode)n).NotExist);
             L.nodes.RemoveAll(notExistNodes.Contains);
 
             /* if all the nodes are collinear, there's nothing we can do. */
@@ -921,22 +918,22 @@ namespace GraphSynth.Representation
             }
             /*take off the node with the lowest x, call it nodeMinX */
             var minX = L.nodes.Min(n => n.X);
-            var nodeMinX = L.nodes.Find(n => n.X == minX);
+            var nodeMinX = L.nodes.First(n => n.X == minX);
             L.nodes.Remove(nodeMinX);
             /*take off the node with the largest x, call it nodeMaxX */
             var maxX = L.nodes.Max(n => n.X);
-            var nodeMaxX = L.nodes.Find(n => n.X == maxX);
+            var nodeMaxX = L.nodes.First(n => n.X == maxX);
             L.nodes.Remove(nodeMaxX);
             /*take off the node with the next lowest x, call it nodeMinXX */
             var minXX = L.nodes.Min(n => n.X);
-            var nodeMinXX = L.nodes.Find(n => n.X == minXX);
+            var nodeMinXX = L.nodes.First(n => n.X == minXX);
             L.nodes.Remove(nodeMinXX);
             if (L.nodes.Count > 0)
             {
                 /* if you have four or more nodes, find a fourth point, 
                  * again at max X. */
                 var maxXX = L.nodes.Max(n => n.X);
-                var nodeMaxXX = L.nodes.Find(n => n.X == maxXX);
+                var nodeMaxXX = L.nodes.First(n => n.X == maxXX);
                 L.nodes.Remove(nodeMaxXX);
                 L.nodes.Insert(0, nodeMaxXX);
             }

@@ -396,7 +396,7 @@ namespace GraphSynth
             get
             {
                 var relNames = defaultRSFileNames.Select(s => MyIOPath.GetRelativePath(s, RulesDirAbs)).ToList();
-                return StringCollectionConverter.convert(relNames);
+                return StringCollectionConverter.Convert(relNames);
             }
             set
             {
