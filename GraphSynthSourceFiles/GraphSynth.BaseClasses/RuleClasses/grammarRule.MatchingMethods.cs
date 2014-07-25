@@ -48,12 +48,12 @@ namespace GraphSynth.Representation
             return (hostElt.GetType().Equals(t) || hostElt.GetType().IsSubclassOf(t));
         }
 
-        private static Boolean LabelsMatch(IEnumerable<string> hostLabels, IEnumerable<string> positiveLabels, IEnumerable<string> negateLabels,
+        internal static Boolean LabelsMatch(IEnumerable<string> hostLabels, IEnumerable<string> positiveLabels, IEnumerable<string> negateLabels,
             Boolean containsAllLocalLabels)
         {
             /* first an easy check to see if any negating labels exist
              * in the hostLabels. If so, immediately return false. */
-            if (negateLabels.Any() && negateLabels.Intersect(hostLabels).Any())
+            if (negateLabels != null && negateLabels.Any() && negateLabels.Intersect(hostLabels).Any())
                 return false;
             /* next, set up a tempLabels so that we don't change the 
              * host's actual labels. We delete an instance of the label. 
