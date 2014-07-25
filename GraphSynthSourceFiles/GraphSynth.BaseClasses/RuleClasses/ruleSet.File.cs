@@ -46,8 +46,6 @@ namespace GraphSynth.Representation
     {
         #region Fields
 
-        private Boolean FileChangedBypass;
-        private FileSystemWatcher watch;
 
         /// <summary>
         ///   Gets or sets the filer.
@@ -311,92 +309,6 @@ namespace GraphSynth.Representation
 
         #endregion
 
-        #region FileWatch
 
-        /*  */
-
-        /// <summary>
-        ///   Initializes the file watcher. There is no way to prevent watching all 
-        ///   the *.xml files in the rulesDirectory - it seems that filter is limited
-        ///   to this. That's okay, in each of the events that is triggered we first
-        ///   see if it is important to tell the user.
-        /// </summary>
-        /// <param name = "RulesDir">The rules dir.</param>
-        public void initializeFileWatcher(string RulesDir)
-        {
-            watch = new FileSystemWatcher
-                        {
-                            Path = RulesDir
-                        };
-            watch.Changed += watch_Changed;
-            watch.Created += watch_Created;
-            watch.Deleted += watch_Deleted;
-            watch.Renamed += watch_Renamed;
-            watch.EnableRaisingEvents = true;
-            watch.IncludeSubdirectories = true;
-            watch.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
-                                 | NotifyFilters.FileName;
-        }
-
-        private void watch_Renamed(object sender, RenamedEventArgs e)
-        {
-            var oldName = Path.GetFileName(e.OldFullPath);
-            var newName = Path.GetFileName(e.FullPath);
-            if (!ruleFileNames.Contains(oldName)) return;
-            var res =
-                SearchIO.MessageBoxShow("It appears that you have renamed a rule that was a member of ruleset: "
-                                        + name + ". Would you like to keep the rule in this set?",
-                                        "Rule Set Rule Renamed.");
-            if (!res) return;
-            FileChangedBypass = true;
-            var i = ruleFileNames.FindIndex(a => a.Equals(oldName));
-            ruleFileNames[i] = newName;
-        }
-
-        private void watch_Deleted(object sender, FileSystemEventArgs e)
-        {
-            if (!ruleFileNames.Contains(e.Name)) return;
-            var res =
-                SearchIO.MessageBoxShow("It appears that you have deleted a rule that was a member of ruleset: "
-                                        + name + ". Would you like to delete the rule from the set?",
-                                        "Rule Set Rule Deleted.");
-            if (!res) return;
-            FileChangedBypass = true;
-            var i = ruleFileNames.FindIndex(a => a.Equals(e.Name));
-            ruleFileNames.RemoveAt(i);
-            rules.RemoveAt(i);
-        }
-
-        private void watch_Created(object sender, FileSystemEventArgs e)
-        {
-            if (!ruleFileNames.Contains(e.Name)) return;
-            var res =
-                SearchIO.MessageBoxShow("It appears that you have created a rule that was a member of ruleset: "
-                                        + name + ". Would you like to load it into the rule set?",
-                                        "Rule Set Rule Created.");
-            if (!res) return;
-            FileChangedBypass = true;
-            var i = ruleFileNames.FindIndex(a => a.Equals(e.Name));
-            filer.ReloadSpecificRule(this, i);
-        }
-
-
-        private void watch_Changed(object sender, FileSystemEventArgs e)
-        {
-            /* an annoying thing happens when the user says yes to any of the above three
-             * events - this event is automatically triggered. To bypass this we use the
-             * boolean, FileChangedBypass. */
-            if (FileChangedBypass) FileChangedBypass = false;
-            else if (ruleFileNames.Contains(e.Name))
-            {
-                FileChangedBypass = true;
-                var i = ruleFileNames.FindIndex(a => a.Equals(e.Name));
-                filer.ReloadSpecificRule(this, i);
-                SearchIO.MessageBoxShow("The rule, " + e.Name + ", has changed and has been reloaded into ruleset, "
-                                        + name + ".", "RuleSet Rule Changed.");
-            }
-        }
-
-        #endregion
     }
 }

@@ -250,16 +250,16 @@ namespace GraphSynth.UI
             {
                 var rSW = (ruleSetWindow)windowsMgr.activeWindow;
 
-                if (!QueryForFile && (Path.IsPathRooted(rSW.filename)))
-                    filename = rSW.filename;
+                if (!QueryForFile && (Path.IsPathRooted(rSW.Filename)))
+                    filename = rSW.Filename;
                 else
                     filename = GetSaveFilename("rule set file (*.rsxml)|*.rsxml|xml file (*.xml)|*.xml",
-                                               rSW.ruleset.name, GSApp.settings.RulesDirAbs);
+                                               rSW.Ruleset.name, GSApp.settings.RulesDirAbs);
                 if (filename != "")
                 {
-                    GSApp.settings.filer.Save(filename, rSW.ruleset);
-                    if (string.IsNullOrWhiteSpace(rSW.ruleset.name))
-                        rSW.Title = rSW.ruleset.name = Path.GetFileNameWithoutExtension(filename);
+                    GSApp.settings.filer.Save(filename, rSW.Ruleset);
+                    if (string.IsNullOrWhiteSpace(rSW.Ruleset.name))
+                        rSW.Title = rSW.Ruleset.name = Path.GetFileNameWithoutExtension(filename);
                 }
             }
             else

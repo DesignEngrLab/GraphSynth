@@ -298,7 +298,7 @@ namespace GraphSynth.UI
         private void defineRuleSet(int index)
         {
             var activeRSC = (ruleSetWindow)windowsMgr.activeWindow;
-            if ((GSApp.settings.rulesets[index] == null) || (GSApp.settings.rulesets[index] == activeRSC.ruleset) ||
+            if ((GSApp.settings.rulesets[index] == null) || (GSApp.settings.rulesets[index] == activeRSC.Ruleset) ||
                 (MessageBoxResult.Yes == MessageBox.Show("The ruleset " +
                                                          ((ruleSet)GSApp.settings.rulesets[index]).name +
                                                          " is already loaded into rule set #"
@@ -306,8 +306,8 @@ namespace GraphSynth.UI
                                                          "RuleSet already defined.",
                                                          MessageBoxButton.YesNo, MessageBoxImage.Information)))
             {
-                GSApp.settings.rulesets[index] = activeRSC.ruleset;
-                activeRSC.ruleset.RuleSetIndex = index;
+                GSApp.settings.rulesets[index] = activeRSC.Ruleset;
+                activeRSC.Ruleset.RuleSetIndex = index;
             }
         }
 

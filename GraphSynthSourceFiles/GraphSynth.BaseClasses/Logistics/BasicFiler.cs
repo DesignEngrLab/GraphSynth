@@ -304,18 +304,18 @@ namespace GraphSynth
                     for (var i = n.extraData.GetLength(0) - 1; i >= 0; i--)
                     {
                         var unkXmlElt = n.extraData[i];
-                        if ((unkXmlElt.Name == "screenX") && (unkXmlElt.InnerText.Length > 0))
-                            oldX = double.Parse(unkXmlElt.InnerText);
-                        else if ((unkXmlElt.Name == "screenY") && (unkXmlElt.InnerText.Length > 0))
-                            oldY = -double.Parse(unkXmlElt.InnerText);
-                        if ((unkXmlElt.Name == "x") && (unkXmlElt.InnerText.Length > 0))
-                            oldX = double.Parse(unkXmlElt.InnerText);
-                        else if ((unkXmlElt.Name == "y") && (unkXmlElt.InnerText.Length > 0))
-                            oldY = double.Parse(unkXmlElt.InnerText);
-                        else if ((unkXmlElt.Name == "z") && (unkXmlElt.InnerText.Length > 0))
-                            oldZ = double.Parse(unkXmlElt.InnerText);
-                        else if ((unkXmlElt.Name == "shapekey") && (unkXmlElt.InnerText.Length > 0))
-                            shapeKey = unkXmlElt.InnerText;
+                        if ((unkXmlElt.Name == "screenX") && (unkXmlElt.Value.Length > 0))
+                            oldX = double.Parse(unkXmlElt.Value);
+                        else if ((unkXmlElt.Name == "screenY") && (unkXmlElt.Value.Length > 0))
+                            oldY = -double.Parse(unkXmlElt.Value);
+                        if ((unkXmlElt.Name == "x") && (unkXmlElt.Value.Length > 0))
+                            oldX = double.Parse(unkXmlElt.Value);
+                        else if ((unkXmlElt.Name == "y") && (unkXmlElt.Value.Length > 0))
+                            oldY = double.Parse(unkXmlElt.Value);
+                        else if ((unkXmlElt.Name == "z") && (unkXmlElt.Value.Length > 0))
+                            oldZ = double.Parse(unkXmlElt.Value);
+                        else if ((unkXmlElt.Name == "shapekey") && (unkXmlElt.Value.Length > 0))
+                            shapeKey = unkXmlElt.Value;
                         n.extraData[i] = null;
                     }
                 }
@@ -350,9 +350,9 @@ namespace GraphSynth
                     for (var i = a.extraData.GetLength(0) - 1; i >= 0; i--)
                     {
                         var unkXmlElt = a.extraData[i];
-                        if ((unkXmlElt.Name == "styleKey") && (unkXmlElt.InnerText.Length > 0))
+                        if ((unkXmlElt.Name == "styleKey") && (unkXmlElt.Value.Length > 0))
                         {
-                            shapeKey = unkXmlElt.InnerText;
+                            shapeKey = unkXmlElt.Value;
                             a.extraData[i] = null;
                         }
                     }
@@ -370,9 +370,9 @@ namespace GraphSynth
                     for (var i = h.extraData.GetLength(0) - 1; i >= 0; i--)
                     {
                         var unkXmlElt = h.extraData[i];
-                        if ((unkXmlElt.Name == "styleKey") && (unkXmlElt.InnerText.Length > 0))
+                        if ((unkXmlElt.Name == "styleKey") && (unkXmlElt.Value.Length > 0))
                         {
-                            shapeKey = unkXmlElt.InnerText;
+                            shapeKey = unkXmlElt.Value;
                             h.extraData[i] = null;
                         }
                     }
@@ -524,10 +524,10 @@ namespace GraphSynth
                         /* this doesn't seem like the best place for this, but the double foreach
                            * loop is intended to help load old grammar rules that have the simpler
                            * version of embedding rules. */
-                        if ((unkXmlElt.Name == "freeArcLabel") && (unkXmlElt.InnerText.Length > 0))
-                            er.freeArcLabels.Add(unkXmlElt.InnerText);
-                        if ((unkXmlElt.Name == "neighborNodeLabel") && (unkXmlElt.InnerText.Length > 0))
-                            er.neighborNodeLabels.Add(unkXmlElt.InnerText);
+                        if ((unkXmlElt.Name == "freeArcLabel") && (unkXmlElt.Value.Length > 0))
+                            er.freeArcLabels.Add(unkXmlElt.Value);
+                        if ((unkXmlElt.Name == "neighborNodeLabel") && (unkXmlElt.Value.Length > 0))
+                            er.neighborNodeLabels.Add(unkXmlElt.Value);
                     }
                     er.oldLabels = null;
                 }
@@ -729,7 +729,6 @@ namespace GraphSynth
                     SearchIO.output("     but "
                                     + (numRules - numLoaded) + " rules did not load.");
 
-                newRuleSet.initializeFileWatcher(newRuleSet.rulesDir);
                 if ((string.IsNullOrWhiteSpace(newRuleSet.name)) || (newRuleSet.name == "Untitled"))
                     newRuleSet.name = Path.GetFileNameWithoutExtension(filename);
             }

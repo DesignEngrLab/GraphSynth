@@ -28,6 +28,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace GraphSynth.Representation
@@ -67,7 +68,7 @@ namespace GraphSynth.Representation
         ///   to proper places. See use in BasicFiler.cs
         /// </summary>
         [XmlAnyElement]
-        public XmlElement[] oldLabels;
+        public XElement[] oldLabels;
 
         /// <summary>
         ///   Gets or sets the name of the L node that was attached to the 

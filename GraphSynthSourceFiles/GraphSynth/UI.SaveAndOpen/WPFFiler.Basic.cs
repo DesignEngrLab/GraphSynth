@@ -134,7 +134,7 @@ namespace GraphSynth
                     else if (main.windowsMgr.activeWindow is ruleSetWindow)
                     {
                         var rsWin = (ruleSetWindow)main.windowsMgr.activeWindow;
-                        return new object[] { rsWin.ruleset };
+                        return new object[] { rsWin.Ruleset };
                     }
                 }
                 else if (doc.SelectNodes("/designGraph", nsMgr).Count > 0)

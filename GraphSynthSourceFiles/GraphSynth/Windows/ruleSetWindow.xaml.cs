@@ -15,12 +15,13 @@ namespace GraphSynth.UI
     /// </summary>
     public partial class ruleSetWindow : Window
     {
-        private readonly List<int> Deselected = new List<int>();
-        private bool Select;
-        public string filename;
-        public ruleSet ruleset;
+        private readonly List<int> deselected = new List<int>();
+        private bool select;
+        public string Filename;
+        public ruleSet Ruleset;
         private Boolean saveRulesToo;
-
+        private FileSystemWatcher watch;      
+        private Boolean fileChangedBypass;
         private MainWindow main
         {
             get { return GSApp.main; }
@@ -40,19 +41,20 @@ namespace GraphSynth.UI
                 foreach (InputBinding ib in main.InputBindings)
                     InputBindings.Add(ib);
                 /***************************************************/
-                ruleset = rs;
-                this.filename = !string.IsNullOrEmpty(filename) ? filename : "Untitled";
-                Title = !string.IsNullOrEmpty(title) ? title : Path.GetFileNameWithoutExtension(this.filename);
+                this.Ruleset = rs;
+                this.Filename = !string.IsNullOrEmpty(filename) ? filename : "Untitled";
+                Title = !string.IsNullOrEmpty(title) ? title : Path.GetFileNameWithoutExtension(this.Filename);
 
                 listBoxOfRules.Items.Clear();
-                for (var i = 1; i <= ruleset.rules.Count; i++)
+                for (var i = 1; i <= rs.rules.Count; i++)
                 {
                     var li = new ListBoxItem
                                  {
-                                     Content = i + ". " + ruleset.ruleFileNames[(i - 1)]
+                                     Content = i + ". " + rs.ruleFileNames[(i - 1)]
                                  };
                     listBoxOfRules.Items.Add(li);
-                }
+                }      
+                initializeFileWatcher(rs.rulesDir);
             }
             catch (Exception exc)
             {
@@ -117,14 +119,14 @@ namespace GraphSynth.UI
                             try
                             {
                                 var tempRuleObj = GSApp.settings.filer.Open(filename);
-                                ruleset.Add((grammarRule)tempRuleObj[0]);
+                                Ruleset.Add((grammarRule)tempRuleObj[0]);
                                 var ruleFileName = MyIOPath.GetRelativePath(filename,
                                                                             GSApp.settings.RulesDirAbs);
                                 var ruleNumber = listBoxOfRules.Items.Count + 1;
                                 var li = new ListBoxItem();
                                 li.Content = ruleNumber + ". " + ruleFileName;
                                 listBoxOfRules.Items.Add(li);
-                                ruleset.ruleFileNames.Add(ruleFileName);
+                                Ruleset.ruleFileNames.Add(ruleFileName);
                             }
                             catch
                             {
@@ -153,8 +155,8 @@ namespace GraphSynth.UI
                     for (var i = numToRemove; i != 0; i--)
                     {
                         listBoxOfRules.Items.RemoveAt(toRemove[i - 1]);
-                        ruleset.rules.RemoveAt(toRemove[i - 1]);
-                        ruleset.ruleFileNames.RemoveAt(toRemove[i - 1]);
+                        Ruleset.rules.RemoveAt(toRemove[i - 1]);
+                        Ruleset.ruleFileNames.RemoveAt(toRemove[i - 1]);
                     }
                     /* now re-number the list. */
                     string itemString;
@@ -195,12 +197,12 @@ namespace GraphSynth.UI
                         (listBoxOfRules.Items[toMoveUp[i] - 1] as ListBoxItem).IsSelected = true;
                         (listBoxOfRules.Items[toMoveUp[i]] as ListBoxItem).IsSelected = false;
 
-                        tempRule = ruleset.rules[toMoveUp[i] - 1];
-                        ruleset.rules[toMoveUp[i] - 1] = ruleset.rules[toMoveUp[i]];
-                        ruleset.rules[toMoveUp[i]] = tempRule;
-                        tempString = ruleset.ruleFileNames[toMoveUp[i] - 1];
-                        ruleset.ruleFileNames[toMoveUp[i] - 1] = ruleset.ruleFileNames[toMoveUp[i]];
-                        ruleset.ruleFileNames[toMoveUp[i]] = tempString;
+                        tempRule = Ruleset.rules[toMoveUp[i] - 1];
+                        Ruleset.rules[toMoveUp[i] - 1] = Ruleset.rules[toMoveUp[i]];
+                        Ruleset.rules[toMoveUp[i]] = tempRule;
+                        tempString = Ruleset.ruleFileNames[toMoveUp[i] - 1];
+                        Ruleset.ruleFileNames[toMoveUp[i] - 1] = Ruleset.ruleFileNames[toMoveUp[i]];
+                        Ruleset.ruleFileNames[toMoveUp[i]] = tempString;
                     }
                 }
                 /* now re-number the list. */
@@ -241,12 +243,12 @@ namespace GraphSynth.UI
                         (listBoxOfRules.Items[toMoveDown[i] + 1] as ListBoxItem).IsSelected = true;
                         (listBoxOfRules.Items[toMoveDown[i]] as ListBoxItem).IsSelected = false;
 
-                        tempRule = ruleset.rules[toMoveDown[i] + 1];
-                        ruleset.rules[toMoveDown[i] + 1] = ruleset.rules[toMoveDown[i]];
-                        ruleset.rules[toMoveDown[i]] = tempRule;
-                        tempString = ruleset.ruleFileNames[toMoveDown[i] + 1];
-                        ruleset.ruleFileNames[toMoveDown[i] + 1] = ruleset.ruleFileNames[toMoveDown[i]];
-                        ruleset.ruleFileNames[toMoveDown[i]] = tempString;
+                        tempRule = Ruleset.rules[toMoveDown[i] + 1];
+                        Ruleset.rules[toMoveDown[i] + 1] = Ruleset.rules[toMoveDown[i]];
+                        Ruleset.rules[toMoveDown[i]] = tempRule;
+                        tempString = Ruleset.ruleFileNames[toMoveDown[i] + 1];
+                        Ruleset.ruleFileNames[toMoveDown[i] + 1] = Ruleset.ruleFileNames[toMoveDown[i]];
+                        Ruleset.ruleFileNames[toMoveDown[i]] = tempString;
                     }
                 }
                 /* now re-number the list. */
@@ -270,9 +272,9 @@ namespace GraphSynth.UI
         {
             if (saveRulesToo)
             {
-                for (var i = 0; i < ruleset.ruleFileNames.Count; i++)
+                for (var i = 0; i < Ruleset.ruleFileNames.Count; i++)
                 {
-                    var filename = ruleset.rulesDir + ruleset.ruleFileNames[i];
+                    var filename = Ruleset.rulesDir + Ruleset.ruleFileNames[i];
                     try
                     {
                         if (!main.windowsMgr.FindAndFocusFileInCollection(filename, WindowType.Rule))
@@ -324,21 +326,21 @@ namespace GraphSynth.UI
         private void listBoxOfRules_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var index = -1;
-            if (listBoxOfRules.SelectedItems.Count > 0 && Select)
+            if (listBoxOfRules.SelectedItems.Count > 0 && select)
                 index =
                     listBoxOfRules.Items.IndexOf(listBoxOfRules.SelectedItems[listBoxOfRules.SelectedItems.Count - 1]);
-            else if (Deselected.Count > 0 && !Select)
-                index = Deselected.Last();
+            else if (deselected.Count > 0 && !select)
+                index = deselected.Last();
 
             if (index >= 0)
             {
-                var tempRuleObj = GSApp.settings.filer.Open(ruleset.rulesDir + ruleset.ruleFileNames[index], true);
+                var tempRuleObj = GSApp.settings.filer.Open(Ruleset.rulesDir + Ruleset.ruleFileNames[index], true);
                 if (tempRuleObj != null)
                 {
                     tempRuleObj = new[]
                                       {
                                           tempRuleObj[0],
-                                          ruleset.rulesDir + ruleset.ruleFileNames[index]
+                                          Ruleset.rulesDir + Ruleset.ruleFileNames[index]
                                       };
                     main.addAndShowRuleWindow(tempRuleObj);
                 }
@@ -350,23 +352,112 @@ namespace GraphSynth.UI
             try
             {
                 if (e.RemovedItems.Count > 0)
-                    Select = false;
+                    select = false;
                 if (e.AddedItems.Count > 0)
-                    Select = true;
+                    select = true;
                 var RemovedIndexes = new List<int>();
                 foreach (ListBoxItem Li in e.RemovedItems)
                     RemovedIndexes.Add(listBoxOfRules.Items.IndexOf(Li));
 
                 foreach (int index in RemovedIndexes)
-                    if (!Deselected.Contains(index)) Deselected.Add(index);
+                    if (!deselected.Contains(index)) deselected.Add(index);
 
-                foreach (int index in new List<int>(Deselected))
-                    if (!RemovedIndexes.Contains(index)) Deselected.Remove(index);
+                foreach (int index in new List<int>(deselected))
+                    if (!RemovedIndexes.Contains(index)) deselected.Remove(index);
             }
             catch (Exception exc)
             {
                 ErrorLogger.Catch(exc);
             }
         }
+
+
+        #region FileWatch
+
+        /*  */
+
+        /// <summary>
+        ///   Initializes the file watcher. There is no way to prevent watching all 
+        ///   the *.xml files in the rulesDirectory - it seems that filter is limited
+        ///   to this. That's okay, in each of the events that is triggered we first
+        ///   see if it is important to tell the user.
+        /// </summary>
+        /// <param name = "RulesDir">The rules dir.</param>
+        private void initializeFileWatcher(string RulesDir)
+        {
+            watch = new FileSystemWatcher
+            {
+                Path = RulesDir
+            };
+            watch.Changed += watch_Changed;
+            watch.Created += watch_Created;
+            watch.Deleted += watch_Deleted;
+            watch.Renamed += watch_Renamed;
+            watch.EnableRaisingEvents = true;
+            watch.IncludeSubdirectories = true;
+            watch.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
+                                 | NotifyFilters.FileName;
+        }
+
+        private void watch_Renamed(object sender, RenamedEventArgs e)
+        {
+            var oldName = Path.GetFileName(e.OldFullPath);
+            var newName = Path.GetFileName(e.FullPath);
+            if (!Ruleset.ruleFileNames.Contains(oldName)) return;
+            var res =
+                SearchIO.MessageBoxShow("It appears that you have renamed a rule that was a member of ruleset: "
+                                        + Ruleset.name + ". Would you like to keep the rule in this set?",
+                                        "Rule Set Rule Renamed.");
+            if (!res) return;
+            fileChangedBypass = true;
+            var i = Ruleset.ruleFileNames.FindIndex(a => a.Equals(oldName));
+            Ruleset.ruleFileNames[i] = newName;
+        }
+
+        private void watch_Deleted(object sender, FileSystemEventArgs e)
+        {
+            if (!Ruleset.ruleFileNames.Contains(e.Name)) return;
+            var res =
+                SearchIO.MessageBoxShow("It appears that you have deleted a rule that was a member of ruleset: "
+                                        + Ruleset.name + ". Would you like to delete the rule from the set?",
+                                        "Rule Set Rule Deleted.");
+            if (!res) return;
+            fileChangedBypass = true;
+            var i = Ruleset.ruleFileNames.FindIndex(a => a.Equals(e.Name));
+            Ruleset.ruleFileNames.RemoveAt(i);
+            Ruleset.rules.RemoveAt(i);
+        }
+
+        private void watch_Created(object sender, FileSystemEventArgs e)
+        {
+            if (!Ruleset.ruleFileNames.Contains(e.Name)) return;
+            var res =
+                SearchIO.MessageBoxShow("It appears that you have created a rule that was a member of ruleset: "
+                                        + Ruleset.name + ". Would you like to load it into the rule set?",
+                                        "Rule Set Rule Created.");
+            if (!res) return;
+            fileChangedBypass = true;
+            var i = Ruleset.ruleFileNames.FindIndex(a => a.Equals(e.Name));
+            Ruleset.filer.ReloadSpecificRule(Ruleset, i);
+        }
+
+
+        private void watch_Changed(object sender, FileSystemEventArgs e)
+        {
+            /* an annoying thing happens when the user says yes to any of the above three
+             * events - this event is automatically triggered. To bypass this we use the
+             * boolean, FileChangedBypass. */
+            if (fileChangedBypass) fileChangedBypass = false;
+            else if (Ruleset.ruleFileNames.Contains(e.Name))
+            {
+                fileChangedBypass = true;
+                var i = Ruleset.ruleFileNames.FindIndex(a => a.Equals(e.Name));
+                Ruleset.filer.ReloadSpecificRule(Ruleset, i);
+                SearchIO.MessageBoxShow("The rule, " + e.Name + ", has changed and has been reloaded into ruleset, "
+                                        + Ruleset.name + ".", "RuleSet Rule Changed.");
+            }
+        }
+
+        #endregion
     }
 }

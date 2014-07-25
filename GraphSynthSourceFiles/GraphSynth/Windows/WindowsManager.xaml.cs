@@ -109,7 +109,7 @@ namespace GraphSynth.UI
                 activeGraphCanvas = ((ruleWindow)w).graphCanvasK;
             }
             else if (w is ruleSetWindow)
-                WinCollection.Insert(0, new WinData(w, WindowType.RuleSet, ((ruleSetWindow)w).filename));
+                WinCollection.Insert(0, new WinData(w, WindowType.RuleSet, ((ruleSetWindow)w).Filename));
             else if (w is searchProcessController)
                 WinCollection.Insert(0, new WinData(w, WindowType.SearchProcessController,
                                                     "SearchProcessController" + _searchProcessID));

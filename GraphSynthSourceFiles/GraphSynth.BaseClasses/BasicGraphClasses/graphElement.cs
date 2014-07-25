@@ -28,7 +28,9 @@
 using System;
 using System.Collections.Generic;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
+
 
 namespace GraphSynth.Representation
 {
@@ -55,7 +57,7 @@ namespace GraphSynth.Representation
         /// </summary>
         /// <value>The old data.</value>
         [XmlAnyElement]
-        public XmlElement[] extraData { get; set; }
+        public XElement[] extraData { get; set; }
 
         //private Shape _displayShape;
         /// <summary>

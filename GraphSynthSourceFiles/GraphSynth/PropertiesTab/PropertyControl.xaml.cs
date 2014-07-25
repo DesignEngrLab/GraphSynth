@@ -153,7 +153,7 @@ namespace GraphSynth.UI
                 Graph = null;
                 Rule = null;
                 rsW = ((ruleSetWindow)main.windowsMgr.activeWindow);
-                RuleSet = rsW.ruleset;
+                RuleSet = rsW.Ruleset;
                 selection = null;
 
                 ShowAndExpandSection(expRuleSetProperties);
