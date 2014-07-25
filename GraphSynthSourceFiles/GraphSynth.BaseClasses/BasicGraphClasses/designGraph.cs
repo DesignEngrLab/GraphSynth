@@ -388,9 +388,9 @@ namespace GraphSynth.Representation
         public static designGraph CreateRandomGraph(int numNodes, int aveDegree)
         {
             var randomGraph = new designGraph
-                                  {
-                                      name = "RandomGraph_with_" + numNodes + "_nodes_and_degree_of_" + aveDegree
-                                  };
+            {
+                name = "RandomGraph_with_" + numNodes + "_nodes_and_degree_of_" + aveDegree
+            };
             var arcProb = (double)aveDegree / (numNodes + 1);
             var rnd = new Random();
             for (var i = 0; i != numNodes; i++)
@@ -413,9 +413,9 @@ namespace GraphSynth.Representation
         {
             var numArcs = numNodes * (numNodes - 1) / 2;
             var completeGraph = new designGraph
-                                    {
-                                        name = "CompleteGraph_with_" + numNodes + "_nodes_and_" + numArcs + "_arcs"
-                                    };
+            {
+                name = "CompleteGraph_with_" + numNodes + "_nodes_and_" + numArcs + "_arcs"
+            };
             for (var i = 0; i != numNodes; i++)
                 completeGraph.addNode();
             for (var i = 0; i != numNodes; i++)
