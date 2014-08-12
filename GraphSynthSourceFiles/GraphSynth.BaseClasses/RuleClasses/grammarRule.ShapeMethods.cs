@@ -451,7 +451,11 @@ namespace GraphSynth.Representation
             transMatrix[1, 3] = refPt[1] = locatedNodes[0].Y;
             transMatrix[2, 3] = refPt[2] = locatedNodes[0].Z;
             if (!ValidTranslation(MatrixMath.multiply(transMatrix, RegularizationMatrix, 4))) return false;
-            if (locatedNodes.Count == 1) return true;
+            if (locatedNodes.Count == 1)
+            {
+                T = transMatrix;
+                return true;
+            }
             // if there is just one node find the proper translation matrix (this T matrix * Regularization) and return
 
             /* for 2 or more we first find scale factors needed. */

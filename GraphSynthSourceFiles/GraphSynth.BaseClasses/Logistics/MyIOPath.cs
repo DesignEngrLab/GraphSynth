@@ -35,7 +35,7 @@ namespace GraphSynth
     /// </summary>
     public static class MyIOPath
     {
-        private static readonly char DS = Path.DirectorySeparatorChar;
+        private static readonly char DS =System.IO.Path.DirectorySeparatorChar;
         private static readonly string DSStr = DS.ToString(CultureInfo.InvariantCulture);
         /// <summary>
         ///   Gets the relative path to the target path starting at the "with Respect to" directory.
@@ -46,6 +46,7 @@ namespace GraphSynth
         /// <returns></returns>
         public static string GetRelativePath(string target, string withRespectTo)
         {
+            if (string.IsNullOrWhiteSpace(target)) target = "";
             var i = 0;
             var lastSlash = 0;
             if (string.IsNullOrWhiteSpace(withRespectTo)) withRespectTo = DSStr;
