@@ -752,7 +752,7 @@
             <param name="stub">The stub.</param>
             <returns></returns>
         </member>
-        <member name="M:GraphSynth.Representation.designGraph.internallyConnectGraph">
+        <member name="M:GraphSynth.Representation.designGraph.RepairGraphConnections">
             <summary>
               Internally connects the graph.
             </summary>
@@ -2547,6 +2547,13 @@
             </summary>
             <value><c>true</c> if [not exist]; otherwise, <c>false</c>.</value>
         </member>
+        <member name="P:GraphSynth.Representation.ruleArc.MustExist">
+            <summary>
+            Gets the value indicating whether the element SHOULD exist in the
+            host graph. It is just the opposite (true/false) or NotExist.
+            </summary>
+            <value><c>true</c> if [not exist]; otherwise, <c>false</c>.</value>
+        </member>
         <member name="P:GraphSynth.Representation.ruleArc.containsAllLocalLabels">
             <summary>
               Gets or sets a value indicating whether arc must contain all the local labels of the matching element.
@@ -2639,6 +2646,13 @@
             </summary>
             <value><c>true</c> if [not exist]; otherwise, <c>false</c>.</value>
         </member>
+        <member name="P:GraphSynth.Representation.ruleHyperarc.MustExist">
+            <summary>
+            Gets the value indicating whether the element SHOULD exist in the
+            host graph. It is just the opposite (true/false) or NotExist.
+            </summary>
+            <value><c>true</c> if [not exist]; otherwise, <c>false</c>.</value>
+        </member>
         <member name="P:GraphSynth.Representation.ruleHyperarc.containsAllLocalLabels">
             <summary>
               Gets or sets a value indicating whether arc must contain all the local labels of the matching element.
@@ -2716,6 +2730,13 @@
             <summary>
             Gets or sets a value indicating whether the element should not exist in the
             host graph.
+            </summary>
+            <value><c>true</c> if [not exist]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.ruleNode.MustExist">
+            <summary>
+            Gets the value indicating whether the element SHOULD exist in the
+            host graph. It is just the opposite (true/false) or NotExist.
             </summary>
             <value><c>true</c> if [not exist]; otherwise, <c>false</c>.</value>
         </member>
@@ -2961,9 +2982,9 @@
         </member>
         <member name="M:GraphSynth.SearchIO.getIteration(System.Int32)">
             <summary>
-              Gets the iteration.
+            Gets the iteration.
             </summary>
-            <param name = "threadName">Name of the thread.</param>
+            <param name="threadID">The thread identifier.</param>
             <returns></returns>
         </member>
         <member name="M:GraphSynth.SearchIO.getMiscObject(System.Int32)">

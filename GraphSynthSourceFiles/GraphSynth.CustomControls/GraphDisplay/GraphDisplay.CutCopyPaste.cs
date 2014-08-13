@@ -162,7 +162,7 @@ namespace GraphSynth.GraphDisplay
 
             var copiedData = new designGraph(copiedSelection.selectedNodes,
                 copiedSelection.selectedArcs, copiedSelection.selectedHyperArcs);
-            copiedData.internallyConnectGraph();
+            copiedData.RepairGraphConnections();
 
 
             foreach (var n in copiedData.nodes)

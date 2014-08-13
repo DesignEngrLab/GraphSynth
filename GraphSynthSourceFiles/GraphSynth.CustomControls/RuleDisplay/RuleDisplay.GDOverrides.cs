@@ -157,7 +157,7 @@ namespace GraphSynth.GraphDisplay
                         tempGraph.addHyperArc(a);
                     else tempGraph.addHyperArc(new ruleHyperarc(a));
                 }
-                tempGraph.internallyConnectGraph();
+                tempGraph.RepairGraphConnections();
 
                 foreach (node n in tempGraph.nodes)
                 {

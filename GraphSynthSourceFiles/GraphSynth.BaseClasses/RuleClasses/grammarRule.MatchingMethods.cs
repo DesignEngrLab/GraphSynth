@@ -437,12 +437,12 @@ namespace GraphSynth.Representation
         #region Initial Rule Check (global labels, spanning)
         private Boolean InitialRuleCheck()
         {
-            return (!spanning || (L.nodes.Count(rn => !((ruleNode)rn).NotExist) == host.nodes.Count))
+            return (!spanning || (L.nodes.Count(rn => ((ruleNode)rn).MustExist) == host.nodes.Count))
                    && ((OrderedGlobalLabels && OrderLabelsMatch(host.globalLabels))
                        || (!OrderedGlobalLabels && LabelsMatch(host.globalLabels, L.globalLabels, negateLabels, containsAllGlobalLabels)))
                    && hasLargerOrEqualDegreeSeqence(host.DegreeSequence, LDegreeSequence)
                    && hasLargerOrEqualDegreeSeqence(host.HyperArcDegreeSequence, LHyperArcDegreeSequence)
-                   && (host.arcs.Count >= L.arcs.Count(a => !((ruleArc)a).NotExist));
+                   && (host.arcs.Count >= L.arcs.Count(a => ((ruleArc)a).MustExist));
         }
 
         private Boolean InitialRuleCheckRelaxed(option location)
@@ -813,7 +813,7 @@ namespace GraphSynth.Representation
                      * in nodeMatches) it's possible that there are yet-to-be-found hyperarcs, 
                      * which we need to skip at this point, or the hostHyperarc was a "stand-in" if
                      * the problem was relaxed s.t. the hyperarc doesn't really exist in the host. */
-                    && (LNode.NotExist || !ruleHyperarc.NotExist)
+                    && (LNode.NotExist || ruleHyperarc.MustExist)
                     /* this one is tricky. Basically, we don't want to check preclusion/inclusion between LNodes that
                      * are supposed to exist and hyperarcs that are not (supposed to exist). The converse of this is
                      * check if it is a NotExist L-node (regardless of the hyperarc) or if the hyperarc is to exist. */

@@ -122,7 +122,7 @@ namespace GraphSynth.UI
                 foreach (GenerationStatuses a in c.GenerationStatus)
                     tempString += ": " + a;
                 SearchIO.output(tempString, 0);
-                c.graph.internallyConnectGraph();
+                c.graph.RepairGraphConnections();
                 ((WPFFiler)GSApp.settings.filer).RestoreDisplayShapes(null, c.graph.nodes, c.graph.arcs, c.graph.hyperarcs);
                 //System.Windows.MessageBox.Show("Code for Candidate");
                 addAndShowGraphWindow(c.graph, filename);

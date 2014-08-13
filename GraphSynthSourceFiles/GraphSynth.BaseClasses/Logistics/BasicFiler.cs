@@ -256,7 +256,7 @@ namespace GraphSynth
                 var stringReader = new StringReader(xmlString);
                 var graphDeserializer = new XmlSerializer(typeof(designGraph));
                 var newDesignGraph = (designGraph)graphDeserializer.Deserialize(stringReader);
-                newDesignGraph.internallyConnectGraph();
+                newDesignGraph.RepairGraphConnections();
                 removeNullWhiteSpaceEmptyLabels(newDesignGraph);
                 return newDesignGraph;
             }
@@ -512,10 +512,10 @@ namespace GraphSynth
                 var ruleDeserializer = new XmlSerializer(typeof(grammarRule));
                 var newGrammarRule = (grammarRule)ruleDeserializer.Deserialize(stringReader);
                 if (newGrammarRule.L == null) newGrammarRule.L = new designGraph();
-                else newGrammarRule.L.internallyConnectGraph();
+                else newGrammarRule.L.RepairGraphConnections();
 
                 if (newGrammarRule.R == null) newGrammarRule.R = new designGraph();
-                else newGrammarRule.R.internallyConnectGraph();
+                else newGrammarRule.R.RepairGraphConnections();
 
                 foreach (var er in newGrammarRule.embeddingRules.Where(er => er.oldLabels != null))
                 {

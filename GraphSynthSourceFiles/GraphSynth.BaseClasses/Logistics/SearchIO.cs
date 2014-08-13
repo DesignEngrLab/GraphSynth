@@ -65,9 +65,9 @@ namespace GraphSynth
         }
 
         /// <summary>
-        ///   Gets the iteration.
+        /// Gets the iteration.
         /// </summary>
-        /// <param name = "threadName">Name of the thread.</param>
+        /// <param name="threadID">The thread identifier.</param>
         /// <returns></returns>
         public static int getIteration(int threadID)
         {

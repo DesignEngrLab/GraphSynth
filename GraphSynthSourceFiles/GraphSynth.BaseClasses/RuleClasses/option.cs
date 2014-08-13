@@ -404,7 +404,7 @@ namespace GraphSynth.Representation
 
                 #region  Check whether there are nodes that p will delete that q depends upon.
                 var pNodesLNames = from n in p.rule.L.nodes
-                                   where !((ruleNode)n).NotExist
+                                   where ((ruleNode)n).MustExist
                                    select n.name;
                 var pNodesRNames = from n in p.rule.R.nodes
                                    select n.name;
@@ -470,7 +470,7 @@ namespace GraphSynth.Representation
                 /* the following arrays of arcs are within the rule not the host. */
                 #region  Check whether there are arcs that p will delete that q depends upon.
                 var pArcsLNames = from n in p.rule.L.arcs
-                                  where !((ruleArc)n).NotExist
+                                  where ((ruleArc)n).MustExist
                                   select n.name;
                 var pArcsRNames = from n in p.rule.R.arcs
                                   select n.name;
@@ -560,7 +560,7 @@ namespace GraphSynth.Representation
                 #region  Check whether there are hyperarcs that p will delete that q.option depends upon.
 
                 var pHyperArcsLNames = from n in p.rule.L.hyperarcs
-                                       where !((ruleHyperarc)n).NotExist
+                                       where ((ruleHyperarc)n).MustExist
                                        select n.name;
                 var pHyperArcsRNames = from n in p.rule.R.hyperarcs select n.name;
                 var pHyperArcsKNames = new List<string>(pHyperArcsRNames.Intersect(pHyperArcsLNames));

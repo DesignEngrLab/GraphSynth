@@ -63,9 +63,9 @@ namespace GraphSynth.Representation
         {
             #region Case #1: Location found! No empty slots left in the location
             /* this is the only way to properly exist the recursive loop. */
-            if (!L.nodes.Any(n => !((ruleNode)n).NotExist && location.findLMappedNode(n) == null)
-                && !L.arcs.Any(a => !((ruleArc)a).NotExist && location.findLMappedArc(a) == null)
-                && !L.hyperarcs.Any(n => !((ruleHyperarc)n).NotExist && location.findLMappedHyperarc(n) == null))
+            if (!L.nodes.Any(n => ((ruleNode)n).MustExist && location.findLMappedNode(n) == null)
+                && !L.arcs.Any(a => ((ruleArc)a).MustExist && location.findLMappedArc(a) == null)
+                && !L.hyperarcs.Any(n => ((ruleHyperarc)n).MustExist && location.findLMappedHyperarc(n) == null))
             {
                 /* as a recursive function, we first check how the recognition process terminates. If all nodes,
                  * hyperarcs and arcs within location have been filled with references to elements in the host, 
@@ -94,14 +94,14 @@ namespace GraphSynth.Representation
              * host (as is the case in the last three cases below). In this case we start with any hyperarcs
              * that have already been matched to one in the host, and see if it connects to any nodes that
              * have yet to be matched. */
-            var startHyperArc = (ruleHyperarc)L.hyperarcs.FirstOrDefault(ha => (!((ruleHyperarc)ha).NotExist)
+            var startHyperArc = (ruleHyperarc)L.hyperarcs.FirstOrDefault(ha => ((ruleHyperarc)ha).MustExist
                 && ((location.findLMappedHyperarc(ha) != null)
-                && (ha.nodes.Any(n => !((ruleNode)n).NotExist
+                && (ha.nodes.Any(n => ((ruleNode)n).MustExist
                     && (location.findLMappedNode(n) == null)))));
             if (startHyperArc != null)
             {
                 var hostHyperArc = location.findLMappedHyperarc(startHyperArc);
-                var newLNode = (ruleNode)startHyperArc.nodes.FirstOrDefault(n => !((ruleNode)n).NotExist
+                var newLNode = (ruleNode)startHyperArc.nodes.FirstOrDefault(n => ((ruleNode)n).MustExist
                     && (location.findLMappedNode(n) == null));
                 foreach (var n in hostHyperArc.nodes.Where(n => !location.nodes.Contains(n)))
                     checkNodeAvoidNegatives(location.copy(), newLNode, n);
@@ -113,11 +113,11 @@ namespace GraphSynth.Representation
              * Therefore, we see if there are any nodes already matched to a node in L that has an arc in L
              * that has yet to be matched with a host arc. This is more efficient than the last 3 cases 
              * because they look through the entire host, which is potentially large. */
-            var startNode = (ruleNode)L.nodes.FirstOrDefault(n => !((ruleNode)n).NotExist
+            var startNode = (ruleNode)L.nodes.FirstOrDefault(n => ((ruleNode)n).MustExist
                 && ((location.findLMappedNode( n) != null)
                 && (n.arcs.Any(a =>
-                    (((a is ruleHyperarc) && !((ruleHyperarc)a).NotExist)
-                    || ((a is ruleArc) && !((ruleArc)a).NotExist))
+                    (((a is ruleHyperarc) && ((ruleHyperarc)a).MustExist)
+                    || ((a is ruleArc) && ((ruleArc)a).MustExist))
                     && (location.findLMappedElement(a) == null)))));
             /* is there a node already matched (which would only occur if your recursed to get here) that has an
              * unrecognized arc attaced to it. If yes, try all possible arcs in the host with the one that needs
@@ -125,8 +125,8 @@ namespace GraphSynth.Representation
             if (startNode != null)
             {
                 var newLArc = startNode.arcs.FirstOrDefault(a =>
-                    (((a is ruleHyperarc) && !((ruleHyperarc)a).NotExist)
-                    || ((a is ruleArc) && !((ruleArc)a).NotExist))
+                    (((a is ruleHyperarc) && ((ruleHyperarc)a).MustExist)
+                    || ((a is ruleArc) && ((ruleArc)a).MustExist))
                     && (location.findLMappedElement( a) == null));
                 if (newLArc is ruleHyperarc)
                     checkHyperArcAvoidNegatives(location, startNode, location.findLMappedNode( startNode), (ruleHyperarc)newLArc);
@@ -140,7 +140,7 @@ namespace GraphSynth.Representation
              * prior three cases have conditions which require some non-nulls in the location, this is likely where the 
              * process will start when invoked from line 79 of recognize above. Hyperarcs are most efficient to start from 
              * since there are likely fewer hyperarcs in the host than nodes, or arcs. */
-            startHyperArc = (ruleHyperarc)L.hyperarcs.FirstOrDefault(ha => !((ruleHyperarc)ha).NotExist
+            startHyperArc = (ruleHyperarc)L.hyperarcs.FirstOrDefault(ha => ((ruleHyperarc)ha).MustExist
                 && (location.findLMappedHyperarc( ha) == null));
             if (startHyperArc != null)
             {
@@ -164,7 +164,7 @@ namespace GraphSynth.Representation
              * three conditions were met (obviously) but this also implies that there are multiple components in the
              * LHS, and we are now jumping to a new one with this. This is potentially time intensive if there are
              * a lot of nodes in the host. We allow for the possibility that this recognition can be done in parallel. */
-            startNode = (ruleNode)L.nodes.FirstOrDefault(n => !((ruleNode)n).NotExist && (location.findLMappedNode( n) == null));
+            startNode = (ruleNode)L.nodes.FirstOrDefault(n => ((ruleNode)n).MustExist && (location.findLMappedNode( n) == null));
             if (startNode != null)
             {
                 if (_in_parallel_)
@@ -182,7 +182,7 @@ namespace GraphSynth.Representation
             }
             #endregion
             #region Case 6: Check entire host for a matching arc
-            var looseArc = (ruleArc)L.arcs.FirstOrDefault(a => !((ruleArc)a).NotExist && (location.findLMappedArc( a) == null));
+            var looseArc = (ruleArc)L.arcs.FirstOrDefault(a => ((ruleArc)a).MustExist && (location.findLMappedArc( a) == null));
             /* the only way one can get here is if there are one or more arcs NOT connected to any nodes
              * in L - a floating arc, dangling on both sides, like an eyelash. */
             if (looseArc != null)
@@ -220,8 +220,8 @@ namespace GraphSynth.Representation
                 return;
             location.nodes[L.nodes.IndexOf(LNode)] = hostNode;
             var newLArc = LNode.arcs.FirstOrDefault(a =>
-                                          (((a is ruleHyperarc) && !((ruleHyperarc)a).NotExist)
-                                           || ((a is ruleArc) && !((ruleArc)a).NotExist))
+                                          (((a is ruleHyperarc) && ((ruleHyperarc)a).MustExist)
+                                           || ((a is ruleArc) && ((ruleArc)a).MustExist))
                                           && (location.findLMappedElement( a) == null));
             if (newLArc == null) FindPositiveStartElementAvoidNegatives(location);
             else if (newLArc is ruleHyperarc)
@@ -236,7 +236,7 @@ namespace GraphSynth.Representation
             if (!hyperArcMatches(LHyperArc, hostHyperArc) && !hyperArcMatchRelaxed(LHyperArc, hostHyperArc, location))
                 return;
             location.hyperarcs[L.hyperarcs.IndexOf(LHyperArc)] = hostHyperArc;
-            var newLNode = (ruleNode)LHyperArc.nodes.FirstOrDefault(n => !((ruleNode)n).NotExist
+            var newLNode = (ruleNode)LHyperArc.nodes.FirstOrDefault(n => ((ruleNode)n).MustExist
                                                                && (location.findLMappedNode( n) == null));
             if (newLNode == null) FindPositiveStartElementAvoidNegatives(location);
             else
@@ -248,7 +248,7 @@ namespace GraphSynth.Representation
             node fromHostNode, ruleHyperarc newLHyperArc)
         {
             var otherConnectedNodes = (from n in newLHyperArc.nodes
-                                       where ((n != fromLNode) && !((ruleNode)n).NotExist && (location.findLMappedNode( n) != null))
+                                       where ((n != fromLNode) && ((ruleNode)n).MustExist && (location.findLMappedNode( n) != null))
                                        select (location.findLMappedNode(n)));
             var oCNNum = otherConnectedNodes.Count();
 

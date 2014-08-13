@@ -544,20 +544,20 @@ namespace GraphSynth.Representation
         /// <summary>
         ///   Internally connects the graph.
         /// </summary>
-        public void internallyConnectGraph()
+        public void RepairGraphConnections()
         {
-            for (var i = nodes.Count - 1; i >= 0; i--)
-            {
-                if (nodes[i].name.StartsWith("null"))
-                    nodes.RemoveAt(i);
-            }
+            checkForRepeatNames();
+            nodes.RemoveAll(n => n == null || n.name.StartsWith("null"));
+            arcs.RemoveAll(a => a == null || a.name.StartsWith("null"));
+            hyperarcs.RemoveAll(ha => ha == null || ha.name.StartsWith("null"));
+
             foreach (var a in arcs)
             {
                 if ((a.From == null) || a.From.name.StartsWith("null"))
                     a.From = null;
                 else
                 {
-                    var fromNode = nodes.FirstOrDefault(b => (b.name == a.From.name));
+                    var fromNode = nodes.Find(b => (b.name == a.From.name));
                     if (fromNode == null) throw new Exception("Arc, " + a.name + ", was to connect to node, " + a.From.name +
                       ", but the node did not load as part of the graph.");
                     a.From = fromNode;
@@ -567,18 +567,19 @@ namespace GraphSynth.Representation
                     a.To = null;
                 else
                 {
-                    var toNode = nodes.FirstOrDefault(b => (b.name == a.To.name));
+                    var toNode = nodes.Find(b => (b.name == a.To.name));
                     if (toNode == null) throw new Exception("Arc, " + a.name + ", was to connect to node, " + a.To.name +
                       ", but the node did not load as part of the graph.");
                     a.To = toNode;
                 }
             }
             foreach (var h in hyperarcs)
+            {
                 for (var i = h.nodes.Count - 1; i >= 0; i--)
                 {
                     if (h.nodes[i] != null)
                     {
-                        var attachedNode = nodes.FirstOrDefault(b => (b.name == h.nodes[i].name));
+                        var attachedNode = nodes.Find(b => (b.name == h.nodes[i].name));
                         if (attachedNode == null)
                             throw new Exception("Hyperarc, " + h.name + ", was to connect to node, "
                                                 + h.nodes[i].name + ", but the node did not load as part of the graph.");
@@ -586,14 +587,22 @@ namespace GraphSynth.Representation
                         attachedNode.arcs.Add(h);
                     }
                 }
+                var distinctNodes = h.nodes.Distinct().ToList();
+                h.nodes.Clear();
+                h.nodes.AddRange(distinctNodes);
+            }
+            foreach (var n in nodes)
+            {
+                var distinctHypers = n.arcs.Where(a => a is hyperarc).Distinct().ToList();
+                n.arcs.RemoveAll(a => a is hyperarc);
+                n.arcs.AddRange(distinctHypers);
+            }
             foreach (var n in nodes.Where(n => n.name.Contains("Not_set")))
                 n.name = makeUniqueNodeName();
 
             foreach (var a in arcs.Where(a => a.name.StartsWith("Not_set")))
                 a.name = makeUniqueArcName();
-
         }
-
         /// <summary>
         /// Replaces the type of the node with inherited.
         /// </summary>
@@ -733,7 +742,7 @@ namespace GraphSynth.Representation
                 var rha = new ruleHyperarc(ha) {containsAllLocalLabels = true, strictNodeCountMatch = true};
                 dummyRule.L.hyperarcs.Add(rha);
             }
-            dummyRule.L.internallyConnectGraph();
+            dummyRule.L.RepairGraphConnections();
             #endregion
 
             if (dummyRule.recognize(this).Count < 1) return false;
@@ -756,7 +765,7 @@ namespace GraphSynth.Representation
                 var rha = new ruleHyperarc(ha) { containsAllLocalLabels = true, strictNodeCountMatch = true };
                 dummyRule.L.hyperarcs.Add(rha);
             }
-            dummyRule.L.internallyConnectGraph();
+            dummyRule.L.RepairGraphConnections();
             #endregion
             if (dummyRule.recognize(g).Count < 1) return false;
             return true;

@@ -123,6 +123,17 @@ namespace GraphSynth.Representation
         /// <value><c>true</c> if [not exist]; otherwise, <c>false</c>.</value>
         public Boolean NotExist { get; set; }
 
+
+        /// <summary>
+        /// Gets the value indicating whether the element SHOULD exist in the
+        /// host graph. It is just the opposite (true/false) or NotExist.
+        /// </summary>
+        /// <value><c>true</c> if [not exist]; otherwise, <c>false</c>.</value>
+        public Boolean MustExist
+        {
+            get { return !NotExist; }
+        }
+
         /// <summary>
         ///   Gets or sets a value indicating whether arc must contain all the local labels of the matching element.
         /// </summary>
@@ -189,8 +200,8 @@ namespace GraphSynth.Representation
             get
             {
                 return arcs.Count(a =>
-                                  (((a is ruleHyperarc) && !((ruleHyperarc)a).NotExist)
-                                   || ((a is ruleArc) && !((ruleArc)a).NotExist)));
+                                  (((a is ruleHyperarc) && ((ruleHyperarc)a).MustExist)
+                                   || ((a is ruleArc) && ((ruleArc)a).MustExist)));
             }
         }
         #endregion

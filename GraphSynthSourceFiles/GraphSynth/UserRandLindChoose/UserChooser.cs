@@ -46,12 +46,12 @@ namespace GraphSynth.UserRandLindChoose
             if (options.Count == 0)
             {
                 SearchIO.output("Sorry there are no rules recognized.");
-                return null;
+                return new[] { -2 };
             }
             if (options.Count > settings.MaxRulesToDisplay)
             {
                 SearchIO.output("Sorry there are too many rules to show.");
-                return null;
+                return new[] { -2 };
             }
             SearchIO.output("Double-click on one to show the location.", 2);
             return UserChooseWindow.PromptUser(options, settings, (cand.recipe.Count == 0));

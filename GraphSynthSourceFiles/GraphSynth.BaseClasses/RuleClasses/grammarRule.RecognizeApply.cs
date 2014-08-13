@@ -420,7 +420,7 @@ namespace GraphSynth.Representation
              * this is different than the local lables which are used for recognition and the storage
              * any important design information. */
             danglingNeighbors = new List<graphElement>();
-            foreach (var n in L.nodes.Where(n => !((ruleNode)n).NotExist && (!R.nodes.Exists(b => (b.name == n.name)))))
+            foreach (var n in L.nodes.Where(n => ((ruleNode)n).MustExist && (!R.nodes.Exists(b => (b.name == n.name)))))
             {
                 var nodeToRemove = Lmapping.findLMappedNode(n);
                 danglingNeighbors = danglingNeighbors.Union(nodeToRemove.arcs).ToList();
@@ -435,9 +435,9 @@ namespace GraphSynth.Representation
              * a node was connected to. */
 
             /* arcs and hyperarcs are removed in a similar way. */
-            foreach (var a in L.arcs.Where(a => !((ruleArc)a).NotExist && (!R.arcs.Exists(b => (b.name == a.name)))))
+            foreach (var a in L.arcs.Where(a => ((ruleArc)a).MustExist && (!R.arcs.Exists(b => (b.name == a.name)))))
                 host.removeArc(Lmapping.findLMappedArc(a));
-            foreach (var h in L.hyperarcs.Where(h => !((ruleHyperarc)h).NotExist && (!R.hyperarcs.Exists(b => (b.name == h.name)))))
+            foreach (var h in L.hyperarcs.Where(h => ((ruleHyperarc)h).MustExist && (!R.hyperarcs.Exists(b => (b.name == h.name)))))
                 host.removeHyperArc(Lmapping.findLMappedHyperarc(h));
         }
 

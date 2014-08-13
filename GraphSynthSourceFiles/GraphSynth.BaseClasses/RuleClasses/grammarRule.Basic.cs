@@ -46,22 +46,26 @@ namespace GraphSynth.Representation
         /// recognition function. 
         /// </summary>
         private designGraph host;
-     
+
         /// <summary>
         ///   any mathematical operations are fair game for the recognize and apply local variables.
         ///   At the end of a graph recognition, we check all the recognize functions, if any yield a 
         ///   positive number than the rule is infeasible. This is done in case1LocationFound.
         /// </summary>
-        [XmlIgnore] public object DLLofFunctions;
+        [XmlIgnore]
+        public object DLLofFunctions;
 
-        [XmlIgnore] private List<string> _applyFunctions;
+        [XmlIgnore]
+        private List<string> _applyFunctions;
         private List<embeddingRule> _embeddingRules;
-        [XmlIgnore] private List<string> _recognizeFunctions;
+        [XmlIgnore]
+        private List<string> _recognizeFunctions;
 
         /// <summary>
         ///   a list of MethodInfo's corresponding to the strings in applyFunctions
         /// </summary>
-        [XmlIgnore] public List<MethodInfo> applyFuncs = new List<MethodInfo>();
+        [XmlIgnore]
+        public List<MethodInfo> applyFuncs = new List<MethodInfo>();
 
         /// <summary>
         ///   These are place holders when the user has clicked OrderedGlobalLabels. There may, in fact,
@@ -81,7 +85,8 @@ namespace GraphSynth.Representation
         /// <summary>
         ///   a list of MethodInfo's corresponding to the strings in recognizeFunctions
         /// </summary>
-        [XmlIgnore] public List<MethodInfo> recognizeFuncs = new List<MethodInfo>();
+        [XmlIgnore]
+        public List<MethodInfo> recognizeFuncs = new List<MethodInfo>();
 
         /// <summary>
         ///   Gets or sets the name of the rule.
@@ -259,20 +264,48 @@ namespace GraphSynth.Representation
         {
             get
             {
-                return new List<int>(from n in L.nodes
-                                     where !((ruleNode)n).NotExist
-                                     orderby n.arcs.Count(a=>!((ruleArc)a).NotExist) descending
-                                     select n.arcs.Count(a => !((ruleArc)a).NotExist));
+                /* this is commented because it is not compatible with Mono (it is not any quicker, either. 
+                 * just more compact.) */
+                //return new List<int>(from n in L.nodes
+                //                     where !((ruleNode)n).NotExist
+                //                     orderby n.arcs.Count(a=>!((ruleArc)a).NotExist) descending
+                //                     select n.arcs.Count(a => !((ruleArc)a).NotExist));
+                var degrees = new List<int>();
+                foreach (var n in L.nodes)
+                {
+                    if (((ruleNode)n).MustExist)
+                    {
+                        var d = ((ruleNode)n).degree;
+                        var i = 0;
+                        while (degrees.Count < i && degrees[i] > d) { i++; }
+                        degrees.Insert(i, d);
+                    }
+                }
+                return degrees;
             }
         }
         IList<int> LHyperArcDegreeSequence
         {
             get
             {
-                return new List<int>(from ha in L.hyperarcs
-                                     where !((ruleHyperarc)ha).NotExist
-                                     orderby ha.nodes.Count(n => !((ruleNode)n).NotExist) descending
-                                     select ha.nodes.Count(n => !((ruleNode)n).NotExist));
+                /* this is commented because it is not compatible with Mono (it is not any quicker, either. 
+                 * just more compact.) */
+                //return new List<int>(from ha in L.hyperarcs
+                //                     where !((ruleHyperarc)ha).NotExist
+                //                     orderby ha.nodes.Count(n => !((ruleNode)n).NotExist) descending
+                //                     select ha.nodes.Count(n => !((ruleNode)n).NotExist));
+                var degrees = new List<int>();
+                foreach (var ha in L.hyperarcs)
+                {
+                    if (((ruleHyperarc)ha).MustExist)
+                    {
+                        var d = ((ruleHyperarc)ha).degree;
+                        var i = 0;
+                        while (degrees.Count < i && degrees[i] > d) { i++; }
+                        degrees.Insert(i, d);
+                    }
+                }
+                return degrees;
             }
         }
         //private grammarRule copy()
