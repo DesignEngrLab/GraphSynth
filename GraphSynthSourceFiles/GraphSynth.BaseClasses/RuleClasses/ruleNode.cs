@@ -200,8 +200,8 @@ namespace GraphSynth.Representation
             get
             {
                 return arcs.Count(a =>
-                                  (((a is ruleHyperarc) && ((ruleHyperarc)a).MustExist)
-                                   || ((a is ruleArc) && ((ruleArc)a).MustExist)));
+                               //   ((a is ruleHyperarc) && ((ruleHyperarc)a).MustExist) ||
+                                    ((a is ruleArc) && ((ruleArc)a).MustExist));
             }
         }
         #endregion

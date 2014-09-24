@@ -136,7 +136,7 @@ namespace GraphSynth.Representation
         /// <value>The degree.</value>
         public int degree
         {
-            get { return arcs.Count; }
+            get { return arcs.Count(a => (a is arc)); }
         }
         #endregion
 

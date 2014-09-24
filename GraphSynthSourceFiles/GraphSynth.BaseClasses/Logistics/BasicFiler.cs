@@ -127,17 +127,19 @@ namespace GraphSynth
             /* create prefix<->namespace mappings (if any)  */
             var nsMgr = new XmlNamespaceManager(doc.NameTable);
             /* Query the document */
-
-            if ((doc.SelectNodes("/designGraph", nsMgr).Count > 0)
-                || (doc.DocumentElement.Attributes["Tag"].Value == "Graph"))
+            if ((doc.SelectNodes("/designGraph", nsMgr).Count > 0)  
+                || (doc.DocumentElement.Attributes["Tag"] != null    
+                && doc.DocumentElement.Attributes["Tag"].Value == "Graph"))
                 return new object[] { OpenGraph(filename) };
             if ((doc.SelectNodes("/grammarRule", nsMgr).Count > 0)
-                || (doc.DocumentElement.Attributes["Tag"].Value == "Rule"))
+                || (doc.DocumentElement.Attributes["Tag"] != null
+                && doc.DocumentElement.Attributes["Tag"].Value == "Rule"))
                 return new object[] { OpenRule(filename) };
             if (doc.SelectNodes("/ruleSet", nsMgr).Count > 0)
                 return new object[] { OpenRuleSet(filename) };
             if (doc.SelectNodes("/candidate", nsMgr).Count > 0)
                 return new object[] { OpenCandidate(filename) };
+
             if (!SuppressWarnings)
                 throw new Exception("Basic Filer (in GraphSynth.Representation) " +
                                     "opened a different type than expected. Open was expecting " +
@@ -504,10 +506,10 @@ namespace GraphSynth
         {
             try
             {
-              xmlString=  xmlString.Replace("<Rotate>true</Rotate>", "<Rotate>OnlyZ</Rotate>");
-              xmlString = xmlString.Replace("<Rotate>false</Rotate>", "<Rotate>Prohibited</Rotate>");
-              xmlString = xmlString.Replace("<Rotate >true</Rotate>", "<Rotate>OnlyZ</Rotate>");
-              xmlString = xmlString.Replace("<Rotate >false</Rotate>", "<Rotate>Prohibited</Rotate>");
+                xmlString = xmlString.Replace("<Rotate>true</Rotate>", "<Rotate>OnlyZ</Rotate>");
+                xmlString = xmlString.Replace("<Rotate>false</Rotate>", "<Rotate>Prohibited</Rotate>");
+                xmlString = xmlString.Replace("<Rotate >true</Rotate>", "<Rotate>OnlyZ</Rotate>");
+                xmlString = xmlString.Replace("<Rotate >false</Rotate>", "<Rotate>Prohibited</Rotate>");
                 var stringReader = new StringReader(xmlString);
                 var ruleDeserializer = new XmlSerializer(typeof(grammarRule));
                 var newGrammarRule = (grammarRule)ruleDeserializer.Deserialize(stringReader);
