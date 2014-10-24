@@ -80,9 +80,10 @@ namespace GraphSynth
             }
         }
 
-
+        private static string AdditionalShapeDetails;
         internal static string XamlOfShape(object Shape, string newTag = "")
         {
+            AdditionalShapeDetails = "";
             if (Shape is Path)
                 return XamlOfPath((Path)Shape, newTag);
             if (Shape is Ellipse)
@@ -172,7 +173,9 @@ namespace GraphSynth
         {
             var sb = new StringBuilder("<Ellipse", 200);
             sb.Append(ShapeDetails(p, newTag));
-            sb.AppendLine(" />");
+            sb.AppendLine(" >");
+            sb.Append(AdditionalShapeDetails);
+            sb.AppendLine("</Ellipse>");
             return sb.ToString();
         }
 
@@ -181,9 +184,11 @@ namespace GraphSynth
         {
             var sb = new StringBuilder("<Rectangle", 200);
             sb.Append(ShapeDetails(p, newTag));
-            AddElement(sb, "RadiusX", p.RadiusX);
-            AddElement(sb, "RadiusY", p.RadiusY);
-            sb.AppendLine(" />");
+            AddElement(sb, "RadiusX", p.RadiusX, p);
+            AddElement(sb, "RadiusY", p.RadiusY, p);
+            sb.AppendLine(" >");
+            sb.Append(AdditionalShapeDetails);
+            sb.AppendLine("</Rectangle>");
             return sb.ToString();
         }
 
@@ -191,9 +196,11 @@ namespace GraphSynth
         {
             var sb = new StringBuilder("<Polygon", 200);
             sb.Append(ShapeDetails(p, newTag));
-            AddElement(sb, "FillRule", p.FillRule);
-            AddElement(sb, "Points", p.Points);
-            sb.AppendLine(" />");
+            AddElement(sb, "FillRule", p.FillRule, p);
+            AddElement(sb, "Points", p.Points, p);
+            sb.AppendLine(" >");
+            sb.Append(AdditionalShapeDetails);
+            sb.AppendLine("</Polygon>");
             return sb.ToString();
         }
 
@@ -201,9 +208,11 @@ namespace GraphSynth
         {
             var sb = new StringBuilder("<Polyline", 200);
             sb.Append(ShapeDetails(p, newTag));
-            AddElement(sb, "FillRule", p.FillRule);
-            AddElement(sb, "Points", p.Points);
-            sb.AppendLine(" />");
+            AddElement(sb, "FillRule", p.FillRule, p);
+            AddElement(sb, "Points", p.Points, p);
+            sb.AppendLine(" >");
+            sb.Append(AdditionalShapeDetails);
+            sb.AppendLine("</Polyline>");
             return sb.ToString();
         }
 
@@ -211,50 +220,59 @@ namespace GraphSynth
         {
             var sb = new StringBuilder("<Line", 200);
             sb.Append(ShapeDetails(p, newTag));
-            AddElement(sb, "X1", p.X1);
-            AddElement(sb, "X2", p.X2);
-            AddElement(sb, "Y1", p.Y1);
-            AddElement(sb, "Y2", p.Y2);
-            sb.AppendLine(" />");
+            AddElement(sb, "X1", p.X1, p);
+            AddElement(sb, "X2", p.X2, p);
+            AddElement(sb, "Y1", p.Y1, p);
+            AddElement(sb, "Y2", p.Y2, p);
+            sb.AppendLine(" >");
+            sb.Append(AdditionalShapeDetails);
+            sb.AppendLine("</Line>");
             return sb.ToString();
         }
 
         private static string ShapeDetails(Shape p, string newTag)
         {
             var sb = new StringBuilder();
-            AddElement(sb, "Stretch", p.Stretch);
-            AddElement(sb, "Fill", p.Fill);
-            AddElement(sb, "Stroke", p.Stroke);
+            AddElement(sb, "Stretch", p.Stretch, p);
+            AddElement(sb, "Fill", p.Fill, p);
+            AddElement(sb, "Stroke", p.Stroke, p);
 
-            AddElement(sb, "StrokeThickness", p.StrokeThickness);
-            AddElement(sb, "StrokeStartLineCap", p.StrokeStartLineCap);
-            AddElement(sb, "StrokeEndLineCap", p.StrokeEndLineCap);
-            AddElement(sb, "StrokeDashCap", p.StrokeDashCap);
-            AddElement(sb, "StrokeLineJoin", p.StrokeLineJoin);
-            AddElement(sb, "StrokeMiterLimit", p.StrokeMiterLimit);
-            AddElement(sb, "StrokeDashOffset", p.StrokeDashOffset);
-            AddElement(sb, "StrokeDashArray", p.StrokeDashArray);
-            AddElement(sb, "Tag", !string.IsNullOrWhiteSpace(newTag) ? newTag : p.Tag);
-            AddElement(sb, "LayoutTransform", p.LayoutTransform);
-            AddElement(sb, "Width", p.Width);
-            AddElement(sb, "Height", p.Height);
-            AddElement(sb, "Margin", p.Margin);
-            AddElement(sb, "HorizontalAlignment", p.HorizontalAlignment);
-            AddElement(sb, "VerticalAlignment", p.VerticalAlignment);
-            AddElement(sb, "RenderTransform", p.RenderTransform);
-            AddElement(sb, "RenderTransformOrigin", p.RenderTransformOrigin);
-            AddElement(sb, "Opacity", p.Opacity);
-            AddElement(sb, "Visibility", p.Visibility);
-            AddElement(sb, "SnapsToDevicePixels", p.SnapsToDevicePixels);
+            AddElement(sb, "StrokeThickness", p.StrokeThickness, p);
+            AddElement(sb, "StrokeStartLineCap", p.StrokeStartLineCap, p);
+            AddElement(sb, "StrokeEndLineCap", p.StrokeEndLineCap, p);
+            AddElement(sb, "StrokeDashCap", p.StrokeDashCap, p);
+            AddElement(sb, "StrokeLineJoin", p.StrokeLineJoin, p);
+            AddElement(sb, "StrokeMiterLimit", p.StrokeMiterLimit, p);
+            AddElement(sb, "StrokeDashOffset", p.StrokeDashOffset, p);
+            AddElement(sb, "StrokeDashArray", p.StrokeDashArray, p);
+            AddElement(sb, "Tag", !string.IsNullOrWhiteSpace(newTag) ? newTag : p.Tag, p);
+            AddElement(sb, "LayoutTransform", p.LayoutTransform, p);
+            AddElement(sb, "Width", p.Width, p);
+            AddElement(sb, "Height", p.Height, p);
+            AddElement(sb, "Margin", p.Margin, p);
+            AddElement(sb, "HorizontalAlignment", p.HorizontalAlignment, p);
+            AddElement(sb, "VerticalAlignment", p.VerticalAlignment, p);
+            AddElement(sb, "RenderTransform", p.RenderTransform, p);
+            AddElement(sb, "RenderTransformOrigin", p.RenderTransformOrigin, p);
+            AddElement(sb, "Opacity", p.Opacity, p);
+            AddElement(sb, "Visibility", p.Visibility, p);
+            AddElement(sb, "SnapsToDevicePixels", p.SnapsToDevicePixels, p);
             return sb.ToString();
         }
 
-        private static void AddElement(StringBuilder sb, string name, object value)
+        private static void AddElement(StringBuilder sb, string name, object value, Shape p)
         {
-            if (value == null || (value is double && double.IsNaN((double)value))) return;
+            if (value == null
+                || (value is double && double.IsNaN((double)value))) return;
             var valString = value.ToString();
-            if (string.IsNullOrWhiteSpace(valString)) return;
-            sb.AppendFormat(" " + name + "=\"{0}\"", valString);
+            if (valString.StartsWith("System.Windows.Media"))
+            {
+                AdditionalShapeDetails += "<" + p.GetType().Name + "." + name + ">";
+                AdditionalShapeDetails += XamlWriter.Save(value);
+                AdditionalShapeDetails += "</" + p.GetType().Name + "." + name + ">";
+            }
+            else if (string.IsNullOrWhiteSpace(valString)) return;
+            else sb.AppendFormat(" " + name + "=\"{0}\"", valString);
         }
 
 
