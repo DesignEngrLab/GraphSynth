@@ -273,13 +273,13 @@ namespace GraphSynth.UI
 
         private void txtBxPosZ_LostFocus(object sender, RoutedEventArgs e)
         {
-            int temp;
-            if (int.TryParse(txtBxPosZ.Text, out temp))
+            double temp;
+            if (Double.TryParse(txtBxPosZ.Text, out temp))
             {
                 foreach (node n in nodes)
                 {
                     n.Z = temp;
-                    Panel.SetZIndex((Shape)n.DisplayShape.Shape, temp);
+                    Panel.SetZIndex((Shape)n.DisplayShape.Shape, (int)Math.Round(temp,0));
                 }
                 Update();
             }
