@@ -17,13 +17,15 @@ namespace GraphSynth
             Assembly searchAssembly = null;
             Type[] searchprocesses;
             var potentialAssemblies = getPotentialAssemblies(settings.SearchDirAbs);
+            potentialAssemblies.Add("thisEXE");
             if (potentialAssemblies.Count == 0) return;
 
             foreach (string filepath in potentialAssemblies)
             {
                 try
                 {
-                    searchAssembly = Assembly.LoadFrom(filepath);
+                    if (filepath == "thisEXE") searchAssembly = Assembly.GetExecutingAssembly();
+                    else searchAssembly = Assembly.LoadFrom(filepath);
                     searchprocesses = searchAssembly.GetExportedTypes();
                     foreach (Type spt in searchprocesses)
                         if (!spt.IsAbstract && SearchProcess.IsInheritedType(spt)
@@ -133,7 +135,7 @@ namespace GraphSynth
             Key response;
             var readKey = Console.ReadKey().Key.ToString();
             readKey = readKey.Replace("D", "");
-            int choice = Enum.TryParse(readKey, out response) ? (int) response : -1;
+            int choice = Enum.TryParse(readKey, out response) ? (int)response : -1;
             Console.Write("\n");
             if (choice == 30) HelpDialog();
             else if (choice == 31) VerbosityDialog();
