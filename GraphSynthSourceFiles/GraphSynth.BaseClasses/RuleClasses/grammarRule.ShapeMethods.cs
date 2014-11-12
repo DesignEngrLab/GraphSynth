@@ -910,7 +910,7 @@ namespace GraphSynth.Representation
         public void ReorderNodes()
         {
             /* put not-exist nodes at the end of the list. */
-            var notExistNodes = L.nodes.Where(n => ((ruleNode)n).NotExist);
+            var notExistNodes = L.nodes.Where(n => ((ruleNode)n).NotExist).ToList();
             L.nodes.RemoveAll(notExistNodes.Contains);
 
             /* if all the nodes are collinear, there's nothing we can do. */

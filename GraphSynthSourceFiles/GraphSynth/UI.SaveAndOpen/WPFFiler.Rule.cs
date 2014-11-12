@@ -219,6 +219,12 @@ namespace GraphSynth
                 return false;
 
             if (UserCancelled) return false;
+            if ((NotExistElementsinKR(gR)) && !suppressWarnings &&
+                !progWindow.QueryUser("There appears to be common elements between "
+                + "the left and right hand sides of the rule that are indicated as \"Must NOT Exist\""
+                + " within the left-hand side. This is not allowed. Continue Anyway?",0, "Yes", "No",false))
+                return false;
+
             progress += 2;
 
             if ((NumKElements(gR) == 0) && !suppressWarnings &&
