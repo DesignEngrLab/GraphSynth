@@ -278,7 +278,9 @@ namespace GraphSynth.Representation
                         var d = ((ruleNode)n).degree;
                         var i = 0;
                         while (degrees.Count < i && degrees[i] > d) { i++; }
-                        degrees.Insert(i, d);
+                        i++;
+                        if (degrees.Count < i) degrees.Add(d);
+                        else degrees.Insert(i, d);
                     }
                 }
                 return degrees;

@@ -714,8 +714,31 @@ namespace GraphSynth.Representation
             if (nodes.Count != g.nodes.Count) return false;
             if (arcs.Count != g.arcs.Count) return false;
             if (hyperarcs.Count != g.hyperarcs.Count) return false;
+            if (!DegreeSequence.SequenceEqual(g.DegreeSequence)) return false;
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+            var thisSecondaryDegree = new List<List<int>>();
+            var gSecondaryDegree = new List<List<int>>();
             for (int i = 0; i < nodes.Count; i++)
-                if (DegreeSequence[i] != g.DegreeSequence[i]) return false;
+            {
+                var thisDegreelist = new List<int>();
+                var gDegreelist = new List<int>();
+                var thisNode = nodes[i];
+                var gNode = g.nodes[i];
+                foreach (var a in thisNode.arcs)
+                    if (a is arc)
+                        thisDegreelist.Add(((arc)a).otherNode(thisNode).degree);
+                foreach (var a in gNode.arcs)
+                    if (a is arc)
+                        gDegreelist.Add(((arc)a).otherNode(gNode).degree);
+            }
+            foreach (var degreeList in thisSecondaryDegree)
+            {
+                var i = gSecondaryDegree.FindIndex(v => v.SequenceEqual(degreeList));
+                if (i == -1) return false;
+                else gSecondaryDegree.RemoveAt(i);
+            }
+            if (gSecondaryDegree.Any()) return false;
+
             var maxDegree = DegreeSequence[0];
             var dummyRule = new grammarRule
             {
@@ -726,7 +749,7 @@ namespace GraphSynth.Representation
             };
 
             #region put g's nodes, arcs and hyperarcs into the LHS of the rule
-             foreach (var n in g.nodes)
+            foreach (var n in g.nodes)
             {
                 var rn = new ruleNode(n) { containsAllLocalLabels = true, strictDegreeMatch = true };
                 if (n.degree == maxDegree) dummyRule.L.nodes.Insert(0, rn);
@@ -734,12 +757,12 @@ namespace GraphSynth.Representation
             }
             foreach (var a in g.arcs)
             {
-                var ra = new ruleArc(a) {containsAllLocalLabels = true, directionIsEqual = true};
+                var ra = new ruleArc(a) { containsAllLocalLabels = true, directionIsEqual = true };
                 dummyRule.L.arcs.Add(ra);
             }
             foreach (var ha in g.hyperarcs)
             {
-                var rha = new ruleHyperarc(ha) {containsAllLocalLabels = true, strictNodeCountMatch = true};
+                var rha = new ruleHyperarc(ha) { containsAllLocalLabels = true, strictNodeCountMatch = true };
                 dummyRule.L.hyperarcs.Add(rha);
             }
             dummyRule.L.RepairGraphConnections();
@@ -753,7 +776,7 @@ namespace GraphSynth.Representation
             {
                 var rn = new ruleNode(n) { containsAllLocalLabels = true, strictDegreeMatch = true };
                 if (n.degree == maxDegree) dummyRule.L.nodes.Insert(0, rn);
-                else dummyRule.L.nodes.Add(rn);       
+                else dummyRule.L.nodes.Add(rn);
             }
             foreach (var a in this.arcs)
             {
