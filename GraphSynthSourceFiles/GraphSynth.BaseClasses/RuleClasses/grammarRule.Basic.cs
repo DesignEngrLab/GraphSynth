@@ -264,23 +264,14 @@ namespace GraphSynth.Representation
         {
             get
             {
-                /* this is commented because it is not compatible with Mono (it is not any quicker, either. 
-                 * just more compact.) */
-                //return new List<int>(from n in L.nodes
-                //                     where !((ruleNode)n).NotExist
-                //                     orderby n.arcs.Count(a=>!((ruleArc)a).NotExist) descending
-                //                     select n.arcs.Count(a => !((ruleArc)a).NotExist));
                 var degrees = new List<int>();
                 foreach (var n in L.nodes)
                 {
                     if (((ruleNode)n).MustExist)
-                    {
-                        var d = ((ruleNode)n).degree;
-                        var i = 0;
-                        while (degrees.Count < i && degrees[i] > d) { i++; }
-                        degrees.Insert(i, d);
-                    }
+                        degrees.Add(((ruleNode)n).degree);
                 }
+                degrees.Sort();
+                degrees.Reverse();
                 return degrees;
             }
         }
@@ -288,23 +279,14 @@ namespace GraphSynth.Representation
         {
             get
             {
-                /* this is commented because it is not compatible with Mono (it is not any quicker, either. 
-                 * just more compact.) */
-                //return new List<int>(from ha in L.hyperarcs
-                //                     where !((ruleHyperarc)ha).NotExist
-                //                     orderby ha.nodes.Count(n => !((ruleNode)n).NotExist) descending
-                //                     select ha.nodes.Count(n => !((ruleNode)n).NotExist));
                 var degrees = new List<int>();
                 foreach (var ha in L.hyperarcs)
                 {
                     if (((ruleHyperarc)ha).MustExist)
-                    {
-                        var d = ((ruleHyperarc)ha).degree;
-                        var i = 0;
-                        while (degrees.Count < i && degrees[i] > d) { i++; }
-                        degrees.Insert(i, d);
-                    }
+                        degrees.Add(((ruleHyperarc)ha).degree);
                 }
+                degrees.Sort();
+                degrees.Reverse();
                 return degrees;
             }
         }
