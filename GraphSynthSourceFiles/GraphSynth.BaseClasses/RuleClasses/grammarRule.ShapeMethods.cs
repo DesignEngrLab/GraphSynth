@@ -553,7 +553,9 @@ namespace GraphSynth.Representation
             vL = new[] { vL[0] / vL_length, vL[1] / vL_length, vL[2] / vL_length };
             vHost = new[] { vHost[0] / vHost_length, vHost[1] / vHost_length, vHost[2] / vHost_length };
             var dot = vL[0] * vHost[0] + vL[1] * vHost[1] + vL[2] * vHost[2];
-            angle = MatrixMath.sameCloseZero(dot, 1.0) ? 0.0 : Math.Acos(dot);
+            angle = dot >= 1.0 ? 0.0
+               : dot <= -1.0 ? Math.PI
+                : Math.Acos(dot);
             var quaternion2 = (MatrixMath.sameCloseZero(angle)) ? MatrixMath.Identity(4) : makeQuaternion(axis, angle);
             if (locatedNodes.Count == 3)
             {
