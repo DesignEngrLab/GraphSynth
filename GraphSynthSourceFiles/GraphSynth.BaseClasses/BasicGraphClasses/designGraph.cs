@@ -26,6 +26,7 @@
  *************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Xml.Serialization;
 
@@ -187,7 +188,7 @@ namespace GraphSynth.Representation
         /// <param name="toNode">To node.</param>
         /// <param name="newName">The name.</param>
         /// <param name="arcType">Type of the arc.</param>
-        public void addArc(node fromNode, node toNode, string newName = "", Type arcType = null)
+        public arc addArc(node fromNode, node toNode, string newName = "", Type arcType = null)
         {
             arc newArc;
             if (string.IsNullOrWhiteSpace(newName)) newName = makeUniqueArcName();
@@ -202,6 +203,7 @@ namespace GraphSynth.Representation
                 newArc = (arc)arcConstructor.Invoke(inputs);
             }
             addArc(newArc, fromNode, toNode);
+            return newArc;
         }
 
         /// <summary>
@@ -241,12 +243,13 @@ namespace GraphSynth.Representation
         /// </summary>
         /// <param name = "newName">The new name.</param>
         /// <param name = "nodeType">Type of the node.</param>
-        public void addNode(string newName = "", Type nodeType = null)
+        public node addNode(string newName = "", Type nodeType = null)
         {
+            node newNode;
             if (string.IsNullOrWhiteSpace(newName))
                 newName = makeUniqueNodeName();
             if (nodeType == null || nodeType == typeof(node))
-                addNode(new node(newName));
+                newNode = new node(newName);
             else
             {
                 var types = new Type[1];
@@ -255,8 +258,11 @@ namespace GraphSynth.Representation
 
                 var inputs = new object[1];
                 inputs[0] = newName;
-                addNode((node)nodeConstructor.Invoke(inputs));
+                Debug.Assert(nodeConstructor != null, "nodeConstructor != null");
+                newNode = (node)nodeConstructor.Invoke(inputs);
             }
+            addNode(newNode);
+            return newNode;
         }
 
         /// <summary>
@@ -309,7 +315,7 @@ namespace GraphSynth.Representation
         /// <param name="attachedNodes">The nodes.</param>
         /// <param name="newName">The new name.</param>
         /// <param name="hyperarcType">The t.</param>
-        public void addHyperArc(List<node> attachedNodes, string newName = "", Type hyperarcType = null)
+        public hyperarc addHyperArc(List<node> attachedNodes, string newName = "", Type hyperarcType = null)
         {
             hyperarc newArc;
             if (string.IsNullOrWhiteSpace(newName)) newName = makeUniqueHyperArcName();
@@ -324,6 +330,7 @@ namespace GraphSynth.Representation
                 newArc = (hyperarc)arcConstructor.Invoke(inputs);
             }
             addHyperArc(newArc, attachedNodes);
+            return newArc;
         }
 
         /// <summary>
@@ -610,13 +617,13 @@ namespace GraphSynth.Representation
         /// <param name="newType">The new type.</param>
         public void replaceNodeWithInheritedType(node origNode, Type newType)
         {
-            addNode(origNode.name, newType);
-            origNode.copy(nodes.Last());
-            nodes.Last().DisplayShape = origNode.DisplayShape;
+            var newNode = addNode(origNode.name, newType);
+            origNode.copy(newNode);
+            newNode.DisplayShape = origNode.DisplayShape;
             for (var i = 0; i != origNode.arcsFrom.Count; i++)
-                origNode.arcsFrom[i].From = nodes.Last();
+                origNode.arcsFrom[i].From = newNode;
             for (var i = 0; i != origNode.arcsTo.Count; i++)
-                origNode.arcsTo[i].To = nodes.Last();
+                origNode.arcsTo[i].To = newNode;
 
             removeNode(origNode);
         }
@@ -628,9 +635,9 @@ namespace GraphSynth.Representation
         /// <param name="newType">The new type.</param>
         public void replaceArcWithInheritedType(arc origArc, Type newType)
         {
-            addArc(origArc.From, origArc.To, origArc.name, newType);
-            origArc.copy(arcs.Last());
-            arcs.Last().DisplayShape = origArc.DisplayShape;
+            var newArc = addArc(origArc.From, origArc.To, origArc.name, newType);
+            origArc.copy(newArc);
+            newArc.DisplayShape = origArc.DisplayShape;
             removeArc(origArc);
         }
 
@@ -641,9 +648,9 @@ namespace GraphSynth.Representation
         /// <param name="newType">The new type.</param>
         public void replaceHyperArcWithInheritedType(hyperarc origArc, Type newType)
         {
-            addHyperArc(origArc.nodes, origArc.name, newType);
-            origArc.copy(hyperarcs.Last());
-            hyperarcs.Last().DisplayShape = origArc.DisplayShape;
+            var newHa = addHyperArc(origArc.nodes, origArc.name, newType);
+            origArc.copy(newHa);
+            newHa.DisplayShape = origArc.DisplayShape;
             removeHyperArc(origArc);
         }
 

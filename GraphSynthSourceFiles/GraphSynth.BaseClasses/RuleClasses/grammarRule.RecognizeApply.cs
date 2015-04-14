@@ -31,6 +31,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace GraphSynth.Representation
@@ -466,17 +467,17 @@ namespace GraphSynth.Representation
                 #region Step 1. add new nodes to D
                 if (!L.nodes.Exists(b => (b.name == rNode.name)))
                 {
-                    D.addNode(null, Type.GetType(rNode.TargetType, false)); /* create a new node. */
-                    Rmapping.nodes[i] = D.nodes.Last(); /* make sure it's referenced in Rmapping. */
+                    var newNode = D.addNode(null, Type.GetType(rNode.TargetType, false)); /* create a new node. */
+                    Rmapping.nodes[i] = newNode; /* make sure it's referenced in Rmapping. */
                     /* labels cannot be set equal, since that merely sets the reference of this list
                      * to the same value. So, we need to make a complete copy. */
-                    rNode.copy(D.nodes.Last());
+                    rNode.copy(newNode);
                     /* give that new node a name and labels to match with the R. */
-                    newElements.Add(D.nodes.Last());
+                    newElements.Add(newNode);
                     /* add the new node to the list of newElements that is returned by this function.*/
-                    TransformPositionOfNode(D.nodes.Last(), positionT, rNode);
-                    if (TransformNodeShapes && D.nodes.Last().DisplayShape != null)
-                        TransfromShapeOfNode(D.nodes.Last(), positionT);
+                    TransformPositionOfNode(newNode, positionT, rNode);
+                    if (TransformNodeShapes && newNode.DisplayShape != null)
+                        TransfromShapeOfNode(newNode, positionT);
                 }
                 #endregion
                 #region Step 2. update K nodes
@@ -566,10 +567,10 @@ namespace GraphSynth.Representation
 
                     #endregion
 
-                    D.addArc(from, to, rArc.name, Type.GetType(rArc.TargetType, false));
-                    Rmapping.arcs[i] = D.arcs.Last();
-                    rArc.copy(D.arcs.Last());
-                    newElements.Add(D.arcs.Last());
+                    var newArc = D.addArc(from, to, rArc.name, Type.GetType(rArc.TargetType, false));
+                    Rmapping.arcs[i] = newArc;
+                    rArc.copy(newArc);
+                    newElements.Add(newArc);
                     /* add the new arc to the list of newElements that is returned by this function.*/
                 }
                 #endregion
@@ -647,10 +648,10 @@ namespace GraphSynth.Representation
                     var mappedNodes =
                         rHyperarc.nodes.Select(a => findRMappedElement(Rmapping, a.name)).Cast<node>().ToList();
 
-                    D.addHyperArc(mappedNodes, rHyperarc.name, Type.GetType(rHyperarc.TargetType, false));
-                    Rmapping.hyperarcs[i] = D.hyperarcs.Last();
-                    rHyperarc.copy(D.hyperarcs.Last());
-                    newElements.Add(D.hyperarcs.Last());
+                    var newHa = D.addHyperArc(mappedNodes, rHyperarc.name, Type.GetType(rHyperarc.TargetType, false));
+                    Rmapping.hyperarcs[i] = newHa;
+                    rHyperarc.copy(newHa);
+                    newElements.Add(newHa);
                     /* add the new hyperarc to the list of newElements that is returned by this function.*/
                 }
                 #endregion
@@ -706,8 +707,9 @@ namespace GraphSynth.Representation
                             {
                                 var newNeighborNodes = new List<node>(neighborNodes);
                                 newNeighborNodes.Add(newNodeToConnect);
-                                host.addHyperArc(dangleHyperArc.copy(), newNeighborNodes);
-                                newElements.Add(host.hyperarcs.Last());
+                                var newHa = dangleHyperArc.copy();
+                                host.addHyperArc(newHa, newNeighborNodes);
+                                newElements.Add(newHa);
                                 /* add the new hyperarc to the list of newElements that is returned by this function.*/
                             }
                             else
@@ -819,8 +821,9 @@ namespace GraphSynth.Representation
                                  * bad copy. However, at the end of this function, we go through the arcs again
                                  * and remove any arcs that still appear free. This also serves the purpose to 
                                  * delete any dangling nodes that were not recognized in any rules. */
-                                host.addArc(dangleArc.copy(), fromNode, toNode);
-                                newElements.Add(host.arcs.Last());
+                                var newArc = dangleArc.copy();
+                                host.addArc(newArc, fromNode, toNode);
+                                newElements.Add(newArc);
                                 /* add the new arc to the list of newElements that is returned by this function.*/
                             }
                             #endregion
