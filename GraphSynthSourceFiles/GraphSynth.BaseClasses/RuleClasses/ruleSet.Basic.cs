@@ -61,7 +61,8 @@ namespace GraphSynth.Representation
         ///   Normal, Choice, CycleLimit, NoRules, TriggerRule. So, following normal operation 
         ///   of RCA (normal), we perform the first operation stated below, nextGenerationStep[0]
         ///   this will likely be to LOOP and contine apply rules. Defaults for these are
-        ///   specified in App.gsconfig.
+        ///   specified in App.gsconfig.           
+        [XmlIgnore]
         /// </summary>
         public nextGenerationSteps[] nextGenerationStep;
 
