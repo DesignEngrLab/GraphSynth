@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Arvo:400,700,400italic);
+﻿@import url(https://fonts.googleapis.com/css?family=Arvo:400,700,400italic);
 
 /* MeyerWeb Reset */
 
@@ -215,7 +215,7 @@ td {
 /* Header */
 
 header {
-	background-color: #171717;
+	background-color: #477787;
 	color: #FDFDFB;
   width:170px;
   float:left;

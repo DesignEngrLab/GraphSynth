@@ -1,0 +1,1270 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+b\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Grammar: Saving &amp; Opening</title>
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Georgia;
+	panose-1:2 4 5 2 5 4 5 2 3 3;}
+@font-face
+	{font-family:"Courier New";
+	panose-1:2 7 3 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:"Trebuchet MS";
+	panose-1:2 11 6 3 2 2 2 2 2 4;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-right:0pt;
+	text-indent:0pt;
+	margin-top:0pt;
+	margin-bottom:9.0pt;
+	line-height:121%;
+	text-align:left;
+	font-family:Georgia;
+	font-size:9.1866pt;
+	color:black;}
+h2
+	{margin-right:0pt;
+	text-indent:0pt;
+	margin-top:0pt;
+	margin-bottom:0pt;
+	text-align:left;
+	font-family:Georgia;
+	font-size:15.0pt;
+	color:black;
+	font-weight:bold;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{margin-right:0pt;
+	text-indent:0pt;
+	margin-top:0pt;
+	margin-bottom:9.0pt;
+	line-height:121%;
+	text-align:left;
+	font-family:Georgia;
+	font-size:11.0pt;
+	color:black;}
+p.MsoTitle3, li.MsoTitle3, div.MsoTitle3
+	{margin-right:0pt;
+	text-indent:0pt;
+	margin-top:0pt;
+	margin-bottom:0pt;
+	text-align:left;
+	font-family:Georgia;
+	font-size:20.3252pt;
+	color:black;}
+ol
+	{margin-top:0in;
+	margin-bottom:0in;
+	margin-left:-2197in;}
+ul
+	{margin-top:0in;
+	margin-bottom:0in;
+	margin-left:-2197in;}
+@page
+	{size:8.0302in 11.0in;}
+-->
+</style>
+</head>
+
+<body link="#996600" vlink="#6633CC" style='margin:0'>
+
+<div style='position:absolute;width:7.-71in;height:24.-1237in'>
+<!--[if gte vml 1]><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+ path="m,l,21600r21600,l21600,xe">
+ <v:stroke joinstyle="miter"/>
+ <v:path gradientshapeok="t" o:connecttype="rect"/>
+</v:shapetype><v:shape id="_x0000_s1026" type="#_x0000_t202" style='position:absolute;
+ left:143.91pt;top:111pt;width:402.09pt;height:435pt;z-index:2;visibility:visible;
+ mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+ mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+ fillcolor="black [0]" stroked="f" strokecolor="#99c [2]" strokeweight="0"
+ o:cliptowrap="t">
+ <v:fill color2="white [7]"/>
+ <v:stroke dashstyle="dash">
+  <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+ </v:stroke>
+ <v:shadow color="#ccc [4]"/>
+ <v:path insetpenok="f"/>
+ <o:lock v:ext="edit" shapetype="t"/>
+ <v:textbox style='mso-column-margin:5.7pt' inset="2.85pt,2.85pt,2.85pt,2.85pt"/>
+</v:shape><![endif]--><![if !vml]><span style='position:absolute;z-index:2;
+left:192px;top:148px;width:536px;height:580px'>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=536 height=580 style='vertical-align:top'><![endif]>
+  <div v:shape="_x0000_s1026" style='padding:2.85pt 2.85pt 2.85pt 2.85pt'
+  class=shape>
+  <p class=MsoBodyText3><span lang=en-US style='language:en-US'>Grammar rules are stored in GraphSynth in a similar<br>
+  manner to how </span><a
+  href=graphs.htm><span lang=en-US style='font-family:Georgia;text-decoration:
+  underline;language:en-US'>graphs are stored</span></a><span lang=en-US
+  style='language:en-US'>. Within the <br>
+  grammarRule class (under the 1.Representation folder) a rule is comprised of the following main fields:</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span style='font-size:11.0pt;
+  font-family:"Courier New"'>        </span><span lang=en-US style='font-size:
+  11.0pt;font-family:"Courier New";color:blue;language:en-US'>public</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:black;
+  language:en-US'> </span><span lang=en-US style='font-size:11.0pt;font-family:
+  "Courier New";color:blue;language:en-US'>string</span><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'> name;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'>        </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>public</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:teal;
+  language:en-US'>designGraph</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> L;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'>        </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>public</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:teal;
+  language:en-US'>designGraph</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> R;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'>        </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>public</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:teal;
+  language:en-US'>Boolean</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> spanning;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'>        </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>public</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:teal;
+  language:en-US'>Boolean</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> induced;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'>        </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>public</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:teal;
+  language:en-US'>Boolean</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> containsAllGlobalLabels;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'>        </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>public</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:teal;
+  language:en-US'>List</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'>&lt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>string</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'>&gt; recognizeFunctions ;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'>        </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>public</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:teal;
+  language:en-US'>List</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'>&lt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>string</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'>&gt; applyFunctions ;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'>        </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>public</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:teal;
+  language:en-US'>List</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'>&lt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:teal;
+  language:en-US'>embeddingRule</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'>&gt; embeddingRules;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'>&nbsp;</span></p>
+  <p class=MsoBodyText3><span lang=en-US style='language:en-US'>The rule contains a simple name and two designGraphs, one representing the left-hand-side, or L (what is used for </span><a
+  href="rule_recognition.htm"><span lang=en-US style='font-family:Georgia;
+  text-decoration:underline;language:en-US'>recognition</span></a><span
+  lang=en-US style='language:en-US'>), and one representing the right-hand-side, or R (what is used for </span><a
+  href="rule_application.htm"><span lang=en-US style='font-family:Georgia;
+  text-decoration:underline;language:en-US'>application</span></a><span
+  lang=en-US style='language:en-US'>). It is likely that the rule should have some overlap in the elements that are in L and R. However, these are stored twice as separate elements of both L and R. These elements represent the K or common graph between in the rule and play a crucial role in rule application. This is followed by three Booleans: </span><span
+  lang=en-US style='font-size:10.0pt;line-height:121%;font-family:"Trebuchet MS";
+  color:#663333;font-style:italic;font-weight:bold;language:en-US'>spanning</span><span
+  lang=en-US style='language:en-US'>, </span><span lang=en-US style='font-size:
+  10.0pt;line-height:121%;font-family:"Trebuchet MS";color:#663333;font-style:
+  italic;font-weight:bold;language:en-US'>induced</span><span lang=en-US
+  style='language:en-US'>, </span><span lang=en-US style='font-size:10.0pt;
+  line-height:121%;font-family:"Trebuchet MS";color:#663333;font-style:italic;
+  font-weight:bold;language:en-US'>containsAllGlobalLabels </span><span
+  lang=en-US style='language:en-US'>which are defined as part of the recognition (see Table 1 under </span><a
+  href="rule_recognition.htm"><span lang=en-US style='font-family:Georgia;
+  text-decoration:underline;language:en-US'>Recognition</span></a><span
+  lang=en-US style='language:en-US'>). </span></p>
+  <h2><span lang=en-US style='language:en-US'>Parametric Rule Files</span></h2>
+  <p class=MsoBodyText3><span lang=en-US style='language:en-US'>The </span><span
+  lang=en-US style='language:en-US'>next two lists represent the </span><span
+  lang=en-US style='font-family:Georgia;font-style:italic;language:en-US'>names of functions</span><span
+  lang=en-US style='language:en-US'>, for C# functions that have been written to add to the recognition or application criteria. These are especially useful in parametric rules—rules that are in some way based on the local variables (stored as doubles) stored in the nodes and arcs of the graph. </span></p>
+  <p class=MsoBodyText3><span lang=en-US style='language:en-US'>&nbsp;</span></p>
+  </div>
+  <![if !vml]></td>
+ </tr>
+</table>
+
+</span><![endif]><!--[if gte vml 1]><v:shape id="_x0000_s1329" type="#_x0000_t202"
+ alt="" style='position:absolute;left:143.91pt;top:71.24pt;width:276.09pt;
+ height:40.71pt;z-index:35;visibility:visible;mso-wrap-edited:f;
+ mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+ mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+ fillcolor="black [0]" stroked="f" strokecolor="#99c [2]" strokeweight="0"
+ o:cliptowrap="t">
+ <v:stroke dashstyle="dash">
+  <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+ </v:stroke>
+ <v:shadow color="#ccc [4]"/>
+ <v:path insetpenok="f"/>
+ <o:lock v:ext="edit" shapetype="t"/>
+ <v:textbox style='mso-column-margin:5.7pt' inset="2.85pt,2.85pt,2.85pt,2.85pt"/>
+</v:shape><![endif]--><![if !vml]><span style='position:absolute;z-index:35;
+left:192px;top:95px;width:368px;height:54px'>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=368 height=54 valign=bottom style='vertical-align:top'><![endif]>
+  <div v:shape="_x0000_s1329" style='padding:12.9pt 2.85pt 2.85pt 2.85pt'
+  class=shape>
+  <p class=MsoTitle3><span lang=en-US style='font-family:Georgia;language:en-US'>Grammar: Saving &amp; Opening</span></p>
+  </div>
+  <![if !vml]></td>
+ </tr>
+</table>
+
+</span><![endif]><!--[if gte vml 1]><v:shape id="_x0000_s1572" type="#_x0000_t202"
+ style='position:absolute;left:143.91pt;top:514.29pt;width:186.09pt;height:297.96pt;
+ z-index:142;visibility:visible;mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;
+ mso-wrap-distance-top:2.88pt;mso-wrap-distance-right:2.88pt;
+ mso-wrap-distance-bottom:2.88pt' filled="f" fillcolor="black [0]" stroked="f"
+ strokecolor="#99c [2]" strokeweight="0" o:cliptowrap="t">
+ <v:fill color2="white [7]"/>
+ <v:stroke dashstyle="dash">
+  <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+ </v:stroke>
+ <v:shadow color="#ccc [4]"/>
+ <v:path insetpenok="f"/>
+ <o:lock v:ext="edit" shapetype="t"/>
+ <v:textbox style='mso-column-margin:5.7pt' inset="2.85pt,2.85pt,2.85pt,2.85pt"/>
+</v:shape><![endif]--><![if !vml]><span style='position:absolute;z-index:142;
+left:192px;top:686px;width:248px;height:397px'>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=248 height=397 style='vertical-align:top'><![endif]>
+  <div v:shape="_x0000_s1572" style='padding:2.85pt 2.85pt 2.85pt 2.85pt'
+  class=shape>
+  <p class=MsoBodyText3><span lang=en-US style='language:en-US'>When drafting a rule in GraphSynth, one can access many of these rule properties by invoking the properties window (shown to the right). This is the properties window for the rule named seedBurst1Rule4 (seedBurst1Rule4 .xml in the rules directory). It is a fairly simple rule with one Parametric Recognize Function called isALeafNode and one Parametric Apply Function called distributeTo1NewRoot. When this rule was created, a template for these functions were automatically created in the .cs file called seedBurstParamRules.cs. When GraphSynth creates these templates all Parametric Apply Functions will look like the following:</span></p>
+  </div>
+  <![if !vml]></td>
+ </tr>
+</table>
+
+</span><![endif]><!--[if gte vml 1]><v:shape id="_x0000_s1573" type="#_x0000_t202"
+ style='position:absolute;left:143.91pt;top:795pt;width:426.09pt;height:921pt;
+ z-index:143;visibility:visible;mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;
+ mso-wrap-distance-top:2.88pt;mso-wrap-distance-right:2.88pt;
+ mso-wrap-distance-bottom:2.88pt' filled="f" fillcolor="black [0]" stroked="f"
+ strokecolor="#99c [2]" strokeweight="0" o:cliptowrap="t">
+ <v:fill color2="white [7]"/>
+ <v:stroke dashstyle="dash">
+  <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+ </v:stroke>
+ <v:shadow color="#ccc [4]"/>
+ <v:path insetpenok="f"/>
+ <o:lock v:ext="edit" shapetype="t"/>
+ <v:textbox style='mso-column-margin:5.7pt' inset="2.85pt,2.85pt,2.85pt,2.85pt"/>
+</v:shape><![endif]--><![if !vml]><span style='position:absolute;z-index:143;
+left:192px;top:1060px;width:568px;height:1228px'>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=568 height=1228 style='vertical-align:top'><![endif]>
+  <div v:shape="_x0000_s1573" style='padding:2.85pt 2.85pt 2.85pt 2.85pt'
+  class=shape>
+  <p class=MsoNormal style='margin-bottom:0pt'><span style='font-size:11.0pt;
+  line-height:121%;font-family:"Courier New";color:green'>/* This is APPLY for the rule entitled: </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:green;language:en-US'>swirlRule1</span><span style='font-size:11.0pt;
+  line-height:121%;font-family:"Courier New";color:green'> */</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:blue;language:en-US'>public</span><span lang=en-US style='font-size:
+  11.0pt;line-height:121%;font-family:"Courier New";color:black;language:en-US'> designGraph </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'>distributeTo1NewRoot</span><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'>(</span><span lang=en-US style='font-size:11.0pt;
+  line-height:121%;font-family:"Courier New";color:teal;language:en-US'>designGraph </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'>Lmapping,<br>
+                 </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:teal;language:en-US'>designGraph </span><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'>host, </span><span lang=en-US style='font-size:
+  11.0pt;line-height:121%;font-family:"Courier New";color:teal;language:en-US'>designGraph </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'>Rmapping, <br>
+                 </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:blue;language:en-US'>double</span><span lang=en-US style='font-size:
+  11.0pt;line-height:121%;font-family:"Courier New";color:black;language:en-US'>[] parameters)</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'>{</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'>    </span><span lang=en-US style='font-size:
+  11.0pt;line-height:121%;font-family:"Courier New";color:green;language:en-US'>/* here is where the code for the APPLY function <br>
+       * is to be located. Please modify host (or <br>
+       * located nodes) with the input from parameters. */</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'>    </span><span lang=en-US style='font-size:
+  11.0pt;line-height:121%;font-family:"Courier New";color:blue;language:en-US'>return</span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'> host;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'>}</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:Georgia;language:en-US'>This means that one can draft any functions on the resulting host that results </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:Georgia;
+  font-style:italic;language:en-US'>after all </span><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:Georgia;language:en-US'>other rule modifications have occurred (see </span><a
+  href="rule_application.htm"><span lang=en-US style='font-size:11.0pt;
+  line-height:121%;font-family:Georgia;text-decoration:underline;language:en-US'>Application</span></a><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:Georgia;
+  language:en-US'>). The Lmapping and Rmapping are needed to identify elements locations within the host. The examples in the rules directory are a good place to start to understand what can be done with this function.</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:Georgia;language:en-US'>The Parametric Recognize Functions are more restrictive. The template for a parametric recognize rule looks like the following:</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:Georgia;language:en-US'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span style='font-size:11.0pt;
+  font-family:"Courier New";color:green'>/* This is RECOGNIZE for the rule entitled:  */</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:blue;language:en-US'>public</span><span lang=en-US style='font-size:
+  11.0pt;line-height:121%;font-family:"Courier New";color:black;language:en-US'> </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:blue;language:en-US'>double</span><span lang=en-US style='font-size:
+  11.0pt;line-height:121%;font-family:"Courier New";color:black;language:en-US'> </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'>isALeafNode </span><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'>(</span><span lang=en-US style='font-size:11.0pt;
+  line-height:121%;font-family:"Courier New";color:teal;language:en-US'>designGraph </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'>L, </span><span lang=en-US style='font-size:11.0pt;
+  line-height:121%;font-family:"Courier New";color:teal;language:en-US'>designGraph </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:black;language:en-US'>host,<br>
+                 </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:teal;language:en-US'>List</span><span lang=en-US style='font-size:11.0pt;
+  line-height:121%;font-family:"Courier New";color:black;language:en-US'>&lt;</span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:teal;language:en-US'>node</span><span lang=en-US style='font-size:11.0pt;
+  line-height:121%;font-family:"Courier New";color:black;language:en-US'>&gt; locatedNodes, </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:teal;language:en-US'>List</span><span lang=en-US style='font-size:11.0pt;
+  line-height:121%;font-family:"Courier New";color:black;language:en-US'>&lt;</span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:"Courier New";
+  color:teal;language:en-US'>arc</span><span lang=en-US style='font-size:11.0pt;
+  line-height:121%;font-family:"Courier New";color:black;language:en-US'>&gt; locatedArcs)</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'>{</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'>    </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:green;
+  language:en-US'>/* here is where the code for the RECOGNIZE function <br>
+       * is to be located. Please remember that returning <br>
+       * a positive real (double) is equivalent to a<br>
+       * constraint violation. Zero and negative numbers <br>
+       * are feasible. */</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'>    </span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>return</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:black;language:en-US'> 0.0;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:black;language:en-US'>}</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:Georgia;language:en-US'>As the template shows, these functions return a double instead of a Boolean, which may seem to be the more obvious type for whether or not a rule is recognized. Only non-positive-valued real's will qualify as a successful match. This is to meet with negative null form of constraints used in numerical optimization. Constraints are usually written in the form g</span><span
+  lang=en-US style='font-size:7.3259pt;line-height:121%;font-family:Georgia;
+  language:en-US'><sub>i</sub></span><span lang=en-US style='font-size:11.0pt;
+  line-height:121%;font-family:Georgia;language:en-US'>(x) </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:Georgia;
+  language:en-US'>&#8804;</span><span lang=en-US style='font-size:11.0pt;
+  line-height:121%;font-family:Georgia;language:en-US'> 0.0 to comply with penalty function and Karush-Kuhn Tucker conditions. Fortunately, understanding the reasons are not necessary for creating meaningful rules. Just remember that a positive number in NOT a match. Example of these rules can be found in the rules directory.</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:Georgia;language:en-US'>&nbsp;</span></p>
+  <h2><span lang=en-US style='language:en-US'>Embedding Rules</span></h2>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;line-height:121%;font-family:Georgia;language:en-US'>As described in </span><a
+  href="rule_application.htm"><span lang=en-US style='font-size:11.0pt;
+  line-height:121%;font-family:Georgia;text-decoration:underline;language:en-US'>Application</span></a><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:Georgia;
+  language:en-US'>, there are certain </span><span lang=en-US style='font-size:
+  11.0pt;line-height:121%;font-family:Georgia;font-weight:bold;language:en-US'>arc </span><span
+  lang=en-US style='font-size:11.0pt;line-height:121%;font-family:Georgia;
+  language:en-US'>modifications that cannot be represented in the L and R graphs. These free-arc embedding rules are stored in a class under 1.Representation called embeddingRule.cs. When drafting a rule one can specify in the Properties Window (as shown above) how many embedding rules to create for the rule. However, the actual drafting of embedding rule values must be done in XML. Once the rule is saved and opened in an XML editor one will see the following line added to the file:</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span style='font-size:11.0pt;
+  font-family:"Courier New";color:blue'>  &lt;</span><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:maroon;language:en-US'>embeddingRules</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:blue;language:en-US'>    &lt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>embeddingRule</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:blue;language:en-US'>&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:blue;language:en-US'>      &lt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>freeArcLabel</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:blue;language:en-US'> /&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:blue;language:en-US'>      &lt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>LNodeName</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:blue;language:en-US'> /&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:blue;language:en-US'>      &lt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>neighborNodeLabel</span><span lang=en-US style='font-size:
+  11.0pt;font-family:"Courier New";color:blue;language:en-US'> /&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:blue;language:en-US'>      &lt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>RNodeName</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:blue;language:en-US'> /&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:blue;language:en-US'>      &lt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>originalDirection</span><span lang=en-US style='font-size:
+  11.0pt;font-family:"Courier New";color:blue;language:en-US'>&gt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:black;
+  language:en-US'><span dir=ltr></span>0</span><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:blue;language:en-US'>&lt;/</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>originalDirection</span><span lang=en-US style='font-size:
+  11.0pt;font-family:"Courier New";color:blue;language:en-US'>&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:blue;language:en-US'>      &lt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>newDirection</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:blue;language:en-US'>&gt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:black;
+  language:en-US'><span dir=ltr></span>0</span><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:blue;language:en-US'>&lt;/</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>newDirection</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:blue;language:en-US'>&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:blue;language:en-US'>      &lt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>allowArcDuplication</span><span lang=en-US style='font-size:
+  11.0pt;font-family:"Courier New";color:blue;language:en-US'>&gt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:black;
+  language:en-US'>false</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:blue;language:en-US'>&lt;/</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>allowArcDuplication</span><span lang=en-US style='font-size:
+  11.0pt;font-family:"Courier New";color:blue;language:en-US'>&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:blue;language:en-US'>    &lt;/</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>embeddingRule</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:blue;language:en-US'>&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:blue;language:en-US'>  &lt;/</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>embeddingRules</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:blue;language:en-US'>&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:Georgia;language:en-US'>This means that for the list of embedding rules (</span><span
+  style='font-size:11.0pt;font-family:"Courier New";color:blue'>&lt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:maroon;
+  language:en-US'>embeddingRules</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:blue;language:en-US'>&gt;</span><span
+  lang=en-US style='font-size:11.0pt;font-family:Georgia;language:en-US'>), there is one free-arc embedding rule (</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>&lt;</span><span lang=en-US style='font-size:11.0pt;
+  font-family:"Courier New";color:maroon;language:en-US'>embeddingRule</span><span
+  lang=en-US style='font-size:11.0pt;font-family:"Courier New";color:blue;
+  language:en-US'>&gt;) </span><span lang=en-US style='font-size:11.0pt;
+  font-family:Georgia;language:en-US'>with the following properties. The only field that must be filled in this rule is the RNodeName since that specifies what new node (following the node produced from the Rmapping) are the free-arcs to be connected to. Any number of rules may be created and rules may have many of the same values. Be careful though, the modifications performed by embedding rules are hard to debug!</span></p>
+  <p class=MsoNormal style='margin-bottom:0pt'><span lang=en-US
+  style='font-size:11.0pt;font-family:"Courier New";color:blue;language:en-US'>&nbsp;</span></p>
+  </div>
+  <![if !vml]></td>
+ </tr>
+</table>
+
+</span><![endif]><!--[if gte vml 1]><v:rect id="_x0000_s1574" style='position:absolute;
+ left:337.5pt;top:511.5pt;width:229.5pt;height:284.25pt;z-index:144;
+ mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+ mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt'
+ o:preferrelative="t" filled="f" fillcolor="white [7]" stroked="f"
+ strokecolor="black [0]" o:cliptowrap="t">
+ <v:fill color2="white [7]"/>
+ <v:stroke color2="white [7]">
+  <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+ </v:stroke>
+ <v:imagedata src="image496.png" o:title="rulePropertiesWindow"/>
+ <v:shadow color="#ccc [4]"/>
+ <v:path o:extrusionok="f" insetpenok="f"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:rect><![endif]--><![if !vml]><span style='position:absolute;z-index:144;
+left:448px;top:680px;width:311px;height:384px'><img width=311 height=384
+src=image496.png v:shapes="_x0000_s1574"></span><![endif]><!--[if gte vml 1]><v:group
+ id="_x0000_s1816" style='position:absolute;left:19.5pt;top:138pt;width:126pt;
+ height:6in;z-index:169' coordorigin="1101852,1101851" coordsize="16002,54864">
+ <v:rect id="_x0000_s1817" alt="" style='position:absolute;left:1101852;top:1101852;
+  width:16002;height:4572;visibility:hidden;mso-wrap-edited:f;
+  mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:rect><v:oval id="_x0000_s1818" style='position:absolute;left:1102420;
+  top:1101989;width:2762;height:2762;visibility:visible;mso-wrap-edited:f;
+  mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' fillcolor="#b8b8dc [2 lighten(179)]"
+  stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <v:path insetpenok="f"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:oval><v:shape id="_x0000_s1819" type="#_x0000_t202" alt="" style='position:absolute;
+  left:1103669;top:1101852;width:13616;height:4572;visibility:visible;
+  mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke dashstyle="dash">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox style='mso-column-margin:5.76pt' inset="2.88pt,0,2.88pt,0">
+   <div dir=ltr style='padding-top:7.5pt'>
+   <p class=MsoNormal style='line-height:113%'><span lang=en-US
+   style='font-size:9.0pt;line-height:113%;font-family:"Trebuchet MS";
+   color:black;font-weight:bold;language:en-US'>Home</span></p>
+   </div>
+  </v:textbox>
+ </v:shape><v:rect id="_x0000_s1820" alt="" href="../index.htm" style='position:absolute;
+  left:1101852;top:1101851;width:16002;height:4573;visibility:visible;
+  mso-wrap-edited:f' filled="f" fillcolor="white [7]" stroked="f" o:cliptowrap="t">
+  <v:fill color2="white [7]"/>
+  <v:stroke>
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:path strokeok="f" fillok="f"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:rect><v:oval id="_x0000_s1821" style='position:absolute;left:1102420;
+  top:1106561;width:2762;height:2762;visibility:visible;mso-wrap-edited:f;
+  mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt;
+  mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+  mso-position-vertical:absolute;mso-position-vertical-relative:text'
+  fillcolor="#b8b8dc [2 lighten(179)]" stroked="f" strokecolor="black [0]"
+  o:cliptowrap="t">
+  <v:stroke color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <v:path insetpenok="f"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:oval><v:shape id="_x0000_s1822" type="#_x0000_t202" alt="" style='position:absolute;
+  left:1103669;top:1106424;width:13616;height:4572;visibility:visible;
+  mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke dashstyle="dash">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox style='mso-column-margin:5.76pt' inset="2.88pt,0,2.88pt,0">
+   <div dir=ltr style='padding-top:7.5pt'>
+   <p class=MsoNormal style='line-height:113%'><span lang=en-US
+   style='font-size:9.0pt;line-height:113%;font-family:"Trebuchet MS";
+   color:black;font-weight:bold;language:en-US'>Methodology Overview</span></p>
+   </div>
+  </v:textbox>
+ </v:shape><v:rect id="_x0000_s1823" alt="" href="introMethod.htm" style='position:absolute;
+  left:1101852;top:1106424;width:16002;height:4572;visibility:visible;
+  mso-wrap-edited:f' filled="f" fillcolor="white [7]" stroked="f" o:cliptowrap="t">
+  <v:fill color2="white [7]"/>
+  <v:stroke>
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:path strokeok="f" fillok="f" insetpenok="f"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:rect><v:oval id="_x0000_s1824" style='position:absolute;left:1102420;
+  top:1111133;width:2762;height:2762;visibility:visible;mso-wrap-edited:f;
+  mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' fillcolor="#b8b8dc [2 lighten(179)]"
+  stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:oval><v:shape id="_x0000_s1825" type="#_x0000_t202" alt="" style='position:absolute;
+  left:1103669;top:1110996;width:13616;height:4572;visibility:visible;
+  mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke dashstyle="dash">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox style='mso-column-margin:5.76pt' inset="2.88pt,0,2.88pt,0">
+   <div dir=ltr style='padding-top:7.5pt'>
+   <p class=MsoNormal style='line-height:113%'><span lang=en-US
+   style='font-size:9.0pt;line-height:113%;font-family:"Trebuchet MS";
+   color:black;font-weight:bold;language:en-US'>Graphs</span></p>
+   </div>
+  </v:textbox>
+ </v:shape><v:rect id="_x0000_s1826" alt="" href="graphs.htm" style='position:absolute;
+  left:1101852;top:1110996;width:16002;height:4572;visibility:visible;
+  mso-wrap-edited:f' filled="f" fillcolor="white [7]" stroked="f" o:cliptowrap="t">
+  <v:fill color2="white [7]"/>
+  <v:stroke>
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:path strokeok="f" fillok="f"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:rect><v:oval id="_x0000_s1827" style='position:absolute;left:1102420;
+  top:1115705;width:2762;height:2762;visibility:visible;mso-wrap-edited:f;
+  mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="#b8b8dc [2 lighten(179)]" strokecolor="#99c [2]" o:cliptowrap="t">
+  <v:stroke>
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:oval><v:shape id="_x0000_s1828" type="#_x0000_t202" alt="" style='position:absolute;
+  left:1103669;top:1115568;width:13616;height:4572;visibility:visible;
+  mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke dashstyle="dash">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox style='mso-column-margin:5.76pt' inset="2.88pt,0,2.88pt,0">
+   <div dir=ltr style='padding-top:2.6249pt'>
+   <p class=MsoNormal style='line-height:113%'><span lang=en-US
+   style='font-size:9.0pt;line-height:113%;font-family:"Trebuchet MS";
+   color:black;font-weight:bold;language:en-US'>Grammar: Saving &amp; Opening</span></p>
+   </div>
+  </v:textbox>
+ </v:shape><v:oval id="_x0000_s1829" style='position:absolute;left:1102420;
+  top:1120277;width:2762;height:2762;visibility:visible;mso-wrap-edited:f;
+  mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' fillcolor="#b8b8dc [2 lighten(179)]"
+  stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:oval><v:shape id="_x0000_s1830" type="#_x0000_t202" alt="" style='position:absolute;
+  left:1103669;top:1120140;width:13616;height:4572;visibility:visible;
+  mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke dashstyle="dash">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox style='mso-column-margin:5.76pt' inset="2.88pt,0,2.88pt,0">
+   <div dir=ltr style='padding-top:7.5pt'>
+   <p class=MsoNormal style='line-height:113%'><span lang=en-US
+   style='font-size:9.0pt;line-height:113%;font-family:"Trebuchet MS";
+   color:black;font-weight:bold;language:en-US'>Grammar: Recognition</span></p>
+   </div>
+  </v:textbox>
+ </v:shape><v:rect id="_x0000_s1831" alt="" href="rule_recognition.htm"
+  style='position:absolute;left:1101852;top:1120140;width:16002;height:4572;
+  visibility:visible;mso-wrap-edited:f' filled="f" fillcolor="white [7]"
+  stroked="f" o:cliptowrap="t">
+  <v:fill color2="white [7]"/>
+  <v:stroke>
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:path strokeok="f" fillok="f"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:rect><v:oval id="_x0000_s1832" style='position:absolute;left:1102420;
+  top:1124849;width:2762;height:2762;visibility:visible;mso-wrap-edited:f;
+  mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' fillcolor="#b8b8dc [2 lighten(179)]"
+  stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:oval><v:shape id="_x0000_s1833" type="#_x0000_t202" alt="" style='position:absolute;
+  left:1103669;top:1124712;width:13616;height:4572;visibility:visible;
+  mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke dashstyle="dash">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox style='mso-column-margin:5.76pt' inset="2.88pt,0,2.88pt,0">
+   <div dir=ltr style='padding-top:7.5pt'>
+   <p class=MsoNormal style='line-height:113%'><span lang=en-US
+   style='font-size:9.0pt;line-height:113%;font-family:"Trebuchet MS";
+   color:black;font-weight:bold;language:en-US'>Grammar: Application</span></p>
+   </div>
+  </v:textbox>
+ </v:shape><v:rect id="_x0000_s1834" alt="" href="rule_application.htm"
+  style='position:absolute;left:1101852;top:1124712;width:16002;height:4572;
+  visibility:visible;mso-wrap-edited:f' filled="f" fillcolor="white [7]"
+  stroked="f" o:cliptowrap="t">
+  <v:fill color2="white [7]"/>
+  <v:stroke>
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:path strokeok="f" fillok="f"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:rect><v:oval id="_x0000_s1835" style='position:absolute;left:1102420;
+  top:1129421;width:2762;height:2762;visibility:visible;mso-wrap-edited:f;
+  mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' fillcolor="#b8b8dc [2 lighten(179)]"
+  stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:oval><v:shape id="_x0000_s1836" type="#_x0000_t202" alt="" style='position:absolute;
+  left:1103669;top:1129284;width:13616;height:4572;visibility:visible;
+  mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke dashstyle="dash">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox style='mso-column-margin:5.76pt' inset="2.88pt,0,2.88pt,0">
+   <div dir=ltr style='padding-top:7.5pt'>
+   <p class=MsoNormal style='line-height:113%'><span lang=en-US
+   style='font-size:9.0pt;line-height:113%;font-family:"Trebuchet MS";
+   color:black;font-weight:bold;language:en-US'>Grammar: Rule Sets</span></p>
+   </div>
+  </v:textbox>
+ </v:shape><v:rect id="_x0000_s1837" alt="" href="ruleSets.htm" style='position:absolute;
+  left:1101852;top:1129284;width:16002;height:4572;visibility:visible;
+  mso-wrap-edited:f' filled="f" fillcolor="white [7]" stroked="f" o:cliptowrap="t">
+  <v:fill color2="white [7]"/>
+  <v:stroke>
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:path strokeok="f" fillok="f"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:rect><v:oval id="_x0000_s1838" style='position:absolute;left:1102420;
+  top:1133993;width:2762;height:2762;visibility:visible;mso-wrap-edited:f;
+  mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' fillcolor="#b8b8dc [2 lighten(179)]"
+  stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:oval><v:shape id="_x0000_s1839" type="#_x0000_t202" alt="" style='position:absolute;
+  left:1103669;top:1133856;width:13616;height:4572;visibility:visible;
+  mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke dashstyle="dash">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox style='mso-column-margin:5.76pt' inset="2.88pt,0,2.88pt,0">
+   <div dir=ltr style='padding-top:7.5pt'>
+   <p class=MsoNormal style='line-height:113%'><span lang=en-US
+   style='font-size:9.0pt;line-height:113%;font-family:"Trebuchet MS";
+   color:black;font-weight:bold;language:en-US'>Generation</span></p>
+   </div>
+  </v:textbox>
+ </v:shape><v:rect id="_x0000_s1840" alt="" href="generation.htm" style='position:absolute;
+  left:1101852;top:1133856;width:16002;height:4572;visibility:visible;
+  mso-wrap-edited:f' filled="f" fillcolor="white [7]" stroked="f" o:cliptowrap="t">
+  <v:fill color2="white [7]"/>
+  <v:stroke>
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:path strokeok="f" fillok="f"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:rect><v:oval id="_x0000_s1841" style='position:absolute;left:1102420;
+  top:1138565;width:2762;height:2762;visibility:visible;mso-wrap-edited:f;
+  mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' fillcolor="#b8b8dc [2 lighten(179)]"
+  stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:oval><v:shape id="_x0000_s1842" type="#_x0000_t202" alt="" style='position:absolute;
+  left:1103669;top:1138428;width:13616;height:4572;visibility:visible;
+  mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke dashstyle="dash">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox style='mso-column-margin:5.76pt' inset="2.88pt,0,2.88pt,0">
+   <div dir=ltr style='padding-top:7.5pt'>
+   <p class=MsoNormal style='line-height:113%'><span lang=en-US
+   style='font-size:9.0pt;line-height:113%;font-family:"Trebuchet MS";
+   color:black;font-weight:bold;language:en-US'>Search Process</span></p>
+   </div>
+  </v:textbox>
+ </v:shape><v:rect id="_x0000_s1843" alt="" href="searchProcess.htm" style='position:absolute;
+  left:1101852;top:1138428;width:16002;height:4572;visibility:visible;
+  mso-wrap-edited:f' filled="f" fillcolor="white [7]" stroked="f" o:cliptowrap="t">
+  <v:fill color2="white [7]"/>
+  <v:stroke>
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:path strokeok="f" fillok="f"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:rect><v:oval id="_x0000_s1844" style='position:absolute;left:1102420;
+  top:1143137;width:2762;height:2762;visibility:visible;mso-wrap-edited:f;
+  mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' fillcolor="#b8b8dc [2 lighten(179)]"
+  stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:oval><v:shape id="_x0000_s1845" type="#_x0000_t202" alt="" style='position:absolute;
+  left:1103669;top:1143000;width:13616;height:4572;visibility:visible;
+  mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke dashstyle="dash">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox style='mso-column-margin:5.76pt' inset="2.88pt,0,2.88pt,0">
+   <div dir=ltr style='padding-top:7.5pt'>
+   <p class=MsoNormal style='line-height:113%'><span lang=en-US
+   style='font-size:9.0pt;line-height:113%;font-family:"Trebuchet MS";
+   color:black;font-weight:bold;language:en-US'>Navigating GraphSynth</span></p>
+   </div>
+  </v:textbox>
+ </v:shape><v:rect id="_x0000_s1846" alt="" href="navigating.htm" style='position:absolute;
+  left:1101852;top:1143000;width:16002;height:4572;visibility:visible;
+  mso-wrap-edited:f' filled="f" fillcolor="white [7]" stroked="f" o:cliptowrap="t">
+  <v:fill color2="white [7]"/>
+  <v:stroke>
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:path strokeok="f" fillok="f"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:rect><v:oval id="_x0000_s1847" style='position:absolute;left:1102420;
+  top:1147709;width:2762;height:2762;visibility:visible;mso-wrap-edited:f;
+  mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' fillcolor="#b8b8dc [2 lighten(179)]"
+  stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:oval><v:shape id="_x0000_s1848" type="#_x0000_t202" alt="" style='position:absolute;
+  left:1103669;top:1147572;width:13616;height:4572;visibility:visible;
+  mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke dashstyle="dash">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox style='mso-column-margin:5.76pt' inset="2.88pt,0,2.88pt,0">
+   <div dir=ltr style='padding-top:7.5pt'>
+   <p class=MsoNormal style='line-height:113%'><span lang=en-US
+   style='font-size:9.0pt;line-height:113%;font-family:"Trebuchet MS";
+   color:black;font-weight:bold;language:en-US'>Examples</span></p>
+   </div>
+  </v:textbox>
+ </v:shape><v:rect id="_x0000_s1849" alt="" href="examples.htm" style='position:absolute;
+  left:1101852;top:1147572;width:16002;height:4572;visibility:visible;
+  mso-wrap-edited:f' filled="f" fillcolor="white [7]" stroked="f" o:cliptowrap="t">
+  <v:fill color2="white [7]"/>
+  <v:stroke>
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:path strokeok="f" fillok="f"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:rect><v:oval id="_x0000_s1850" style='position:absolute;left:1102420;
+  top:1152281;width:2762;height:2762;visibility:visible;mso-wrap-edited:f;
+  mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' fillcolor="#b8b8dc [2 lighten(179)]"
+  stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:oval><v:shape id="_x0000_s1851" type="#_x0000_t202" alt="" style='position:absolute;
+  left:1103669;top:1152144;width:13616;height:4572;visibility:visible;
+  mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+  <v:stroke dashstyle="dash">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox style='mso-column-margin:5.76pt' inset="2.88pt,0,2.88pt,0">
+   <div dir=ltr style='padding-top:7.5pt'>
+   <p class=MsoNormal style='line-height:113%'><span lang=en-US
+   style='font-size:9.0pt;line-height:113%;font-family:"Trebuchet MS";
+   color:black;font-weight:bold;language:en-US'>Download</span></p>
+   </div>
+  </v:textbox>
+ </v:shape><v:rect id="_x0000_s1852" alt="" href="download.htm" style='position:absolute;
+  left:1101852;top:1152144;width:16002;height:4572;visibility:visible;
+  mso-wrap-edited:f' filled="f" fillcolor="white [7]" stroked="f" o:cliptowrap="t">
+  <v:fill color2="white [7]"/>
+  <v:stroke>
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:path strokeok="f" fillok="f"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:rect></v:group><![endif]--><![if !vml]><span style='position:absolute;
+z-index:169;left:26px;top:183px;width:168px;height:577px'><map
+name=MicrosoftOfficeMap0><area shape=Rect
+coords="0, 529, 168, 577" href="download.htm"><area shape=Circle
+coords="20, 545, 17" nohref><area shape=Rect
+coords="0, 481, 168, 529" href="examples.htm"><area shape=Circle
+coords="20, 497, 17" nohref><area shape=Rect
+coords="0, 433, 168, 481" href="navigating.htm"><area shape=Circle
+coords="20, 449, 17" nohref><area shape=Rect
+coords="0, 385, 168, 433" href="searchProcess.htm"><area shape=Circle
+coords="20, 401, 17" nohref><area shape=Rect
+coords="0, 337, 168, 385" href="generation.htm"><area shape=Circle
+coords="20, 353, 17" nohref><area shape=Rect
+coords="0, 289, 168, 337" href="ruleSets.htm"><area shape=Circle
+coords="20, 305, 17" nohref><area shape=Rect
+coords="0, 241, 168, 289" href="rule_application.htm"><area shape=Circle
+coords="20, 257, 17" nohref><area shape=Rect
+coords="0, 193, 168, 241" href="rule_recognition.htm"><area shape=Rect
+coords="0, 97, 168, 145" href="graphs.htm"><area shape=Circle
+coords="20, 113, 17" nohref><area shape=Rect
+coords="0, 49, 168, 97" href="introMethod.htm"><area shape=Circle
+coords="20, 65, 17" nohref><area shape=Rect
+coords="0, 1, 168, 49" href="../index.htm"></map><img border=0 width=168
+height=577 src=image1004.png usemap="#MicrosoftOfficeMap0" v:shapes="_x0000_s1816 _x0000_s1818 _x0000_s1819 _x0000_s1820 _x0000_s1821 _x0000_s1822 _x0000_s1823 _x0000_s1824 _x0000_s1825 _x0000_s1826 _x0000_s1827 _x0000_s1828 _x0000_s1829 _x0000_s1830 _x0000_s1831 _x0000_s1832 _x0000_s1833 _x0000_s1834 _x0000_s1835 _x0000_s1836 _x0000_s1837 _x0000_s1838 _x0000_s1839 _x0000_s1840 _x0000_s1841 _x0000_s1842 _x0000_s1843 _x0000_s1844 _x0000_s1845 _x0000_s1846 _x0000_s1847 _x0000_s1848 _x0000_s1849 _x0000_s1850 _x0000_s1851 _x0000_s1852"></span><![endif]><!--[if gte vml 1]><v:group
+ id="_x0000_s2167" style='position:absolute;left:33pt;top:1715.05pt;width:7in;
+ height:70.2pt;z-index:184' coordorigin="1101852,1101852" coordsize="64008,8915">
+ <v:rect id="_x0000_s2168" style='position:absolute;left:1101852;top:1101852;
+  width:64008;height:8915;visibility:hidden;mso-wrap-edited:f' stroked="f"
+  o:cliptowrap="t">
+  <v:fill recolor="t" rotate="t"/>
+  <v:stroke joinstyle="round">
+   <o:left v:ext="view" weight="0" on="t"/>
+   <o:top v:ext="view" weight="0" on="t"/>
+   <o:right v:ext="view" weight="0" on="t"/>
+   <o:bottom v:ext="view" weight="0" on="t"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:imagedata cropbottom="16777215f" cropright="16777215f"/>
+  <v:path gradientshapeok="f" insetpenok="f" o:connecttype="segments"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ </v:rect><v:shape id="_x0000_s2169" type="#_x0000_t202" alt="" style='position:absolute;
+  left:1101852;top:1101852;width:64008;height:8915;visibility:visible;
+  mso-wrap-edited:f;mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+  mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+  fillcolor="white [7]" stroked="f" strokecolor="black [0]" insetpen="t"
+  o:cliptowrap="t">
+  <v:stroke dashstyle="dash">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <o:lock v:ext="edit" shapetype="t"/>
+  <v:textbox style='mso-column-margin:5.76pt' inset="2.88pt,2.88pt,2.88pt,2.88pt">
+   <div dir=ltr>
+   <p class=MsoNormal style='text-align:center;text-align:center'><a
+   href="../index.htm"><span lang=en-US style='font-family:Georgia;text-decoration:
+   underline;language:en-US'>Home</span></a><span lang=en-US style='language:
+   en-US'> | </span><a href=introMethod.htm><span lang=en-US style='font-family:
+   Georgia;text-decoration:underline;language:en-US'>Methodology Overview</span></a><span
+   lang=en-US style='language:en-US'> | </span><a href=graphs.htm><span
+   lang=en-US style='font-family:Georgia;text-decoration:underline;language:
+   en-US'>Graphs</span></a><span lang=en-US style='language:en-US'> | Grammar: Saving &amp; Opening | </span><a
+   href="rule_recognition.htm"><span lang=en-US style='font-family:Georgia;
+   text-decoration:underline;language:en-US'>Grammar: Recognition</span></a><span
+   lang=en-US style='language:en-US'> | </span><a href="rule_application.htm"><span
+   lang=en-US style='font-family:Georgia;text-decoration:underline;language:
+   en-US'>Grammar: Application</span></a><span lang=en-US style='language:en-US'> | </span><a
+   href=ruleSets.htm><span lang=en-US style='font-family:Georgia;text-decoration:
+   underline;language:en-US'>Grammar: Rule Sets</span></a><span lang=en-US
+   style='language:en-US'> | </span><a href=generation.htm><span lang=en-US
+   style='font-family:Georgia;text-decoration:underline;language:en-US'>Generation</span></a><span
+   lang=en-US style='language:en-US'> | </span><a href=searchProcess.htm><span
+   lang=en-US style='font-family:Georgia;text-decoration:underline;language:
+   en-US'>Search Process</span></a><span lang=en-US style='language:en-US'> | </span><a
+   href=navigating.htm><span lang=en-US style='font-family:Georgia;text-decoration:
+   underline;language:en-US'>Navigating GraphSynth</span></a><span lang=en-US
+   style='language:en-US'> | </span><a href=examples.htm><span lang=en-US
+   style='font-family:Georgia;text-decoration:underline;language:en-US'>Examples</span></a><span
+   lang=en-US style='language:en-US'> | </span><a href=download.htm><span
+   lang=en-US style='font-family:Georgia;text-decoration:underline;language:
+   en-US'>Download</span></a></p>
+   </div>
+  </v:textbox>
+ </v:shape></v:group><![endif]--><![if !vml]><span style='position:absolute;
+z-index:184;left:42px;top:2284px;width:677px;height:99px'><img width=677
+height=99 src=image840.png v:shapes="_x0000_s2167 _x0000_s2169"></span><![endif]>
+</div>
+
+</body>
+
+</html>
