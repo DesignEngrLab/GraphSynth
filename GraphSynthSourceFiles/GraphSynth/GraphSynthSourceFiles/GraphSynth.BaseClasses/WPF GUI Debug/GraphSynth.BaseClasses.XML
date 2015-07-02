@@ -2775,19 +2775,7 @@
               options which make changes to a host.
             </summary>
         </member>
-        <member name="F:GraphSynth.Representation.ruleSet.nextGenerationStep">
-            <summary>
-              For a particular set of rules, we need to specify what generation should
-              do if any of five conditions occur during the recognize->choose->apply
-              cycle. The enumerator, nextGenerationSteps, listed in globalSettings.cs
-              indicates what to do. The five correspond directly to the five elements
-              of another enumerator called GenerationStatuses. These five possibilties are:
-              Normal, Choice, CycleLimit, NoRules, TriggerRule. So, following normal operation 
-              of RCA (normal), we perform the first operation stated below, nextGenerationStep[0]
-              this will likely be to LOOP and contine apply rules. Defaults for these are
-              specified in App.gsconfig.
-            </summary>
-        </member>
+        <!-- Badly formed XML comment ignored for member "F:GraphSynth.Representation.ruleSet.nextGenerationStep" -->
         <member name="F:GraphSynth.Representation.ruleSet.ruleFileNames">
             <summary>
               Represents a list of the rule file names.

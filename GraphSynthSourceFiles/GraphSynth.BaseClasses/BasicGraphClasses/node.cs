@@ -78,7 +78,8 @@ namespace GraphSynth.Representation
             get
             {
                 return arcs.Where(a => (a is arc)
-                    && (((arc)a).To == this)).Cast<arc>().ToList();
+                    && (((arc)a).doublyDirected || (((arc)a).To == this && ((arc)a).directed)))
+                    .Cast<arc>().ToList();
             }
         }
 
@@ -93,7 +94,8 @@ namespace GraphSynth.Representation
             get
             {
                 return arcs.Where(a => (a is arc)
-                    && (((arc)a).From == this)).Cast<arc>().ToList();
+                    && (((arc)a).doublyDirected || (((arc)a).From == this && ((arc)a).directed)))
+                    .Cast<arc>().ToList();
             }
         }
 

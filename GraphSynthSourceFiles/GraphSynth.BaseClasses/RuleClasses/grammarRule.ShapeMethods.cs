@@ -526,8 +526,8 @@ namespace GraphSynth.Representation
                 locatedNodes[2].Z - refPt[2]
             };
             // find the distance (dx) along the axis for this one as well.
-            var dxAlongAxisHost = vHost[0] * axisUnitVector[0] + vHost[1] * axisUnitVector[1] + vHost[2] * axisUnitVector[2];
-            // todo: what if dxAlongAxisL and dxAlongAxisHost are different? then I suppose there is a skew x w.r.t.y we could calculate
+            // todo: what if dxAlongAxisL and dxAlongAxisHost are different? then I suppose there is a skew x w.r.t.y we could calculate 
+            // var dxAlongAxisHost = vHost[0] * axisUnitVector[0] + vHost[1] * axisUnitVector[1] + vHost[2] * axisUnitVector[2];
 
             // reformulate vL as the vector to the L-node from the axis.
             vL = new[]
@@ -549,7 +549,7 @@ namespace GraphSynth.Representation
             // not the true scale-y
             var yScale = vHost_length / vL_length;
             scaleMatrix[1, 1] = yScale;
-            // by using the dot-product equals cos(angle) identity, solve for the angle for the second quarternion operation
+            // by using the dot-product equals cos(angle) identity, solve for the angle for the second quaternion operation
             vL = new[] { vL[0] / vL_length, vL[1] / vL_length, vL[2] / vL_length };
             vHost = new[] { vHost[0] / vHost_length, vHost[1] / vHost_length, vHost[2] / vHost_length };
             var dot = vL[0] * vHost[0] + vL[1] * vHost[1] + vL[2] * vHost[2];
@@ -587,13 +587,13 @@ namespace GraphSynth.Representation
             var zScale = vHost_length / vL_length;
             scaleMatrix[2, 2] = zScale;
 
-            if (!ValidScaling(MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4))) return false;
             T = MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4);
             T = MatrixMath.multiply(quaternion1, T, 4);
             T = MatrixMath.multiply(quaternion2, T, 4);
             T = MatrixMath.multiply(transMatrix, T, 4);
-            snapToIntValues(T);
-            return ValidRotation(T, MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4));
+            snapToIntValues(T);                                                  
+            return ValidScaling(MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4)) 
+                && ValidRotation(T, MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4));
         }
 
         private bool ValidRotation(double[,] T, double[,] scaleMatrix)
