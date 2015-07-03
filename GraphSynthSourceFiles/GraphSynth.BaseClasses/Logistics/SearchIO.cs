@@ -382,7 +382,7 @@ namespace GraphSynth
         ///   A reference to the main window
         /// </summary>
         public static IMainWindow main;
-
+             
         /// <summary>
         ///   Adds and shows a graph window.
         /// </summary>
@@ -390,7 +390,9 @@ namespace GraphSynth
         /// <param name = "title">The title.</param>
         public static void addAndShowGraphWindow(object graphObjects, string title = "")
         {
-            if (main.Dispatcher.CheckAccess())
+            if (main == null)
+                output("Cannot show graph, {0}, without GUI loaded.", title);
+            else if (main.Dispatcher.CheckAccess())
                 main.addAndShowGraphWindow(graphObjects, title);
             else
                 main.Dispatcher.Invoke(
@@ -405,7 +407,9 @@ namespace GraphSynth
         /// <param name = "title">The title.</param>
         public static void addAndShowRuleWindow(object ruleObjects, string title)
         {
-            if (main.Dispatcher.CheckAccess())
+            if (main == null)
+                output("Cannot show rule, {0}, without GUI loaded.", title);
+            else if (main.Dispatcher.CheckAccess())
                 main.addAndShowRuleWindow(ruleObjects, title);
             else
                 main.Dispatcher.Invoke(
@@ -421,7 +425,9 @@ namespace GraphSynth
         /// <param name="title">The title.</param>
         public static void addAndShowRuleSetWindow(object ruleSetObjects, string title)
         {
-            if (main.Dispatcher.CheckAccess())
+            if (main == null)
+                output("Cannot show ruleset, {0}, without GUI loaded.", title);
+            else if (main.Dispatcher.CheckAccess())
                 main.addAndShowRuleSetWindow(ruleSetObjects, title);
             else
                 main.Dispatcher.Invoke(
