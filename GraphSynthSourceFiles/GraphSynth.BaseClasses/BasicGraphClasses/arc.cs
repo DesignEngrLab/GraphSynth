@@ -206,7 +206,8 @@ namespace GraphSynth.Representation
                 {
                     var v1 = From;
                     var v2 = To;
-                    return Math.Sqrt((v1.X - v2.X) * (v1.X - v2.X) + (v1.Y - v2.Y) * (v1.Y - v2.Y));
+                    return Math.Sqrt((v1.X - v2.X) * (v1.X - v2.X) + (v1.Y - v2.Y) * (v1.Y - v2.Y)
+                        + (v1.Z - v2.Z) * (v1.Z - v2.Z));
                 }
                 catch
                 {
