@@ -45,12 +45,12 @@ namespace GraphSynth
         /// </summary>
         private const double epsilon = 0.00001;
 
-        internal static Boolean sameCloseZero(double x1)
+        internal static Boolean sameCloseZero(this double x1)
         {
             return Math.Abs(x1) < epsilon;
         }
 
-        internal static Boolean sameCloseZero(double x1, double x2)
+        internal static Boolean sameCloseZero(this double x1, double x2)
         {
             return sameCloseZero(x1 - x2);
         }
@@ -63,7 +63,7 @@ namespace GraphSynth
             return identity;
         }
 
-        internal static double[] multiply(double[,] A, double[] x, int size)
+        internal static double[] multiply(this double[,] A, double[] x, int size)
         {
             var b = new double[size];
 
@@ -76,7 +76,7 @@ namespace GraphSynth
             return b;
         }
 
-        internal static double[,] multiply(double[,] A, double[,] B, int size)
+        internal static double[,] multiply(this double[,] A, double[,] B, int size)
         {
             var C = new double[size, size];
 
@@ -98,7 +98,7 @@ namespace GraphSynth
         /// <param name = "A">1D double Array, A</param>
         /// <param name = "B">1D double Array, B</param>
         /// <returns></returns>
-        internal static double[] crossProduct3(double[] A, double[] B)
+        internal static double[] crossProduct3(this double[] A, double[] B)
         {
             return new[]
                        {
@@ -119,7 +119,7 @@ namespace GraphSynth
         /// Scalar value of 2-norm.
         /// </returns>
         /// <exception cref="System.Exception">The vector, x, is null.</exception>
-        public static double norm2(double[] x, int size = -1, Boolean dontDoSqrt = false)
+        public static double norm2(this double[] x, int size = -1, Boolean dontDoSqrt = false)
         {
             if (size == -1) size = x.GetLength(0);
             if (x == null) throw new Exception("The vector, x, is null.");

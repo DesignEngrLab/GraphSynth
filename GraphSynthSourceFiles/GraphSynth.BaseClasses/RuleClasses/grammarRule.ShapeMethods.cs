@@ -70,9 +70,9 @@ namespace GraphSynth.Representation
 
         /// <summary>
         /// Calculates the regularization matrix. This is a matrix that is used to simplify the 
-        /// shape recognition process. Multiplying the LHS by R (the regulaization matrix), the
-        /// first node will now be at {0,0,0}, the second is on the x-axis {d, 0, 0}, then third
-        /// is on the x-y plane. This simplifies the calculations in finding the transformation
+        /// shape recognition process. Multiplying the LHS by R (the regularization matrix), the
+        /// first node will now be at {0,0,0}, the second is on the x-axis {d1, 0, 0}, then third
+        /// is on the x-y plane {d2, d3, 0}. This simplifies the calculations in finding the transformation
         /// of the LHS to get it to match the host shape.
         /// </summary>
         private void calculateRegularizationMatrix()
@@ -93,39 +93,38 @@ namespace GraphSynth.Representation
             if (L.nodes.Count == 1) return;
             // if two or more nodes, then we add some rotation to move the second node (L.nodes[1])
             // to the x axis.
-            var xaxis = new[] { 1.0, 0.0, 0.0 };
-            var vL1 = MatrixMath.multiply(_regularizationMatrix, new[] { L.nodes[1].X, L.nodes[1].Y, L.nodes[1].Z, 1 }, 4);
+            var xAxis = new[] { 1.0, 0.0, 0.0 };
+            var vL1 = _regularizationMatrix.multiply(new[] { L.nodes[1].X, L.nodes[1].Y, L.nodes[1].Z, 1 }, 4);
             double angle = 0.0;
-            var axis = xaxis;
-            if (!(MatrixMath.sameCloseZero(vL1[1]) && MatrixMath.sameCloseZero(vL1[2])))
+            var axis = xAxis;
+            if (!(vL1[1].sameCloseZero() && vL1[2].sameCloseZero()))
             {
-                var vL1_length = MatrixMath.norm2(vL1);
+                var vL1_length = vL1.norm2();
                 angle = Math.Acos(vL1[0] / vL1_length);
-                axis = MatrixMath.crossProduct3(vL1, xaxis);
+                axis = vL1.crossProduct3(xAxis);
                 quaternion1 = makeQuaternion(axis, angle);
-                _regularizationMatrix = MatrixMath.multiply(quaternion1, _regularizationMatrix, 4);
+                _regularizationMatrix = quaternion1.multiply(_regularizationMatrix, 4);
                 quaternion1 = makeQuaternion(axis, -angle);
-                _inverseRegMatrix = MatrixMath.multiply(_inverseRegMatrix, quaternion1, 4);
+                _inverseRegMatrix = _inverseRegMatrix.multiply(quaternion1, 4);
             }
             if (L.nodes.Count == 2) return;
-            // if three or more, then we move the thrid node (L.nodes[2]) to the x-y plane/
-            var vL2 = MatrixMath.multiply(_regularizationMatrix, new[] { L.nodes[2].X, L.nodes[2].Y, L.nodes[2].Z, 1 }, 4);
+            // if three or more, then we move the third node (L.nodes[2]) to the x-y plane/
+            var vL2 = _regularizationMatrix.multiply(new[] { L.nodes[2].X, L.nodes[2].Y, L.nodes[2].Z, 1 }, 4);
             // now, how much do we have to rotate about the x-axis to move the 3rd point into the x-y plane (s.t. it's z-value will be zero)
             var theta = Math.Atan2(vL2[2], vL2[1]);
-            quaternion2 = makeQuaternion(xaxis, theta);
-            _regularizationMatrix = MatrixMath.multiply(quaternion2, _regularizationMatrix, 4);
-            quaternion2 = makeQuaternion(xaxis, -theta);
-            _inverseRegMatrix = MatrixMath.multiply(_inverseRegMatrix, quaternion2, 4);
+            quaternion2 = makeQuaternion(xAxis, theta);
+            _regularizationMatrix = quaternion2.multiply(_regularizationMatrix, 4);
+            quaternion2 = makeQuaternion(xAxis, -theta);
+            _inverseRegMatrix = _inverseRegMatrix.multiply(quaternion2, 4);
             _threeDimensional = false;
             for (int i = 3; i < L.nodes.Count; i++)
             {
-                var vLi = MatrixMath.multiply(_regularizationMatrix, new[] { L.nodes[i].X, L.nodes[i].Y, L.nodes[i].Z, 1 },
-                    4);
-                if (!MatrixMath.sameCloseZero(vLi[3]))
+                var vLi = _regularizationMatrix.multiply(new[] { L.nodes[i].X, L.nodes[i].Y, L.nodes[i].Z, 1 }, 4);
+                if (!vLi[3].sameCloseZero())
                 {
                     _threeDimensional = true;
                     if (Skew != transfromType.Prohibited || Projection != transfromType.Prohibited)
-                        throw new Exception("Cannot accomodate Skewing or Projection transformation for 3D left-hand-sides.");
+                        throw new Exception("Cannot accommodate Skewing or Projection transformation for 3D left-hand-sides.");
                 }
             }
         }
@@ -308,7 +307,7 @@ namespace GraphSynth.Representation
                 x3 = locatedNodes[3].X;
                 y3 = locatedNodes[3].Y;
                 var temp = new[] { L.nodes[3].X, L.nodes[3].Y, 0.0, 1.0 };
-                temp = MatrixMath.multiply(RegularizationMatrix, temp, 4);
+                temp = RegularizationMatrix.multiply(temp, 4);
                 u3 = temp[0];
                 v3 = temp[1];
             }
@@ -317,7 +316,7 @@ namespace GraphSynth.Representation
                 x4 = locatedNodes[3].X;
                 y4 = locatedNodes[3].Y;
                 var temp = new[] { L.nodes[3].X, L.nodes[3].Y, 1.0 };
-                temp = MatrixMath.multiply(RegularizationMatrix, temp, 3);
+                temp = RegularizationMatrix.multiply(temp, 3);
                 u4 = temp[0];
                 v4 = temp[1];
             }
@@ -330,38 +329,38 @@ namespace GraphSynth.Representation
 
             #region Calculate Projection Terms
 
-            if ((locatedNodes.Count <= 3) || (MatrixMath.sameCloseZero(v3 * v4)))
+            if ((locatedNodes.Count <= 3) || ((v3 * v4).sameCloseZero()))
                 wX = wY = 0;
             else
             {
                 //calculate intermediate values used only in this class or method
                 //k1 = (u4 * (y4 - y2) / v4 - u3 * (y3 - y2) / v3);   //(Equation 3 of program)
                 k1 = u4 * v3 * (y4 - y2) - u3 * v4 * (y3 - y2);
-                if (MatrixMath.sameCloseZero(k1)) k1 = 0;
+                if (k1.sameCloseZero()) k1 = 0;
                 else k1 /= v3 * v4;
 
                 //k2 = (y3 - y2 * u3 + ty * u3 - ty) / v3 + (-y4 - ty * u4 + y2 * u4 + ty) / v4;  //(Equation 4 of program)
                 k2 = v4 * (y3 - y2 * u3 + ty * u3 - ty) + v3 * (-y4 - ty * u4 + y2 * u4 + ty);
-                if (MatrixMath.sameCloseZero(k2)) k2 = 0;
+                if (k2.sameCloseZero()) k2 = 0;
                 else k2 /= v3 * v4;
 
                 //k3 = (u3 * (x3 - x2) / v3 - u4 * (x4 - x2) / v4);
                 k3 = u3 * v4 * (x3 - x2) - u4 * v3 * (x4 - x2);
-                if (MatrixMath.sameCloseZero(k3)) k3 = 0;
+                if (k3.sameCloseZero()) k3 = 0;
                 else k3 /= v3 * v4;
 
                 //k4 = (x4 - x2 * u4 + tx * u4 - tx) / v4 - (x3 + tx * u3 - x2 * u3 - tx) / v3;
                 k4 = v3 * (x4 - x2 * u4 + tx * u4 - tx) - v4 * (x3 + tx * u3 - x2 * u3 - tx);
-                if (MatrixMath.sameCloseZero(k4)) k4 = 0;
+                if (k4.sameCloseZero()) k4 = 0;
                 else k4 /= v3 * v4;
 
                 //calculate wY, and wX
                 wY = (k1 * k4) - (k2 * k3);
-                if (MatrixMath.sameCloseZero(wY)) wY = 0;
+                if (wY.sameCloseZero()) wY = 0;
                 else wY /= k3 * (y3 - y4) + k1 * (x3 - x4); //(Equation 7 of program)
 
                 wX = wY * (y3 - y4) + k2;
-                if (MatrixMath.sameCloseZero(wX)) wX = 0;
+                if (wX.sameCloseZero()) wX = 0;
                 else wX /= k1; //is (Equation 8 of program) which is rewritten for program's accuracy
             }
 
@@ -395,11 +394,11 @@ namespace GraphSynth.Representation
                 {
                     //calculate b
                     b = x3 * (wX * u3 + wY * v3 + 1) - a * u3 - tx;
-                    if (MatrixMath.sameCloseZero(b)) b = 0;
+                    if (b.sameCloseZero()) b = 0;
                     else b /= v3;
                     //calculate d
                     d = y3 * (wX * u3 + wY * v3 + 1) - c * u3 - ty;
-                    if (MatrixMath.sameCloseZero(d)) d = 0;
+                    if (d.sameCloseZero()) d = 0;
                     else d /= v3;
                 }
             }
@@ -416,7 +415,7 @@ namespace GraphSynth.Representation
             T[3, 0] = wX;
             T[3, 1] = wY;
             T[3, 3] = 1;
-            T = MatrixMath.multiply(T, RegularizationMatrix, 4);
+            T = T.multiply(RegularizationMatrix, 4);
             T[0, 0] /= T[3, 3];
             T[0, 1] /= T[3, 3];
             T[0, 2] = 0.0;
@@ -450,11 +449,10 @@ namespace GraphSynth.Representation
             transMatrix[0, 3] = refPt[0] = locatedNodes[0].X;
             transMatrix[1, 3] = refPt[1] = locatedNodes[0].Y;
             transMatrix[2, 3] = refPt[2] = locatedNodes[0].Z;
-            if (!ValidTranslation(MatrixMath.multiply(transMatrix, RegularizationMatrix, 4))) return false;
             if (locatedNodes.Count == 1)
             {
                 T = transMatrix;
-                return true;
+                return ValidTranslation(transMatrix.multiply(RegularizationMatrix, 4));
             }
             // if there is just one node find the proper translation matrix (this T matrix * Regularization) and return
 
@@ -466,43 +464,42 @@ namespace GraphSynth.Representation
                         locatedNodes[1].Y - refPt[1],
                         locatedNodes[1].Z - refPt[2]
                     };
-            var vHost_length = MatrixMath.norm2(vHost);
+            var vHost_length = vHost.norm2();
 
 
-            var vL = MatrixMath.multiply(RegularizationMatrix, new[] { L.nodes[1].X, L.nodes[1].Y, L.nodes[1].Z, 1 }, 4);
+            var vL = RegularizationMatrix.multiply(new[] { L.nodes[1].X, L.nodes[1].Y, L.nodes[1].Z, 1 }, 4);
             var vL_length = vL[0];
             var xScale = vHost_length / vL_length;
             vL = new[] { 1.0, 0.0, 0.0 }; // turn vL into a unit vector - this is simply 1,0,0 since - after regularization
             // the point is on the x-axisw
-            var axis = MatrixMath.crossProduct3(vL, vHost);
+            var axis = vL.crossProduct3(vHost);
             double angle;
-            if (MatrixMath.sameCloseZero(axis.Sum()))
+            if (axis.Sum().sameCloseZero())
             {
                 // if the two vectors are the same then the cross product will be all zeroes
                 axis = vHost;
-                if (vHost[0] < 0) angle = Math.PI;
-                else angle = 0.0;
+                angle = vHost[0] < 0 ? Math.PI : 0.0;
             }
             else angle = Math.Acos(vHost[0] / vHost_length); // essentially, the dot product to find the angle
             //now construct the quaternion for this rotation and multiply by T
-            double[,] quaternion1 = (MatrixMath.sameCloseZero(angle)) ? MatrixMath.Identity(4) : makeQuaternion(axis, angle);
+            double[,] quaternion1 = (angle.sameCloseZero()) ? MatrixMath.Identity(4) : makeQuaternion(axis, angle);
             var scaleMatrix = MatrixMath.Identity(4);
             scaleMatrix[0, 0] = xScale;
             if (locatedNodes.Count == 2)
             {
-                if (ValidScaling(MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4)))
-                    T = MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4);
+                if (ValidScaling(_inverseRegMatrix.multiply(scaleMatrix, 4)))
+                    T = scaleMatrix.multiply(RegularizationMatrix, 4);
                 else
                 {
                     scaleMatrix[1, 1] = scaleMatrix[2, 2] = xScale;
-                    if (ValidScaling(MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4)))
-                        T = MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4);
+                    if (ValidScaling(_inverseRegMatrix.multiply(scaleMatrix, 4)))
+                        T = scaleMatrix.multiply(RegularizationMatrix, 4);
                     else return false;
                 }
-                T = MatrixMath.multiply(quaternion1, T, 4);
-                T = MatrixMath.multiply(transMatrix, T, 4);
+                T = quaternion1.multiply(T, 4);
+                T = transMatrix.multiply(T, 4);
                 snapToIntValues(T);
-                return ValidRotation(T, MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4));
+                return ValidRotation(T, _inverseRegMatrix.multiply(scaleMatrix, 4));
             }
             /* if there are 3 or more points, then we find a new Quaternion that will multiply
              * the former result. In order to keep the second node in place, we use the vHost
@@ -513,9 +510,9 @@ namespace GraphSynth.Representation
             // move the third L point (L.nodes[2] to the proper orientation. Note that it is not multiplied 
             // by translation since it is essentially the delta from the reference point - without translation, this
             // is zero given the way Regularization puts the first node at {0,0,0}.
-            vL = MatrixMath.multiply(RegularizationMatrix, new[] { L.nodes[2].X, L.nodes[2].Y, L.nodes[2].Z, 1 }, 4);
-            vL = MatrixMath.multiply(scaleMatrix, vL, 4);
-            vL = MatrixMath.multiply(quaternion1, vL, 4);
+            vL = RegularizationMatrix.multiply(new[] { L.nodes[2].X, L.nodes[2].Y, L.nodes[2].Z, 1 }, 4);
+            vL = scaleMatrix.multiply(vL, 4);
+            vL = quaternion1.multiply(vL, 4);
             // dxAlongAxis is the dot project of where this point vL is projected to the the axis.
             var dxAlongAxisL = vL[0] * axisUnitVector[0] + vL[1] * axisUnitVector[1] + vL[2] * axisUnitVector[2];
             // set up a new host vector from the reference point, which is the location of the first node
@@ -536,7 +533,7 @@ namespace GraphSynth.Representation
                 vL[1] - (dxAlongAxisL*axisUnitVector[1]), 
                 vL[2] - (dxAlongAxisL*axisUnitVector[2])
             };
-            vL_length = MatrixMath.norm2(vL, 3);
+            vL_length = vL.norm2(3);
             // similarly reformulate vHost as the vector to the host-node from the axis.
             vHost = new[]
             {                                       
@@ -544,7 +541,7 @@ namespace GraphSynth.Representation
                 vHost[1] - (dxAlongAxisL*axisUnitVector[1]), 
                 vHost[2] - (dxAlongAxisL*axisUnitVector[2])
             };
-            vHost_length = MatrixMath.norm2(vHost);
+            vHost_length = vHost.norm2();
             // the ratio of these new lengths is the scale-Y term (well, this scale matrix if adulterated by the regularization, so it is
             // not the true scale-y
             var yScale = vHost_length / vL_length;
@@ -556,44 +553,44 @@ namespace GraphSynth.Representation
             angle = dot >= 1.0 ? 0.0
                : dot <= -1.0 ? Math.PI
                 : Math.Acos(dot);
-            var quaternion2 = (MatrixMath.sameCloseZero(angle)) ? MatrixMath.Identity(4) : makeQuaternion(axis, angle);
+            var quaternion2 = (angle.sameCloseZero()) ? MatrixMath.Identity(4) : makeQuaternion(axis, angle);
             if (locatedNodes.Count == 3)
             {
-                if (ValidScaling(MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4)))
-                    T = MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4);
+                if (ValidScaling(_inverseRegMatrix.multiply(scaleMatrix, 4)))
+                    T = scaleMatrix.multiply(RegularizationMatrix, 4);
                 else
                 {
                     scaleMatrix[2, 2] = yScale;
-                    if (ValidScaling(MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4)))
-                        T = MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4);
+                    if (ValidScaling(_inverseRegMatrix.multiply(scaleMatrix, 4)))
+                        T = scaleMatrix.multiply(RegularizationMatrix, 4);
                     else return false;
                 }
-                T = MatrixMath.multiply(quaternion1, T, 4);
-                T = MatrixMath.multiply(quaternion2, T, 4);
-                T = MatrixMath.multiply(transMatrix, T, 4);
+                T = quaternion1.multiply(T, 4);
+                T = quaternion2.multiply(T, 4);
+                T = transMatrix.multiply(T, 4);
                 snapToIntValues(T);
-                return ValidRotation(T, MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4));
+                return ValidRotation(T, _inverseRegMatrix.multiply(scaleMatrix, 4));
             }
             // else, there are 4 or more 
-            vL = MatrixMath.multiply(MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4), new[] { L.nodes[3].X, L.nodes[3].Y, L.nodes[3].Z, 1 }, 4);
-            vL_length = MatrixMath.norm2(vL);
+            vL = scaleMatrix.multiply(RegularizationMatrix, 4).multiply(new[] { L.nodes[3].X, L.nodes[3].Y, L.nodes[3].Z, 1 }, 4);
+            vL_length = vL.norm2();
             vHost = new[]
             {
                 locatedNodes[3].X - locatedNodes[0].X, 
                 locatedNodes[3].Y - locatedNodes[0].Y,
                 locatedNodes[3].Z - locatedNodes[0].Z
             };
-            vHost_length = MatrixMath.norm2(vHost);
+            vHost_length = vHost.norm2();
             var zScale = vHost_length / vL_length;
             scaleMatrix[2, 2] = zScale;
 
-            T = MatrixMath.multiply(scaleMatrix, RegularizationMatrix, 4);
-            T = MatrixMath.multiply(quaternion1, T, 4);
-            T = MatrixMath.multiply(quaternion2, T, 4);
-            T = MatrixMath.multiply(transMatrix, T, 4);
+            T = scaleMatrix.multiply(RegularizationMatrix, 4);
+            T = quaternion1.multiply(T, 4);
+            T = quaternion2.multiply(T, 4);
+            T = transMatrix.multiply(T, 4);
             snapToIntValues(T);                                                  
-            return ValidScaling(MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4)) 
-                && ValidRotation(T, MatrixMath.multiply(_inverseRegMatrix, scaleMatrix, 4));
+            return ValidScaling(_inverseRegMatrix.multiply(scaleMatrix, 4)) 
+                && ValidRotation(T, _inverseRegMatrix.multiply(scaleMatrix, 4));
         }
 
         private bool ValidRotation(double[,] T, double[,] scaleMatrix)
@@ -603,16 +600,16 @@ namespace GraphSynth.Representation
             inverseScale[0, 0] = 1 / scaleMatrix[0, 0];
             inverseScale[2, 1] = 1 / scaleMatrix[1, 1];
             inverseScale[2, 2] = 1 / scaleMatrix[2, 2];
-            var t = MatrixMath.multiply(inverseScale, T, 4);
+            var t = inverseScale.multiply(T, 4);
             // http://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToEuler/index.htm
             double rotX, rotY, rotZ;
-            if (MatrixMath.sameCloseZero(t[1, 0], 1))
+            if (t[1, 0].sameCloseZero(1))
             { // singularity at north pole
                 rotX = Math.Atan2(t[0, 2], t[2, 2]);
                 rotY = Math.PI / 2;
                 rotZ = 0;
             }
-            else if (MatrixMath.sameCloseZero(t[1, 0], -1))
+            else if (t[1, 0].sameCloseZero(-1))
             { // singularity at south pole
                 rotX = Math.Atan2(t[0, 2], t[2, 2]);
                 rotY = -Math.PI / 2;
@@ -625,15 +622,15 @@ namespace GraphSynth.Representation
                 rotY = Math.Asin(t[1, 0]);
             }
             if (Rotate == transfromType.XYZUniform || Rotate == transfromType.BothUniform)
-                return (MatrixMath.sameCloseZero(rotX, rotY) && MatrixMath.sameCloseZero(rotY, rotZ));
+                return (rotX.sameCloseZero(rotY) && rotY.sameCloseZero(rotZ));
             if (Rotate == transfromType.Prohibited)
-                return (MatrixMath.sameCloseZero(rotX) && MatrixMath.sameCloseZero(rotY) && MatrixMath.sameCloseZero(rotZ));
+                return (rotX.sameCloseZero() && rotY.sameCloseZero() && rotZ.sameCloseZero());
             if (Rotate == transfromType.OnlyX)
-                return (MatrixMath.sameCloseZero(rotY) && MatrixMath.sameCloseZero(rotZ));
+                return (rotY.sameCloseZero() && rotZ.sameCloseZero());
             if (Rotate == transfromType.OnlyY)
-                return (MatrixMath.sameCloseZero(rotX) && MatrixMath.sameCloseZero(rotZ));
+                return (rotX.sameCloseZero() && rotZ.sameCloseZero());
             if (Rotate == transfromType.OnlyZ)
-                return (MatrixMath.sameCloseZero(rotY) && MatrixMath.sameCloseZero(rotX));
+                return (rotY.sameCloseZero() && rotX.sameCloseZero());
             return false;
         }
 
@@ -641,14 +638,14 @@ namespace GraphSynth.Representation
         {
             if (Rotate == transfromType.XYZIndependent) return true;
             var vL = new[] { L.nodes[1].X - L.nodes[0].X, L.nodes[1].Y - L.nodes[0].Y, L.nodes[1].Z - L.nodes[0].Z };
-            return (MatrixMath.sameCloseZero(MatrixMath.norm2(MatrixMath.crossProduct3(vL, vHost)))
+            return (vL.crossProduct3(vHost).norm2().sameCloseZero()
                 && (0 < vL[0] * vHost[0] + vL[1] * vHost[1] + vL[2] * vHost[2]));
         }
 
         private Boolean ValidRotation(double angle)
         {
             if (Rotate == transfromType.XYZIndependent) return true;
-            return (MatrixMath.sameCloseZero(angle));
+            return (angle.sameCloseZero());
         }
 
         private Boolean ValidTranslation(double[,] T)
@@ -659,15 +656,15 @@ namespace GraphSynth.Representation
             switch (Translate)
             {
                 case transfromType.Prohibited:
-                    return (MatrixMath.sameCloseZero(tx) && MatrixMath.sameCloseZero(ty) && MatrixMath.sameCloseZero(tz));
+                    return (tx.sameCloseZero() && ty.sameCloseZero() && tz.sameCloseZero());
                 case transfromType.OnlyX:
-                    return (MatrixMath.sameCloseZero(ty) && MatrixMath.sameCloseZero(tz));
+                    return (ty.sameCloseZero() && tz.sameCloseZero());
                 case transfromType.OnlyY:
-                    return (MatrixMath.sameCloseZero(tx) && MatrixMath.sameCloseZero(tz));
+                    return (tx.sameCloseZero() && tz.sameCloseZero());
                 case transfromType.OnlyZ:
-                    return (MatrixMath.sameCloseZero(tx) && MatrixMath.sameCloseZero(ty));
+                    return (tx.sameCloseZero() && ty.sameCloseZero());
                 case transfromType.XYZUniform:
-                    return (MatrixMath.sameCloseZero(tx, ty) && MatrixMath.sameCloseZero(ty, tz));
+                    return (tx.sameCloseZero(ty) && ty.sameCloseZero(tz));
                 default:
                     return true;
             }
@@ -680,21 +677,21 @@ namespace GraphSynth.Representation
             switch (Scale)
             {
                 case transfromType.Prohibited:
-                    if (MatrixMath.sameCloseZero(Math.Abs(sx), 1) && MatrixMath.sameCloseZero(Math.Abs(sy), 1)
-                        && MatrixMath.sameCloseZero(Math.Abs(sz), 1))
+                    if (Math.Abs(sx).sameCloseZero(1) && Math.Abs(sy).sameCloseZero(1)
+                        && Math.Abs(sz).sameCloseZero(1))
                         break;
                     else return false;
                 case transfromType.OnlyX:
-                    if (MatrixMath.sameCloseZero(Math.Abs(sy), 1) && MatrixMath.sameCloseZero(Math.Abs(sz), 1)) break;
+                    if (Math.Abs(sy).sameCloseZero(1) && Math.Abs(sz).sameCloseZero(1)) break;
                     else return false;
                 case transfromType.OnlyY:
-                    if (MatrixMath.sameCloseZero(Math.Abs(sx), 1) && MatrixMath.sameCloseZero(Math.Abs(sz), 1)) break;
+                    if (Math.Abs(sx).sameCloseZero(1) && Math.Abs(sz).sameCloseZero(1)) break;
                     else return false;
                 case transfromType.OnlyZ:
-                    if (MatrixMath.sameCloseZero(Math.Abs(sx), 1) && MatrixMath.sameCloseZero(Math.Abs(sy), 1)) break;
+                    if (Math.Abs(sx).sameCloseZero(1) && Math.Abs(sy).sameCloseZero(1)) break;
                     else return false;
                 case transfromType.XYZUniform:
-                    if (MatrixMath.sameCloseZero(Math.Abs(sx), Math.Abs(sy)) && MatrixMath.sameCloseZero(Math.Abs(sy), Math.Abs(sz))) break;
+                    if (Math.Abs(sx).sameCloseZero(Math.Abs(sy)) && Math.Abs(sy).sameCloseZero(Math.Abs(sz))) break;
                     else return false;
             }
             switch (Flip)
@@ -717,7 +714,7 @@ namespace GraphSynth.Representation
         private double[,] makeQuaternion(double[] axis, double angle)
         {
             /* this is informed by http://www.cprogramming.com/tutorial/3d/quaternions.html */
-            var length = MatrixMath.norm2(axis);
+            var length = axis.norm2();
             var axisNormalized = axis.Select(value => value / length).ToArray();
             var halfAngle = -angle / 2;
             var w = Math.Cos(halfAngle);
@@ -754,9 +751,9 @@ namespace GraphSynth.Representation
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
                 {
-                    if (MatrixMath.sameCloseZero(T[i, j], 1)) T[i, j] = 1;
-                    else if (MatrixMath.sameCloseZero(T[i, j])) T[i, j] = 0;
-                    else if (MatrixMath.sameCloseZero(T[i, j], -1)) T[i, j] = -1;
+                    if (T[i, j].sameCloseZero(1)) T[i, j] = 1;
+                    else if (T[i, j].sameCloseZero()) T[i, j] = 0;
+                    else if (T[i, j].sameCloseZero(-1)) T[i, j] = -1;
                 }
         }
 
@@ -783,29 +780,29 @@ namespace GraphSynth.Representation
             /* It's easy to check the translation and projection constraints first. Since there's
              * a one-to-one match with variables in the matrix and the flags. */
             /* if Tx is not zero... */
-            if ((!MatrixMath.sameCloseZero(T[0, 3]))
+            if ((!T[0, 3].sameCloseZero())
                 && ((Translate == transfromType.OnlyY) || (Translate == transfromType.OnlyZ) || (Translate == transfromType.Prohibited)))
                 return false;
-            if ((!MatrixMath.sameCloseZero(T[1, 3]))
+            if ((!T[1, 3].sameCloseZero())
                      && ((Translate == transfromType.OnlyX) || (Translate == transfromType.OnlyZ) || (Translate == transfromType.Prohibited)))
                 return false;
-            if ((!MatrixMath.sameCloseZero(T[2, 3]))
+            if ((!T[2, 3].sameCloseZero())
                      && ((Translate == transfromType.OnlyY) || (Translate == transfromType.OnlyZ) || (Translate == transfromType.Prohibited)))
                 return false;
-            if ((!MatrixMath.sameCloseZero(T[0, 3], T[1, 3])) && (!MatrixMath.sameCloseZero(T[1, 3], T[2, 3])) && (Translate == transfromType.XYZUniform))
+            if ((!T[0, 3].sameCloseZero(T[1, 3])) && (!T[1, 3].sameCloseZero(T[2, 3])) && (Translate == transfromType.XYZUniform))
                 return false;
 
             /* now for projection. */
-            if ((!MatrixMath.sameCloseZero(T[3, 0]))
+            if ((!T[3, 0].sameCloseZero())
                 && ((Projection == transfromType.OnlyY) || (Projection == transfromType.OnlyZ) || (Projection == transfromType.Prohibited)))
                 return false;
-            if ((!MatrixMath.sameCloseZero(T[3, 1]))
+            if ((!T[3, 1].sameCloseZero())
                      && ((Projection == transfromType.OnlyX) || (Projection == transfromType.OnlyZ) || (Projection == transfromType.Prohibited)))
                 return false;
-            if ((!MatrixMath.sameCloseZero(T[3, 2]))
+            if ((!T[3, 2].sameCloseZero())
                      && ((Projection == transfromType.OnlyX) || (Projection == transfromType.OnlyY) || (Projection == transfromType.Prohibited)))
                 return false;
-            if ((!MatrixMath.sameCloseZero(T[3, 0], T[3, 1])) && (!MatrixMath.sameCloseZero(T[3, 1], T[3, 2])) && (Projection == transfromType.XYZUniform))
+            if ((!T[3, 0].sameCloseZero(T[3, 1])) && (!T[3, 1].sameCloseZero(T[3, 2])) && (Projection == transfromType.XYZUniform))
                 return false;
 
             /* Now, it's a little more complicated since the rotation occupies the same cells
@@ -854,23 +851,23 @@ namespace GraphSynth.Representation
             var Sy = T[0, 1] * Math.Sin(theta) + T[1, 1] * Math.Cos(theta);
 
             /* now check the skew restrictions, once an error is found return false. */
-            if ((!MatrixMath.sameCloseZero(Kx)) &&
+            if ((!Kx.sameCloseZero()) &&
                 ((Skew == transfromType.Prohibited) || (Skew == transfromType.OnlyY)))
                 return false;
-            if ((!MatrixMath.sameCloseZero(Ky)) &&
+            if ((!Ky.sameCloseZero()) &&
                      ((Skew == transfromType.Prohibited) || (Skew == transfromType.OnlyY)))
                 return false;
-            if ((!MatrixMath.sameCloseZero(Kx, Ky)) && (Skew == transfromType.XYZUniform))
+            if ((!Kx.sameCloseZero(Ky)) && (Skew == transfromType.XYZUniform))
                 return false;
 
             /* now we check scaling restrictions. */
-            if ((!MatrixMath.sameCloseZero(Math.Abs(Sx), 1)) &&
+            if ((!Math.Abs(Sx).sameCloseZero(1)) &&
                      ((Scale == transfromType.Prohibited) || (Scale == transfromType.OnlyY)))
                 return false;
-            if ((!MatrixMath.sameCloseZero(Math.Abs(Sy), 1)) &&
+            if ((!Math.Abs(Sy).sameCloseZero(1)) &&
                      ((Scale == transfromType.Prohibited) || (Scale == transfromType.OnlyX)))
                 return false;
-            if ((!MatrixMath.sameCloseZero(Math.Abs(Sx), Math.Abs(Sy))) && (Scale == transfromType.XYZUniform))
+            if ((!Math.Abs(Sx).sameCloseZero(Math.Abs(Sy))) && (Scale == transfromType.XYZUniform))
                 return false;
 
             /* finally, we check if the shape has to be flipped. */
@@ -891,14 +888,14 @@ namespace GraphSynth.Representation
             for (var i = 2; i != locatedNodes.Count; i++)
             {
                 var vLVect = new[] { L.nodes[i].X, L.nodes[i].Y, L.nodes[i].Z, 1.0 };
-                vLVect = MatrixMath.multiply(T, vLVect, 4);
+                vLVect = T.multiply(vLVect, 4);
                 vLVect[0] /= vLVect[3];
                 vLVect[1] /= vLVect[3];
                 vLVect[2] /= vLVect[3];
                 var vHostVect = new[] { locatedNodes[i].X, locatedNodes[i].Y, locatedNodes[i].Z, 1.0 };
-                if ((!MatrixMath.sameCloseZero(vLVect[0], vHostVect[0]))
-                    || (!MatrixMath.sameCloseZero(vLVect[1], vHostVect[1]))
-                    || (!MatrixMath.sameCloseZero(vLVect[2], vHostVect[2])))
+                if ((!vLVect[0].sameCloseZero(vHostVect[0]))
+                    || (!vLVect[1].sameCloseZero(vHostVect[1]))
+                    || (!vLVect[2].sameCloseZero(vHostVect[2])))
                     return false;
             }
             return true;
@@ -960,7 +957,7 @@ namespace GraphSynth.Representation
         private static void TransformPositionOfNode(node update, double[,] T, node given)
         {
             var pt = new[] { given.X, given.Y, given.Z, 1 };
-            pt = MatrixMath.multiply(T, pt, 4);
+            pt = T.multiply(pt, 4);
             var newT = MatrixMath.Identity(4);
             newT[0, 3] = update.X = pt[0] / pt[3];
             newT[1, 3] = update.Y = pt[1] / pt[3];
