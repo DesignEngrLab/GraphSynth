@@ -590,16 +590,20 @@ namespace GraphSynth.Representation
             var firstNotExistIndex = L.nodes.FindIndex(n => ((ruleNode)n).NotExist);
             double[,] T;
             Boolean validTransform;
-            if (firstNotExistIndex < 0) validTransform = findTransform(location.nodes, out T);
+            if (firstNotExistIndex < 0)
+            {
+                validTransform = findTransform(location.nodes, out T);
+                if (UseShapeRestrictions && (!validTransform || !otherNodesComply(T, location.nodes)))
+                    return false; // not a valid option - the transform does not have a correct transformation
+            }
             else
             {
                 var positiveNodes = new List<node>(location.nodes);
                 positiveNodes.RemoveRange(firstNotExistIndex, (positiveNodes.Count - firstNotExistIndex));
                 validTransform = findTransform(positiveNodes, out T);
+                if (UseShapeRestrictions && (!validTransform || !otherNodesComply(T, positiveNodes)))
+                    return false; // not a valid option
             }
-            if (UseShapeRestrictions && (!validTransform || !otherNodesComply(T, location.nodes)))
-                return false; // not a valid option
-            /* the transform does not have a correct transformation */
 
             foreach (var recognizeFunction in recognizeFuncs)
             {
@@ -780,7 +784,8 @@ namespace GraphSynth.Representation
             if (host.arcs.Any(a =>
                               !location.arcs.Contains(a)
                               && location.nodes.Contains(a.From)
-                              && location.nodes.Contains(a.To))) return true;
+                              && location.nodes.Contains(a.To)))
+                return true;
 
             return host.hyperarcs.Any(a =>
                                       !location.hyperarcs.Contains(a)

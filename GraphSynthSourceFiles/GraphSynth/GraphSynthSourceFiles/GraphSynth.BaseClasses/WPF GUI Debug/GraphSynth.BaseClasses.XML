@@ -10,19 +10,37 @@
               as well as rulesets, which are the same as in earlier versions of GraphSynth.
             </summary>
         </member>
+        <member name="M:GraphSynth.BasicFiler.#ctor(System.String,System.String,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref = "T:GraphSynth.BasicFiler" /> class.
+            </summary>
+            <param name = "iDir">The input directory.</param>
+            <param name = "oDir">The output directory.</param>
+            <param name = "rDir">The rules directory.</param>
+        </member>
         <member name="F:GraphSynth.BasicFiler.IgnorablePrefix">
             <summary>
               This constant is used to tell other XML parsers (namely XAML displayers)
               to ignore elements that are prefaced with this.
             </summary>
         </member>
-        <member name="M:GraphSynth.BasicFiler.#ctor(System.String,System.String,System.String)">
+        <member name="P:GraphSynth.BasicFiler.inputDirectory">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.BasicFiler"/> class.
+              Gets or sets the input directory.
             </summary>
-            <param name="iDir">The input directory.</param>
-            <param name="oDir">The output directory.</param>
-            <param name="rDir">The rules directory.</param>
+            <value>The input directory.</value>
+        </member>
+        <member name="P:GraphSynth.BasicFiler.outputDirectory">
+            <summary>
+              Gets or sets the output directory.
+            </summary>
+            <value>The output directory.</value>
+        </member>
+        <member name="P:GraphSynth.BasicFiler.rulesDirectory">
+            <summary>
+              Gets or sets the rules directory.
+            </summary>
+            <value>The rules directory.</value>
         </member>
         <member name="M:GraphSynth.BasicFiler.Save(System.String,System.Object,System.Boolean)">
             <summary>
@@ -196,101 +214,11 @@
             <param name = "filename">The filename.</param>
             <returns></returns>
         </member>
-        <member name="P:GraphSynth.BasicFiler.inputDirectory">
-            <summary>
-              Gets or sets the input directory.
-            </summary>
-            <value>The input directory.</value>
-        </member>
-        <member name="P:GraphSynth.BasicFiler.outputDirectory">
-            <summary>
-              Gets or sets the output directory.
-            </summary>
-            <value>The output directory.</value>
-        </member>
-        <member name="P:GraphSynth.BasicFiler.rulesDirectory">
-            <summary>
-              Gets or sets the rules directory.
-            </summary>
-            <value>The rules directory.</value>
-        </member>
         <member name="T:GraphSynth.Representation.arc">
             <summary>
               One of the two basic classes for a graph is the arc or edge that connects
               two and only two elements of the node class.
             </summary>
-        </member>
-        <member name="T:GraphSynth.Representation.graphElement">
-            <summary>
-              The base class of node, arc, and hyperarc. It simply captures the basic
-              qualities that all includes - mainly a list of labels.
-            </summary>
-        </member>
-        <member name="F:GraphSynth.Representation.graphElement._localLabels">
-            <summary />
-        </member>
-        <member name="F:GraphSynth.Representation.graphElement._localVariables">
-            <summary />
-        </member>
-        <member name="M:GraphSynth.Representation.graphElement.copy(GraphSynth.Representation.graphElement)">
-            <summary>
-              Copies this graphElement data into the copyOfElt.
-            </summary>
-            <param name = "copyOfElt">The copy of elt.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.graphElement.setLabel(System.Int32,System.String)">
-            <summary>
-              Sets the label. The following two functions are not properties, but work on 
-              a similar philosophy. These are like the f0, f1, etc. properties in candidate.
-              Here we want to set a label but we are unsure whether the list of local labels
-              is long enough. The while loop insures that there are enough items of list, 
-              before adding the label. */
-            </summary>
-            <param name = "index">The index.</param>
-            <param name = "label">The label.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.graphElement.setVariable(System.Int32,System.Double)">
-            <summary>
-              Sets the variable. Like the function above, here we want to set a variable but 
-              we are unsure whether the list of local labels is long enough. The while loop 
-              insures that there are enough items of list, before adding the label.
-            </summary>
-            <param name = "index">The index.</param>
-            <param name = "var">The var.</param>
-        </member>
-        <member name="P:GraphSynth.Representation.graphElement.name">
-            <summary>
-              Gets or sets the name of the node or arc. All names must be distinct 
-              within a given graph in order to correctly serialize and de-
-              serialize the graph from the XML (*.gxml) file.
-            </summary>
-            <value>The name string.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.graphElement.extraData">
-            <summary>
-              Gets or sets the old data. In order to be compatible with previous versions,
-              this oldData object will be used to catch old files that use screenX and 
-              screenY instead of the new format.
-            </summary>
-            <value>The old data.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.graphElement.DisplayShape">
-            <summary>
-              Gets or sets the display shape.
-            </summary>
-            <value>The display shape.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.graphElement.localLabels">
-            <summary>
-              Gets the local labels.
-            </summary>
-            <value>The local labels.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.graphElement.localVariables">
-            <summary>
-              Gets the local variables.
-            </summary>
-            <value>The local variables.</value>
         </member>
         <member name="F:GraphSynth.Representation.arc.from">
             <summary>
@@ -303,6 +231,50 @@
               Each arc connects to two and only two nodes, these are stored in protected elements.
               This is a field for the node the arc is going to.
             </summary>
+        </member>
+        <member name="P:GraphSynth.Representation.arc.From">
+            <summary>
+              Gets or sets the connected node, From.
+            </summary>
+            <value>the node the arc is coming from.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.arc.To">
+            <summary>
+              Gets or sets  the connected node, To.
+            </summary>
+            <value>the node the arc is going to.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.arc.XmlFrom">
+            <summary>
+              Gets or sets the name of the node that the arc is coming from.
+              It is necessary to do this, otherwise the serializer would rewrite 
+              the actual node to the file (*.gxml file).
+            </summary>
+            <value>The XML from.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.arc.XmlTo">
+            <summary>
+              Gets or sets the  NAME of the node that the arc is going to.
+            </summary>
+            <value>The XML to.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.arc.directed">
+            <summary>
+              Gets or sets a value indicating whether this <see cref = "T:GraphSynth.Representation.arc" /> is directed.
+            </summary>
+            <value><c>true</c> if directed; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.arc.doublyDirected">
+            <summary>
+              Gets or sets a value indicating whether [doubly directed].
+            </summary>
+            <value><c>true</c> if [doubly directed]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.arc.length">
+            <summary>
+              Gets the straightline distance between the two connecting nodes.
+            </summary>
+            <value>The length.</value>
         </member>
         <member name="M:GraphSynth.Representation.arc.otherNode(GraphSynth.Representation.node)">
             <summary>
@@ -334,50 +306,6 @@
               Copies this.arc into the argument copyOfArc.
             </summary>
             <param name = "copyOfArc">The copy of arc.</param>
-        </member>
-        <member name="P:GraphSynth.Representation.arc.From">
-            <summary>
-              Gets or sets the connected node, From.
-            </summary>
-            <value>the node the arc is coming from.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.arc.To">
-            <summary>
-              Gets or sets  the connected node, To.
-            </summary>
-            <value>the node the arc is going to.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.arc.XmlFrom">
-            <summary>
-              Gets or sets the name of the node that the arc is coming from.
-              It is necessary to do this, otherwise the serializer would rewrite 
-              the actual node to the file (*.gxml file).
-            </summary>
-            <value>The XML from.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.arc.XmlTo">
-            <summary>
-              Gets or sets the  NAME of the node that the arc is going to.
-            </summary>
-            <value>The XML to.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.arc.directed">
-            <summary>
-              Gets or sets a value indicating whether this <see cref="T:GraphSynth.Representation.arc"/> is directed.
-            </summary>
-            <value><c>true</c> if directed; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.arc.doublyDirected">
-            <summary>
-              Gets or sets a value indicating whether [doubly directed].
-            </summary>
-            <value><c>true</c> if [doubly directed]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.arc.length">
-            <summary>
-              Gets the straightline distance between the two connecting nodes.
-            </summary>
-            <value>The length.</value>
         </member>
         <member name="T:GraphSynth.Representation.edge">
             <summary>
@@ -417,15 +345,15 @@
         </member>
         <member name="M:GraphSynth.Representation.candidate.#ctor">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.candidate"/> class.
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.candidate" /> class.
             </summary>
         </member>
         <member name="M:GraphSynth.Representation.candidate.#ctor(GraphSynth.Representation.designGraph,System.Int32)">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.candidate"/> class.
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.candidate" /> class.
             </summary>
-            <param name="_graph">The _graph.</param>
-            <param name="numRuleSets">The num rule sets.</param>
+            <param name = "_graph">The _graph.</param>
+            <param name = "numRuleSets">The num rule sets.</param>
         </member>
         <member name="F:GraphSynth.Representation.candidate.prevStates">
             <summary>
@@ -453,41 +381,6 @@
               the number of the rule, a reference to the rule, and the location of where the rule
               was applied.
             </summary>
-        </member>
-        <member name="F:GraphSynth.Representation.candidate.designParameters">
-            <summary>
-              a list of numbers used to define a candidate's design or decision variables. This is
-              typically used to define parameters within the graph.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.Representation.candidate.saveCurrent">
-            <summary>
-              Saves a copy of the current state to the list of previous states.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.Representation.candidate.addToRecipe(GraphSynth.Representation.option)">
-            <summary>
-              Adds to recipe. This is called (currently only) from the RCA loop. This happens
-              directly after the rule is APPLIED. A rule application updates
-              the currentstate, so this correspondingly adds the option to the recipe.
-            </summary>
-            <param name = "currentOpt">The currentrule.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.candidate.undoLastRule">
-            <summary>
-              Undoes the last rule. This is perhaps the whole reason previous states are used.
-              Rules cannot be guaranteed to work in reverse as they work
-              forward, so this simply resets the candidate to how it looked
-              prior to calling the last rule.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.Representation.candidate.copy">
-            <summary>
-              Copies this instance of a candidate. Very similar to designGraph copy.
-              We make sure to not do a shallow copy (ala Clone) since we are unsure
-              how each candidate may be changed in the future.
-            </summary>
-            <returns></returns>
         </member>
         <member name="P:GraphSynth.Representation.candidate.graph">
             <summary>
@@ -587,6 +480,41 @@
             </summary>
             <value>The parameters in recipe.</value>
         </member>
+        <member name="F:GraphSynth.Representation.candidate.designParameters">
+            <summary>
+              a list of numbers used to define a candidate's design or decision variables. This is
+              typically used to define parameters within the graph.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.Representation.candidate.saveCurrent">
+            <summary>
+              Saves a copy of the current state to the list of previous states.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.Representation.candidate.addToRecipe(GraphSynth.Representation.option)">
+            <summary>
+              Adds to recipe. This is called (currently only) from the RCA loop. This happens
+              directly after the rule is APPLIED. A rule application updates
+              the currentstate, so this correspondingly adds the option to the recipe.
+            </summary>
+            <param name = "currentOpt">The currentrule.</param>
+        </member>
+        <member name="M:GraphSynth.Representation.candidate.undoLastRule">
+            <summary>
+              Undoes the last rule. This is perhaps the whole reason previous states are used.
+              Rules cannot be guaranteed to work in reverse as they work
+              forward, so this simply resets the candidate to how it looked
+              prior to calling the last rule.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.Representation.candidate.copy">
+            <summary>
+              Copies this instance of a candidate. Very similar to designGraph copy.
+              We make sure to not do a shallow copy (ala Clone) since we are unsure
+              how each candidate may be changed in the future.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:GraphSynth.Representation.designGraph">
             <summary>
               The quintessential class in all of this research. The graph of nodes,
@@ -595,11 +523,35 @@
               about designing with graphs.
             </summary>
         </member>
+        <member name="P:GraphSynth.Representation.designGraph.name">
+            <summary>
+              Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.designGraph.comment">
+            <summary>
+              Gets or sets the comment.
+            </summary>
+            <value>The comment.</value>
+        </member>
         <member name="F:GraphSynth.Representation.designGraph._globalLabels">
             <summary />
         </member>
         <member name="F:GraphSynth.Representation.designGraph._globalVariables">
             <summary />
+        </member>
+        <member name="P:GraphSynth.Representation.designGraph.globalLabels">
+            <summary>
+              Gets the global labels.
+            </summary>
+            <value>The global labels.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.designGraph.globalVariables">
+            <summary>
+              Gets the global variables.
+            </summary>
+            <value>The global variables.</value>
         </member>
         <member name="F:GraphSynth.Representation.designGraph._arcs">
             <summary />
@@ -609,6 +561,45 @@
         </member>
         <member name="F:GraphSynth.Representation.designGraph._nodes">
             <summary />
+        </member>
+        <member name="P:GraphSynth.Representation.designGraph.arcs">
+            <summary>
+              Gets or sets the arcs.
+            </summary>
+            <value>The arcs.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.designGraph.nodes">
+            <summary>
+              Gets the nodes.
+            </summary>
+            <value>The nodes.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.designGraph.hyperarcs">
+            <summary>
+              Gets the hyperarcs.
+            </summary>
+            <value>The hyperarcs.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.designGraph.DegreeSequence">
+            <summary>
+            Gets the degree sequence.
+            </summary>
+            <value>The degree sequence.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.designGraph.HyperArcDegreeSequence">
+            <summary>
+            Gets the hyper arc degree sequence.
+            </summary>
+            <value>The hyper arc degree sequence.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.designGraph.Item(System.String)">
+            <summary>
+              Gets the <see cref = "T:GraphSynth.Representation.graphElement" /> with the specified name.
+              This indexer is to make it easier to find a particular node, arc, or hyperArc. Note 
+              that it only returns a graphElement, so the user must explicitly cast it as a node,
+              arc, or hyperArc.
+            </summary>
+            <value></value>
         </member>
         <member name="M:GraphSynth.Representation.designGraph.addArc(GraphSynth.Representation.node,GraphSynth.Representation.node,System.String,System.Type)">
             <summary>
@@ -684,7 +675,7 @@
         </member>
         <member name="M:GraphSynth.Representation.designGraph.#ctor">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.designGraph"/> class.
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.designGraph" /> class.
             </summary>
         </member>
         <member name="M:GraphSynth.Representation.designGraph.#ctor(System.Collections.Generic.IEnumerable{GraphSynth.Representation.node},System.Collections.Generic.IEnumerable{GraphSynth.Representation.arc},System.Collections.Generic.IEnumerable{GraphSynth.Representation.hyperarc})">
@@ -794,71 +785,80 @@
             <param name="obj">The other graph to compare to this one.</param>
             <param name="contentsOfGraphAreEqual">if set to <c>true</c> then check that contents of graph are equal even though they occupy different memory.</param>
             <returns>
-              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+              <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.
             </returns>
         </member>
-        <member name="P:GraphSynth.Representation.designGraph.name">
+        <member name="T:GraphSynth.Representation.graphElement">
             <summary>
-              Gets or sets the name.
+              The base class of node, arc, and hyperarc. It simply captures the basic
+              qualities that all includes - mainly a list of labels.
             </summary>
-            <value>The name.</value>
         </member>
-        <member name="P:GraphSynth.Representation.designGraph.comment">
+        <member name="P:GraphSynth.Representation.graphElement.name">
             <summary>
-              Gets or sets the comment.
+              Gets or sets the name of the node or arc. All names must be distinct 
+              within a given graph in order to correctly serialize and de-
+              serialize the graph from the XML (*.gxml) file.
             </summary>
-            <value>The comment.</value>
+            <value>The name string.</value>
         </member>
-        <member name="P:GraphSynth.Representation.designGraph.globalLabels">
+        <member name="P:GraphSynth.Representation.graphElement.extraData">
             <summary>
-              Gets the global labels.
+              Gets or sets the old data. In order to be compatible with previous versions,
+              this oldData object will be used to catch old files that use screenX and 
+              screenY instead of the new format.
             </summary>
-            <value>The global labels.</value>
+            <value>The old data.</value>
         </member>
-        <member name="P:GraphSynth.Representation.designGraph.globalVariables">
+        <member name="P:GraphSynth.Representation.graphElement.DisplayShape">
             <summary>
-              Gets the global variables.
+              Gets or sets the display shape.
             </summary>
-            <value>The global variables.</value>
+            <value>The display shape.</value>
         </member>
-        <member name="P:GraphSynth.Representation.designGraph.arcs">
-            <summary>
-              Gets or sets the arcs.
-            </summary>
-            <value>The arcs.</value>
+        <member name="F:GraphSynth.Representation.graphElement._localLabels">
+            <summary />
         </member>
-        <member name="P:GraphSynth.Representation.designGraph.nodes">
-            <summary>
-              Gets the nodes.
-            </summary>
-            <value>The nodes.</value>
+        <member name="F:GraphSynth.Representation.graphElement._localVariables">
+            <summary />
         </member>
-        <member name="P:GraphSynth.Representation.designGraph.hyperarcs">
+        <member name="P:GraphSynth.Representation.graphElement.localLabels">
             <summary>
-              Gets the hyperarcs.
+              Gets the local labels.
             </summary>
-            <value>The hyperarcs.</value>
+            <value>The local labels.</value>
         </member>
-        <member name="P:GraphSynth.Representation.designGraph.DegreeSequence">
+        <member name="P:GraphSynth.Representation.graphElement.localVariables">
             <summary>
-            Gets the degree sequence.
+              Gets the local variables.
             </summary>
-            <value>The degree sequence.</value>
+            <value>The local variables.</value>
         </member>
-        <member name="P:GraphSynth.Representation.designGraph.HyperArcDegreeSequence">
+        <member name="M:GraphSynth.Representation.graphElement.copy(GraphSynth.Representation.graphElement)">
             <summary>
-            Gets the hyper arc degree sequence.
+              Copies this graphElement data into the copyOfElt.
             </summary>
-            <value>The hyper arc degree sequence.</value>
+            <param name = "copyOfElt">The copy of elt.</param>
         </member>
-        <member name="P:GraphSynth.Representation.designGraph.Item(System.String)">
+        <member name="M:GraphSynth.Representation.graphElement.setLabel(System.Int32,System.String)">
             <summary>
-              Gets the <see cref="T:GraphSynth.Representation.graphElement"/> with the specified name.
-              This indexer is to make it easier to find a particular node, arc, or hyperArc. Note 
-              that it only returns a graphElement, so the user must explicitly cast it as a node,
-              arc, or hyperArc.
+              Sets the label. The following two functions are not properties, but work on 
+              a similar philosophy. These are like the f0, f1, etc. properties in candidate.
+              Here we want to set a label but we are unsure whether the list of local labels
+              is long enough. The while loop insures that there are enough items of list, 
+              before adding the label. */
             </summary>
-            <value></value>
+            <param name = "index">The index.</param>
+            <param name = "label">The label.</param>
+        </member>
+        <member name="M:GraphSynth.Representation.graphElement.setVariable(System.Int32,System.Double)">
+            <summary>
+              Sets the variable. Like the function above, here we want to set a variable but 
+              we are unsure whether the list of local labels is long enough. The while loop 
+              insures that there are enough items of list, before adding the label.
+            </summary>
+            <param name = "index">The index.</param>
+            <param name = "var">The var.</param>
         </member>
         <member name="T:GraphSynth.Representation.hyperarc">
             <summary>
@@ -872,48 +872,6 @@
         </member>
         <member name="F:GraphSynth.Representation.hyperarc._nodes">
             <summary />
-        </member>
-        <member name="M:GraphSynth.Representation.hyperarc.ConnectTo(GraphSynth.Representation.node)">
-            <summary>
-            Connects the hyperarc to a new node.
-            </summary>
-            <param name="newNode">The new node.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.hyperarc.DisconnectFrom(GraphSynth.Representation.node)">
-            <summary>
-            Disconnects the hyperarc from a node.
-            </summary>
-            <param name="removeNode">The remove node.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.hyperarc.#ctor(System.String,System.Collections.Generic.IEnumerable{GraphSynth.Representation.node})">
-            <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.hyperarc"/> class.
-            </summary>
-            <param name="newName">The new name.</param>
-            <param name="attachedNodes">The attached nodes.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.hyperarc.#ctor(System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.hyperarc"/> class.
-            </summary>
-            <param name="newName">The new name.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.hyperarc.#ctor">
-            <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.hyperarc"/> class.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.Representation.hyperarc.copy">
-            <summary>
-              Copies this instance of an arc and returns the copy.
-            </summary>
-            <returns>the copy of the arc.</returns>
-        </member>
-        <member name="M:GraphSynth.Representation.hyperarc.copy(GraphSynth.Representation.hyperarc)">
-            <summary>
-              Copies this.arc into the argument copyOfArc.
-            </summary>
-            <param name = "copyOfArc">The copy of arc.</param>
         </member>
         <member name="P:GraphSynth.Representation.hyperarc.nodes">
             <summary>
@@ -941,6 +899,48 @@
             </summary>
             <value>The intra-connected arcs.</value>
         </member>
+        <member name="M:GraphSynth.Representation.hyperarc.ConnectTo(GraphSynth.Representation.node)">
+            <summary>
+            Connects the hyperarc to a new node.
+            </summary>
+            <param name="newNode">The new node.</param>
+        </member>
+        <member name="M:GraphSynth.Representation.hyperarc.DisconnectFrom(GraphSynth.Representation.node)">
+            <summary>
+            Disconnects the hyperarc from a node.
+            </summary>
+            <param name="removeNode">The remove node.</param>
+        </member>
+        <member name="M:GraphSynth.Representation.hyperarc.#ctor(System.String,System.Collections.Generic.IEnumerable{GraphSynth.Representation.node})">
+            <summary>
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.hyperarc" /> class.
+            </summary>
+            <param name = "newName">The new name.</param>
+            <param name = "attachedNodes">The attached nodes.</param>
+        </member>
+        <member name="M:GraphSynth.Representation.hyperarc.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.hyperarc" /> class.
+            </summary>
+            <param name = "newName">The new name.</param>
+        </member>
+        <member name="M:GraphSynth.Representation.hyperarc.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.hyperarc" /> class.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.Representation.hyperarc.copy">
+            <summary>
+              Copies this instance of an arc and returns the copy.
+            </summary>
+            <returns>the copy of the arc.</returns>
+        </member>
+        <member name="M:GraphSynth.Representation.hyperarc.copy(GraphSynth.Representation.hyperarc)">
+            <summary>
+              Copies this.arc into the argument copyOfArc.
+            </summary>
+            <param name = "copyOfArc">The copy of arc.</param>
+        </member>
         <member name="T:GraphSynth.Representation.node">
             <summary>
               One of the two basic classes for a graph is the node or vertex.
@@ -948,29 +948,6 @@
         </member>
         <member name="F:GraphSynth.Representation.node._arcs">
             <summary />
-        </member>
-        <member name="M:GraphSynth.Representation.node.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:GraphSynth.Representation.node"/> class.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.Representation.node.#ctor(System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.node"/> class.
-            </summary>
-            <param name="newName">The new name.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.node.copy">
-            <summary>
-              Copies this instance.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.Representation.node.copy(GraphSynth.Representation.node)">
-            <summary>
-              Copies the specified copy of node.
-            </summary>
-            <param name = "copyOfNode">The copy of node.</param>
         </member>
         <member name="P:GraphSynth.Representation.node.arcs">
             <summary>
@@ -1017,6 +994,29 @@
             </summary>
             <value>The degree.</value>
         </member>
+        <member name="M:GraphSynth.Representation.node.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphSynth.Representation.node"/> class.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.Representation.node.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.node" /> class.
+            </summary>
+            <param name = "newName">The new name.</param>
+        </member>
+        <member name="M:GraphSynth.Representation.node.copy">
+            <summary>
+              Copies this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Representation.node.copy(GraphSynth.Representation.node)">
+            <summary>
+              Copies the specified copy of node.
+            </summary>
+            <param name = "copyOfNode">The copy of node.</param>
+        </member>
         <member name="T:GraphSynth.Representation.vertex">
             <summary>
               Originally, I created a separate edge and vertex class to allow for the future expansion
@@ -1029,13 +1029,13 @@
         </member>
         <member name="M:GraphSynth.Representation.vertex.#ctor(System.String)">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.vertex"/> class.
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.vertex" /> class.
             </summary>
-            <param name="name">The name.</param>
+            <param name = "name">The name.</param>
         </member>
         <member name="M:GraphSynth.Representation.vertex.#ctor">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.vertex"/> class.
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.vertex" /> class.
             </summary>
         </member>
         <member name="M:GraphSynth.Representation.vertex.copy">
@@ -1043,479 +1043,6 @@
               Copies this instance.
             </summary>
             <returns></returns>
-        </member>
-        <member name="T:GraphSynth.IntCollectionConverter">
-            <summary>
-              A converter class for changing a collection of ints into a string and vice-versa.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.IntCollectionConverter.Convert(System.String)">
-            <summary>
-              Converts the for a string of comma-separated-values to a IEnumerable of ints.
-            </summary>
-            <param name = "value">The value.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.IntCollectionConverter.Convert(System.Collections.Generic.IEnumerable{System.Int32})">
-            <summary>
-              Converts the specified values from a IEnumerable of ints to a comma-separated string.
-            </summary>
-            <param name = "values">The values.</param>
-            <returns></returns>
-        </member>
-        <member name="T:GraphSynth.DoubleCollectionConverter">
-            <summary>
-              A converter class for changing a collection of doubles into a string and vice-versa.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.DoubleCollectionConverter.Convert(System.String)">
-            <summary>
-              Converts the for a string of comma-separated-values to a IEnumerable of doubles.
-            </summary>
-            <param name = "value">The value.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.DoubleCollectionConverter.Convert(System.Collections.Generic.IEnumerable{System.Double})">
-            <summary>
-              Converts the specified values from a IEnumerable of doubles to a comma-separated string.
-            </summary>
-            <param name = "values">The values.</param>
-            <returns></returns>
-        </member>
-        <member name="T:GraphSynth.StringCollectionConverter">
-            <summary>
-              Used to convert a single string into a list of strings and vice-versa.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.StringCollectionConverter.Convert(System.String)">
-            <summary>
-              Converts the comma-separated-values into a IEnumerable of strings.
-            </summary>
-            <param name = "value">The value.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.StringCollectionConverter.Convert(System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-              Converts the specified IEnumerable of strings into a comma separated single string.
-            </summary>
-            <param name = "values">The values.</param>
-            <returns></returns>
-        </member>
-        <member name="T:GraphSynth.ErrorLogger">
-            <summary>
-              A class that allows us to dump errors to a txt file in the executable directory.
-            </summary>
-        </member>
-        <member name="F:GraphSynth.ErrorLogger.ErrorLogFile">
-            <summary>
-              The contents of the Error log
-            </summary>
-        </member>
-        <member name="M:GraphSynth.ErrorLogger.Catch(System.Exception)">
-            <summary>
-              Catches the specified exception.
-            </summary>
-            <param name = "Exc">The exc.</param>
-        </member>
-        <member name="M:GraphSynth.ErrorLogger.MakeErrorString(System.Exception,System.Boolean)">
-            <summary>
-              Makes the error string.
-            </summary>
-            <param name = "Exc">The exc.</param>
-            <param name = "includeComputerData">if set to <c>true</c> [include computer data].</param>
-            <returns></returns>
-        </member>
-        <member name="T:GraphSynth.GlobalSettings">
-            <summary>
-            The Global Settings class loads the the .gsconfig file into an object which 
-            is accessed throughout the system.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.GlobalSettings.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:GraphSynth.GlobalSettings"/> class.
-            </summary>
-        </member>
-        <member name="F:GraphSynth.GlobalSettings.defaultRSFileNames">
-            <summary>
-            the default ruleset filenames relative to the rules directory
-            </summary>
-        </member>
-        <member name="M:GraphSynth.GlobalSettings.readInSettings(System.String)">
-            <summary>
-            Reads in the settings.
-            </summary>
-            <param name="configPath">The file path.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.GlobalSettings.saveNewSettings(System.String)">
-            <summary>
-            Saves the new settings.
-            </summary>
-            <param name="filename">The filename.</param>
-        </member>
-        <member name="M:GraphSynth.GlobalSettings.LoadDefaultSeedAndRuleSets">
-            <summary>
-            Loads the default seed and rule sets.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.GlobalSettings.Duplicate">
-            <summary>
-            Copies the exisiting and returns it.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.GlobalSettings.LoadDefaults">
-            <summary>
-            Loads the defaults.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.GlobalSettings.AttemptSubDirMigration(System.String)">
-            <summary>
-            Attempts to migrate all sub-directories when the working directory is changed.
-            Currently this only occurs in the GUI when a working directory has been changed.
-            </summary>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.ExecDir">
-            <summary>
-              The directory that GraphSynth.exe is located in
-            </summary>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.ConfigDir">
-            <summary>
-            Gets or sets the directory where the configuration file was found.
-            </summary>
-            <value>The config dir.</value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.FilePath">
-            <summary>
-              Gets or sets the location of the settings file.
-            </summary>
-            <value>The location.</value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.filer">
-            <summary>
-            Gets or sets the filer instance that controls the opening and saving of files.
-            </summary>
-            <value>
-            The filer.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.seed">
-            <summary>
-            Gets or sets the seed graph - although this dll doesn't know what
-            a graph is, so you need to "cast up" to really use it.
-            </summary>
-            <value>
-            The seed.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.rulesets">
-            <summary>
-            Gets or sets the rulesets - although this dll doesn't know what
-            a graph is, so you need to "cast up" to really use it.
-            </summary>
-            <value>
-            The rulesets.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.numOfRuleSets">
-            <summary>
-            Gets or sets the number of rule sets.
-            </summary>
-            <value>
-            The number of rule sets.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.MaxRulesToDisplay">
-            <summary>
-            Gets or sets the maximum rules to display in GUI driven User Choose.
-            </summary>
-            <value>
-            The max rules to display.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.MaxRulesToApply">
-            <summary>
-            Gets or sets the max rules to apply.
-            </summary>
-            <value>
-            The max rules to apply.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.WorkingDirAbsolute">
-            <summary>
-            Gets or sets the absolute working directory.
-            </summary>
-            <value>
-            The absolute working directory.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.WorkingDirRelative">
-            <summary>
-            Gets or sets the relative working directory.
-            </summary>
-            <value>
-            The relative working directory.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.InputDir">
-            <summary>
-            Gets or sets the input directory.
-            </summary>
-            <value>
-            The input dir.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.InputDirAbs">
-            <summary>
-            Gets the absolute (rooted) input directory.
-            </summary>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.OutputDir">
-            <summary>
-            Gets or sets the output directory.
-            </summary>
-            <value>
-            The output dir.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.OutputDirAbs">
-            <summary>
-            Gets the absolute (rooted) output directory.
-            </summary>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.RulesDir">
-            <summary>
-            Gets or sets the rules directory.
-            </summary>
-            <value>
-            The rules directory.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.RulesDirAbs">
-            <summary>
-            Gets the absolute (rooted) rules directory.
-            </summary>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.LocalHelpDir">
-            <summary>
-            Gets or sets the local help dir.
-            </summary>
-            <value>
-            The local help dir.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.OnlineHelpURL">
-            <summary>
-            Gets or sets the online help URL.
-            </summary>
-            <value>
-            The online help URL.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.GraphLayoutDir">
-            <summary>
-            Gets or sets the graph layout directory.
-            </summary>
-            <value>
-            The graph layout directory.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.GraphLayoutDirAbs">
-            <summary>
-            Gets the absolute (rooted) graph layout directory.
-            </summary>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.SearchDir">
-            <summary>
-            Gets or sets the search directory.
-            </summary>
-            <value>
-            The search directory.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.SearchDirAbs">
-            <summary>
-            Gets the absolute (rooted) search directory.
-            </summary>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.ErrorLogFile">
-            <summary>
-            Gets or sets the error log file.
-            </summary>
-            <value>
-            The error log file.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.DefaultSeedFileName">
-            <summary>
-            Gets or sets the default name of the seed file.
-            </summary>
-            <value>
-            The default name of the seed file.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.DefaultRuleSets">
-            <summary>
-            Gets or sets the default rule sets filename as a single string.
-            </summary>
-            <value>
-            The default rule sets.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.CustomShapesFile">
-            <summary>
-            Gets or sets the custom shapes file.
-            </summary>
-            <value>
-            The custom shapes file.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.CompiledRuleFunctions">
-            <summary>
-            Gets or sets the compiled param rules.
-            </summary>
-            <value>
-            The compiledparam rules.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.SearchControllerPlayOnStart">
-            <summary>
-            Gets or sets a value indicating whether search controllers should automatically start playing
-            when they are initiated.
-            </summary>
-            <value>
-            	<c>true</c> if [search controller is set to auto-play]; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.GetHelpFromOnline">
-            <summary>
-            Gets or sets a value indicating whether [get help from online].
-            </summary>
-            <value>
-              <c>true</c> if [get help from online]; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.RecompileRuleConditions">
-            <summary>
-            Gets or sets a value indicating whether [recompile rule conditions].
-            </summary>
-            <value>
-            	<c>true</c> if [recompile rule conditions]; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:GraphSynth.GlobalSettings.DefaultVerbosity">
-            <summary>
-            Gets or sets the default verbosity.
-            </summary>
-            <value>
-            The default verbosity.
-            </value>
-        </member>
-        <member name="T:GraphSynth.IMainWindow">
-            <summary>
-            Interface for the main window of GraphSynth.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.IMainWindow.SetSelectedAddItem(System.Int32)">
-            <summary>
-            Sets the selected add item.
-            </summary>
-            <param name="i">The i.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.IMainWindow.FocusOnLabelEntry(System.Object)">
-            <summary>
-            Focuses on the label field for easy entry.
-            </summary>
-            <param name="o">The o.</param>
-        </member>
-        <member name="M:GraphSynth.IMainWindow.propertyUpdate(System.Object)">
-            <summary>
-            Properties the update.
-            </summary>
-            <param name="o">The o.</param>
-        </member>
-        <member name="M:GraphSynth.IMainWindow.SetCanvasPropertyScaleFactor(System.Double,System.Nullable{System.Boolean})">
-            <summary>
-            Sets the canvas property scale factor. This is needed since the
-            GraphGUI needs to inform the main window what its scale is. The
-            reason it is defined here, is because GraphGUI is defined in the
-            CustomControls.dll and MainWindow is in the main EXE. Thus, we
-            can make a call up from a dependent library to the main EXE.
-            </summary>
-            <param name="scale">The scale.</param>
-            <param name="zoomToFit">The zoom to fit.</param>
-        </member>
-        <member name="M:GraphSynth.IMainWindow.addAndShowGraphWindow(System.Object,System.String)">
-            <summary>
-            Adds and shows a graph window.
-            </summary>
-            <param name="obj">The obj.</param>
-            <param name="title">The title.</param>
-        </member>
-        <member name="M:GraphSynth.IMainWindow.addAndShowRuleWindow(System.Object,System.String)">
-            <summary>
-            Adds and shows a rule window.
-            </summary>
-            <param name="obj">The obj.</param>
-            <param name="title">The title.</param>
-        </member>
-        <member name="M:GraphSynth.IMainWindow.addAndShowRuleSetWindow(System.Object,System.String)">
-            <summary>
-            Adds and shows a rule window.
-            </summary>
-            <param name="obj">The obj.</param>
-            <param name="title">The title.</param>
-        </member>
-        <member name="P:GraphSynth.IMainWindow.SelectedAddItem">
-            <summary>
-            Gets the selected add item.
-            </summary>
-            <value>The selected add item.</value>
-        </member>
-        <member name="P:GraphSynth.IMainWindow.stayOn">
-            <summary>
-            Gets a value indicating whether the selected item should [stay on].
-            </summary>
-            <value><c>true</c> if [stay on]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:GraphSynth.IMainWindow.Dispatcher">
-            <summary>
-            Gets the dispatcher.
-            </summary>
-            <value>The dispatcher.</value>
-        </member>
-        <member name="P:GraphSynth.IMainWindow.shortCutKeys">
-            <summary>
-            Gets the short cut keys.
-            </summary>
-            <value>The short cut keys.</value>
-        </member>
-        <member name="T:GraphSynth.SearchIOToTextWriter">
-            <summary>
-              this class simply helps SearchIO get its output to the sidebar in GraphSynth.
-              It does this by inheriting from the TextWriter class. Borrowed from ? on CodeProject.
-            </summary>
-        </member>
-        <member name="F:GraphSynth.SearchIOToTextWriter.outputBox">
-            <summary>
-              The output box where text is presented to the user.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.SearchIOToTextWriter.WriteLine(System.String)">
-            <summary>
-              Writes the line.
-            </summary>
-            <param name = "str">The STR.</param>
-        </member>
-        <member name="P:GraphSynth.SearchIOToTextWriter.Encoding">
-            <summary>
-              When overridden in a derived class, returns the <see cref = "T:System.Text.Encoding" /> in which the output is written.
-            </summary>
-            <value></value>
-            <returns>The Encoding in which the output is written.</returns>
         </member>
         <member name="T:GraphSynth.Representation.embeddingRule">
             <summary>
@@ -1550,26 +1077,6 @@
               In order to be backwards compatible, this field captures the old fields and converts them
               to proper places. See use in BasicFiler.cs
             </summary>
-        </member>
-        <member name="M:GraphSynth.Representation.embeddingRule.arcIsFree(GraphSynth.Representation.arc,GraphSynth.Representation.designGraph,System.SByte@,GraphSynth.Representation.node@)">
-            <summary>
-              Is the arc a free arc from this grammar rule?
-            </summary>
-            <param name = "a">A.</param>
-            <param name = "host">The host.</param>
-            <param name = "freeEndIdentifier">The free end identifier.</param>
-            <param name = "neighborNode">The neighbor node.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.Representation.embeddingRule.ruleIsRecognized(System.SByte,GraphSynth.Representation.arc,GraphSynth.Representation.node,GraphSynth.Representation.node)">
-            <summary>
-              Is the rule recognized on the given inputs?
-            </summary>
-            <param name = "freeEndIdentifier">The free end identifier.</param>
-            <param name = "freeArc">The free arc.</param>
-            <param name = "neighborNode">The neighbor node.</param>
-            <param name = "nodeRemoved">The node removed.</param>
-            <returns></returns>
         </member>
         <member name="P:GraphSynth.Representation.embeddingRule.LNodeName">
             <summary>
@@ -1612,6 +1119,26 @@
               Gets or sets a value indicating whether [allow arc duplication].
             </summary>
             <value><c>true</c> if [allow arc duplication]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:GraphSynth.Representation.embeddingRule.arcIsFree(GraphSynth.Representation.arc,GraphSynth.Representation.designGraph,System.SByte@,GraphSynth.Representation.node@)">
+            <summary>
+              Is the arc a free arc from this grammar rule?
+            </summary>
+            <param name = "a">A.</param>
+            <param name = "host">The host.</param>
+            <param name = "freeEndIdentifier">The free end identifier.</param>
+            <param name = "neighborNode">The neighbor node.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Representation.embeddingRule.ruleIsRecognized(System.SByte,GraphSynth.Representation.arc,GraphSynth.Representation.node,GraphSynth.Representation.node)">
+            <summary>
+              Is the rule recognized on the given inputs?
+            </summary>
+            <param name = "freeEndIdentifier">The free end identifier.</param>
+            <param name = "freeArc">The free arc.</param>
+            <param name = "neighborNode">The neighbor node.</param>
+            <param name = "nodeRemoved">The node removed.</param>
+            <returns></returns>
         </member>
         <member name="T:GraphSynth.Representation.grammarRule">
             <summary>
@@ -1668,6 +1195,92 @@
             <summary>
               a list of MethodInfo's corresponding to the strings in recognizeFunctions
             </summary>
+        </member>
+        <member name="P:GraphSynth.Representation.grammarRule.name">
+            <summary>
+              Gets or sets the name of the rule.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.grammarRule.comment">
+            <summary>
+              Gets or sets a comment about the rule.
+            </summary>
+            <value>The comment.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.grammarRule.termination">
+            <summary>
+              Gets or sets a value indicating whether this <see cref = "T:GraphSynth.Representation.grammarRule" /> is termination.
+            </summary>
+            <value><c>true</c> if termination; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.grammarRule.embeddingRules">
+            <summary>
+              Gets or sets the embedding rules.
+            </summary>
+            <value>The embedding rules.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.grammarRule.recognizeFunctions">
+            <summary>
+              Gets or sets the additional recognize functions names.
+            </summary>
+            <value>The recognize functions.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.grammarRule.applyFunctions">
+            <summary>
+              Gets or sets the apply functions.
+            </summary>
+            <value>The apply functions.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.grammarRule.L">
+            <summary>
+              Gets or sets  the left-hand-side of the rule. It is a graph that is to be 
+              recognized in the host graph.
+            </summary>
+            <value>The L.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.grammarRule.R">
+            <summary>
+              Gets or sets the right-hand-side of the rule. It is a graph that is to be 
+              inserted (glued) into the host graph.
+            </summary>
+            <value>The R.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.grammarRule.spanning">
+            <summary>
+              Gets or sets a value indicating whether this <see cref = "T:GraphSynth.Representation.grammarRule" /> is spanning.
+            </summary>
+            <value><c>true</c> if spanning; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.grammarRule.induced">
+            <summary>
+              Gets or sets a value indicating whether this <see cref = "T:GraphSynth.Representation.grammarRule" /> is induced.
+            </summary>
+            <value><c>true</c> if induced; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.grammarRule.negateLabels">
+            <summary>
+              Gets or sets the negating labels - labels that must NOT exist in the host.
+            </summary>
+            <value>The negating labels.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.grammarRule.containsAllGlobalLabels">
+            <summary>
+              Gets or sets a value indicating whether the host must contains only the
+              global labels of the rule. Said another way, the rule must contain all global labels
+              in the host to be a valid match. If false, then a subset of global labels is sufficient.
+            </summary>
+            <value>
+              <c>true</c> if [contains all global labels]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GraphSynth.Representation.grammarRule.OrderedGlobalLabels">
+            <summary>
+              Gets or sets a value indicating whether the host must contain the
+              global labels in the presented order. This is mainly to allow for the creation of traditional
+              string grammars.
+            </summary>
+            <value><c>true</c> if [ordered global labels]; otherwise, <c>false</c>.</value>
         </member>
         <member name="M:GraphSynth.Representation.grammarRule.makeUniqueNodeName(System.String)">
             <summary>
@@ -1788,119 +1401,11 @@
         <member name="M:GraphSynth.Representation.grammarRule.calculateRegularizationMatrix">
             <summary>
             Calculates the regularization matrix. This is a matrix that is used to simplify the 
-            shape recognition process. Multiplying the LHS by R (the regulaization matrix), the
-            first node will now be at {0,0,0}, the second is on the x-axis {d, 0, 0}, then third
-            is on the x-y plane. This simplifies the calculations in finding the transformation
+            shape recognition process. Multiplying the LHS by R (the regularization matrix), the
+            first node will now be at {0,0,0}, the second is on the x-axis {d1, 0, 0}, then third
+            is on the x-y plane {d2, d3, 0}. This simplifies the calculations in finding the transformation
             of the LHS to get it to match the host shape.
             </summary>
-        </member>
-        <member name="M:GraphSynth.Representation.grammarRule.ReorderNodes">
-            <summary>
-            Reorders the nodes for best shape transform. This is to put all NOT-exist nodes
-            at the end of the list and to avoid unlikely problems when first 3 or 4 nodes 
-            are collinear or sitting on top of each other.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.Representation.grammarRule.TransformPositionOfNode(GraphSynth.Representation.node,System.Double[0:,0:],GraphSynth.Representation.node)">
-            <summary>
-              Updates the position of a node.
-            </summary>
-            <param name = "update">The node to update.</param>
-            <param name = "T">The Transformation matrix, T.</param>
-            <param name = "given">The given rule node.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.grammarRule.TransfromShapeOfNode(GraphSynth.Representation.node,System.Double[0:,0:])">
-            <summary>
-            Transfroms the shape of node.
-            </summary>
-            <param name="update">The update.</param>
-            <param name="T">The T.</param>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.name">
-            <summary>
-              Gets or sets the name of the rule.
-            </summary>
-            <value>The name.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.comment">
-            <summary>
-              Gets or sets a comment about the rule.
-            </summary>
-            <value>The comment.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.termination">
-            <summary>
-              Gets or sets a value indicating whether this <see cref="T:GraphSynth.Representation.grammarRule"/> is termination.
-            </summary>
-            <value><c>true</c> if termination; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.embeddingRules">
-            <summary>
-              Gets or sets the embedding rules.
-            </summary>
-            <value>The embedding rules.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.recognizeFunctions">
-            <summary>
-              Gets or sets the additional recognize functions names.
-            </summary>
-            <value>The recognize functions.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.applyFunctions">
-            <summary>
-              Gets or sets the apply functions.
-            </summary>
-            <value>The apply functions.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.L">
-            <summary>
-              Gets or sets  the left-hand-side of the rule. It is a graph that is to be 
-              recognized in the host graph.
-            </summary>
-            <value>The L.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.R">
-            <summary>
-              Gets or sets the right-hand-side of the rule. It is a graph that is to be 
-              inserted (glued) into the host graph.
-            </summary>
-            <value>The R.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.spanning">
-            <summary>
-              Gets or sets a value indicating whether this <see cref="T:GraphSynth.Representation.grammarRule"/> is spanning.
-            </summary>
-            <value><c>true</c> if spanning; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.induced">
-            <summary>
-              Gets or sets a value indicating whether this <see cref="T:GraphSynth.Representation.grammarRule"/> is induced.
-            </summary>
-            <value><c>true</c> if induced; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.negateLabels">
-            <summary>
-              Gets or sets the negating labels - labels that must NOT exist in the host.
-            </summary>
-            <value>The negating labels.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.containsAllGlobalLabels">
-            <summary>
-              Gets or sets a value indicating whether the host must contains only the
-              global labels of the rule. Said another way, the rule must contain all global labels
-              in the host to be a valid match. If false, then a subset of global labels is sufficient.
-            </summary>
-            <value>
-              <c>true</c> if [contains all global labels]; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:GraphSynth.Representation.grammarRule.OrderedGlobalLabels">
-            <summary>
-              Gets or sets a value indicating whether the host must contain the
-              global labels in the presented order. This is mainly to allow for the creation of traditional
-              string grammars.
-            </summary>
-            <value><c>true</c> if [ordered global labels]; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:GraphSynth.Representation.grammarRule.UseShapeRestrictions">
             <summary>
@@ -1957,7 +1462,7 @@
         </member>
         <member name="P:GraphSynth.Representation.grammarRule.Rotate">
             <summary>
-              Gets or sets a value indicating whether this <see cref="T:GraphSynth.Representation.grammarRule"/> allows a rotation transformation.
+              Gets or sets a value indicating whether this <see cref = "T:GraphSynth.Representation.grammarRule" /> allows a rotation transformation.
             </summary>
             <value><c>true</c> if rotate; otherwise, <c>false</c>.</value>
         </member>
@@ -1966,6 +1471,28 @@
               Gets or sets the projection transformation allowance.
             </summary>
             <value>The projection.</value>
+        </member>
+        <member name="M:GraphSynth.Representation.grammarRule.ReorderNodes">
+            <summary>
+            Reorders the nodes for best shape transform. This is to put all NOT-exist nodes
+            at the end of the list and to avoid unlikely problems when first 3 or 4 nodes 
+            are collinear or sitting on top of each other.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.Representation.grammarRule.TransformPositionOfNode(GraphSynth.Representation.node,System.Double[0:,0:],GraphSynth.Representation.node)">
+            <summary>
+              Updates the position of a node.
+            </summary>
+            <param name = "update">The node to update.</param>
+            <param name = "T">The Transformation matrix, T.</param>
+            <param name = "given">The given rule node.</param>
+        </member>
+        <member name="M:GraphSynth.Representation.grammarRule.TransfromShapeOfNode(GraphSynth.Representation.node,System.Double[0:,0:])">
+            <summary>
+            Transfroms the shape of node.
+            </summary>
+            <param name="update">The update.</param>
+            <param name="T">The T.</param>
         </member>
         <member name="T:GraphSynth.Representation.option">
             <summary>
@@ -1990,6 +1517,80 @@
         </member>
         <member name="F:GraphSynth.Representation.option._nodes">
             <summary />
+        </member>
+        <member name="P:GraphSynth.Representation.option.arcs">
+            <summary>
+              Gets or sets the arcs.
+            </summary>
+            <value>The arcs.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.option.nodes">
+            <summary>
+              Gets the nodes.
+            </summary>
+            <value>The nodes.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.option.hyperarcs">
+            <summary>
+              Gets the hyperarcs.
+            </summary>
+            <value>The hyperarcs.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.option.optionNumber">
+            <summary>
+              Gets or sets the option number.
+            </summary>
+            <value>The option number.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.option.ruleSetIndex">
+            <summary>
+              Gets or sets the index of the rule set.
+            </summary>
+            <value>The index of the rule set.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.option.ruleNumber">
+            <summary>
+              Gets or sets the rule number.
+            </summary>
+            <value>The rule number.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.option.rule">
+            <summary>
+              Gets or sets the rule.
+            </summary>
+            <value>The rule.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.option.globalLabelStartLoc">
+            <summary>
+              Gets or sets the global label start loc.
+            </summary>
+            <value>The global label start loc.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.option.positionTransform">
+            <summary>
+              Gets or sets the position transform.
+            </summary>
+            <value>The position transform.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.option.confluence">
+            <summary>
+              Gets or sets the confluence.
+            </summary>
+            <value>The confluence.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.option.probability">
+            <summary>
+              Gets or sets the probability.
+            </summary>
+            <value>The probability.</value>
+        </member>
+        <member name="P:GraphSynth.Representation.option.Relaxations">
+            <summary>
+            Gets or sets the relaxations.
+            </summary>
+            <value>
+            The relaxations.
+            </value>
         </member>
         <member name="M:GraphSynth.Representation.option.#ctor(GraphSynth.Representation.grammarRule)">
             <summary>
@@ -2113,80 +1714,6 @@
             <param name="newOption">The new option.</param>
             <returns></returns>
         </member>
-        <member name="P:GraphSynth.Representation.option.arcs">
-            <summary>
-              Gets or sets the arcs.
-            </summary>
-            <value>The arcs.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.option.nodes">
-            <summary>
-              Gets the nodes.
-            </summary>
-            <value>The nodes.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.option.hyperarcs">
-            <summary>
-              Gets the hyperarcs.
-            </summary>
-            <value>The hyperarcs.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.option.optionNumber">
-            <summary>
-              Gets or sets the option number.
-            </summary>
-            <value>The option number.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.option.ruleSetIndex">
-            <summary>
-              Gets or sets the index of the rule set.
-            </summary>
-            <value>The index of the rule set.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.option.ruleNumber">
-            <summary>
-              Gets or sets the rule number.
-            </summary>
-            <value>The rule number.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.option.rule">
-            <summary>
-              Gets or sets the rule.
-            </summary>
-            <value>The rule.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.option.globalLabelStartLoc">
-            <summary>
-              Gets or sets the global label start loc.
-            </summary>
-            <value>The global label start loc.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.option.positionTransform">
-            <summary>
-              Gets or sets the position transform.
-            </summary>
-            <value>The position transform.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.option.confluence">
-            <summary>
-              Gets or sets the confluence.
-            </summary>
-            <value>The confluence.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.option.probability">
-            <summary>
-              Gets or sets the probability.
-            </summary>
-            <value>The probability.</value>
-        </member>
-        <member name="P:GraphSynth.Representation.option.Relaxations">
-            <summary>
-            Gets or sets the relaxations.
-            </summary>
-            <value>
-            The relaxations.
-            </value>
-        </member>
         <member name="T:GraphSynth.Representation.Relaxation">
             <summary>
             
@@ -2205,9 +1732,29 @@
             </summary>
             <param name="NumberAllowable">The number allowable.</param>
         </member>
+        <member name="P:GraphSynth.Representation.Relaxation.InitialAllowableRelaxes">
+            <summary>
+            Gets the allowable relaxes.
+            </summary>
+        </member>
+        <member name="P:GraphSynth.Representation.Relaxation.NumberAllowable">
+            <summary>
+            Gets the number allowable relaxations that are left (not initially prescribed).
+            </summary>
+        </member>
         <member name="F:GraphSynth.Representation.Relaxation.items">
             <summary>
             The prescribed relaxation items.
+            </summary>
+        </member>
+        <member name="P:GraphSynth.Representation.Relaxation.FulfilledItems">
+            <summary>
+            Gets the fulfilled items.
+            </summary>
+        </member>
+        <member name="P:GraphSynth.Representation.Relaxation.RelaxationSummary">
+            <summary>
+            Gets the summary of relaxation that were used to make the match.
             </summary>
         </member>
         <member name="M:GraphSynth.Representation.Relaxation.GetEnumerator">
@@ -2237,40 +1784,11 @@
             Resets the relaxation back to the way it was originally defined.
             </summary>
         </member>
-        <member name="P:GraphSynth.Representation.Relaxation.InitialAllowableRelaxes">
-            <summary>
-            Gets the allowable relaxes.
-            </summary>
-        </member>
-        <member name="P:GraphSynth.Representation.Relaxation.NumberAllowable">
-            <summary>
-            Gets the number allowable relaxations that are left (not initially prescribed).
-            </summary>
-        </member>
-        <member name="P:GraphSynth.Representation.Relaxation.FulfilledItems">
-            <summary>
-            Gets the fulfilled items.
-            </summary>
-        </member>
-        <member name="P:GraphSynth.Representation.Relaxation.RelaxationSummary">
-            <summary>
-            Gets the summary of relaxation that were used to make the match.
-            </summary>
-        </member>
         <member name="T:GraphSynth.Representation.RelaxItem">
             <summary>
             The RelaxItem describes the manner in which one can relax a rule or ruleset.
             A list of these is defined for the Relaxation class.
             </summary>
-        </member>
-        <member name="M:GraphSynth.Representation.RelaxItem.#ctor(GraphSynth.Representation.Relaxations,System.Int32,GraphSynth.Representation.graphElement,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:GraphSynth.Representation.RelaxItem"/> class.
-            </summary>
-            <param name="RelaxationType">Type of the relaxation.</param>
-            <param name="NumberAllowed">The number allowed.</param>
-            <param name="GraphElement">The graph element.</param>
-            <param name="Datum">The datum.</param>
         </member>
         <member name="P:GraphSynth.Representation.RelaxItem.GraphElement">
             <summary>
@@ -2302,6 +1820,15 @@
             <value>
             The number allowed.
             </value>
+        </member>
+        <member name="M:GraphSynth.Representation.RelaxItem.#ctor(GraphSynth.Representation.Relaxations,System.Int32,GraphSynth.Representation.graphElement,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphSynth.Representation.RelaxItem"/> class.
+            </summary>
+            <param name="RelaxationType">Type of the relaxation.</param>
+            <param name="NumberAllowed">The number allowed.</param>
+            <param name="GraphElement">The graph element.</param>
+            <param name="Datum">The datum.</param>
         </member>
         <member name="T:GraphSynth.Representation.Relaxations">
             <summary>
@@ -2505,13 +2032,13 @@
         </member>
         <member name="M:GraphSynth.Representation.ruleArc.#ctor(System.String)">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.ruleArc"/> class with a particular name.
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.ruleArc" /> class with a particular name.
             </summary>
-            <param name="newName">The new name.</param>
+            <param name = "newName">The new name.</param>
         </member>
         <member name="M:GraphSynth.Representation.ruleArc.#ctor">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.ruleArc"/> class.
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.ruleArc" /> class.
             </summary>
         </member>
         <member name="M:GraphSynth.Representation.ruleArc.#ctor(GraphSynth.Representation.arc)">
@@ -2603,13 +2130,13 @@
         </member>
         <member name="M:GraphSynth.Representation.ruleHyperarc.#ctor(System.String)">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.ruleHyperarc"/> class.
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.ruleHyperarc" /> class.
             </summary>
-            <param name="newName">The new name.</param>
+            <param name = "newName">The new name.</param>
         </member>
         <member name="M:GraphSynth.Representation.ruleHyperarc.#ctor">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.ruleHyperarc"/> class.
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.ruleHyperarc" /> class.
             </summary>
         </member>
         <member name="M:GraphSynth.Representation.ruleHyperarc.#ctor(GraphSynth.Representation.hyperarc)">
@@ -2691,13 +2218,13 @@
         </member>
         <member name="M:GraphSynth.Representation.ruleNode.#ctor(System.String)">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.ruleNode"/> class with a particular name.
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.ruleNode" /> class with a particular name.
             </summary>
-            <param name="newName">The new name.</param>
+            <param name = "newName">The new name.</param>
         </member>
         <member name="M:GraphSynth.Representation.ruleNode.#ctor">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.ruleNode"/> class.
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.ruleNode" /> class.
             </summary>
         </member>
         <member name="M:GraphSynth.Representation.ruleNode.#ctor(GraphSynth.Representation.node)">
@@ -2788,87 +2315,6 @@
               in the rsxml file, only the ruleFileNames.
             </summary>
         </member>
-        <member name="M:GraphSynth.Representation.ruleSet.nextRuleSet(GraphSynth.GenerationStatuses)">
-            <summary>
-              Retrieves the index of the next rule set.A helper function to RecognizeChooseApplyCycle.
-              This function returns what the new ruleSet will be. Here the enumerator nextGenerationSteps
-              and GenerationStatuses is used to great affect. Understand that if a negative number is
-              returned, the cycle will be stopped.
-            </summary>
-            <param name = "status">The status.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.Representation.ruleSet.#ctor(System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Representation.ruleSet"/> class.
-            </summary>
-            <param name="defaultRulesDir">The default rules dir.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.ruleSet.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:GraphSynth.Representation.ruleSet"/> class.
-            </summary>
-        </member>
-        <member name="M:GraphSynth.Representation.ruleSet.recognize(GraphSynth.Representation.designGraph,System.Boolean,GraphSynth.Representation.Relaxation)">
-            <summary>
-            This is the recognize function called within the RCA generation. It is
-            fairly straightforward method that basically invokes the more complex
-            recognize function for each rule within it, and returns a list of
-            options.
-            </summary>
-            <param name="host">The host.</param>
-            <param name="InParallel">if set to <c>true</c> [in parallel].</param>
-            <param name="RelaxationTemplate">The relaxation template.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.Representation.ruleSet.Add(GraphSynth.Representation.grammarRule)">
-            <summary>
-              Adds the specified new rule.
-            </summary>
-            <param name = "newRule">The new rule.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.ruleSet.Remove(GraphSynth.Representation.grammarRule)">
-            <summary>
-              Removes the specified remove rule.
-            </summary>
-            <param name = "removeRule">The remove rule.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.ruleSet.copy">
-            <summary>
-              Returns a copy of this instance.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.Representation.ruleSet.loadAndCompileSourceFiles(GraphSynth.Representation.ruleSet[],System.Boolean,System.String,System.String)">
-            <summary>
-              Loads and compiles the source files.
-            </summary>
-            <param name = "rulesets">The rulesets.</param>
-            <param name = "recompileRules">if set to <c>true</c> [recompile rules].</param>
-            <param name = "compiledparamRules">The compiledparam rules.</param>
-            <param name = "execDir">The exec dir.</param>
-        </member>
-        <member name="M:GraphSynth.Representation.ruleSet.FindSourceFiles(GraphSynth.Representation.ruleSet[],System.Collections.Generic.List{System.String},System.String)">
-            <summary>
-              Finds the source files.
-            </summary>
-            <param name = "rulesets">The rulesets.</param>
-            <param name = "allSourceFiles">All source files.</param>
-            <param name = "rulesDirectory">The rules directory.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.Representation.ruleSet.CompileSourceFiles(GraphSynth.Representation.ruleSet[],System.Collections.Generic.List{System.String},System.CodeDom.Compiler.CompilerResults@,System.String,System.String,System.String)">
-            <summary>
-              Compiles the source files.
-            </summary>
-            <param name = "rulesets">The rulesets.</param>
-            <param name = "allSourceFiles">All source files.</param>
-            <param name = "cr">The cr.</param>
-            <param name = "rulesDir">The rules dir.</param>
-            <param name = "execDir">The exec dir.</param>
-            <param name = "compiledparamRules">The compiledparam rules.</param>
-            <returns></returns>
-        </member>
         <member name="P:GraphSynth.Representation.ruleSet.name">
             <summary>
               Gets or sets the name for the ruleSet - usually set to the filename
@@ -2920,6 +2366,57 @@
             </summary>
             <value>The apply source files.</value>
         </member>
+        <member name="M:GraphSynth.Representation.ruleSet.nextRuleSet(GraphSynth.GenerationStatuses)">
+            <summary>
+              Retrieves the index of the next rule set.A helper function to RecognizeChooseApplyCycle.
+              This function returns what the new ruleSet will be. Here the enumerator nextGenerationSteps
+              and GenerationStatuses is used to great affect. Understand that if a negative number is
+              returned, the cycle will be stopped.
+            </summary>
+            <param name = "status">The status.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Representation.ruleSet.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref = "T:GraphSynth.Representation.ruleSet" /> class.
+            </summary>
+            <param name = "defaultRulesDir">The default rules dir.</param>
+        </member>
+        <member name="M:GraphSynth.Representation.ruleSet.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphSynth.Representation.ruleSet"/> class.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.Representation.ruleSet.recognize(GraphSynth.Representation.designGraph,System.Boolean,GraphSynth.Representation.Relaxation)">
+            <summary>
+            This is the recognize function called within the RCA generation. It is
+            fairly straightforward method that basically invokes the more complex
+            recognize function for each rule within it, and returns a list of
+            options.
+            </summary>
+            <param name="host">The host.</param>
+            <param name="InParallel">if set to <c>true</c> [in parallel].</param>
+            <param name="RelaxationTemplate">The relaxation template.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Representation.ruleSet.Add(GraphSynth.Representation.grammarRule)">
+            <summary>
+              Adds the specified new rule.
+            </summary>
+            <param name = "newRule">The new rule.</param>
+        </member>
+        <member name="M:GraphSynth.Representation.ruleSet.Remove(GraphSynth.Representation.grammarRule)">
+            <summary>
+              Removes the specified remove rule.
+            </summary>
+            <param name = "removeRule">The remove rule.</param>
+        </member>
+        <member name="M:GraphSynth.Representation.ruleSet.copy">
+            <summary>
+              Returns a copy of this instance.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:GraphSynth.Representation.ruleSet.filer">
             <summary>
               Gets or sets the filer.
@@ -2962,11 +2459,520 @@
             </summary>
             <value>The generation after trigger rule.</value>
         </member>
+        <member name="M:GraphSynth.Representation.ruleSet.loadAndCompileSourceFiles(GraphSynth.Representation.ruleSet[],System.Boolean,System.String,System.String)">
+            <summary>
+              Loads and compiles the source files.
+            </summary>
+            <param name = "rulesets">The rulesets.</param>
+            <param name = "recompileRules">if set to <c>true</c> [recompile rules].</param>
+            <param name = "compiledparamRules">The compiledparam rules.</param>
+            <param name = "execDir">The exec dir.</param>
+        </member>
+        <member name="M:GraphSynth.Representation.ruleSet.FindSourceFiles(GraphSynth.Representation.ruleSet[],System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+              Finds the source files.
+            </summary>
+            <param name = "rulesets">The rulesets.</param>
+            <param name = "allSourceFiles">All source files.</param>
+            <param name = "rulesDirectory">The rules directory.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Representation.ruleSet.CompileSourceFiles(GraphSynth.Representation.ruleSet[],System.Collections.Generic.List{System.String},System.CodeDom.Compiler.CompilerResults@,System.String,System.String,System.String)">
+            <summary>
+              Compiles the source files.
+            </summary>
+            <param name = "rulesets">The rulesets.</param>
+            <param name = "allSourceFiles">All source files.</param>
+            <param name = "cr">The cr.</param>
+            <param name = "rulesDir">The rules dir.</param>
+            <param name = "execDir">The exec dir.</param>
+            <param name = "compiledparamRules">The compiledparam rules.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GraphSynth.IntCollectionConverter">
+            <summary>
+              A converter class for changing a collection of ints into a string and vice-versa.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.IntCollectionConverter.Convert(System.String)">
+            <summary>
+              Converts the for a string of comma-separated-values to a IEnumerable of ints.
+            </summary>
+            <param name = "value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.IntCollectionConverter.Convert(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+              Converts the specified values from a IEnumerable of ints to a comma-separated string.
+            </summary>
+            <param name = "values">The values.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GraphSynth.DoubleCollectionConverter">
+            <summary>
+              A converter class for changing a collection of doubles into a string and vice-versa.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.DoubleCollectionConverter.Convert(System.String)">
+            <summary>
+              Converts the for a string of comma-separated-values to a IEnumerable of doubles.
+            </summary>
+            <param name = "value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.DoubleCollectionConverter.Convert(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+              Converts the specified values from a IEnumerable of doubles to a comma-separated string.
+            </summary>
+            <param name = "values">The values.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GraphSynth.StringCollectionConverter">
+            <summary>
+              Used to convert a single string into a list of strings and vice-versa.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.StringCollectionConverter.Convert(System.String)">
+            <summary>
+              Converts the comma-separated-values into a IEnumerable of strings.
+            </summary>
+            <param name = "value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.StringCollectionConverter.Convert(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+              Converts the specified IEnumerable of strings into a comma separated single string.
+            </summary>
+            <param name = "values">The values.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GraphSynth.ErrorLogger">
+            <summary>
+              A class that allows us to dump errors to a txt file in the executable directory.
+            </summary>
+        </member>
+        <member name="F:GraphSynth.ErrorLogger.ErrorLogFile">
+            <summary>
+              The contents of the Error log
+            </summary>
+        </member>
+        <member name="M:GraphSynth.ErrorLogger.Catch(System.Exception)">
+            <summary>
+              Catches the specified exception.
+            </summary>
+            <param name = "Exc">The exc.</param>
+        </member>
+        <member name="M:GraphSynth.ErrorLogger.MakeErrorString(System.Exception,System.Boolean)">
+            <summary>
+              Makes the error string.
+            </summary>
+            <param name = "Exc">The exc.</param>
+            <param name = "includeComputerData">if set to <c>true</c> [include computer data].</param>
+            <returns></returns>
+        </member>
+        <member name="T:GraphSynth.GlobalSettings">
+            <summary>
+            The Global Settings class loads the the .gsconfig file into an object which 
+            is accessed throughout the system.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.GlobalSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphSynth.GlobalSettings"/> class.
+            </summary>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.ExecDir">
+            <summary>
+              The directory that GraphSynth.exe is located in
+            </summary>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.ConfigDir">
+            <summary>
+            Gets or sets the directory where the configuration file was found.
+            </summary>
+            <value>The config dir.</value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.FilePath">
+            <summary>
+              Gets or sets the location of the settings file.
+            </summary>
+            <value>The location.</value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.filer">
+            <summary>
+            Gets or sets the filer instance that controls the opening and saving of files.
+            </summary>
+            <value>
+            The filer.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.seed">
+            <summary>
+            Gets or sets the seed graph - although this dll doesn't know what
+            a graph is, so you need to "cast up" to really use it.
+            </summary>
+            <value>
+            The seed.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.rulesets">
+            <summary>
+            Gets or sets the rulesets - although this dll doesn't know what
+            a graph is, so you need to "cast up" to really use it.
+            </summary>
+            <value>
+            The rulesets.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.numOfRuleSets">
+            <summary>
+            Gets or sets the number of rule sets.
+            </summary>
+            <value>
+            The number of rule sets.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.MaxRulesToDisplay">
+            <summary>
+            Gets or sets the maximum rules to display in GUI driven User Choose.
+            </summary>
+            <value>
+            The max rules to display.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.MaxRulesToApply">
+            <summary>
+            Gets or sets the max rules to apply.
+            </summary>
+            <value>
+            The max rules to apply.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.WorkingDirAbsolute">
+            <summary>
+            Gets or sets the absolute working directory.
+            </summary>
+            <value>
+            The absolute working directory.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.WorkingDirRelative">
+            <summary>
+            Gets or sets the relative working directory.
+            </summary>
+            <value>
+            The relative working directory.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.InputDir">
+            <summary>
+            Gets or sets the input directory.
+            </summary>
+            <value>
+            The input dir.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.InputDirAbs">
+            <summary>
+            Gets the absolute (rooted) input directory.
+            </summary>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.OutputDir">
+            <summary>
+            Gets or sets the output directory.
+            </summary>
+            <value>
+            The output dir.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.OutputDirAbs">
+            <summary>
+            Gets the absolute (rooted) output directory.
+            </summary>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.RulesDir">
+            <summary>
+            Gets or sets the rules directory.
+            </summary>
+            <value>
+            The rules directory.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.RulesDirAbs">
+            <summary>
+            Gets the absolute (rooted) rules directory.
+            </summary>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.LocalHelpDir">
+            <summary>
+            Gets or sets the local help dir.
+            </summary>
+            <value>
+            The local help dir.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.OnlineHelpURL">
+            <summary>
+            Gets or sets the online help URL.
+            </summary>
+            <value>
+            The online help URL.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.GraphLayoutDir">
+            <summary>
+            Gets or sets the graph layout directory.
+            </summary>
+            <value>
+            The graph layout directory.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.GraphLayoutDirAbs">
+            <summary>
+            Gets the absolute (rooted) graph layout directory.
+            </summary>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.SearchDir">
+            <summary>
+            Gets or sets the search directory.
+            </summary>
+            <value>
+            The search directory.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.SearchDirAbs">
+            <summary>
+            Gets the absolute (rooted) search directory.
+            </summary>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.ErrorLogFile">
+            <summary>
+            Gets or sets the error log file.
+            </summary>
+            <value>
+            The error log file.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.DefaultSeedFileName">
+            <summary>
+            Gets or sets the default name of the seed file.
+            </summary>
+            <value>
+            The default name of the seed file.
+            </value>
+        </member>
+        <member name="F:GraphSynth.GlobalSettings.defaultRSFileNames">
+            <summary>
+            the default ruleset filenames relative to the rules directory
+            </summary>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.DefaultRuleSets">
+            <summary>
+            Gets or sets the default rule sets filename as a single string.
+            </summary>
+            <value>
+            The default rule sets.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.CustomShapesFile">
+            <summary>
+            Gets or sets the custom shapes file.
+            </summary>
+            <value>
+            The custom shapes file.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.CompiledRuleFunctions">
+            <summary>
+            Gets or sets the compiled param rules.
+            </summary>
+            <value>
+            The compiledparam rules.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.SearchControllerPlayOnStart">
+            <summary>
+            Gets or sets a value indicating whether search controllers should automatically start playing
+            when they are initiated.
+            </summary>
+            <value>
+            	<c>true</c> if [search controller is set to auto-play]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.GetHelpFromOnline">
+            <summary>
+            Gets or sets a value indicating whether [get help from online].
+            </summary>
+            <value>
+              <c>true</c> if [get help from online]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.RecompileRuleConditions">
+            <summary>
+            Gets or sets a value indicating whether [recompile rule conditions].
+            </summary>
+            <value>
+            	<c>true</c> if [recompile rule conditions]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GraphSynth.GlobalSettings.DefaultVerbosity">
+            <summary>
+            Gets or sets the default verbosity.
+            </summary>
+            <value>
+            The default verbosity.
+            </value>
+        </member>
+        <member name="M:GraphSynth.GlobalSettings.readInSettings(System.String)">
+            <summary>
+            Reads in the settings.
+            </summary>
+            <param name="configPath">The file path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.GlobalSettings.saveNewSettings(System.String)">
+            <summary>
+            Saves the new settings.
+            </summary>
+            <param name="filename">The filename.</param>
+        </member>
+        <member name="M:GraphSynth.GlobalSettings.LoadDefaultSeedAndRuleSets">
+            <summary>
+            Loads the default seed and rule sets.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.GlobalSettings.Duplicate">
+            <summary>
+            Copies the exisiting and returns it.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.GlobalSettings.LoadDefaults">
+            <summary>
+            Loads the defaults.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.GlobalSettings.AttemptSubDirMigration(System.String)">
+            <summary>
+            Attempts to migrate all sub-directories when the working directory is changed.
+            Currently this only occurs in the GUI when a working directory has been changed.
+            </summary>
+        </member>
+        <member name="T:GraphSynth.IMainWindow">
+            <summary>
+            Interface for the main window of GraphSynth.
+            </summary>
+        </member>
+        <member name="P:GraphSynth.IMainWindow.SelectedAddItem">
+            <summary>
+            Gets the selected add item.
+            </summary>
+            <value>The selected add item.</value>
+        </member>
+        <member name="M:GraphSynth.IMainWindow.SetSelectedAddItem(System.Int32)">
+            <summary>
+            Sets the selected add item.
+            </summary>
+            <param name="i">The i.</param>
+            <returns></returns>
+        </member>
+        <member name="P:GraphSynth.IMainWindow.stayOn">
+            <summary>
+            Gets a value indicating whether the selected item should [stay on].
+            </summary>
+            <value><c>true</c> if [stay on]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:GraphSynth.IMainWindow.FocusOnLabelEntry(System.Object)">
+            <summary>
+            Focuses on the label field for easy entry.
+            </summary>
+            <param name="o">The o.</param>
+        </member>
+        <member name="M:GraphSynth.IMainWindow.propertyUpdate(System.Object)">
+            <summary>
+            Properties the update.
+            </summary>
+            <param name="o">The o.</param>
+        </member>
+        <member name="M:GraphSynth.IMainWindow.SetCanvasPropertyScaleFactor(System.Double,System.Nullable{System.Boolean})">
+            <summary>
+            Sets the canvas property scale factor. This is needed since the
+            GraphGUI needs to inform the main window what its scale is. The
+            reason it is defined here, is because GraphGUI is defined in the
+            CustomControls.dll and MainWindow is in the main EXE. Thus, we
+            can make a call up from a dependent library to the main EXE.
+            </summary>
+            <param name="scale">The scale.</param>
+            <param name="zoomToFit">The zoom to fit.</param>
+        </member>
+        <member name="M:GraphSynth.IMainWindow.addAndShowGraphWindow(System.Object,System.String)">
+            <summary>
+            Adds and shows a graph window.
+            </summary>
+            <param name="obj">The obj.</param>
+            <param name="title">The title.</param>
+        </member>
+        <member name="M:GraphSynth.IMainWindow.addAndShowRuleWindow(System.Object,System.String)">
+            <summary>
+            Adds and shows a rule window.
+            </summary>
+            <param name="obj">The obj.</param>
+            <param name="title">The title.</param>
+        </member>
+        <member name="M:GraphSynth.IMainWindow.addAndShowRuleSetWindow(System.Object,System.String)">
+            <summary>
+            Adds and shows a rule window.
+            </summary>
+            <param name="obj">The obj.</param>
+            <param name="title">The title.</param>
+        </member>
+        <member name="P:GraphSynth.IMainWindow.Dispatcher">
+            <summary>
+            Gets the dispatcher.
+            </summary>
+            <value>The dispatcher.</value>
+        </member>
+        <member name="P:GraphSynth.IMainWindow.shortCutKeys">
+            <summary>
+            Gets the short cut keys.
+            </summary>
+            <value>The short cut keys.</value>
+        </member>
+        <member name="T:GraphSynth.SearchIOToTextWriter">
+            <summary>
+              this class simply helps SearchIO get its output to the sidebar in GraphSynth.
+              It does this by inheriting from the TextWriter class. Borrowed from ? on CodeProject.
+            </summary>
+        </member>
+        <member name="F:GraphSynth.SearchIOToTextWriter.outputBox">
+            <summary>
+              The output box where text is presented to the user.
+            </summary>
+        </member>
+        <member name="P:GraphSynth.SearchIOToTextWriter.Encoding">
+            <summary>
+              When overridden in a derived class, returns the <see cref = "T:System.Text.Encoding" /> in which the output is written.
+            </summary>
+            <value></value>
+            <returns>The Encoding in which the output is written.</returns>
+        </member>
+        <member name="M:GraphSynth.SearchIOToTextWriter.WriteLine(System.String)">
+            <summary>
+              Writes the line.
+            </summary>
+            <param name = "str">The STR.</param>
+        </member>
         <member name="T:GraphSynth.SearchIO">
             <summary>
               The static class that handles input and output statements from a
               Search Process.
             </summary>
+        </member>
+        <member name="P:GraphSynth.SearchIO.iteration">
+            <summary>
+              Gets or sets the iteration.
+            </summary>
+            <value>The iteration.</value>
         </member>
         <member name="M:GraphSynth.SearchIO.getIteration(System.Int32)">
             <summary>
@@ -2975,12 +2981,24 @@
             <param name="threadID">The thread identifier.</param>
             <returns></returns>
         </member>
+        <member name="P:GraphSynth.SearchIO.miscObject">
+            <summary>
+              Gets or sets the misc object.
+            </summary>
+            <value>The misc object.</value>
+        </member>
         <member name="M:GraphSynth.SearchIO.getMiscObject(System.Int32)">
             <summary>
               Gets the misc object.
             </summary>
             <param name = "threadName">Name of the thread.</param>
             <returns></returns>
+        </member>
+        <member name="P:GraphSynth.SearchIO.terminateRequest">
+            <summary>
+              Gets a value indicating whether [terminate request].
+            </summary>
+            <value><c>true</c> if [terminate request]; otherwise, <c>false</c>.</value>
         </member>
         <member name="M:GraphSynth.SearchIO.GetTerminateRequest(System.Int32)">
             <summary>
@@ -2994,6 +3012,12 @@
               Sets the termination request.
             </summary>
             <param name = "threadName">Name of the thread.</param>
+        </member>
+        <member name="P:GraphSynth.SearchIO.timeInterval">
+            <summary>
+              Gets the time interval.
+            </summary>
+            <value>The time interval.</value>
         </member>
         <member name="M:GraphSynth.SearchIO.setTimeInterval(System.Int32,System.TimeSpan)">
             <summary>
@@ -3013,6 +3037,12 @@
             <summary>
               Defines the default verbosity of all search threads.
             </summary>
+        </member>
+        <member name="P:GraphSynth.SearchIO.verbosity">
+            <summary>
+              Gets the verbosity.
+            </summary>
+            <value>The verbosity.</value>
         </member>
         <member name="M:GraphSynth.SearchIO.setVerbosity(System.Int32,System.Int32)">
             <summary>
@@ -3082,36 +3112,6 @@
             </summary>
             <param name="ruleSetObjects">The rule set objects.</param>
             <param name="title">The title.</param>
-        </member>
-        <member name="P:GraphSynth.SearchIO.iteration">
-            <summary>
-              Gets or sets the iteration.
-            </summary>
-            <value>The iteration.</value>
-        </member>
-        <member name="P:GraphSynth.SearchIO.miscObject">
-            <summary>
-              Gets or sets the misc object.
-            </summary>
-            <value>The misc object.</value>
-        </member>
-        <member name="P:GraphSynth.SearchIO.terminateRequest">
-            <summary>
-              Gets a value indicating whether [terminate request].
-            </summary>
-            <value><c>true</c> if [terminate request]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:GraphSynth.SearchIO.timeInterval">
-            <summary>
-              Gets the time interval.
-            </summary>
-            <value>The time interval.</value>
-        </member>
-        <member name="P:GraphSynth.SearchIO.verbosity">
-            <summary>
-              Gets the verbosity.
-            </summary>
-            <value>The verbosity.</value>
         </member>
         <member name="T:GraphSynth.choiceMethods">
             <summary>
@@ -3420,145 +3420,6 @@
             Thus, this is used in the RCA loop to invoke all confluent rules.
             </summary>
         </member>
-        <member name="T:GraphSynth.Search.RecognizeChooseApply">
-            <summary>
-              this is the main file and class of generation. The model adopted is that one should
-              create an inherited class of this ABSTRACT class, as has been done for randomChoose, 
-              chooseViaHumanGui, etc. This file has gone through a lot of revision to make it 
-              general to a wide variety of problems. It should not have to be altered, rather one
-              can control aspects of the execution through the ruleSets
-            </summary>
-        </member>
-        <member name="F:GraphSynth.Search.RecognizeChooseApply.Rulesets">
-            <summary>
-              An array of rulesets used in this generation process.
-            </summary>
-        </member>
-        <member name="F:GraphSynth.Search.RecognizeChooseApply.NumOfRuleSets">
-            <summary>
-            The number of rule sets
-            </summary>
-        </member>
-        <member name="F:GraphSynth.Search.RecognizeChooseApply.MaxNumOfCalls">
-            <summary>
-              The array of the maximum number of calls to make in each ruleset.
-              This is not cumulative - if you return to a previous ruleset, the counter is 
-              reset. It is copied to the numOfCallsLeft at the beginning of the RCACycle into 
-              the numOfCallsLeft slot.
-            </summary>
-            <value>The max num of calls.</value>
-        </member>
-        <member name="F:GraphSynth.Search.RecognizeChooseApply.Display">
-            <summary>
-            A simple Boolean used for debugging or interactive generation. If true then
-            the host will be replotted after each apply action.
-            </summary>
-            <value><c>true</c> if display; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="F:GraphSynth.Search.RecognizeChooseApply.InParallel">
-            <summary>
-            A value indicating whether [in parallel].
-            </summary>
-            <value><c>true</c> if [in parallel]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.RecognizeChooseApplyCycle(GraphSynth.Representation.candidate,System.Int32,System.Int32[])">
-            <summary>
-              Recognizes the choose apply cycle. Here is the main Recognize, Choose, and 
-              Apply Generation Cycle. It accepts the host candidate (not graph), the index
-              of what ruleSet to invoke, and an array of size equal to the number of ruleSets.
-              At the end of the process, it returns the updated candidate. The three step
-              process may, however exit at any of five places in the loop, these are described below.
-              1. the ruleSet invoked may not have any calls left. This will cause the GenerationStatus
-              to be CycleLimit, and the process will execute what is stored in the 3rd position of 
-              generationSteps, ruleSet->nextGenerationStep[2], either Stop, Loop, GoToPrevious(ruleSet),
-              GoToNext(ruleSet), or GoToRuleSet#
-              2. the choice operation has sent a STOP message, or more precisely a negative # or
-              a number greater than the list of option. This results in a GenerationStatus of Choice
-              and the execution of ruleSet->nextGenerationStep[1] (any of the options stated above).
-              3. there are no rules recognized for the graph. This results in a GenerationStatus of
-              NoRules and the execution of ruleSet->nextGenerationStep[3] (any of the options above).
-              4. A trigger rule has been applied. This results in a GenerationStatus of TriggerRule
-              and the execution of ruleSet->nextGenerationStep[4] (any of the options stated above).
-              5. the recognize, choose, and apply cycle performed as intended - no abnormal activites.
-              This results in a GenerationStatus of Normal and the execution of 
-              ruleSet->nextGenerationStep[0] (any of the options stated above).*/
-            </summary>
-            <param name = "host">The host.</param>
-            <param name = "ruleSetIndex">Index of the rule set.</param>
-            <param name = "numOfCallsLeft">The num of calls left.</param>
-        </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.CallOneRuleOnCandidate(GraphSynth.Representation.candidate,System.Int32)">
-            <summary>
-              Calls  one rule on candidate - the rule is determined by the choose function.
-            </summary>
-            <param name = "cand">The cand.</param>
-            <param name = "startingRuleSet">The starting rule set.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.GenerateAllNeighbors(GraphSynth.Representation.candidate,System.Boolean,System.Int32)">
-            <summary>
-              Generates all neighbors of the current.
-            </summary>
-            <param name = "current">The current.</param>
-            <param name = "IncludingParent">if set to <c>true</c> [including parent].</param>
-            <param name = "MaxNumber">The max number.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.GenerateOneCandidate(GraphSynth.Representation.candidate,System.Int32)">
-            <summary>
-              Generates one candidate. A simple function for invoking the RecognizeChooseApplyCycle.
-              That function is protected so we invoke it through a function like this.
-            </summary>
-            <param name = "cand">The cand to build upon (if null, then the seed will be used).</param>
-            <param name = "startingRuleSet">The starting rule set (if unspecified then the candidate's active ruleset will be used.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.#ctor(GraphSynth.Representation.designGraph,GraphSynth.Representation.ruleSet[],System.Int32[],System.Boolean,System.Boolean)">
-            <summary>
-            Initializes a new instance of the <see cref="T:GraphSynth.Search.RecognizeChooseApply"/> class.
-            </summary>
-            <param name="host">The _seed.</param>
-            <param name="rulesets">The _rulesets.</param>
-            <param name="maxNumOfCalls">The _max num of calls.</param>
-            <param name="display">if set to <c>true</c> [_display].</param>
-            <param name="inParallel">The process should be invoked in parallel where possible.</param>
-        </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.choose(System.Collections.Generic.List{GraphSynth.Representation.option},GraphSynth.Representation.candidate)">
-            <summary>
-              Chooses the specified options. Given the list of options and the candidate, 
-              determine what option to invoke. Return the integer index of this option from the list.
-            </summary>
-            <param name = "options">The options.</param>
-            <param name = "cand">The cand.</param>
-            <returns></returns>
-        </member>
-        <member name="M:GraphSynth.Search.RecognizeChooseApply.choose(GraphSynth.Representation.option,GraphSynth.Representation.candidate)">
-            <summary>
-              Chooses the specified option. Given that the rule has now been chosen, determine
-              the values needed by the rule to properly apply it to the candidate, cand. The 
-              array of doubles is to be determined by parametric apply rules written in 
-              complement C# files for the ruleSet being used.
-            </summary>
-            <param name = "opt">The opt.</param>
-            <param name = "cand">The cand.</param>
-            <returns></returns>
-        </member>
-        <member name="P:GraphSynth.Search.RecognizeChooseApply.Host">
-            <summary>
-            Gets or sets the host. Often the same as the seed used as a starting point for the 
-            generation process. That seed is stored here as a accessible propoerty of the class.
-            </summary>
-            <value>
-            The host.
-            </value>
-        </member>
-        <member name="P:GraphSynth.Search.RecognizeChooseApply.choice">
-            <summary>
-              Gets or sets the integer choice which is used in the main loop as well as in 
-              various implementation of choose. As a result we define it as global to the class.
-            </summary>
-            <value>The choice.</value>
-        </member>
         <member name="M:GraphSynth.Search.LindenmayerChooseRCA.choose(System.Collections.Generic.List{GraphSynth.Representation.option},GraphSynth.Representation.candidate)">
             <summary>
             Chooses the specified options. Given the list of options and the candidate,
@@ -3658,6 +3519,145 @@
             <param name="_maxNumOfCalls">The _max num of calls.</param>
             <param name="_display">if set to <c>true</c> [_display].</param>
         </member>
+        <member name="T:GraphSynth.Search.RecognizeChooseApply">
+            <summary>
+              this is the main file and class of generation. The model adopted is that one should
+              create an inherited class of this ABSTRACT class, as has been done for randomChoose, 
+              chooseViaHumanGui, etc. This file has gone through a lot of revision to make it 
+              general to a wide variety of problems. It should not have to be altered, rather one
+              can control aspects of the execution through the ruleSets
+            </summary>
+        </member>
+        <member name="F:GraphSynth.Search.RecognizeChooseApply.Rulesets">
+            <summary>
+              An array of rulesets used in this generation process.
+            </summary>
+        </member>
+        <member name="F:GraphSynth.Search.RecognizeChooseApply.NumOfRuleSets">
+            <summary>
+            The number of rule sets
+            </summary>
+        </member>
+        <member name="P:GraphSynth.Search.RecognizeChooseApply.Host">
+            <summary>
+            Gets or sets the host. Often the same as the seed used as a starting point for the 
+            generation process. That seed is stored here as a accessible propoerty of the class.
+            </summary>
+            <value>
+            The host.
+            </value>
+        </member>
+        <member name="F:GraphSynth.Search.RecognizeChooseApply.MaxNumOfCalls">
+            <summary>
+              The array of the maximum number of calls to make in each ruleset.
+              This is not cumulative - if you return to a previous ruleset, the counter is 
+              reset. It is copied to the numOfCallsLeft at the beginning of the RCACycle into 
+              the numOfCallsLeft slot.
+            </summary>
+            <value>The max num of calls.</value>
+        </member>
+        <member name="F:GraphSynth.Search.RecognizeChooseApply.Display">
+            <summary>
+            A simple Boolean used for debugging or interactive generation. If true then
+            the host will be replotted after each apply action.
+            </summary>
+            <value><c>true</c> if display; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="F:GraphSynth.Search.RecognizeChooseApply.InParallel">
+            <summary>
+            A value indicating whether [in parallel].
+            </summary>
+            <value><c>true</c> if [in parallel]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:GraphSynth.Search.RecognizeChooseApply.RecognizeChooseApplyCycle(GraphSynth.Representation.candidate,System.Int32,System.Int32[])">
+            <summary>
+              Recognizes the choose apply cycle. Here is the main Recognize, Choose, and 
+              Apply Generation Cycle. It accepts the host candidate (not graph), the index
+              of what ruleSet to invoke, and an array of size equal to the number of ruleSets.
+              At the end of the process, it returns the updated candidate. The three step
+              process may, however exit at any of five places in the loop, these are described below.
+              1. the ruleSet invoked may not have any calls left. This will cause the GenerationStatus
+              to be CycleLimit, and the process will execute what is stored in the 3rd position of 
+              generationSteps, ruleSet->nextGenerationStep[2], either Stop, Loop, GoToPrevious(ruleSet),
+              GoToNext(ruleSet), or GoToRuleSet#
+              2. the choice operation has sent a STOP message, or more precisely a negative # or
+              a number greater than the list of option. This results in a GenerationStatus of Choice
+              and the execution of ruleSet->nextGenerationStep[1] (any of the options stated above).
+              3. there are no rules recognized for the graph. This results in a GenerationStatus of
+              NoRules and the execution of ruleSet->nextGenerationStep[3] (any of the options above).
+              4. A trigger rule has been applied. This results in a GenerationStatus of TriggerRule
+              and the execution of ruleSet->nextGenerationStep[4] (any of the options stated above).
+              5. the recognize, choose, and apply cycle performed as intended - no abnormal activites.
+              This results in a GenerationStatus of Normal and the execution of 
+              ruleSet->nextGenerationStep[0] (any of the options stated above).*/
+            </summary>
+            <param name = "host">The host.</param>
+            <param name = "ruleSetIndex">Index of the rule set.</param>
+            <param name = "numOfCallsLeft">The num of calls left.</param>
+        </member>
+        <member name="M:GraphSynth.Search.RecognizeChooseApply.CallOneRuleOnCandidate(GraphSynth.Representation.candidate,System.Int32)">
+            <summary>
+              Calls  one rule on candidate - the rule is determined by the choose function.
+            </summary>
+            <param name = "cand">The cand.</param>
+            <param name = "startingRuleSet">The starting rule set.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Search.RecognizeChooseApply.GenerateAllNeighbors(GraphSynth.Representation.candidate,System.Boolean,System.Int32)">
+            <summary>
+              Generates all neighbors of the current.
+            </summary>
+            <param name = "current">The current.</param>
+            <param name = "IncludingParent">if set to <c>true</c> [including parent].</param>
+            <param name = "MaxNumber">The max number.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Search.RecognizeChooseApply.GenerateOneCandidate(GraphSynth.Representation.candidate,System.Int32)">
+            <summary>
+              Generates one candidate. A simple function for invoking the RecognizeChooseApplyCycle.
+              That function is protected so we invoke it through a function like this.
+            </summary>
+            <param name = "cand">The cand to build upon (if null, then the seed will be used).</param>
+            <param name = "startingRuleSet">The starting rule set (if unspecified then the candidate's active ruleset will be used.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphSynth.Search.RecognizeChooseApply.#ctor(GraphSynth.Representation.designGraph,GraphSynth.Representation.ruleSet[],System.Int32[],System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GraphSynth.Search.RecognizeChooseApply" /> class.
+            </summary>
+            <param name="host">The _seed.</param>
+            <param name="rulesets">The _rulesets.</param>
+            <param name="maxNumOfCalls">The _max num of calls.</param>
+            <param name="display">if set to <c>true</c> [_display].</param>
+            <param name="inParallel">The process should be invoked in parallel where possible.</param>
+        </member>
+        <member name="M:GraphSynth.Search.RecognizeChooseApply.choose(System.Collections.Generic.List{GraphSynth.Representation.option},GraphSynth.Representation.candidate)">
+            <summary>
+              Chooses the specified options. Given the list of options and the candidate, 
+              determine what option to invoke. Return the integer index of this option from the list.
+            </summary>
+            <param name = "options">The options.</param>
+            <param name = "cand">The cand.</param>
+            <returns></returns>
+        </member>
+        <member name="P:GraphSynth.Search.RecognizeChooseApply.choice">
+            <summary>
+              Gets or sets the integer choice which is used in the main loop as well as in 
+              various implementation of choose. As a result we define it as global to the class.
+            </summary>
+            <value>The choice.</value>
+        </member>
+        <member name="M:GraphSynth.Search.RecognizeChooseApply.choose(GraphSynth.Representation.option,GraphSynth.Representation.candidate)">
+            <summary>
+              Chooses the specified option. Given that the rule has now been chosen, determine
+              the values needed by the rule to properly apply it to the candidate, cand. The 
+              array of doubles is to be determined by parametric apply rules written in 
+              complement C# files for the ruleSet being used.
+            </summary>
+            <param name = "opt">The opt.</param>
+            <param name = "cand">The cand.</param>
+            <returns></returns>
+        </member>
         <member name="T:GraphSynth.Search.SearchProcess">
             <summary>
               The abstract class that must be inherited in the Search plugins.
@@ -3665,14 +3665,71 @@
         </member>
         <member name="M:GraphSynth.Search.SearchProcess.#ctor(GraphSynth.GlobalSettings)">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Search.SearchProcess"/> class.
+              Initializes a new instance of the <see cref = "T:GraphSynth.Search.SearchProcess" /> class.
             </summary>
-            <param name="settings">The settings.</param>
+            <param name = "settings">The settings.</param>
         </member>
         <member name="M:GraphSynth.Search.SearchProcess.#ctor">
             <summary>
-              Initializes a new instance of the <see cref="T:GraphSynth.Search.SearchProcess"/> class.
+              Initializes a new instance of the <see cref = "T:GraphSynth.Search.SearchProcess" /> class.
             </summary>
+        </member>
+        <member name="P:GraphSynth.Search.SearchProcess.seedGraph">
+            <summary>
+              Gets the seed graph defined in settings.
+            </summary>
+            <value>The seed graph.</value>
+        </member>
+        <member name="P:GraphSynth.Search.SearchProcess.seedCandidate">
+            <summary>
+              Gets the seed candidate.
+            </summary>
+            <value>The seed candidate.</value>
+        </member>
+        <member name="P:GraphSynth.Search.SearchProcess.numOfRuleSets">
+            <summary>
+            Gets the number of RuleSets.
+            </summary>
+            <value>
+            The num of rule sets.
+            </value>
+        </member>
+        <member name="P:GraphSynth.Search.SearchProcess.rulesets">
+            <summary>
+              Gets the rulesets defined in the settings as an array.
+            </summary>
+            <value>The rulesets.</value>
+        </member>
+        <member name="P:GraphSynth.Search.SearchProcess.RequireSeed">
+            <summary>
+              Gets or sets a value indicating whether [require seed].
+            </summary>
+            <value><c>true</c> if [require seed]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GraphSynth.Search.SearchProcess.RequiredNumRuleSets">
+            <summary>
+              Gets or sets the required num rule sets.
+            </summary>
+            <value>The required num rule sets.</value>
+        </member>
+        <member name="P:GraphSynth.Search.SearchProcess.AutoPlay">
+            <summary>
+              Gets or sets a value indicating whether [auto play].
+            </summary>
+            <value><c>true</c> if [auto play]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GraphSynth.Search.SearchProcess.settings">
+            <summary>
+              Gets the settings defined for the problem (as saved in GraphSynthSettings.gsconfig
+              and as specified by the user in Edit->Settings).
+            </summary>
+            <value>The settings.</value>
+        </member>
+        <member name="P:GraphSynth.Search.SearchProcess.text">
+            <summary>
+              Gets the text describing that is displayed in the menu. It must be overridden in the methods.
+            </summary>
+            <value>The text.</value>
         </member>
         <member name="M:GraphSynth.Search.SearchProcess.RunSearchProcess">
             <summary>
@@ -3768,6 +3825,24 @@
             <param name = "optDirections">The opt directions.</param>
             <returns></returns>
         </member>
+        <member name="P:GraphSynth.Search.SearchProcess.inputDirectory">
+            <summary>
+            Gets or sets the input directory.
+            </summary>
+            <value>The input directory.</value>
+        </member>
+        <member name="P:GraphSynth.Search.SearchProcess.outputDirectory">
+            <summary>
+            Gets or sets the output directory.
+            </summary>
+            <value>The output directory.</value>
+        </member>
+        <member name="P:GraphSynth.Search.SearchProcess.rulesDirectory">
+            <summary>
+            Gets or sets the rules directory.
+            </summary>
+            <value>The rules directory.</value>
+        </member>
         <member name="M:GraphSynth.Search.SearchProcess.Save(System.String,System.Object,System.Boolean)">
             <summary>
             Saves the specified filename.
@@ -3793,81 +3868,6 @@
             <param name="filename">The filename.</param>
             <param name="SuppressWarnings">if set to <c>true</c> [suppress warnings].</param>
             <returns></returns>
-        </member>
-        <member name="P:GraphSynth.Search.SearchProcess.seedGraph">
-            <summary>
-              Gets the seed graph defined in settings.
-            </summary>
-            <value>The seed graph.</value>
-        </member>
-        <member name="P:GraphSynth.Search.SearchProcess.seedCandidate">
-            <summary>
-              Gets the seed candidate.
-            </summary>
-            <value>The seed candidate.</value>
-        </member>
-        <member name="P:GraphSynth.Search.SearchProcess.numOfRuleSets">
-            <summary>
-            Gets the number of RuleSets.
-            </summary>
-            <value>
-            The num of rule sets.
-            </value>
-        </member>
-        <member name="P:GraphSynth.Search.SearchProcess.rulesets">
-            <summary>
-              Gets the rulesets defined in the settings as an array.
-            </summary>
-            <value>The rulesets.</value>
-        </member>
-        <member name="P:GraphSynth.Search.SearchProcess.RequireSeed">
-            <summary>
-              Gets or sets a value indicating whether [require seed].
-            </summary>
-            <value><c>true</c> if [require seed]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:GraphSynth.Search.SearchProcess.RequiredNumRuleSets">
-            <summary>
-              Gets or sets the required num rule sets.
-            </summary>
-            <value>The required num rule sets.</value>
-        </member>
-        <member name="P:GraphSynth.Search.SearchProcess.AutoPlay">
-            <summary>
-              Gets or sets a value indicating whether [auto play].
-            </summary>
-            <value><c>true</c> if [auto play]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:GraphSynth.Search.SearchProcess.settings">
-            <summary>
-              Gets the settings defined for the problem (as saved in GraphSynthSettings.gsconfig
-              and as specified by the user in Edit->Settings).
-            </summary>
-            <value>The settings.</value>
-        </member>
-        <member name="P:GraphSynth.Search.SearchProcess.text">
-            <summary>
-              Gets the text describing that is displayed in the menu. It must be overridden in the methods.
-            </summary>
-            <value>The text.</value>
-        </member>
-        <member name="P:GraphSynth.Search.SearchProcess.inputDirectory">
-            <summary>
-            Gets or sets the input directory.
-            </summary>
-            <value>The input directory.</value>
-        </member>
-        <member name="P:GraphSynth.Search.SearchProcess.outputDirectory">
-            <summary>
-            Gets or sets the output directory.
-            </summary>
-            <value>The output directory.</value>
-        </member>
-        <member name="P:GraphSynth.Search.SearchProcess.rulesDirectory">
-            <summary>
-            Gets or sets the rules directory.
-            </summary>
-            <value>The rules directory.</value>
         </member>
         <member name="T:GraphSynth.ShapeData">
             <summary>
