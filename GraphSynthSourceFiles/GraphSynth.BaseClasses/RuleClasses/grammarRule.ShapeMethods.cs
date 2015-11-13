@@ -55,7 +55,10 @@ namespace GraphSynth.Representation
             get
             {
                 if (_regularizationMatrix == null)
-                    calculateRegularizationMatrix();
+                {
+                    if (_threeDimensional) calculateRegularizationMatrix3D();
+                    else calculateRegularizationMatrix2D();
+                }
                 return _regularizationMatrix;
             }
         }
@@ -75,7 +78,7 @@ namespace GraphSynth.Representation
         /// is on the x-y plane {d2, d3, 0}. This simplifies the calculations in finding the transformation
         /// of the LHS to get it to match the host shape.
         /// </summary>
-        private void calculateRegularizationMatrix()
+        private void calculateRegularizationMatrix3D()
         {
             double[,] quaternion1, quaternion2;
             // start with the regularization matrix at the origin.
@@ -128,6 +131,57 @@ namespace GraphSynth.Representation
                 }
             }
         }
+        /// <summary>
+        ///   Calculates the regularization matrix.
+        /// </summary>
+        private void calculateRegularizationMatrix2D()
+        {
+            _regularizationMatrix = new double[4, 4];
+            double a = 1.0, b = 0.0, c = 0.0, d = 1.0, tauX = 0.0, tauY = 0.0;
+            double length = 1;
+
+
+            if (L.nodes.Count >= 1)
+            {
+                tauX = -L.nodes[0].X;
+                tauY = -L.nodes[0].Y;
+            }
+            if (L.nodes.Count >= 2)
+            {
+                var theta = -Math.Atan2((L.nodes[1].Y - L.nodes[0].Y), (L.nodes[1].X - L.nodes[0].X));
+                if (MatrixMath.sameCloseZero(Math.Abs(theta), Math.PI / 2)) // theta is 90-degrees
+                {
+                    a = d = 0.0;
+                    b = (theta > 0) ? -1 : 1;
+                    c = -b;
+                    length = Math.Abs(L.nodes[1].Y - L.nodes[0].Y);
+                }
+                else if (MatrixMath.sameCloseZero(theta))//theta is 0-degrees
+                {
+                    a = d = 1;
+                    b = c = 0;
+                    length = Math.Abs(L.nodes[1].X - L.nodes[0].X);
+                }
+                else
+                {
+                    a = d = Math.Cos(theta);
+                    length = (L.nodes[1].X - L.nodes[0].X) / a;
+                    b = -Math.Sin(theta);
+                    c = -b;
+                }
+            }
+            _regularizationMatrix[0, 0] = a / length;
+            _regularizationMatrix[0, 1] = b / length;
+            _regularizationMatrix[0, 2] = (a * tauX + b * tauY) / length;
+            _regularizationMatrix[1, 0] = c / length;
+            _regularizationMatrix[1, 1] = d / length;
+            _regularizationMatrix[1, 2] = (c * tauX + d * tauY) / length;
+            _regularizationMatrix[2, 2] = 1.0;
+            _regularizationMatrix[3, 0] = 0.0;
+            _regularizationMatrix[3, 1] = 0.0;
+            _regularizationMatrix[3, 2] = 0.0;
+            _regularizationMatrix[3, 3] = 1.0;
+        }
 
         #endregion
 
@@ -141,7 +195,7 @@ namespace GraphSynth.Representation
 
         private Boolean _useShapeRestrictions;
         private Boolean _restrictToNodeShapeMatch;
-        private Boolean _transformNodeShapes = true;
+        private Boolean _transformNodeShapes = false;
         private Boolean _transformNodePositions = true;
 
         /// <summary>
@@ -257,7 +311,7 @@ namespace GraphSynth.Representation
 
         private Boolean findTransform(IList<node> locatedNodes, out double[,] T)
         {
-            if (Skew == transfromType.Prohibited && Projection == transfromType.Prohibited)
+            if (UseShapeRestrictions && Skew == transfromType.Prohibited && Projection == transfromType.Prohibited)
                 return find3DTransform(locatedNodes, out T);
             var result = General2DTransform(locatedNodes, out T);
             if (result)
@@ -304,9 +358,9 @@ namespace GraphSynth.Representation
             }
             if (locatedNodes.Count >= 3)
             {
-                x3 = locatedNodes[3].X;
-                y3 = locatedNodes[3].Y;
-                var temp = new[] { L.nodes[3].X, L.nodes[3].Y, 0.0, 1.0 };
+                x3 = locatedNodes[2].X;
+                y3 = locatedNodes[2].Y;
+                var temp = new[] { L.nodes[2].X, L.nodes[2].Y, 0.0, 1.0 };
                 temp = RegularizationMatrix.multiply(temp, 4);
                 u3 = temp[0];
                 v3 = temp[1];
@@ -518,7 +572,7 @@ namespace GraphSynth.Representation
             // set up a new host vector from the reference point, which is the location of the first node
             vHost = new[]
             {
-                locatedNodes[2].X - refPt[0], 
+                locatedNodes[2].X - refPt[0],
                 locatedNodes[2].Y - refPt[1],
                 locatedNodes[2].Z - refPt[2]
             };
@@ -528,17 +582,17 @@ namespace GraphSynth.Representation
 
             // reformulate vL as the vector to the L-node from the axis.
             vL = new[]
-            {                                                     
-                vL[0] - (dxAlongAxisL*axisUnitVector[0]), 
-                vL[1] - (dxAlongAxisL*axisUnitVector[1]), 
+            {
+                vL[0] - (dxAlongAxisL*axisUnitVector[0]),
+                vL[1] - (dxAlongAxisL*axisUnitVector[1]),
                 vL[2] - (dxAlongAxisL*axisUnitVector[2])
             };
             vL_length = vL.norm2(3);
             // similarly reformulate vHost as the vector to the host-node from the axis.
             vHost = new[]
-            {                                       
-                vHost[0] - (dxAlongAxisL*axisUnitVector[0]), 
-                vHost[1] - (dxAlongAxisL*axisUnitVector[1]), 
+            {
+                vHost[0] - (dxAlongAxisL*axisUnitVector[0]),
+                vHost[1] - (dxAlongAxisL*axisUnitVector[1]),
                 vHost[2] - (dxAlongAxisL*axisUnitVector[2])
             };
             vHost_length = vHost.norm2();
@@ -576,7 +630,7 @@ namespace GraphSynth.Representation
             vL_length = vL.norm2();
             vHost = new[]
             {
-                locatedNodes[3].X - locatedNodes[0].X, 
+                locatedNodes[3].X - locatedNodes[0].X,
                 locatedNodes[3].Y - locatedNodes[0].Y,
                 locatedNodes[3].Z - locatedNodes[0].Z
             };
@@ -588,8 +642,8 @@ namespace GraphSynth.Representation
             T = quaternion1.multiply(T, 4);
             T = quaternion2.multiply(T, 4);
             T = transMatrix.multiply(T, 4);
-            snapToIntValues(T);                                                  
-            return ValidScaling(_inverseRegMatrix.multiply(scaleMatrix, 4)) 
+            snapToIntValues(T);
+            return ValidScaling(_inverseRegMatrix.multiply(scaleMatrix, 4))
                 && ValidRotation(T, _inverseRegMatrix.multiply(scaleMatrix, 4));
         }
 

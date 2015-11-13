@@ -1398,13 +1398,18 @@
               Resets the regularization matrix.
             </summary>
         </member>
-        <member name="M:GraphSynth.Representation.grammarRule.calculateRegularizationMatrix">
+        <member name="M:GraphSynth.Representation.grammarRule.calculateRegularizationMatrix3D">
             <summary>
             Calculates the regularization matrix. This is a matrix that is used to simplify the 
             shape recognition process. Multiplying the LHS by R (the regularization matrix), the
             first node will now be at {0,0,0}, the second is on the x-axis {d1, 0, 0}, then third
             is on the x-y plane {d2, d3, 0}. This simplifies the calculations in finding the transformation
             of the LHS to get it to match the host shape.
+            </summary>
+        </member>
+        <member name="M:GraphSynth.Representation.grammarRule.calculateRegularizationMatrix2D">
+            <summary>
+              Calculates the regularization matrix.
             </summary>
         </member>
         <member name="P:GraphSynth.Representation.grammarRule.UseShapeRestrictions">
