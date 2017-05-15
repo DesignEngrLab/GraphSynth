@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26510.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A8E3F6A5-EC42-4B80-AFA7-2A00C93E7105}"
 	ProjectSection(SolutionItems) = preProject
@@ -32,9 +32,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSynth.GraphLayoutBasic
 		{E47424A2-4E8E-481F-831E-D22186A12AFD} = {E47424A2-4E8E-481F-831E-D22186A12AFD}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSynthConsole", "GraphSynthConsole\GraphSynthConsole.csproj", "{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSynth.BaseClasses", "GraphSynth.BaseClasses\GraphSynth.BaseClasses.csproj", "{D679F4E2-FD18-48AC-9C0C-B60155A61D37}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphSynth.Base", "GraphSynth.Base\GraphSynth.Base.csproj", "{6E0BF072-E31D-43E6-9D06-699DD3228390}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphSynthConsole", "GraphSynthConsole\GraphSynthConsole.csproj", "{C29BE213-B44C-4D4D-93F9-9BE8D92F2132}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -76,16 +78,6 @@ Global
 		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}.WPF GUI Debug|Any CPU.Build.0 = WPF GUI Debug|Any CPU
 		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}.WPF GUI Release|Any CPU.ActiveCfg = WPF GUI Release|Any CPU
 		{D6317B0A-8B33-4482-82B2-2FE5365AFF2E}.WPF GUI Release|Any CPU.Build.0 = WPF GUI Release|Any CPU
-		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Console Debug|Any CPU.ActiveCfg = Console Debug|Any CPU
-		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Console Debug|Any CPU.Build.0 = Console Debug|Any CPU
-		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Console Release|Any CPU.ActiveCfg = Console Release|Any CPU
-		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Console Release|Any CPU.Build.0 = Console Release|Any CPU
-		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Debug|Any CPU.ActiveCfg = Console Debug|Any CPU
-		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Debug|Any CPU.Build.0 = Console Debug|Any CPU
-		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Release|Any CPU.ActiveCfg = Console Release|Any CPU
-		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.Release|Any CPU.Build.0 = Console Release|Any CPU
-		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.WPF GUI Debug|Any CPU.ActiveCfg = Console Debug|Any CPU
-		{8E7D4CFD-E5BD-4187-BDBD-F7F9661ABC9C}.WPF GUI Release|Any CPU.ActiveCfg = Console Release|Any CPU
 		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Debug|Any CPU.ActiveCfg = Console Debug|Any CPU
 		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Debug|Any CPU.Build.0 = Console Debug|Any CPU
 		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.Console Release|Any CPU.ActiveCfg = Console Release|Any CPU
@@ -98,6 +90,30 @@ Global
 		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Debug|Any CPU.Build.0 = WPF GUI Debug|Any CPU
 		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Release|Any CPU.ActiveCfg = WPF GUI Release|Any CPU
 		{D679F4E2-FD18-48AC-9C0C-B60155A61D37}.WPF GUI Release|Any CPU.Build.0 = WPF GUI Release|Any CPU
+		{6E0BF072-E31D-43E6-9D06-699DD3228390}.Console Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E0BF072-E31D-43E6-9D06-699DD3228390}.Console Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E0BF072-E31D-43E6-9D06-699DD3228390}.Console Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E0BF072-E31D-43E6-9D06-699DD3228390}.Console Release|Any CPU.Build.0 = Release|Any CPU
+		{6E0BF072-E31D-43E6-9D06-699DD3228390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E0BF072-E31D-43E6-9D06-699DD3228390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E0BF072-E31D-43E6-9D06-699DD3228390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E0BF072-E31D-43E6-9D06-699DD3228390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E0BF072-E31D-43E6-9D06-699DD3228390}.WPF GUI Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E0BF072-E31D-43E6-9D06-699DD3228390}.WPF GUI Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E0BF072-E31D-43E6-9D06-699DD3228390}.WPF GUI Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E0BF072-E31D-43E6-9D06-699DD3228390}.WPF GUI Release|Any CPU.Build.0 = Release|Any CPU
+		{C29BE213-B44C-4D4D-93F9-9BE8D92F2132}.Console Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29BE213-B44C-4D4D-93F9-9BE8D92F2132}.Console Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29BE213-B44C-4D4D-93F9-9BE8D92F2132}.Console Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29BE213-B44C-4D4D-93F9-9BE8D92F2132}.Console Release|Any CPU.Build.0 = Release|Any CPU
+		{C29BE213-B44C-4D4D-93F9-9BE8D92F2132}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29BE213-B44C-4D4D-93F9-9BE8D92F2132}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29BE213-B44C-4D4D-93F9-9BE8D92F2132}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29BE213-B44C-4D4D-93F9-9BE8D92F2132}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C29BE213-B44C-4D4D-93F9-9BE8D92F2132}.WPF GUI Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29BE213-B44C-4D4D-93F9-9BE8D92F2132}.WPF GUI Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29BE213-B44C-4D4D-93F9-9BE8D92F2132}.WPF GUI Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29BE213-B44C-4D4D-93F9-9BE8D92F2132}.WPF GUI Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

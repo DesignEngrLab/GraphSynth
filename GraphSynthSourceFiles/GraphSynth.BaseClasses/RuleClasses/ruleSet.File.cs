@@ -27,13 +27,16 @@
  *     at http://www.GraphSynth.com.
  *************************************************************************/
 using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Serialization;
+#if NETSTANDARD2_0
+#else
 using Microsoft.CSharp;
+using System.CodeDom.Compiler;
+#endif
 
 namespace GraphSynth.Representation
 {
@@ -44,7 +47,7 @@ namespace GraphSynth.Representation
     /// </summary>
     public partial class ruleSet
     {
-        #region Fields
+#region Fields
 
 
         /// <summary>
@@ -111,9 +114,9 @@ namespace GraphSynth.Representation
             set { nextGenerationStep[4] = value; }
         }
 
-        #endregion
+#endregion
 
-        #region Load and compile Source Files
+#region Load and compile Source Files
 
         /// <summary>
         ///   Loads and compiles the source files.
@@ -125,6 +128,9 @@ namespace GraphSynth.Representation
         public static void loadAndCompileSourceFiles(ruleSet[] rulesets, Boolean recompileRules,
                                                      string compiledparamRules, string execDir)
         {
+#if NETSTANDARD2_0
+            throw new NotImplementedException("There is currently no way to compile parametric rules in this version of GraphSynth.");
+#else
             if (rulesets.GetLength(0) == 0) return;
             Assembly assem = null;
             var allSourceFiles = new List<string>();
@@ -194,6 +200,7 @@ namespace GraphSynth.Representation
                 SearchIO.MessageBoxShow("Compilation Error :" + ErrorLogger.MakeErrorString(e, false),
                                         "Error Compiling Additional Rule Functions", "Error");
             }
+#endif
         }
 
         /// <summary>
@@ -248,6 +255,8 @@ namespace GraphSynth.Representation
             return filesFound;
         }
 
+#if NETSTANDARD2_0
+#else
         /// <summary>
         ///   Compiles the source files.
         /// </summary>
@@ -297,7 +306,7 @@ namespace GraphSynth.Representation
                 return false;
             }
         }
-
+#endif
         private static Boolean compiledFunctionsAlreadyLoaded(IEnumerable<ruleSet> rulesets)
         {
             return rulesets
@@ -307,7 +316,7 @@ namespace GraphSynth.Representation
                         != rule.recognizeFunctions.Count + rule.applyFunctions.Count)));
         }
 
-        #endregion
+#endregion
 
 
     }

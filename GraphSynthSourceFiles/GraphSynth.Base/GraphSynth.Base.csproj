@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>GraphSynth</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\GraphSynth.BaseClasses\BasicGraphClasses\arc.cs" Link="BasicGraphClasses\arc.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\BasicGraphClasses\candidate.cs" Link="BasicGraphClasses\candidate.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\BasicGraphClasses\designGraph.cs" Link="BasicGraphClasses\designGraph.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\BasicGraphClasses\graphElement.cs" Link="BasicGraphClasses\graphElement.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\BasicGraphClasses\hyperarc.cs" Link="BasicGraphClasses\hyperarc.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\BasicGraphClasses\node.cs" Link="BasicGraphClasses\node.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\Logistics\BasicFiler.cs" Link="Logistics\BasicFiler.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\Logistics\ComparerAndEnumerators.cs" Link="Logistics\ComparerAndEnumerators.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\Logistics\Converters\DoubleCollectionConverter.cs" Link="Logistics\Converters\DoubleCollectionConverter.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\Logistics\Converters\IntCollectionConverter.cs" Link="Logistics\Converters\IntCollectionConverter.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\Logistics\Converters\StringCollectionConverter.cs" Link="Logistics\Converters\StringCollectionConverter.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\Logistics\ErrorLogger.cs" Link="Logistics\ErrorLogger.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\Logistics\GlobalSettings.cs" Link="Logistics\GlobalSettings.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\Logistics\IMainWindow.cs" Link="Logistics\IMainWindow.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\Logistics\MatrixMathFunctions.cs" Link="Logistics\MatrixMathFunctions.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\Logistics\MyIOPath.cs" Link="Logistics\MyIOPath.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\Logistics\SearchIO.cs" Link="Logistics\SearchIO.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\Logistics\SearchIOToTextWriter.cs" Link="Logistics\SearchIOToTextWriter.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\Logistics\ShapeData.cs" Link="Logistics\ShapeData.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\RuleClasses\embeddingRule.cs" Link="RuleClasses\embeddingRule.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\RuleClasses\grammarRule.Basic.cs" Link="RuleClasses\grammarRule.Basic.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\RuleClasses\grammarRule.MatchingMethods.cs" Link="RuleClasses\grammarRule.MatchingMethods.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\RuleClasses\grammarRule.NegativeRecognize.cs" Link="RuleClasses\grammarRule.NegativeRecognize.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\RuleClasses\grammarRule.RecognizeApply.cs" Link="RuleClasses\grammarRule.RecognizeApply.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\RuleClasses\grammarRule.ShapeMethods.cs" Link="RuleClasses\grammarRule.ShapeMethods.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\RuleClasses\option.cs" Link="RuleClasses\option.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\RuleClasses\Relaxation.cs" Link="RuleClasses\Relaxation.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\RuleClasses\ruleArc.cs" Link="RuleClasses\ruleArc.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\RuleClasses\ruleHyperarc.cs" Link="RuleClasses\ruleHyperarc.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\RuleClasses\ruleNode.cs" Link="RuleClasses\ruleNode.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\RuleClasses\ruleSet.Basic.cs" Link="RuleClasses\ruleSet.Basic.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\RuleClasses\ruleSet.File.cs" Link="RuleClasses\ruleSet.File.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\SearchProcess\LindenmayerChoose.cs" Link="SearchProcess\LindenmayerChoose.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\SearchProcess\RandomChoose.cs" Link="SearchProcess\RandomChoose.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\SearchProcess\RandomChooseWithUndo.cs" Link="SearchProcess\RandomChooseWithUndo.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\SearchProcess\RecognizeChooseApply.cs" Link="SearchProcess\RecognizeChooseApply.cs" />
+    <Compile Include="..\GraphSynth.BaseClasses\SearchProcess\SearchProcess.cs" Link="SearchProcess\SearchProcess.cs" />
+  </ItemGroup>
+
+</Project>
