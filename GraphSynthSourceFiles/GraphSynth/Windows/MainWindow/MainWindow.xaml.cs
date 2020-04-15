@@ -648,7 +648,7 @@ namespace GraphSynth.UI
                                 "graph layout algorithms found; none at position " + i + ".");
             else if (i >= 0)
             {
-                var newLayAlgo = GraphLayoutBaseClass.Make(GraphLayoutAlgorithms[i]);
+                var newLayAlgo = GraphLayoutController.Make(GraphLayoutAlgorithms[i]);
                 newLayAlgo.Run(windowsMgr.activeGraphCanvas);
             }
         }

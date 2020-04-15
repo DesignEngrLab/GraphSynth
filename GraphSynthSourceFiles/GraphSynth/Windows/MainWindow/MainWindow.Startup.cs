@@ -257,10 +257,10 @@ namespace GraphSynth.UI
                     GraphLayoutAssembly = Assembly.LoadFrom(filepath);
                     var layouts = GraphLayoutAssembly.GetTypes();
                     foreach (Type lt in layouts)
-                        if (!lt.IsAbstract && GraphLayoutBaseClass.IsInheritedType(lt)
+                        if (!lt.IsAbstract && GraphLayoutController.IsInheritedType(lt)
                             && !GraphLayoutAlgorithms.Any(w => w.FullName.Equals(lt.FullName)))
                         {
-                            var newLayAlgo = GraphLayoutBaseClass.Make(lt);
+                            var newLayAlgo = GraphLayoutController.Make(lt);
                             if (newLayAlgo != null)
                                 try
                                 {

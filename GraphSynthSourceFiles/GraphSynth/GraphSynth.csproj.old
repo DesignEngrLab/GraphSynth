@@ -1,0 +1,517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9405229A-6AA8-4320-B52C-AAB5B825898E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GraphSynth</RootNamespace>
+    <AssemblyName>GraphSynth</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ApplicationIcon>..\Resources\GraphSynth2.ico</ApplicationIcon>
+    <ManifestCertificateThumbprint>5424555B5F50A327AC9E57D68336B12599628E7B</ManifestCertificateThumbprint>
+    <ManifestKeyFile>GraphSynth_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>false</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DelaySign>true</DelaySign>
+    <TargetZone>Internet</TargetZone>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>ftp://www.graphsynth.com/files/install/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <InstallUrl>http://www.graphsynth.com/files/install/</InstallUrl>
+    <UpdateUrl>http://www.graphsynth.com/files/install/</UpdateUrl>
+    <SupportUrl>http://www.graphsynth.com/</SupportUrl>
+    <ErrorReportUrl>http://www.graphsynth.com/</ErrorReportUrl>
+    <ProductName>GraphSynth</ProductName>
+    <PublisherName>University of Texas - Automated Design Laboratory</PublisherName>
+    <SuiteName>GraphSynth</SuiteName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>2.1.11.04</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>GraphSynth.GSApp</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPF GUI Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\bin\</OutputPath>
+    <Optimize>false</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WPF GUI Release|AnyCPU'">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>..\..\bin\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <WarningLevel>0</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\Resources\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="PropertiesTab\CommentEditWindow.xaml.cs">
+      <DependentUpon>CommentEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\Converters\ComboBoxSelectItemsConverter.cs" />
+    <Compile Include="PropertiesTab\Converters\EmbeddingRuleListConverter.cs" />
+    <Compile Include="PropertiesTab\ElementalTextControl.xaml.cs">
+      <DependentUpon>ElementalTextControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\HyperArcProperty.xaml.cs">
+      <DependentUpon>HyperArcProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\HyperArcDisplayProperty.xaml.cs">
+      <DependentUpon>HyperArcDisplayProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\NodeArcComboBoxSelector.cs" />
+    <Compile Include="PropertiesTab\RuleProperty.xaml.cs">
+      <DependentUpon>RuleProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\TextBoxHelper.cs" />
+    <Compile Include="UI.SaveAndOpen\AdditionalFunctionToFileDialog.xaml.cs">
+      <DependentUpon>AdditionalFunctionToFileDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI.SaveAndOpen\FilerProgressWindow.xaml.cs">
+      <DependentUpon>FilerProgressWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI.SaveAndOpen\GraphicsExporter.cs" />
+    <Compile Include="UI.SaveAndOpen\OrigGS2Filer\Canvas.cs" />
+    <Compile Include="UI.SaveAndOpen\OrigGS2Filer\RuleProperties.cs" />
+    <Compile Include="UI.SaveAndOpen\OrigGS2Filer\WPFFiler.OldRule.cs" />
+    <Compile Include="UI.SaveAndOpen\RuleParamCodeFiler.cs" />
+    <Compile Include="UI.SaveAndOpen\WPFFiler.Basic.cs" />
+    <Compile Include="UI.SaveAndOpen\WPFFiler.Graph.cs" />
+    <Compile Include="UI.SaveAndOpen\WPFFiler.Rule.cs" />
+    <Compile Include="UI.SaveAndOpen\WPFFiler.RuleSet.cs" />
+    <Compile Include="UserRandLindChoose\LindenmayerChooser.cs" />
+    <Compile Include="UserRandLindChoose\LindenmayerStartDialog.xaml.cs" />
+    <Compile Include="UserRandLindChoose\LocationTextBlock.cs" />
+    <Compile Include="UserRandLindChoose\RandomChooser.cs" />
+    <Compile Include="UserRandLindChoose\RandomStartDialog.xaml.cs" />
+    <Compile Include="UserRandLindChoose\RuleNoTextBlock.cs" />
+    <Compile Include="UserRandLindChoose\SaveResultDialog.xaml.cs" />
+    <Compile Include="UserRandLindChoose\UserChooser.cs" />
+    <Compile Include="UserRandLindChoose\UserChooseWindow.xaml.cs" />
+    <Compile Include="UserRandLindChoose\UserChooseWindowItem.xaml.cs" />
+    <Compile Include="Windows\AboutGraphSynth.xaml.cs">
+      <DependentUpon>AboutGraphSynth.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\GlobalSettingWindow.xaml.cs">
+      <DependentUpon>GlobalSettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\graphWindow.xaml.cs">
+      <DependentUpon>graphWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\ArcDisplayProperty.xaml.cs">
+      <DependentUpon>ArcDisplayProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\ArcProperty.xaml.cs">
+      <DependentUpon>ArcProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\CanvasProperty.xaml.cs">
+      <DependentUpon>CanvasProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\FreeArcEmbeddingRules.xaml.cs">
+      <DependentUpon>FreeArcEmbeddingRules.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\GraphProperty.xaml.cs">
+      <DependentUpon>GraphProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\NodeDisplayProperty.xaml.cs">
+      <DependentUpon>NodeDisplayProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\NodeProperty.xaml.cs">
+      <DependentUpon>NodeProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\PropertyControl.xaml.cs">
+      <DependentUpon>PropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\RuleSetProperty.xaml.cs">
+      <DependentUpon>RuleSetProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesTab\ShapeProperty.xaml.cs">
+      <DependentUpon>ShapeProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow\MainWindow.forIMainWindow.cs" />
+    <Compile Include="Windows\MainWindow\MainWindow.Startup.cs" />
+    <Compile Include="Windows\MainWindow\MainWindow.ToolsGallery.cs" />
+    <Compile Include="Windows\MainWindow\MainWindow.CommandBindings.cs" />
+    <Compile Include="Windows\MainWindow\MainWindow.DesignCommands.cs" />
+    <Compile Include="Windows\MainWindow\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ruleSetWindow.xaml.cs">
+      <DependentUpon>ruleSetWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ruleWindow.xaml.cs">
+      <DependentUpon>ruleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\searchProcessController.xaml.cs">
+      <DependentUpon>searchProcessController.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TemplatePickerWindow.xaml.cs">
+      <DependentUpon>TemplatePickerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TestRuleChooser.cs" />
+    <Compile Include="Windows\WinData.cs" />
+    <Compile Include="Windows\WindowsManager.xaml.cs">
+      <DependentUpon>WindowsManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="__GraphSynthApplication__Main__.cs" />
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="PropertiesTab\CommentEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PropertiesTab\ElementalTextControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PropertiesTab\HyperArcProperty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PropertiesTab\HyperArcDisplayProperty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Properties\IconShapeDescriptors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PropertiesTab\RuleProperty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Properties\DefaultCanvases.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Properties\DefaultShapeDescriptors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI.SaveAndOpen\AdditionalFunctionToFileDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI.SaveAndOpen\FilerProgressWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserRandLindChoose\LindenmayerStartDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserRandLindChoose\RandomStartDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserRandLindChoose\SaveResultDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserRandLindChoose\UserChooseWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserRandLindChoose\UserChooseWindowItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\AboutGraphSynth.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\GlobalSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\graphWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PropertiesTab\ArcDisplayProperty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PropertiesTab\ArcProperty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PropertiesTab\CanvasProperty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PropertiesTab\FreeArcEmbeddingRules.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PropertiesTab\GraphProperty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PropertiesTab\NodeDisplayProperty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PropertiesTab\NodeProperty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PropertiesTab\PropertyControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PropertiesTab\RuleSetProperty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PropertiesTab\ShapeProperty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\MainWindow\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\ruleSetWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\ruleWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\searchProcessController.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\TemplatePickerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowsManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="GraphSynth.CustomControls.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="GraphSynth.FundamentalClassesAndInterfaces.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="GraphSynth.MainApp.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="GraphSynth.Representation.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Resources\GraphSynth2.ico">
+      <Link>Properties\GraphSynth2.ico</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GraphSynth.BaseClasses\GraphSynth.BaseClasses.csproj">
+      <Project>{d679f4e2-fd18-48ac-9c0c-b60155a61d37}</Project>
+      <Name>GraphSynth.BaseClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GraphSynth.CustomControls\GraphSynth.CustomControls.csproj">
+      <Project>{E47424A2-4E8E-481F-831E-D22186A12AFD}</Project>
+      <Name>GraphSynth.CustomControls</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

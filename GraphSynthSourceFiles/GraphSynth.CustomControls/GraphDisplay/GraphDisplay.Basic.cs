@@ -122,7 +122,7 @@ namespace GraphSynth.GraphDisplay
 
         public void HandleKeyboardShortcuts(Key key, Point p, object eventSource)
         {
-            if (!mainObject.shortCutKeys.Contains(key)) return;
+            if (!mainObject.shortCutKeys.Contains(key.ToString())) return;
             var keyInt = Array.IndexOf(mainObject.shortCutKeys, key);
             mainObject.SetSelectedAddItem(keyInt);
 
