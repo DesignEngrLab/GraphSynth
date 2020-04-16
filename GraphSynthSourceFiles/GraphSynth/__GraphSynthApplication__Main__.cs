@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Markup;
 using System.Xml;
 using System.Xml.Linq;
 using GraphSynth.Representation;
 using GraphSynth.UI;
-using Microsoft.VisualBasic.ApplicationServices;
 using StartupEventArgs = System.Windows.StartupEventArgs;
 
 namespace GraphSynth
@@ -25,10 +26,14 @@ namespace GraphSynth
         [STAThread]
         public static void Main(string[] args)
         {
-            var manager = new CheckForExistingInstance();
-            manager.Run(args);
+            SingleInstanceWatcher();
+            var app = new GSApp(args.ToList());
+            app.Run();
         }
-
+        GSApp(List<string> inputArgs)
+        {
+            InputArgs = inputArgs;
+        }
         #endregion
 
         #region Fields
@@ -202,8 +207,62 @@ namespace GraphSynth
             /* declare the main window that contains other windows and is the main place/thread that
              * all other routines are run from. */
             main = new MainWindow();
+            SearchIO.popUpDialogger = new GraphSynth.CustomControls.PopUpDialogger(main);
+            SearchIO.graphPresenter = new GraphSynth.CustomControls.GraphPresenter(main);
             SearchIO.main = main;
             main.Show();
+        }
+
+        /// <summary>The event mutex name.</summary>
+        private const string UniqueEventName = "StartingGraphSynth3e2e4000-4300-4b92-80ad-7e75d48e41a9";
+
+
+        /// <summary>
+        /// prevent a second instance and signal it to bring its mainwindow to foreground
+        /// </summary>
+        /// <seealso cref="https://stackoverflow.com/a/23730146/1644202"/>
+        public static void SingleInstanceWatcher()
+        {
+            // check if it is already open.
+            // try to open it - if another instance is running, it will exist
+            if (EventWaitHandle.TryOpenExisting(UniqueEventName, out var eventWaitHandle))
+            {
+                // Notify other instance so it could bring itself to foreground.
+                eventWaitHandle.Set();
+                // if this instance gets the signal to show the main window
+                new Task(() =>
+                {
+                    while (eventWaitHandle.WaitOne())
+                    {
+                        Application.Current.Dispatcher.BeginInvoke((Action)(() =>
+                        {
+                            // could be set or removed anytime
+                            if (!Application.Current.MainWindow.Equals(null))
+                            {
+                                var mw = Application.Current.MainWindow;
+
+                                if (mw.WindowState == WindowState.Minimized || mw.Visibility != Visibility.Visible)
+                                {
+                                    mw.Show();
+                                    mw.WindowState = WindowState.Normal;
+                                }
+
+                                // According to some sources these steps guarantee that an app will be brought to foreground.
+                                mw.Activate();
+                                mw.Topmost = true;
+                                mw.Topmost = false;
+                                mw.Focus();
+                            }
+                        }));
+                    }
+                })
+                .Start();
+                // Terminate this instance.
+                Environment.Exit(1);
+            }
+            else
+                // listen to a new event
+                eventWaitHandle = null;// new EventWaitHandle(false, EventResetMode.AutoReset, UniqueEventName);
         }
 
 
@@ -229,59 +288,5 @@ namespace GraphSynth
         }
 
         #endregion
-    }
-
-
-    /// <summary>
-    ///   This simple class, which inherits from a Visual Basic Application Base, is 
-    ///   used to check if an existing copy of GraphSynth2 is running. It came about
-    ///   from having icons for gxml, grxml and rsxml, and the desire to be able to 
-    ///   click from explorer to open it.
-    /// </summary>
-    public class CheckForExistingInstance : WindowsFormsApplicationBase
-    {
-        /// <summary>
-        ///   Initializes a new instance of the <see cref = "CheckForExistingInstance" /> class.
-        /// </summary>
-        public CheckForExistingInstance()
-        {
-            IsSingleInstance = true;
-        }
-
-        /// <summary>
-        ///   Raises the event, which happens only the first time 
-        ///   that the application is started.
-        /// </summary>
-        /// <param name = "e">The <see cref = "Microsoft.VisualBasic.ApplicationServices.StartupEventArgs" /> 
-        ///   instance containing the event data.</param>
-        /// <returns></returns>
-        protected override bool OnStartup(Microsoft.VisualBasic.ApplicationServices.StartupEventArgs e)
-        {
-            var app = new GSApp();
-            GSApp.InputArgs = new List<string>(e.CommandLine);
-            app.Run();
-            return false;
-        }
-
-        /// <summary>
-        ///   For subsequent instances of GraphSynth, simply get to the original and pass it
-        ///   the files that are to be opened - these are passed as the arguments.
-        /// </summary>
-        /// <param name = "e"><see cref = "T:Microsoft.VisualBasic.ApplicationServices.StartupNextInstanceEventArgs" />. Contains the command-line arguments of the subsequent application instance and indicates whether the first application instance should be brought to the foreground upon exiting the exception handler.</param>
-        protected override void OnStartupNextInstance(StartupNextInstanceEventArgs e)
-        {
-            base.OnStartupNextInstance(e);
-            GSApp.InputArgs = new List<string>(e.CommandLine);
-            SearchIO.output(StringCollectionConverter.Convert(GSApp.InputArgs));
-            GSApp.ParseArguments();
-            if (GSApp.ArgAltConfig)
-                GSApp.settings =
-                    GlobalSettings.readInSettings(GSApp.AlternateConfig);
-            GSApp.OpenFiles();
-            GSApp.main.setUpGraphElementAddButtons();
-            GSApp.main.setUpGraphLayoutMenu();
-            GSApp.main.setUpSearchProcessMenu();
-            GSApp.main.Activate();
-        }
     }
 }

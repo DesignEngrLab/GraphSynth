@@ -26,17 +26,14 @@
  *     Please find further details and contact information on GraphSynth
  *     at http://www.GraphSynth.com.
  *************************************************************************/
+using Microsoft.CSharp;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Serialization;
-#if NETSTANDARD2_0
-#else
-using Microsoft.CSharp;
-using System.CodeDom.Compiler;
-#endif
 
 namespace GraphSynth.Representation
 {

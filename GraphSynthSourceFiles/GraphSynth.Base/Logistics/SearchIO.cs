@@ -337,7 +337,7 @@ namespace GraphSynth
         //}
         #endregion
 
-#if WPF
+
         #region Showing Message Boxes, Dialogs
 
         /// <summary>
@@ -351,38 +351,18 @@ namespace GraphSynth
         /// <param name="optionsStr">The options STR.</param>
         /// <returns></returns>
         public static bool MessageBoxShow(string messageBoxText, string caption = "Message", string iconStr = "Information", string buttonStr = "OK", string defaultResultStr = "OK", string optionsStr = "None")
-        {
-            MessageBoxButton button;
-            if (!Enum.TryParse(buttonStr, true, out button)) button = MessageBoxButton.OK;
-            MessageBoxImage icon;
-            if (!Enum.TryParse(iconStr, true, out icon)) icon = MessageBoxImage.Information;
-            MessageBoxResult defaultResult;
-            if (!Enum.TryParse(defaultResultStr, true, out defaultResult)) defaultResult = MessageBoxResult.OK;
-            MessageBoxOptions options;
-            if (!Enum.TryParse(optionsStr, true, out options)) options = MessageBoxOptions.None;
-
-            var result = MessageBoxResult.None;
-            if ((main == null) || main.Dispatcher.CheckAccess())
-                result = MessageBox.Show(messageBoxText, caption, button, icon, defaultResult, options);
-            else
-                main.Dispatcher.Invoke(
-                    (ThreadStart)
-                    delegate { result = MessageBox.Show(messageBoxText, caption, button, icon, defaultResult, options); }
-                    );
-            return ((result == MessageBoxResult.OK)
-                    || (result == MessageBoxResult.Yes));
-            /*********************************************************************************/
-        }
+        { return popUpDialogger.MessageBoxShow(messageBoxText, caption, iconStr, buttonStr, defaultResultStr, optionsStr); }
 
         #endregion
 
-        #region Showing the Graph in Main
+            #region Showing the Graph in Main
 
-        /// <summary>
-        ///   A reference to the main window
-        /// </summary>
+            /// <summary>
+            ///   A reference to the main window
+            /// </summary>
         public static IMainWindow main;
-             
+             public static IPopUpDialogger popUpDialogger { get; set; }
+             public static IGraphPresenter graphPresenter { get; set; }
         /// <summary>
         ///   Adds and shows a graph window.
         /// </summary>
@@ -390,14 +370,7 @@ namespace GraphSynth
         /// <param name = "title">The title.</param>
         public static void addAndShowGraphWindow(object graphObjects, string title = "")
         {
-            if (main == null)
-                output("Cannot show graph, {0}, without GUI loaded.", title);
-            else if (main.Dispatcher.CheckAccess())
-                main.addAndShowGraphWindow(graphObjects, title);
-            else
-                main.Dispatcher.Invoke(
-                    (ThreadStart)(() => main.addAndShowGraphWindow(graphObjects, title))
-                    );
+            graphPresenter.addAndShowGraphWindow(graphObjects, title);
         }
 
         /// <summary>
@@ -407,14 +380,8 @@ namespace GraphSynth
         /// <param name = "title">The title.</param>
         public static void addAndShowRuleWindow(object ruleObjects, string title)
         {
-            if (main == null)
-                output("Cannot show rule, {0}, without GUI loaded.", title);
-            else if (main.Dispatcher.CheckAccess())
-                main.addAndShowRuleWindow(ruleObjects, title);
-            else
-                main.Dispatcher.Invoke(
-                    (ThreadStart)(() => main.addAndShowRuleWindow(ruleObjects, title))
-                    );
+            graphPresenter.addAndShowRuleWindow(ruleObjects, title);
+
         }
 
 
@@ -425,79 +392,31 @@ namespace GraphSynth
         /// <param name="title">The title.</param>
         public static void addAndShowRuleSetWindow(object ruleSetObjects, string title)
         {
-            if (main == null)
-                output("Cannot show ruleset, {0}, without GUI loaded.", title);
-            else if (main.Dispatcher.CheckAccess())
-                main.addAndShowRuleSetWindow(ruleSetObjects, title);
-            else
-                main.Dispatcher.Invoke(
-                    (ThreadStart)(() => main.addAndShowRuleSetWindow(ruleSetObjects, title))
-                    );
+            graphPresenter.addAndShowRuleSetWindow(ruleSetObjects, title);
+
         }
 
         #endregion
-#else
-        /// <summary>
-        /// Messages the box show.
-        /// </summary>
-        /// <param name="messageBoxText">The message box text.</param>
-        /// <param name="caption">The caption.</param>
-        /// <param name="iconStr">The icon string.</param>
-        /// <param name="buttonStr">The button string.</param>
-        /// <param name="defaultResultStr">The default result string.</param>
-        /// <param name="optionsStr">The options string.</param>
-        /// <returns></returns>
-        public static bool MessageBoxShow(string messageBoxText, string caption = "", string iconStr = "", string buttonStr = "OK", string defaultResultStr = "", string optionsStr = "")
-        {
-            if (!string.IsNullOrWhiteSpace(iconStr)) iconStr = " " + iconStr + ":";
-            if (!string.IsNullOrWhiteSpace(caption)) caption = " " + caption.Trim() + " ";
-            else iconStr.Replace(':', ' ');
+    }
+    public interface IPopUpDialogger
+    {
+        bool MessageBoxShow(string messageBoxText, string caption = "Message",
+            string iconStr = "Information", string buttonStr = "OK", string defaultResultStr = "OK", string optionsStr = "None");
 
-            output("**" + iconStr + caption + "**\n" + messageBoxText + "\n");
-            if (buttonStr.StartsWith("OK"))
-            {
-                output("Hit any key to continue.");
-                Console.ReadKey();
-                return true;
-            }
-            ConsoleKey response;
-            do
-            {
-                output("Please Respond Y/N:");
-                response = Console.ReadKey().Key;
-            } while (response != ConsoleKey.N && response != ConsoleKey.Y);
-            return (response == ConsoleKey.Y);
-        }
+        bool? Query(string message, string title, string trueBtnText = "Ok",
+              PopUpIconType popUpIconType = PopUpIconType.None,
+              string falseBtnText = "", string nullBtnText = "");
 
-        /// <summary>
-        /// Adds the and show graph window.
-        /// </summary>
-        /// <param name="graphObjects">The graph objects.</param>
-        /// <param name="title">The title.</param>
-        public static void addAndShowGraphWindow(object graphObjects, string title = "")
-        {
-            //throw new NotImplementedException();
-        }
+        bool? Query(string commonMessageKey);
+    }
 
-        /// <summary>
-        /// Adds the and show rule window.
-        /// </summary>
-        /// <param name="ruleObjects">The rule objects.</param>
-        /// <param name="title">The title.</param>
-        public static void addAndShowRuleWindow(object ruleObjects, string title)
-        {
-            //throw new NotImplementedException();
-        }
-        /// <summary>
-        /// Adds the and show rule set window.
-        /// </summary>
-        /// <param name="ruleObjects">The rule objects.</param>
-        /// <param name="title">The title.</param>
-        public static void addAndShowRuleSetWindow(object ruleObjects, string title)
-        {
-            //throw new NotImplementedException();
-        }
-#endif
+    public enum PopUpIconType { None, Query, Warning, Information, Error }
+
+    public interface IGraphPresenter
+    {
+        void addAndShowGraphWindow(object graphObjects, string title);
+        void addAndShowRuleWindow(object ruleObjects, string title);
+        void addAndShowRuleSetWindow(object ruleSetObjects, string title);
 
     }
 }

@@ -212,7 +212,7 @@ namespace GraphSynth.UI
                     SearchIO.output(keyString + " did not load correctly");
                 }
             }
-            shortCutKeys = shortCutKeysList.ToArray();
+            shortCutKeys = shortCutKeysList.Select(k=>k.ToString()).ToArray();
         }
 
         private Key findShortCut(ref string scStr)

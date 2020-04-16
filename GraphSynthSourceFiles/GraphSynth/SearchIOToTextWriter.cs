@@ -32,7 +32,6 @@ using System.Threading;
 
 namespace GraphSynth
 {
-#if WPF
     /// <summary>
     ///   this class simply helps SearchIO get its output to the sidebar in GraphSynth.
     ///   It does this by inheriting from the TextWriter class. Borrowed from ? on CodeProject.
@@ -83,5 +82,4 @@ namespace GraphSynth
             }
         }
     }
-#endif
 }

@@ -3,9 +3,9 @@ using System.IO;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Forms;
 using System.Windows.Input;
 using GraphSynth.Representation;
+using Microsoft.Win32;
 using Button = System.Windows.Controls.Button;
 using ComboBox = System.Windows.Controls.ComboBox;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
@@ -41,7 +41,7 @@ namespace GraphSynth.UI
             /***************************************************/
 
             AddControlsInSeedsAndRulesTab();
-            
+
             PopulateVerbosityComboBox();
 
             newSettings = GSApp.settings.Duplicate();
@@ -59,20 +59,20 @@ namespace GraphSynth.UI
             for (var i = 0; i != 10; i++)
             {
                 RSButton[i] = new Button
-                                  {
-                                      TabIndex = i + 1,
-                                      Content = "RuleSet #" + i
-                                  };
+                {
+                    TabIndex = i + 1,
+                    Content = "RuleSet #" + i
+                };
                 RSButton[i].Click += RSbutton_Click;
                 grdSeedTab.Children.Add(RSButton[i]);
                 Grid.SetColumn(RSButton[i], 0);
                 Grid.SetRow(RSButton[i], i + 3);
 
                 RSText[i] = new TextBox
-                                {
-                                    TextWrapping = TextWrapping.Wrap,
-                                    IsReadOnly = false
-                                };
+                {
+                    TextWrapping = TextWrapping.Wrap,
+                    IsReadOnly = false
+                };
                 RSText[i].LostFocus += RuleSetTxtbox_LostFocus;
                 RSText[i].KeyUp += RuleSetTxtbox_KeyUp;
                 grdSeedTab.Children.Add(RSText[i]);
@@ -216,9 +216,9 @@ namespace GraphSynth.UI
 
         private void btnApplyInThisProcess_Click(object sender, RoutedEventArgs e)
         {
-            if (newSettings.numOfRuleSets<newSettings.defaultRSFileNames.Count)
-                newSettings.defaultRSFileNames.RemoveRange(newSettings.numOfRuleSets,newSettings.defaultRSFileNames.Count
-                    -newSettings.numOfRuleSets);
+            if (newSettings.numOfRuleSets < newSettings.defaultRSFileNames.Count)
+                newSettings.defaultRSFileNames.RemoveRange(newSettings.numOfRuleSets, newSettings.defaultRSFileNames.Count
+                    - newSettings.numOfRuleSets);
             newSettings.DefaultRuleSets
                 = StringCollectionConverter.Convert(newSettings.defaultRSFileNames);
             var tempSettings = GSApp.settings;
@@ -256,7 +256,7 @@ namespace GraphSynth.UI
 
                 newSettings = GlobalSettings.readInSettings(filename); ;
             refreshTextBoxes();
-            
+
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -281,17 +281,23 @@ namespace GraphSynth.UI
 
         public static Boolean getWorkingDirectory(string startDir, out string newDir)
         {
-            var folderBrowserDialog = new FolderBrowserDialog
-                                          {
-                                              SelectedPath = startDir,
-                                              Description = "Set a working directory for GraphSynth (input, output, " +
-                                                            "rules, and help directories will be set relative to this)."
-                                          };
-
-            if ((folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                || (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.Yes))
+            var folderBrowserDialog = new OpenFileDialog
             {
-                var dir_path = Path.GetDirectoryName(folderBrowserDialog.SelectedPath + "/");
+                // Set validate names and check file exists to false otherwise windows will
+                // not let you select "Folder Selection."
+                ValidateNames = false,
+                CheckFileExists = false,
+                CheckPathExists = true,
+                // Always default to Folder Selection.
+                FileName = "Folder Selection.",
+                InitialDirectory = startDir,
+                Title = "Set a working directory for GraphSynth (input, output, " +
+                                                            "rules, and help directories will be set relative to this)."
+            };
+
+            if (folderBrowserDialog.ShowDialog().Value)
+            {
+                var dir_path = Path.GetDirectoryName(folderBrowserDialog.FileName + "/");
                 if (!string.IsNullOrWhiteSpace(dir_path))
                 {
                     newDir = dir_path;
@@ -365,17 +371,22 @@ namespace GraphSynth.UI
 
         private Boolean getDirectory(string titletypeString, out string newDir)
         {
-            var folderBrowserDialog = new FolderBrowserDialog
-                                          {
-                                              SelectedPath = newSettings.WorkingDirAbsolute,
-                                              Description = "Set the " + titletypeString + " directory for GraphSynth."
-                                          };
-
-            if ((folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                || (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.Yes))
+            var folderBrowserDialog = new OpenFileDialog
             {
+                // Set validate names and check file exists to false otherwise windows will
+                // not let you select "Folder Selection."
+                ValidateNames = false,
+                CheckFileExists = false,
+                CheckPathExists = true,
+                // Always default to Folder Selection.
+                FileName = "Folder Selection.",
+                InitialDirectory = newSettings.WorkingDirAbsolute,
+                Title = "Set the " + titletypeString + " directory for GraphSynth."
+            };
 
-                var dir_path = Path.GetDirectoryName(folderBrowserDialog.SelectedPath + "/");
+            if (folderBrowserDialog.ShowDialog().Value)
+            {
+                var dir_path = Path.GetDirectoryName(folderBrowserDialog.FileName + "/");
                 if (!string.IsNullOrWhiteSpace(dir_path))
                 {
                     newDir = dir_path;
@@ -508,12 +519,12 @@ namespace GraphSynth.UI
                                         Boolean mustExist)
         {
             var fileChooser = new OpenFileDialog
-                                  {
-                                      Title = title,
-                                      InitialDirectory = initDir,
-                                      Filter = filter,
-                                      CheckFileExists = mustExist
-                                  };
+            {
+                Title = title,
+                InitialDirectory = initDir,
+                Filter = filter,
+                CheckFileExists = mustExist
+            };
             if ((Boolean)fileChooser.ShowDialog(this))
             {
                 newfilename = fileChooser.FileName;

@@ -18,21 +18,15 @@ namespace GraphSynth
         private EventWaitHandle progressWait;
         private bool success;
 
-        protected GraphLayoutBaseClass()
+        protected GraphLayoutBaseClass(designGraph graph)
         {
+            this.graph = graph;
         }
 
         public abstract string text { get; }
         public double[] Origin { get; set; }
 
-        public designGraph graph
-        {
-            get
-            {
-                if (SelectedGraphGUI == null) return null;
-                return SelectedGraphGUI.graph;
-            }
-        }
+        public designGraph graph { get; }
 
 
         protected virtual bool RunLayout()
