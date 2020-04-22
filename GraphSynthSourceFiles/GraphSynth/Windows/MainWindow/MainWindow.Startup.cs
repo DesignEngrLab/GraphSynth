@@ -42,13 +42,13 @@ namespace GraphSynth.UI
                 Title += Assembly.GetExecutingAssembly().GetName().Version.ToString();
                 /* We need to create a Dictionary of all shortcut keys. This function is NOT included 
                  * in this file. It is included in MainWindow.CommandBindings.cs. */
-                if (Environment.OSVersion.Version.Major >= 6)
-                {
-                    //Icon="/GraphSynth.MainApp;component/Properties/Images/GraphSynth2.ico"
-                    var iconUri = new Uri("pack://application:,,,/Properties/GraphSynth2.ico",
-                                          UriKind.RelativeOrAbsolute);
-                    Icon = BitmapFrame.Create(iconUri);
-                }
+                //if (Environment.OSVersion.Version.Major >= 6)
+                //{
+                //    //Icon="/GraphSynth.MainApp;component/Properties/Images/GraphSynth2.ico"
+                //    var iconUri = new Uri("pack://application:,,,/Properties/GraphSynth2.ico",
+                //                          UriKind.RelativeOrAbsolute);
+                //    Icon = BitmapFrame.Create(iconUri);
+                //}
 
 
                 setUpCommandBinding();

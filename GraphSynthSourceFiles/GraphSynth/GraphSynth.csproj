@@ -8,8 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Windows\MainWindow\GraphSynth2.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GraphSynth.Base\GraphSynth.Base.csproj" />
     <ProjectReference Include="..\GraphSynth.CustomControls\GraphSynth.CustomControls.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Windows\MainWindow\GraphSynth2.ico" />
   </ItemGroup>
  
 </Project>
