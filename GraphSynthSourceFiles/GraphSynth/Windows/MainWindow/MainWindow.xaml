@@ -2,9 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         xmlns:ui="clr-namespace:GraphSynth.UI"       
-        Title="GraphSynth v." 
+        Title="GraphSynth v."
         WindowStartupLocation="Manual" Top="0" Left="60" MouseEnter="MouseEnter_ToolRefresh"
-        Width="630" Height="750" >
+        Width="630" Height="750" Icon="/Windows/MainWindow/GraphSynth2.ico" >
     <DockPanel>
         <Menu Name="mainMenu" DockPanel.Dock="Top">
             <MenuItem Header="File" Name="FileDropDown">

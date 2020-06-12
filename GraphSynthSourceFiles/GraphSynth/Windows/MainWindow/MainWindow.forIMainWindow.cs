@@ -16,7 +16,7 @@ namespace GraphSynth.UI
 
         private int _selectedAddItem;
         public List<string> SelectedAddItems { get; private set; }
-        public Key[] shortCutKeys { get; private set; }
+        public string[] shortCutKeys { get; private set; }
 
         public string SelectedAddItem
         {

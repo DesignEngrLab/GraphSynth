@@ -42,13 +42,13 @@ namespace GraphSynth.UI
                 Title += Assembly.GetExecutingAssembly().GetName().Version.ToString();
                 /* We need to create a Dictionary of all shortcut keys. This function is NOT included 
                  * in this file. It is included in MainWindow.CommandBindings.cs. */
-                if (Environment.OSVersion.Version.Major >= 6)
-                {
-                    //Icon="/GraphSynth.MainApp;component/Properties/Images/GraphSynth2.ico"
-                    var iconUri = new Uri("pack://application:,,,/Properties/GraphSynth2.ico",
-                                          UriKind.RelativeOrAbsolute);
-                    Icon = BitmapFrame.Create(iconUri);
-                }
+                //if (Environment.OSVersion.Version.Major >= 6)
+                //{
+                //    //Icon="/GraphSynth.MainApp;component/Properties/Images/GraphSynth2.ico"
+                //    var iconUri = new Uri("pack://application:,,,/Properties/GraphSynth2.ico",
+                //                          UriKind.RelativeOrAbsolute);
+                //    Icon = BitmapFrame.Create(iconUri);
+                //}
 
 
                 setUpCommandBinding();
@@ -212,7 +212,7 @@ namespace GraphSynth.UI
                     SearchIO.output(keyString + " did not load correctly");
                 }
             }
-            shortCutKeys = shortCutKeysList.ToArray();
+            shortCutKeys = shortCutKeysList.Select(k=>k.ToString()).ToArray();
         }
 
         private Key findShortCut(ref string scStr)
@@ -257,10 +257,10 @@ namespace GraphSynth.UI
                     GraphLayoutAssembly = Assembly.LoadFrom(filepath);
                     var layouts = GraphLayoutAssembly.GetTypes();
                     foreach (Type lt in layouts)
-                        if (!lt.IsAbstract && GraphLayoutBaseClass.IsInheritedType(lt)
+                        if (!lt.IsAbstract && GraphLayoutController.IsInheritedType(lt)
                             && !GraphLayoutAlgorithms.Any(w => w.FullName.Equals(lt.FullName)))
                         {
-                            var newLayAlgo = GraphLayoutBaseClass.Make(lt);
+                            var newLayAlgo = GraphLayoutController.Make(lt);
                             if (newLayAlgo != null)
                                 try
                                 {
