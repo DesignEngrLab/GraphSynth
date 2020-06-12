@@ -19,6 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="OptimizedPriorityQueue" Version="4.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DefaultSearchPlugins\DefaultSearchPlugins.csproj" />
     <ProjectReference Include="..\GraphSynth.Base\GraphSynth.Base.csproj" />
     <ProjectReference Include="..\GraphSynth.CustomControls\GraphSynth.CustomControls.csproj" />

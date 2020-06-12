@@ -11,6 +11,7 @@
     <FileVersion>2.2.11.02</FileVersion>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="OptimizedPriorityQueue" Version="4.2.0" />
     <PackageReference Include="System.CodeDom" Version="5.0.0-preview.5.20278.1" />
   </ItemGroup>
 </Project>
