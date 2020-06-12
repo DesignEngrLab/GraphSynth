@@ -1,0 +1,13 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="GraphSynth.UserRandLindChoose.SaveResultDialog"
+             SizeToContent="WidthAndHeight"
+        Title="Save Result?" d:DesignWidth="403.667">
+    <Grid >
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,20,0,0" x:Name="textBlock2" Text="Would you like to save this final result?" VerticalAlignment="Top" />
+
+        <Button Content="Yes, graph only." Height="23" HorizontalAlignment="Left" Margin="247,70,0,0" x:Name="buttonSaveAsGraph" VerticalAlignment="Top" Width="139" IsDefault="True" Click="buttonSaveAsGraph_Click_1" />
+        <Button Content="Yes, candidate+graph." Height="23" HorizontalAlignment="Left" Margin="247,40,0,0" x:Name="buttonSaveAsCandidate" VerticalAlignment="Top" Width="139" IsDefault="True" Click="buttonSaveAsCandidate_Click_1" />
+        <Button Content="No" Click="buttonCancel_Click" Height="23" HorizontalAlignment="Left" Margin="247,10,0,0" x:Name="buttonCancel" VerticalAlignment="Top" Width="75" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="8,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" x:Name="filenameTextBox" Background="#FFDEDEDE"/>
+        <TextBlock HorizontalAlignment="Left" Margin="8,48,0,0" TextWrapping="Wrap" Text="directory" VerticalAlignment="Top" x:Name="directoryText" Width="234" FontSize="10"  />
+    </Grid>
+</Window>

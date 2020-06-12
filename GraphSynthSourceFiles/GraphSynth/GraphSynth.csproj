@@ -8,13 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="UserRandLindChoose\**" />
+    <EmbeddedResource Remove="UserRandLindChoose\**" />
+    <None Remove="UserRandLindChoose\**" />
+    <Page Remove="UserRandLindChoose\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Windows\MainWindow\GraphSynth2.ico" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DefaultSearchPlugins\DefaultSearchPlugins.csproj" />
     <ProjectReference Include="..\GraphSynth.Base\GraphSynth.Base.csproj" />
     <ProjectReference Include="..\GraphSynth.CustomControls\GraphSynth.CustomControls.csproj" />
-    <ProjectReference Include="..\WpfCustomControlLibrary1\GraphSynth.GraphLayoutBasic.csproj" />
+    <ProjectReference Include="..\GraphSynth.GraphLayoutBasic\GraphSynth.GraphLayoutBasic.csproj" />
   </ItemGroup>
 
   <ItemGroup>
