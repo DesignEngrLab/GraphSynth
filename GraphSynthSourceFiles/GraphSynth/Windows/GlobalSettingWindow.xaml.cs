@@ -281,6 +281,7 @@ namespace GraphSynth.UI
 
         public static Boolean getWorkingDirectory(string startDir, out string newDir)
         {
+            var whatToPutInFileNameBox = "Folder Select";
             var folderBrowserDialog = new OpenFileDialog
             {
                 // Set validate names and check file exists to false otherwise windows will
@@ -289,7 +290,7 @@ namespace GraphSynth.UI
                 CheckFileExists = false,
                 CheckPathExists = true,
                 // Always default to Folder Selection.
-                FileName = "Folder Selection.",
+                FileName = whatToPutInFileNameBox,
                 InitialDirectory = startDir,
                 Title = "Set a working directory for GraphSynth (input, output, " +
                                                             "rules, and help directories will be set relative to this)."
@@ -297,7 +298,8 @@ namespace GraphSynth.UI
 
             if (folderBrowserDialog.ShowDialog().Value)
             {
-                var dir_path = Path.GetDirectoryName(folderBrowserDialog.FileName + "/");
+                var dir_path = Path.GetDirectoryName(folderBrowserDialog.FileName);
+                //dir_path = dir_path.Remove(dir_path.Length - whatToPutInFileNameBox.Length);
                 if (!string.IsNullOrWhiteSpace(dir_path))
                 {
                     newDir = dir_path;

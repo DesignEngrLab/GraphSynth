@@ -1,0 +1,15 @@
+﻿<Window x:Class="GraphSynth.UserRandLindChoose.LindenmayerStartDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" SizeToContent="WidthAndHeight" 
+        Title="Recognize->Lindenmayer Choose->Apply">
+     <Grid >
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,12,0,0" Name="textBlock2" Text="How many cycles would you like to apply?" VerticalAlignment="Top" />
+        <TextBox Name="tbNumCalls" Height="23" Margin="232,10,92,0" VerticalAlignment="Top" Background="#FFEAEDFF" BorderBrush="#9B000000"
+                  LostFocus="tbNumCalls_LostFocus" KeyDown="tbNumCalls_KeyUp" KeyUp="tbNumCalls_KeyUp" Width="98" />
+        <Button Content="OK" Height="23" HorizontalAlignment="Left" Margin="150,70,0,0" Name="buttonOK" VerticalAlignment="Top" Width="75" IsDefault="True" Click="buttonOK_Click" />
+        <Button Content="Cancel" Click="buttonCancel_Click" Height="23" HorizontalAlignment="Left" Margin="232,70,0,0" Name="buttonCancel" VerticalAlignment="Top" Width="75" />
+        <CheckBox Checked="checkBox1_Checked" Unchecked="checkBox1_Unchecked" Content="Show the result of each rule application?" Height="16" 
+                  HorizontalAlignment="Left" Name="checkBox1" VerticalAlignment="Top" Margin="100,41,0,0"/>
+        <Button Name="buttonReset" Click="buttonReset_Click" Content="Reset Values" Height="23" HorizontalAlignment="Left" Margin="335,10,0,0" VerticalAlignment="Top" Width="82" />
+    </Grid>
+</Window>

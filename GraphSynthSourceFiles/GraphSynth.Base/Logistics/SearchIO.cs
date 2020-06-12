@@ -370,7 +370,7 @@ namespace GraphSynth
         /// <param name = "title">The title.</param>
         public static void addAndShowGraphWindow(object graphObjects, string title = "")
         {
-            graphPresenter.addAndShowGraphWindow(graphObjects, title);
+            graphPresenter?.addAndShowGraphWindow(graphObjects, title);
         }
 
         /// <summary>
@@ -380,7 +380,7 @@ namespace GraphSynth
         /// <param name = "title">The title.</param>
         public static void addAndShowRuleWindow(object ruleObjects, string title)
         {
-            graphPresenter.addAndShowRuleWindow(ruleObjects, title);
+            graphPresenter?.addAndShowRuleWindow(ruleObjects, title);
 
         }
 
@@ -392,7 +392,7 @@ namespace GraphSynth
         /// <param name="title">The title.</param>
         public static void addAndShowRuleSetWindow(object ruleSetObjects, string title)
         {
-            graphPresenter.addAndShowRuleSetWindow(ruleSetObjects, title);
+            graphPresenter?.addAndShowRuleSetWindow(ruleSetObjects, title);
 
         }
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GlobalSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" WorkingDirRelative="..\..\..\source\repos\MolecularSynthesis\">
+  <MaxRulesToDisplay>10</MaxRulesToDisplay>
+  <MaxRulesToApply>10</MaxRulesToApply>
+  <InputDir>input\</InputDir>
+  <OutputDir>output\</OutputDir>
+  <RulesDir>rules\</RulesDir>
+  <LocalHelpDir />
+  <GraphLayoutDir />
+  <SearchDir />
+  <DefaultSeedFileName>linkerseed.gxml</DefaultSeedFileName>
+  <DefaultRuleSets>cvx_chemistry_ruleset.rsxml, carboxylate_ruleset.rsxml</DefaultRuleSets>
+  <SearchControllerPlayOnStart>false</SearchControllerPlayOnStart>
+  <GetHelpFromOnline>false</GetHelpFromOnline>
+  <RecompileRuleConditions>false</RecompileRuleConditions>
+  <DefaultVerbosity>0</DefaultVerbosity>
+</GlobalSettings>

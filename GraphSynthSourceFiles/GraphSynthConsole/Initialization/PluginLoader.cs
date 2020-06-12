@@ -34,6 +34,7 @@ namespace GraphSynth
                 }
                 catch (Exception exc)
                 {
+                    if (exc.Message.Equals("Assembly with same name is already loaded")) continue;
                     if (searchAssembly == null)
                         SearchIO.output("Unable to open " + filepath + ": " + exc.Message);
                     else
@@ -55,9 +56,8 @@ namespace GraphSynth
         {
             try
             {
-                var constructor = spt.GetConstructor(new Type[0]);
-                var searchAlgo = (SearchProcess)constructor.Invoke(null);
-                searchAlgo.settings = GSApp.settings;
+                var constructor = spt.GetConstructor(new[] { typeof(GlobalSettings) });
+                var searchAlgo = (SearchProcess)constructor.Invoke(new object[] { GSApp.settings });
                 SearchAlgorithms.Add(searchAlgo);
                 SearchIO.output("\t" + spt.Name + " loaded successfully.", 3);
             }

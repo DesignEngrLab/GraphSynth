@@ -212,7 +212,7 @@ namespace GraphSynth.UI
                     SearchIO.output(keyString + " did not load correctly");
                 }
             }
-            shortCutKeys = shortCutKeysList.Select(k=>k.ToString()).ToArray();
+            shortCutKeys = shortCutKeysList.Select(k => k.ToString()).ToArray();
         }
 
         private Key findShortCut(ref string scStr)
@@ -347,9 +347,8 @@ namespace GraphSynth.UI
                         {
                             try
                             {
-                                var constructor = spt.GetConstructor(new Type[0]);
-                                var searchAlgo = (SearchProcess)constructor.Invoke(null);
-                                searchAlgo.settings = GSApp.settings;
+                                var constructor = spt.GetConstructor(new[] { typeof(GlobalSettings) });
+                                var searchAlgo = (SearchProcess)constructor.Invoke(new object[] { GSApp.settings });
                                 KeyGesture kg = null;
                                 if (k < endOfFKeys) kg = new KeyGesture((Key)(k + keyNumOffset), ModifierKeys.None);
                                 else if (k < 2 * endOfFKeys)
@@ -382,6 +381,7 @@ namespace GraphSynth.UI
                 }
                 catch (Exception exc)
                 {
+                    if (exc.Message.Equals("Assembly with same name is already loaded")) continue;
                     if (searchAssembly == null)
                         SearchIO.output("Unable to open " + filepath + ": " + exc.Message);
                     else
