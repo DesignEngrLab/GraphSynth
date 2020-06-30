@@ -172,10 +172,10 @@ namespace GraphSynth.Representation
             }
             _regularizationMatrix[0, 0] = a / length;
             _regularizationMatrix[0, 1] = b / length;
-            _regularizationMatrix[0, 2] = (a * tauX + b * tauY) / length;
+            _regularizationMatrix[0, 3] = (a * tauX + b * tauY) / length;
             _regularizationMatrix[1, 0] = c / length;
             _regularizationMatrix[1, 1] = d / length;
-            _regularizationMatrix[1, 2] = (c * tauX + d * tauY) / length;
+            _regularizationMatrix[1, 3] = (c * tauX + d * tauY) / length;
             _regularizationMatrix[2, 2] = 1.0;
             _regularizationMatrix[3, 0] = 0.0;
             _regularizationMatrix[3, 1] = 0.0;
@@ -378,8 +378,8 @@ namespace GraphSynth.Representation
             #endregion
 
             // set values for tx, and ty
-            tx = x1 - L.nodes[0].X;
-            ty = y1 - L.nodes[0].Y;
+            tx = x1; // - L.nodes[0].X;
+            ty = y1; // - L.nodes[0].Y;
 
             #region Calculate Projection Terms
 
