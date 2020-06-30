@@ -378,8 +378,8 @@ namespace GraphSynth.Representation
             #endregion
 
             // set values for tx, and ty
-            tx = x1; // - L.nodes[0].X;
-            ty = y1; // - L.nodes[0].Y;
+            tx = x1; 
+            ty = y1;
 
             #region Calculate Projection Terms
 
