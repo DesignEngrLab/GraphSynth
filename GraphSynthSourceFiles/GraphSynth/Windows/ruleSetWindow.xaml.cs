@@ -340,6 +340,7 @@ namespace GraphSynth.UI
                     tempRuleObj = new[]
                                       {
                                           tempRuleObj[0],
+                                          tempRuleObj[1],
                                           Ruleset.rulesDir + Ruleset.ruleFileNames[index]
                                       };
                     main.addAndShowRuleWindow(tempRuleObj);
