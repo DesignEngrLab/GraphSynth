@@ -138,7 +138,7 @@ namespace GraphSynth.Search
 
                 #region ***** RECOGNIZE *****
 
-                
+
                 SearchIO.output("begin RCA loop for RuleSet #" + ruleSetIndex, 4);
                 var options = Rulesets[ruleSetIndex].recognize(host.graph, InParallel);
 
@@ -256,9 +256,8 @@ namespace GraphSynth.Search
         /// <param name = "cand">The cand.</param>
         /// <param name = "startingRuleSet">The starting rule set.</param>
         /// <returns></returns>
-        public virtual candidate CallOneRuleOnCandidate(candidate cand = null, int startingRuleSet = -1)
+        public virtual candidate CallOneRuleOnCandidate(candidate cand, int startingRuleSet = -1)
         {
-            if (cand == null) cand = Host;
             if (startingRuleSet == -1) startingRuleSet = cand.activeRuleSetIndex;
             /* the RecognizeChooseApplyCycle requires an array of ruleSet limits,
              * since we only intend to make one call on the activeRuleSet we make
@@ -283,13 +282,20 @@ namespace GraphSynth.Search
         /// <param name = "IncludingParent">if set to <c>true</c> [including parent].</param>
         /// <param name = "MaxNumber">The max number.</param>
         /// <returns></returns>
-        public virtual List<candidate> GenerateAllNeighbors(candidate current=null, Boolean IncludingParent = false,
-                                                            int MaxNumber = int.MaxValue)
+        public static List<candidate> GenerateAllNeighbors(candidate current, IList<ruleSet> Rulesets, Boolean IncludingParent = false,
+                                                       bool InParallel = false, bool includeStopCondition = false, int MaxNumber = int.MaxValue)
         {
-            if (current == null) current = Host;
             var rand = new Random();
             var neighbors = new List<candidate>();
-            var options = Rulesets[current.activeRuleSetIndex].recognize(current.graph, InParallel);
+            var ruleset = Rulesets[current.activeRuleSetIndex];
+            var options = ruleset.recognize(current.graph, InParallel);
+            if (options.Count==0)
+            {
+                var noRuleCandidate = current.copy();
+                noRuleCandidate.activeRuleSetIndex = ruleset.nextRuleSet(GenerationStatuses.NoRules);
+                neighbors.Add(noRuleCandidate);
+                return neighbors;
+            }
             while (MaxNumber < options.Count)
             {
                 var i = rand.Next(options.Count);
@@ -317,7 +323,13 @@ namespace GraphSynth.Search
                     opt.apply(child.graph, null);
                     child.addToRecipe(opt);
                     neighbors.Add(child);
+                    if (opt.ruleNumber == ruleset.TriggerRuleNum)
+                        child.activeRuleSetIndex = ruleset.nextRuleSet(GenerationStatuses.TriggerRule);
+                    else child.activeRuleSetIndex = ruleset.nextRuleSet(GenerationStatuses.Normal);
                 }
+            var stopCandidate = current.copy();
+            stopCandidate.activeRuleSetIndex = ruleset.nextRuleSet(GenerationStatuses.Choice);
+            neighbors.Add(stopCandidate);
             return neighbors;
         }
 
@@ -354,10 +366,10 @@ namespace GraphSynth.Search
         /// <param name="display">if set to <c>true</c> [_display].</param>
         /// <param name="inParallel">The process should be invoked in parallel where possible.</param>
         protected RecognizeChooseApply(designGraph host, ruleSet[] rulesets, int[] maxNumOfCalls = null, Boolean display = false,
-            Boolean inParallel=true)
+            Boolean inParallel = true)
         {
             SearchIO.output("initializing RCA generation:", 4);
-            Rulesets = (ruleSet[]) rulesets.Clone();
+            Rulesets = (ruleSet[])rulesets.Clone();
             NumOfRuleSets = rulesets.GetLength(0);
             SearchIO.output("There are " + NumOfRuleSets + " rule sets.", 4);
             Host = new candidate(host, NumOfRuleSets);
