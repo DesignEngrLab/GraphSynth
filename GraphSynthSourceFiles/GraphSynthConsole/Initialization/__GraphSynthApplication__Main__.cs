@@ -29,6 +29,8 @@ namespace GraphSynth
         [STAThread]
         public static void Main(string[] args)
         {
+            SearchIO.popUpDialogger = new PopUpDialogger();
+
             InputArgs = new List<string>(args);
             ParseArguments();
 
@@ -44,7 +46,6 @@ namespace GraphSynth
             SearchIO.output("opening plugins...", 3);
             LoadPlugins();
             SearchIO.output("----- Load in Complete ------", 3);
-
             if (!ArgContainsPluginCommands || !InvokeArgPlugin())
             {
                 PluginDialog();
