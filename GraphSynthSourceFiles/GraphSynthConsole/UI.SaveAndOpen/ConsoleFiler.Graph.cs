@@ -41,8 +41,8 @@ namespace GraphSynth
              * The IgnorableSetup string ensures that XAML viewers ignore the following      *
              * GraphSynth specific elements: the canvas data, and the graph data. This eff-  *
              * ectively separates the topology and data of the graph from the graphic elements.       */
-            SaveString = SaveString.Insert(SaveString.IndexOf(">", StringComparison.Ordinal),
-                                           IgnorableSetup + "Tag=\"Graph\" ");
+            var insertIndex = SaveString.Contains(">") ? SaveString.IndexOf(">", StringComparison.Ordinal) : 0;
+            SaveString = SaveString.Insert(insertIndex, IgnorableSetup + "Tag=\"Graph\" ");
             /* remove the ending Page tag but put it back at the end. */
             SaveString = SaveString.Replace("</Page>", "");
 
