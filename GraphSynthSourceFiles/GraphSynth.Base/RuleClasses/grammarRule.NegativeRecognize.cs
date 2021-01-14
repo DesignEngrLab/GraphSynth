@@ -59,9 +59,8 @@ namespace GraphSynth.Representation
         }
         #region First Pass: Find All elements that are supposed to be in host
         /* this is similar for rules with nonexistence graph elements*/
-        private List<option> FindPositiveStartElementAvoidNegatives(option location, bool inParallel)
+        private void FindPositiveStartElementAvoidNegatives(option location)
         {
-            var options = new List<option>();
             #region Case #1: Location found! No empty slots left in the location
             /* this is the only way to properly exist the recursive loop. */
             if (!L.nodes.Any(n => ((ruleNode)n).MustExist && location.findLMappedNode(n) == null)
@@ -71,7 +70,7 @@ namespace GraphSynth.Representation
                 /* as a recursive function, we first check how the recognition process terminates. If all nodes,
                  * hyperarcs and arcs within location have been filled with references to elements in the host, 
                  * then we've found a location...well maybe. More details are described in the LocationFound function. */
-                if (!FinalRuleChecks(location) && !FinalRuleCheckRelaxed(location)) return options;
+                if (!FinalRuleChecks(location) && !FinalRuleCheckRelaxed(location)) return;
                 Boolean resultNegativeNotFulfilled;
                 lock (AllNegativeElementsFound)
                 {
@@ -84,9 +83,9 @@ namespace GraphSynth.Representation
                 {
                     var locCopy = location.copy();
                     locCopy.Relaxations = negativeRelaxation;
-                    options.Add(locCopy); ;
+                    lock (options) { options.Add(locCopy); }
                 }
-                return options;
+                return;
             }
             #endregion
             #region Case #2: build off of a hyperarc found so far - by looking for unfulfilled nodes
@@ -105,8 +104,8 @@ namespace GraphSynth.Representation
                 var newLNode = (ruleNode)startHyperArc.nodes.FirstOrDefault(n => ((ruleNode)n).MustExist
                     && (location.findLMappedNode(n) == null));
                 foreach (var n in hostHyperArc.nodes.Where(n => !location.nodes.Contains(n)))
-                    checkNodeAvoidNegatives(location.copy(), newLNode, n, inParallel);
-                return options;
+                    checkNodeAvoidNegatives(location.copy(), newLNode, n);
+                return;
             }
             #endregion
             #region Case #3: build off of a node found so far - by looking for unfulfilled arcs
@@ -130,10 +129,10 @@ namespace GraphSynth.Representation
                     || ((a is ruleArc) && ((ruleArc)a).MustExist))
                     && (location.findLMappedElement(a) == null));
                 if (newLArc is ruleHyperarc)
-                    checkHyperArcAvoidNegatives(location, startNode, location.findLMappedNode(startNode), (ruleHyperarc)newLArc, inParallel);
+                    checkHyperArcAvoidNegatives(location, startNode, location.findLMappedNode(startNode), (ruleHyperarc)newLArc);
                 else if (newLArc is ruleArc)
-                    checkArcAvoidNegatives(location, startNode, location.findLMappedNode(startNode), (ruleArc)newLArc, inParallel);
-                return options;
+                    checkArcAvoidNegatives(location, startNode, location.findLMappedNode(startNode), (ruleArc)newLArc);
+                return;
             }
             #endregion
             #region Case 4: Check entire host for a matching hyperarc
@@ -145,19 +144,19 @@ namespace GraphSynth.Representation
                 && (location.findLMappedHyperarc(ha) == null));
             if (startHyperArc != null)
             {
-                if (inParallel)
+                if (_in_parallel_)
                     Parallel.ForEach(host.hyperarcs, hostHyperArc =>
                     {
                         if (!location.hyperarcs.Contains(hostHyperArc))
-                            checkHyperArcAvoidNegatives(location.copy(), startHyperArc, hostHyperArc, inParallel);
+                            checkHyperArcAvoidNegatives(location.copy(), startHyperArc, hostHyperArc);
                     });
                 else
                     foreach (var hostHyperArc in
                         host.hyperarcs.Where(hostHyperArc => !location.hyperarcs.Contains(hostHyperArc)))
                     {
-                        checkHyperArcAvoidNegatives(location.copy(), startHyperArc, hostHyperArc, inParallel);
+                        checkHyperArcAvoidNegatives(location.copy(), startHyperArc, hostHyperArc);
                     }
-                return options;
+                return;
             }
             #endregion
             #region Case 5: Check entire host for a matching node
@@ -168,18 +167,18 @@ namespace GraphSynth.Representation
             startNode = (ruleNode)L.nodes.FirstOrDefault(n => ((ruleNode)n).MustExist && (location.findLMappedNode(n) == null));
             if (startNode != null)
             {
-                if (inParallel)
+                if (_in_parallel_)
                     Parallel.ForEach(host.nodes, hostNode =>
-                        {
-                            if (!location.nodes.Contains(hostNode))
-                                checkNodeAvoidNegatives(location.copy(), startNode, hostNode, inParallel);
-                        });
+                    {
+                        if (!location.nodes.Contains(hostNode))
+                            checkNodeAvoidNegatives(location.copy(), startNode, hostNode);
+                    });
                 else foreach (var hostNode in host.nodes
                     .Where(hostNode => !location.nodes.Contains(hostNode)))
                     {
-                        checkNodeAvoidNegatives(location.copy(), startNode, hostNode, inParallel);
+                        checkNodeAvoidNegatives(location.copy(), startNode, hostNode);
                     }
-                return options;
+                return;
             }
             #endregion
             #region Case 6: Check entire host for a matching arc
@@ -187,18 +186,18 @@ namespace GraphSynth.Representation
             /* the only way one can get here is if there are one or more arcs NOT connected to any nodes
              * in L - a floating arc, dangling on both sides, like an eyelash. */
             if (looseArc != null)
-                if (inParallel)
+                if (_in_parallel_)
                     Parallel.ForEach(host.arcs, hostArc =>
-                                     {
-                                         if ((!location.arcs.Contains(hostArc)) && (!location.nodes.Contains(hostArc.From))
-                                             && (!location.nodes.Contains(hostArc.To))
-                                             && (arcMatches(looseArc, hostArc) || arcMatchRelaxed(looseArc, hostArc, location)))
-                                         {
-                                             var newLocation = location.copy();
-                                             newLocation.arcs[L.arcs.IndexOf(looseArc)] = hostArc;
-                                             FindPositiveStartElementAvoidNegatives(newLocation, inParallel);
-                                         }
-                                     });
+                    {
+                        if ((!location.arcs.Contains(hostArc)) && (!location.nodes.Contains(hostArc.From))
+                            && (!location.nodes.Contains(hostArc.To))
+                            && (arcMatches(looseArc, hostArc) || arcMatchRelaxed(looseArc, hostArc, location)))
+                        {
+                            var newLocation = location.copy();
+                            newLocation.arcs[L.arcs.IndexOf(looseArc)] = hostArc;
+                            FindPositiveStartElementAvoidNegatives(newLocation);
+                        }
+                    });
                 else
                     foreach (var hostArc in host.arcs)
                         if ((!location.arcs.Contains(hostArc)) && (!location.nodes.Contains(hostArc.From))
@@ -207,7 +206,7 @@ namespace GraphSynth.Representation
                         {
                             var newLocation = location.copy();
                             newLocation.arcs[L.arcs.IndexOf(looseArc)] = hostArc;
-                            FindPositiveStartElementAvoidNegatives(newLocation, inParallel);
+                            FindPositiveStartElementAvoidNegatives(newLocation);
                         }
             #endregion
         }
@@ -215,7 +214,7 @@ namespace GraphSynth.Representation
         /* this is a boxed Boolean since the lock statement requires a reference type */
         private static object AllNegativeElementsFound = false;
 
-        private void checkNodeAvoidNegatives(option location, ruleNode LNode, node hostNode, bool inParallel)
+        private void checkNodeAvoidNegatives(option location, ruleNode LNode, node hostNode)
         {
             if (!nodeMatches(LNode, hostNode, location) && !nodeMatchRelaxed(LNode, hostNode, location))
                 return;
@@ -224,29 +223,29 @@ namespace GraphSynth.Representation
                                           (((a is ruleHyperarc) && ((ruleHyperarc)a).MustExist)
                                            || ((a is ruleArc) && ((ruleArc)a).MustExist))
                                           && (location.findLMappedElement(a) == null));
-            if (newLArc == null) FindPositiveStartElementAvoidNegatives(location, inParallel);
+            if (newLArc == null) FindPositiveStartElementAvoidNegatives(location);
             else if (newLArc is ruleHyperarc)
-                checkHyperArcAvoidNegatives(location, LNode, hostNode, (ruleHyperarc)newLArc, inParallel);
+                checkHyperArcAvoidNegatives(location, LNode, hostNode, (ruleHyperarc)newLArc);
             else if (newLArc is ruleArc)
-                checkArcAvoidNegatives(location, LNode, hostNode, (ruleArc)newLArc, inParallel);
+                checkArcAvoidNegatives(location, LNode, hostNode, (ruleArc)newLArc);
         }
 
 
-        private void checkHyperArcAvoidNegatives(option location, ruleHyperarc LHyperArc, hyperarc hostHyperArc, bool inParallel)
+        private void checkHyperArcAvoidNegatives(option location, ruleHyperarc LHyperArc, hyperarc hostHyperArc)
         {
             if (!hyperArcMatches(LHyperArc, hostHyperArc) && !hyperArcMatchRelaxed(LHyperArc, hostHyperArc, location))
                 return;
             location.hyperarcs[L.hyperarcs.IndexOf(LHyperArc)] = hostHyperArc;
             var newLNode = (ruleNode)LHyperArc.nodes.FirstOrDefault(n => ((ruleNode)n).MustExist
                                                                && (location.findLMappedNode(n) == null));
-            if (newLNode == null) FindPositiveStartElementAvoidNegatives(location, inParallel);
+            if (newLNode == null) FindPositiveStartElementAvoidNegatives(location);
             else
                 foreach (var n in hostHyperArc.nodes.Where(n => !location.nodes.Contains(n)))
-                    checkNodeAvoidNegatives(location.copy(), newLNode, n, inParallel);
+                    checkNodeAvoidNegatives(location.copy(), newLNode, n);
         }
 
         private void checkHyperArcAvoidNegatives(option location, ruleNode fromLNode,
-            node fromHostNode, ruleHyperarc newLHyperArc, bool inParallel)
+            node fromHostNode, ruleHyperarc newLHyperArc)
         {
             var otherConnectedNodes = (from n in newLHyperArc.nodes
                                        where ((n != fromLNode) && ((ruleNode)n).MustExist && (location.findLMappedNode(n) != null))
@@ -263,11 +262,11 @@ namespace GraphSynth.Representation
              * connected to newLHyperArc that have already been recognized. We need to remove any instances
              * from hostHyperArcs which don't connect to mappings of these already recognized nodes. */
             foreach (var hostHyperArc in hostHyperArcs)
-                checkHyperArcAvoidNegatives(location.copy(), newLHyperArc, hostHyperArc, inParallel);
+                checkHyperArcAvoidNegatives(location.copy(), newLHyperArc, hostHyperArc);
         }
 
         private void checkArcAvoidNegatives(option location, node fromLNode, node fromHostNode,
-            ruleArc newLArc, bool inParallel)
+            ruleArc newLArc)
         {
             var currentLArcIndex = L.arcs.IndexOf(newLArc);
             /* so, currentLArcIndex now, points to a LArc that has yet to be recognized. What we do from
@@ -288,7 +287,7 @@ namespace GraphSynth.Representation
                 {
                     var newLocation = location.copy();
                     newLocation.arcs[currentLArcIndex] = HostArc;
-                    FindPositiveStartElementAvoidNegatives(newLocation, inParallel);
+                    FindPositiveStartElementAvoidNegatives(newLocation);
                 }
             else
                 foreach (var HostArc in neighborHostArcs)
@@ -298,8 +297,8 @@ namespace GraphSynth.Representation
                     {
                         var newLocation = location.copy();
                         newLocation.arcs[currentLArcIndex] = HostArc;
-                        if (nextLNode == null || nextLNode.NotExist) FindPositiveStartElementAvoidNegatives(newLocation, inParallel);
-                        else checkNodeAvoidNegatives(newLocation, nextLNode, nextHostNode, inParallel);
+                        if (nextLNode == null || nextLNode.NotExist) FindPositiveStartElementAvoidNegatives(newLocation);
+                        else checkNodeAvoidNegatives(newLocation, nextLNode, nextHostNode);
                     }
                 }
         }
