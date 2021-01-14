@@ -47,7 +47,6 @@ namespace GraphSynth.Representation
     /// </summary>
     public partial class grammarRule
     {
-        private Boolean _in_parallel_;
         #region Recognize Methods
         // The next 300 lines define the recognize functions.
 
@@ -70,18 +69,17 @@ namespace GraphSynth.Representation
         /// <param name="InParallel">if set to <c>true</c> [in parallel].</param>
         /// <param name="RelaxationTemplate">The relaxation template.</param>
         /// <returns></returns>
-        public List<option> recognize(designGraph host, Boolean InParallel = true, Relaxation RelaxationTemplate = null)
+        public List<option> recognize(designGraph host, Boolean inParallel = true, Relaxation RelaxationTemplate = null)
         {
             this.host = host;
-            _in_parallel_ = InParallel;
+            var options = new List<option>();
             var location = new option(this);
             if (RelaxationTemplate != null) location.Relaxations = RelaxationTemplate.copy();
-            options.Clear();
 
             if (!InitialRuleCheck(out var globalLabelStartLocs) && !InitialRuleCheckRelaxed(location, out globalLabelStartLocs)) return new List<option>();
 
-            if (ContainsNegativeElements) FindPositiveStartElementAvoidNegatives(location);
-            else findNewStartElement(location);
+            if (ContainsNegativeElements) FindPositiveStartElementAvoidNegatives(location, inParallel);
+            else findNewStartElement(location, inParallel);
             /* if OrderedGlobalLabels is checked and there are multiple locations in the 
              * string of labels then we need to convolve the two set of locations together. */
             if (OrderedGlobalLabels)
@@ -101,7 +99,7 @@ namespace GraphSynth.Representation
             }
             return options;
         }
-        private void findNewStartElement(option location)
+        private void findNewStartElement(option location, bool inParallel)
         {
             #region Case #1: Location found! No empty slots left in the location
             /* this is the only way to properly exit the recursive loop. */
@@ -134,7 +132,7 @@ namespace GraphSynth.Representation
                 var hostHyperArc = location.findLMappedHyperarc(startHyperArc);
                 var newLNode = (ruleNode)startHyperArc.nodes.FirstOrDefault(n => (location.findLMappedNode(n) == null));
                 foreach (var n in hostHyperArc.nodes.Where(n => !location.nodes.Contains(n)))
-                    checkNode(location.copy(), newLNode, n);
+                    checkNode(location.copy(), newLNode, n, inParallel);
                 return;
             }
             #endregion
@@ -152,9 +150,9 @@ namespace GraphSynth.Representation
             {
                 var newLArc = startNode.arcs.FirstOrDefault(a => (location.findLMappedElement(a) == null));
                 if (newLArc is ruleHyperarc)
-                    checkHyperArc(location, startNode, location.findLMappedNode(startNode), (ruleHyperarc)newLArc);
+                    checkHyperArc(location, startNode, location.findLMappedNode(startNode), (ruleHyperarc)newLArc, inParallel);
                 else if (newLArc is ruleArc)
-                    checkArc(location, startNode, location.findLMappedNode(startNode), (ruleArc)newLArc);
+                    checkArc(location, startNode, location.findLMappedNode(startNode), (ruleArc)newLArc, inParallel);
                 return;
             }
             #endregion
@@ -166,17 +164,17 @@ namespace GraphSynth.Representation
             startHyperArc = (ruleHyperarc)L.hyperarcs.FirstOrDefault(ha => (location.findLMappedHyperarc(ha) == null));
             if (startHyperArc != null)
             {
-                if (_in_parallel_)
+                if (inParallel)
                     Parallel.ForEach(host.hyperarcs, hostHyperArc =>
                     {
                         if (!location.hyperarcs.Contains(hostHyperArc))
-                            checkHyperArc(location.copy(), startHyperArc, hostHyperArc);
+                            checkHyperArc(location.copy(), startHyperArc, hostHyperArc, inParallel);
                     });
                 else
                     foreach (var hostHyperArc in
                         host.hyperarcs.Where(hostHyperArc => !location.hyperarcs.Contains(hostHyperArc)))
                     {
-                        checkHyperArc(location.copy(), startHyperArc, hostHyperArc);
+                        checkHyperArc(location.copy(), startHyperArc, hostHyperArc, inParallel);
                     }
                 return;
             }
@@ -189,16 +187,16 @@ namespace GraphSynth.Representation
             startNode = (ruleNode)L.nodes.FirstOrDefault(n => (location.findLMappedNode(n) == null));
             if (startNode != null)
             {
-                if (_in_parallel_)
+                if (inParallel)
                     Parallel.ForEach(host.nodes, hostNode =>
                         {
                             if (!location.nodes.Contains(hostNode))
-                                checkNode(location.copy(), startNode, hostNode);
+                                checkNode(location.copy(), startNode, hostNode, inParallel);
                         });
                 else foreach (var hostNode in
                     host.nodes.Where(hostNode => !location.nodes.Contains(hostNode)))
                     {
-                        checkNode(location.copy(), startNode, hostNode);
+                        checkNode(location.copy(), startNode, hostNode, inParallel);
                     }
                 return;
             }
@@ -208,7 +206,7 @@ namespace GraphSynth.Representation
             /* the only way one can get here is if there are one or more arcs NOT connected to any nodes
              * in L - a floating arc, dangling on both sides, like an eyelash. */
             if (looseArc != null)
-                if (_in_parallel_)
+                if (inParallel)
                     Parallel.ForEach(host.arcs, hostArc =>
                                      {
                                          if ((!location.arcs.Contains(hostArc)) && (!location.nodes.Contains(hostArc.From))
@@ -217,7 +215,7 @@ namespace GraphSynth.Representation
                                          { //relaxelt
                                              var newLocation = location.copy();
                                              newLocation.arcs[L.arcs.IndexOf(looseArc)] = hostArc;
-                                             findNewStartElement(newLocation);
+                                             findNewStartElement(newLocation, inParallel);
                                          }
                                      });
                 else
@@ -228,36 +226,36 @@ namespace GraphSynth.Representation
                         { //relaxelt
                             var newLocation = location.copy();
                             newLocation.arcs[L.arcs.IndexOf(looseArc)] = hostArc;
-                            findNewStartElement(newLocation);
+                            findNewStartElement(newLocation, inParallel);
                         }
             #endregion
         }
-        private void checkNode(option location, ruleNode LNode, node hostNode)
+        private void checkNode(option location, ruleNode LNode, node hostNode, bool inParallel)
         {
             if (!nodeMatches(LNode, hostNode, location) && !nodeMatchRelaxed(LNode, hostNode, location))
                 return;
             location.nodes[L.nodes.IndexOf(LNode)] = hostNode;
             var newLArc = LNode.arcs.FirstOrDefault(a => (location.findLMappedElement(a) == null));
-            if (newLArc == null) findNewStartElement(location);
+            if (newLArc == null) findNewStartElement(location, inParallel);
             else if (newLArc is ruleHyperarc)
-                checkHyperArc(location, LNode, hostNode, (ruleHyperarc)newLArc);
+                checkHyperArc(location, LNode, hostNode, (ruleHyperarc)newLArc, inParallel);
             else if (newLArc is ruleArc)
-                checkArc(location, LNode, hostNode, (ruleArc)newLArc);
+                checkArc(location, LNode, hostNode, (ruleArc)newLArc, inParallel);
         }
-        private void checkHyperArc(option location, ruleHyperarc LHyperArc, hyperarc hostHyperArc)
+        private void checkHyperArc(option location, ruleHyperarc LHyperArc, hyperarc hostHyperArc, bool inParallel)
         {
             if (!hyperArcMatches(LHyperArc, hostHyperArc) && !hyperArcMatchRelaxed(LHyperArc, hostHyperArc, location))
                 return;
             location.hyperarcs[L.hyperarcs.IndexOf(LHyperArc)] = hostHyperArc;
             var newLNode = (ruleNode)LHyperArc.nodes.FirstOrDefault(n => (location.findLMappedNode(n) == null));
-            if (newLNode == null) findNewStartElement(location);
+            if (newLNode == null) findNewStartElement(location, inParallel);
             else
                 foreach (var n in hostHyperArc.nodes.Where(n => !location.nodes.Contains(n)))
-                    checkNode(location.copy(), newLNode, n);
+                    checkNode(location.copy(), newLNode, n, inParallel);
         }
 
         private void checkHyperArc(option location, ruleNode fromLNode, node fromHostNode,
-            ruleHyperarc newLHyperArc)
+            ruleHyperarc newLHyperArc, bool inParallel)
         {
             var otherConnectedNodes = (from n in newLHyperArc.nodes
                                        where ((n != fromLNode) && (location.findLMappedNode(n) != null))
@@ -274,12 +272,12 @@ namespace GraphSynth.Representation
              * connected to newLHyperArc that have already been recognized. We need to remove any instances
              * from hostHyperArcs which don't connect to mappings of these already recognized nodes. */
             foreach (var hostHyperArc in hostHyperArcs)
-                checkHyperArc(location.copy(), newLHyperArc, hostHyperArc);
+                checkHyperArc(location.copy(), newLHyperArc, hostHyperArc, inParallel);
         }
 
 
         private void checkArc(option location, node fromLNode, node fromHostNode,
-            ruleArc newLArc)
+            ruleArc newLArc, bool inParallel)
         {
             var currentLArcIndex = L.arcs.IndexOf(newLArc);
             /* so, currentLArcIndex now, points to a LArc that has yet to be recognized. What we do from
@@ -299,7 +297,7 @@ namespace GraphSynth.Representation
                 {
                     var newLocation = location.copy();
                     newLocation.arcs[currentLArcIndex] = HostArc;
-                    findNewStartElement(newLocation);
+                    findNewStartElement(newLocation, inParallel);
                 }
             else
                 foreach (var HostArc in neighborHostArcs)
@@ -309,8 +307,8 @@ namespace GraphSynth.Representation
                     {
                         var newLocation = location.copy();
                         newLocation.arcs[currentLArcIndex] = HostArc;
-                        if (nextLNode == null) findNewStartElement(newLocation);
-                        else checkNode(newLocation, nextLNode, nextHostNode);
+                        if (nextLNode == null) findNewStartElement(newLocation, inParallel);
+                        else checkNode(newLocation, nextLNode, nextHostNode, inParallel);
                     }
                 }
         }
@@ -896,7 +894,7 @@ namespace GraphSynth.Representation
                     SearchIO.output("Stack Trace     	: " + e.InnerException.StackTrace);
                 }
 
-        #endregion
+            #endregion
         }
 
     }

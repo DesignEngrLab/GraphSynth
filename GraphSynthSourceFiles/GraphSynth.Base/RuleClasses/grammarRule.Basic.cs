@@ -46,13 +46,7 @@ namespace GraphSynth.Representation
         /// recognition function. 
         /// </summary>
         private designGraph host;
-        /// <summary>
-        ///   this is where we store the subgraphs or locations of where the
-        ///   rule can be applied. It's global to a particular L but it is invoked
-        ///   only at the very bottom of the recursion tree - see the end of
-        ///   recognizeRecursion().
-        /// </summary>
-        protected List<option> options = new List<option>();
+
 
         /// <summary>
         ///   any mathematical operations are fair game for the recognize and apply local variables.
