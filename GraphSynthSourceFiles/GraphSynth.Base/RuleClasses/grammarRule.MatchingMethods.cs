@@ -435,18 +435,23 @@ namespace GraphSynth.Representation
         #endregion
 
         #region Initial Rule Check (global labels, spanning)
-        private Boolean InitialRuleCheck()
+        private Boolean InitialRuleCheck(out List<int> globalLabelStartLocs)
         {
+            //   These are place holders when the user has clicked OrderedGlobalLabels. There may, in fact,
+            //   be multiple locations for the globalLabels to be recognized. The are determined in the 
+            //   OrderLabelsMatch function.
+            globalLabelStartLocs = null;
             return (!spanning || (L.nodes.Count(rn => ((ruleNode)rn).MustExist) == host.nodes.Count))
-                   && ((OrderedGlobalLabels && OrderLabelsMatch(host.globalLabels))
+                   && ((OrderedGlobalLabels && OrderLabelsMatch(host.globalLabels, out globalLabelStartLocs))
                        || (!OrderedGlobalLabels && LabelsMatch(host.globalLabels, L.globalLabels, negateLabels, containsAllGlobalLabels)))
                    && hasLargerOrEqualDegreeSeqence(host.DegreeSequence, LDegreeSequence)
                    && hasLargerOrEqualDegreeSeqence(host.HyperArcDegreeSequence, LHyperArcDegreeSequence)
                    && (host.arcs.Count >= L.arcs.Count(a => ((ruleArc)a).MustExist));
         }
 
-        private Boolean InitialRuleCheckRelaxed(option location)
+        private Boolean InitialRuleCheckRelaxed(option location, out List<int> globalLabelStartLocs)
         {
+            globalLabelStartLocs = null;
             if (location.Relaxations.NumberAllowable == 0) return false;
             var localNumAllowable = location.Relaxations.NumberAllowable;
             var usedRelaxItems = new List<RelaxItem>();
@@ -474,7 +479,7 @@ namespace GraphSynth.Representation
                     usedFulfilledRelaxItems.Add(new RelaxItem(Relaxations.Negate_Global_Label_Revoked, 1, null, nl));
                 }
             }
-            if (!OrderedGlobalLabels || !OrderLabelsMatch(host.globalLabels))
+            if (!OrderedGlobalLabels || !OrderLabelsMatch(host.globalLabels, out globalLabelStartLocs))
             {
                 var tempLabels = new List<string>(host.globalLabels);
                 foreach (var label in L.globalLabels)
@@ -528,8 +533,9 @@ namespace GraphSynth.Representation
             return true;
         }
 
-        private Boolean OrderLabelsMatch(ICollection<string> hostLabels)
+        private Boolean OrderLabelsMatch(ICollection<string> hostLabels, out List<int> globalLabelStartLocs)
         {
+            globalLabelStartLocs = new List<int>();
             /* first an easy check to see if any negating labels exist
              * in the hostLabels. If so, immediately return false. */
             if (negateLabels.Any() && negateLabels.Intersect(hostLabels).Any())

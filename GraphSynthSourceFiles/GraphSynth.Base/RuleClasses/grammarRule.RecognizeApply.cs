@@ -78,7 +78,7 @@ namespace GraphSynth.Representation
             if (RelaxationTemplate != null) location.Relaxations = RelaxationTemplate.copy();
             options.Clear();
 
-            if (!InitialRuleCheck() && !InitialRuleCheckRelaxed(location)) return new List<option>();
+            if (!InitialRuleCheck(out var globalLabelStartLocs) && !InitialRuleCheckRelaxed(location, out globalLabelStartLocs)) return new List<option>();
 
             if (ContainsNegativeElements) FindPositiveStartElementAvoidNegatives(location);
             else findNewStartElement(location);

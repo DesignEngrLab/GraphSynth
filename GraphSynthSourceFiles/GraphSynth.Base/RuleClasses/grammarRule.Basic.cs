@@ -46,6 +46,13 @@ namespace GraphSynth.Representation
         /// recognition function. 
         /// </summary>
         private designGraph host;
+        /// <summary>
+        ///   this is where we store the subgraphs or locations of where the
+        ///   rule can be applied. It's global to a particular L but it is invoked
+        ///   only at the very bottom of the recursion tree - see the end of
+        ///   recognizeRecursion().
+        /// </summary>
+        protected List<option> options = new List<option>();
 
         /// <summary>
         ///   any mathematical operations are fair game for the recognize and apply local variables.
@@ -67,20 +74,6 @@ namespace GraphSynth.Representation
         [XmlIgnore]
         public List<MethodInfo> applyFuncs = new List<MethodInfo>();
 
-        /// <summary>
-        ///   These are place holders when the user has clicked OrderedGlobalLabels. There may, in fact,
-        ///   be multiple locations for the globalLabels to be recognized. The are determined in the 
-        ///   OrderLabelsMatch function.
-        /// </summary>
-        protected List<int> globalLabelStartLocs = new List<int>();
-
-        /// <summary>
-        ///   this is where we store the subgraphs or locations of where the
-        ///   rule can be applied. It's global to a particular L but it is invoked
-        ///   only at the very bottom of the recursion tree - see the end of
-        ///   recognizeRecursion().
-        /// </summary>
-        protected List<option> options = new List<option>();
 
         /// <summary>
         ///   a list of MethodInfo's corresponding to the strings in recognizeFunctions
