@@ -39,15 +39,6 @@ namespace GraphSynth.Representation
     /// </summary>
     public partial class grammarRule
     {
-
-        /// <summary>
-        /// the host graph is stored as an internal (private) field to a rule during recognition. 
-        /// Since recognition just reads from it, this simplifies the need to pass it along to every
-        /// recognition function. 
-        /// </summary>
-        private designGraph host;
-
-
         /// <summary>
         ///   any mathematical operations are fair game for the recognize and apply local variables.
         ///   At the end of a graph recognition, we check all the recognize functions, if any yield a 

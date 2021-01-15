@@ -77,15 +77,15 @@ namespace GraphSynth.Representation
 
         #region Node Matching
 
-        private Boolean nodeMatches(ruleNode LNode, node hostNode, option location)
+        private Boolean nodeMatches(designGraph host, ruleNode LNode, node hostNode, option location)
         {
             return (!LNode.strictDegreeMatch || LNode.degree == hostNode.degree)
                    && LNode.degree <= hostNode.degree
                    && LabelsMatch(hostNode.localLabels, LNode.localLabels, LNode.negateLabels, LNode.containsAllLocalLabels)
                    && IntendedTypesMatch(LNode.TargetType, hostNode)
-                   && HyperArcPreclusionCheckForSingleNode(LNode, hostNode, location.hyperarcs);
+                   && HyperArcPreclusionCheckForSingleNode(host, LNode, hostNode, location.hyperarcs);
         }
-        private Boolean nodeMatchRelaxed(ruleNode LNode, node hostNode, option location)
+        private Boolean nodeMatchRelaxed(designGraph host, ruleNode LNode, node hostNode, option location)
         {
             if (location.Relaxations.NumberAllowable == 0) return false;
             var localNumAllowable = location.Relaxations.NumberAllowable;
@@ -112,7 +112,7 @@ namespace GraphSynth.Representation
                 usedRelaxItems.Add(rType);
                 usedFulfilledRelaxItems.Add(new RelaxItem(Relaxations.Target_Type_Revoked, 1, LNode, hostNode.GetType().ToString()));
             }
-            if (!HyperArcPreclusionCheckForSingleNode(LNode, hostNode, location.hyperarcs))
+            if (!HyperArcPreclusionCheckForSingleNode(host,LNode, hostNode, location.hyperarcs))
             {
                 var rHyperArcPreclusion =
                        location.Relaxations.FirstOrDefault(r => r.Matches(Relaxations.HyperArc_Preclusion_Revoked, LNode)
@@ -435,7 +435,7 @@ namespace GraphSynth.Representation
         #endregion
 
         #region Initial Rule Check (global labels, spanning)
-        private Boolean InitialRuleCheck(out List<int> globalLabelStartLocs)
+        private Boolean InitialRuleCheck(designGraph host, out List<int> globalLabelStartLocs)
         {
             //   These are place holders when the user has clicked OrderedGlobalLabels. There may, in fact,
             //   be multiple locations for the globalLabels to be recognized. The are determined in the 
@@ -449,7 +449,7 @@ namespace GraphSynth.Representation
                    && (host.arcs.Count >= L.arcs.Count(a => ((ruleArc)a).MustExist));
         }
 
-        private Boolean InitialRuleCheckRelaxed(option location, out List<int> globalLabelStartLocs)
+        private Boolean InitialRuleCheckRelaxed(designGraph host, option location, out List<int> globalLabelStartLocs)
         {
             globalLabelStartLocs = null;
             if (location.Relaxations.NumberAllowable == 0) return false;
@@ -579,10 +579,10 @@ namespace GraphSynth.Representation
         #endregion
 
         #region Final Rule Check (induced, hyperarc preclusion, shape restriction, additional functions)
-        private Boolean FinalRuleChecks(option location)
+        private Boolean FinalRuleChecks(designGraph host, option location)
         {
             if (L.nodes.Where((t, i) => location.nodes[i] != null
-                                        && !HyperArcPreclusionCheckForSingleNode((ruleNode)L.nodes[i],
+                                        && !HyperArcPreclusionCheckForSingleNode(host, (ruleNode)L.nodes[i],
                                          location.nodes[i], location.hyperarcs)).Any())
                 return false; // not a valid option
 
@@ -657,7 +657,7 @@ namespace GraphSynth.Representation
             return true;
         }
 
-        private Boolean FinalRuleCheckRelaxed(option location)
+        private Boolean FinalRuleCheckRelaxed(designGraph host, option location)
         {
             if (location.Relaxations.NumberAllowable == 0) return false;
             var localNumAllowable = location.Relaxations.NumberAllowable;
@@ -676,7 +676,7 @@ namespace GraphSynth.Representation
             var numNodes = L.nodes.Count;
             for (var i = 0; i < numNodes; i++)
                 if (location.nodes[i] != null
-                    && !HyperArcPreclusionCheckForSingleNode((ruleNode)L.nodes[i], location.nodes[i], location.hyperarcs))
+                    && !HyperArcPreclusionCheckForSingleNode(host, (ruleNode)L.nodes[i], location.nodes[i], location.hyperarcs))
                 {
                     var rHyperArcPreclusion =
                            location.Relaxations.FirstOrDefault(r => r.Matches(Relaxations.HyperArc_Preclusion_Revoked, location.nodes[i])
@@ -811,7 +811,7 @@ namespace GraphSynth.Representation
         /// true if preclusions are correct for this node (it is not included
         /// in hyperarcs it was intentionally precluded from.
         /// </returns>
-        private Boolean HyperArcPreclusionCheckForSingleNode(ruleNode LNode, node hostNode, IList<hyperarc> hostHyperarcs)
+        private Boolean HyperArcPreclusionCheckForSingleNode(designGraph host, ruleNode LNode, node hostNode, IList<hyperarc> hostHyperarcs)
         {
             /* after two other versions - which were correct but hard to follow - I settled on this one, which is both
              * the easiest to understand and the fastest (for loop finds both hyperarcs without extra lookup function. */
