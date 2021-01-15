@@ -28,6 +28,7 @@
  *     at http://www.GraphSynth.com.
  *************************************************************************/
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -59,7 +60,7 @@ namespace GraphSynth.Representation
         }
         #region First Pass: Find All elements that are supposed to be in host
         /* this is similar for rules with nonexistence graph elements*/
-        private void FindPositiveStartElementAvoidNegatives(option location)
+        private void FindPositiveStartElementAvoidNegatives(option location, ConcurrentBag<option> options, bool inParallel)
         {
             #region Case #1: Location found! No empty slots left in the location
             /* this is the only way to properly exist the recursive loop. */
