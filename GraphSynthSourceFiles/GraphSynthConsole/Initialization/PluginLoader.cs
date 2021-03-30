@@ -98,7 +98,7 @@ namespace GraphSynth
             {
                 var inactive = false;
                 var s = SearchAlgorithms[i];
-                var numString = (i < 10) ? ((Key)i).ToString().Remove(0, 1) : ((Key)i).ToString();
+                var numString = (i < 10) ? Keys[i].ToString().Remove(0, 1) : Keys[i].ToString();
                 Console.Write("{0}. {1}", numString, s.text);
                 if (s.RequireSeed && settings.seed == null)
                 {
@@ -124,21 +124,19 @@ namespace GraphSynth
                     Console.WriteLine("There are no active plugins. Please fix configuration file before rerunning.");
                     break;
                 case 1:
-                    SearchIO.output("Push any key to start the single active plugin (F1 for other commands).");
+                    SearchIO.output("Press any key to start the single active plugin (F1 for other commands).");
                     Console.Write(" >");
                     break;
                 default:
-                    SearchIO.output("Push the key of the plugin you would like to run (F1 for other commands).");
+                    SearchIO.output("Press the key of the plugin you would like to run (F1 for other commands).");
                     Console.Write(" >");
                     break;
             }
-            Key response;
-            var readKey = Console.ReadKey().Key.ToString();
-            readKey = readKey.Replace("D", "");
-            int choice = Enum.TryParse(readKey, out response) ? (int)response : -1;
-            Console.Write("\n");
+            var readKey = Console.ReadKey().Key;
+            int choice = ConvertConsoleKeyToInt(readKey);
             if (choice == 30) HelpDialog();
             else if (choice == 31) VerbosityDialog();
+            else if (choice == 32) return;
             else
             {
                 if (numActive == 1) choice = activeIndex;
@@ -164,7 +162,7 @@ namespace GraphSynth
             Console.WriteLine("     currently set to: {0}", settings.DefaultVerbosity);
             Console.WriteLine("     enter new value (or any other key to keep current).");
             Console.Write("----> ");
-            Key response;
+            ConsoleKey response;
             int choice = -1;
             if (Enum.TryParse(Console.ReadKey().Key.ToString(), out response))
                 choice = (int)response + 1;
@@ -174,12 +172,29 @@ namespace GraphSynth
                 Console.WriteLine("\n---> verbosity changed to {0}", settings.DefaultVerbosity);
             }
         }
-    }
-    public enum Key
-    {
-        D1, D2, D3, D4, D5, D6, D7, D8, D9, D0,
-        A, B, C, D, E, F, G, H, I, J,
-        K, L, M, N, O, P, Q, R, S, T,
-        F1, V, X
+        private static int ConvertConsoleKeyToInt(ConsoleKey value)
+        {
+
+            var result = Keys.Select((k, i) => new { Pos = i, ConsoleKey = k }).Where(o => o.ConsoleKey.Equals(value)).FirstOrDefault();
+            if (result != null)
+            {
+                return result.Pos;
+            }
+            return -1;
+        }
+
+        private static ConsoleKey[] Keys = new[] {
+            ConsoleKey.D1, ConsoleKey.D2, ConsoleKey.D3, ConsoleKey.D4, ConsoleKey.D5,
+            ConsoleKey.D6, ConsoleKey.D7, ConsoleKey.D8, ConsoleKey.D9, ConsoleKey.D0,
+            ConsoleKey.A, ConsoleKey.B, ConsoleKey.C, ConsoleKey.D, ConsoleKey.E,
+            ConsoleKey.F, ConsoleKey.G, ConsoleKey.H, ConsoleKey.I, ConsoleKey.J,
+            ConsoleKey.K, ConsoleKey.L, ConsoleKey.M, ConsoleKey.N, ConsoleKey.O,
+            ConsoleKey.P, ConsoleKey.Q, ConsoleKey.R, ConsoleKey.S, ConsoleKey.T,
+            ConsoleKey.F1, // 30 help
+            ConsoleKey.V, // 31 verbosity
+             ConsoleKey.X // exit
+        };
+
     }
 }
+
