@@ -61,6 +61,8 @@ namespace GraphSynth
             /* Printing is done though the usual Console.Writeline, to a textbox. */
             console = new SearchIOToTextWriter();
             Console.SetOut(console);
+            SetUpMainWindow();
+            SearchIO.output("starting main form...");
             var aGS = new AboutGraphSynth(false);
             aGS.Show();
 
@@ -70,8 +72,6 @@ namespace GraphSynth
             SearchIO.output("Reading in default shapes.");
             LoadInShapes();
 
-            SearchIO.output("starting main form...");
-            SetUpMainWindow();
 
             SearchIO.output("opening files...");
             OpenFiles();
