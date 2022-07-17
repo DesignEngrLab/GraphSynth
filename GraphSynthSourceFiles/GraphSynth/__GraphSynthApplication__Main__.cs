@@ -61,18 +61,17 @@ namespace GraphSynth
             /* Printing is done though the usual Console.Writeline, to a textbox. */
             console = new SearchIOToTextWriter();
             Console.SetOut(console);
-            SetUpMainWindow();
-            SearchIO.output("starting main form...");
             var aGS = new AboutGraphSynth(false);
             aGS.Show();
 
-            SearchIO.output("Reading in settings file");
-            ReadInSettings();
-
+            SearchIO.popUpDialogger = new GraphSynth.CustomControls.PopUpDialogger(main);
+            
             SearchIO.output("Reading in default shapes.");
             LoadInShapes();
-
-
+            SearchIO.output("Reading in settings file");
+            ReadInSettings();
+            SearchIO.output("starting main form...");
+            SetUpMainWindow();
             SearchIO.output("opening files...");
             OpenFiles();
 
@@ -207,7 +206,6 @@ namespace GraphSynth
             /* declare the main window that contains other windows and is the main place/thread that
              * all other routines are run from. */
             main = new MainWindow();
-            SearchIO.popUpDialogger = new GraphSynth.CustomControls.PopUpDialogger(main);
             SearchIO.graphPresenter = new GraphSynth.CustomControls.GraphPresenter(main);
             SearchIO.main = main;
             main.Show();
